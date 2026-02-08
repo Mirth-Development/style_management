@@ -1,0 +1,89 @@
+
+/* -------------------------------------------------- */
+/* HEADING STYLES */
+
+/* Heading 1 - Titles */
+h1 {
+    color: #dcdc02;
+    font-family: FONT_CINZEL_DECORATIVE_BOLD, serif;
+    font-size: 10rem;
+    text-align: center;
+}
+
+/* Heading 2 - Upper Class Sections */
+h2 {
+    color: #f8f68b;
+    font-family: FONT_CINZEL_BOLD, serif;
+    font-size: 4rem;
+    text-align: center;
+}
+
+/* Heading 3 - Middle Class Sections */
+h3 {
+    color: #ff9c00;
+    font-family: FONT_CINZEL_BOLD, serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Heading 4 - Lower Class Sections */
+h4 {
+    color: #cda449;
+    font-family: FONT_CINZEL_BOLD, serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Heading 5 - Overtitles */
+/* Overtitles are used to go above any of the class header types. */
+/* IDs may be necessary for overtitles to ensure their font-size is appropriate */
+/* for the class header they're attached to. */
+h5 {
+    color: #bcd11f;
+    font-family: FONT_SPECTRAL_BOLD, serif;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Heading 6 - Subtitles */
+/* Subtitles are used to go below any of the class header types. */
+/* IDs may be necessary for overtitles to ensure their font-size is appropriate */
+/* for the class header they're attached to. */
+h6 {
+    color: #ffffd4;
+    font-family: FONT_SPECTRAL_LIGHT, serif;
+    font-size: 1rem;
+    text-align: center;
+}
+/* -------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------------------------- */
+/* NON-HEADING TEXT STYLES */
+
+/* General Purpose */
+.text_general {
+    font-family: FONT_SPECTRAL_MEDIUM, serif;
+    font-size: 2rem;
+    line-height: 1;
+    color: #fff7cc;
+}
+
+/* Header Information */
+.text_header {
+    
+}
+
+/* Footer Information */
+.text_footer {
+
+}
+
+/* Figure Descriptions/Details */
+.text_figure {
+
+}
+/* -------------------------------------------------- */

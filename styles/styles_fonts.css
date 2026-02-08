@@ -1,0 +1,158 @@
+
+/* -------------------------------------------------- */
+/* CINZEL STYLES */
+
+/* Bold */
+@font-face {
+    font-family: FONT_CINZEL_BOLD;
+    src: url(../fonts/Cinzel/Cinzel-Bold.ttf);
+}
+
+/* Black */
+@font-face {
+    font-family: FONT_CINZEL_BLACK;
+    src: url(../fonts/Cinzel/Cinzel-Black.ttf);
+}
+
+/* Extra Bold */
+@font-face {
+    font-family: FONT_CINZEL_EXTRA_BOLD;
+    src: url(../fonts/Cinzel/Cinzel-ExtraBold.ttf);
+}
+
+/* Medium */
+@font-face {
+    font-family: FONT_CINZEL_MEDIUM;
+    src: url(../fonts/Cinzel/Cinzel-Medium.ttf);
+}
+
+/* Regular */
+@font-face {
+    font-family: FONT_CINZEL;
+    src: url(../fonts/Cinzel/Cinzel-Regular.ttf);
+}
+
+/* Semibold */
+@font-face {
+    font-family: FONT_CINZEL_SEMIBOLD;
+    src: url(../fonts/Cinzel/Cinzel-SemiBold.ttf);
+}
+/* ---------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------------------------- */
+/* CINZEL DECORATIVE STYLES*/
+
+/* Black */
+@font-face {
+    font-family: FONT_CINZEL_DECORATIVE_BLACK;
+    src: url(../fonts/Cinzel_Decorative/CinzelDecorative-Black.ttf);
+}
+
+/* Bold */
+@font-face {
+    font-family: FONT_CINZEL_DECORATIVE_BOLD;
+    src: url(../fonts/Cinzel_Decorative/CinzelDecorative-Bold.ttf);
+}
+
+/* Regular */
+@font-face {
+    font-family: FONT_CINZEL_DECORATIVE_REGULAR;
+    src: url(../fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf);
+}
+/* ---------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------------------------- */
+/* SPECTRAL STYLES*/
+
+/* Bold */
+@font-face {
+    font-family: FONT_SPECTRAL_BOLD;
+    src: url(../fonts/Spectral/Spectral-Bold.ttf);
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_BOLD_ITALIC;
+    src: url(../fonts/Spectral/Spectral-BoldItalic.ttf);
+}
+
+/* Extra Bold */
+@font-face {
+    font-family: FONT_SPECTRAL_EXTRA_BOLD;
+    src: url(../fonts/Spectral/Spectral-ExtraBold.ttf);
+}
+
+/* Extra Bold Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_EXTRA_BOLD_ITALIC;
+    src: url(../fonts/Spectral/Spectral-ExtraBoldItalic.ttf);
+}
+
+/* Extra Light */
+@font-face {
+    font-family: FONT_SPECTRAL_EXTRA_LIGHT;
+    src: url(../fonts/Spectral/Spectral-ExtraLight.ttf);
+}
+
+/* Extra Light Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_EXTRA_LIGHT_ITALIC;
+    src: url(../fonts/Spectral/Spectral-ExtraLightItalic.ttf);
+}
+
+/* Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_ITALIC;
+    src: url(../fonts/Spectral/Spectral-Italic.ttf);
+}
+
+/* Light */
+@font-face {
+    font-family: FONT_SPECTRAL_LIGHT;
+    src: url(../fonts/Spectral/Spectral-Light.ttf);
+}
+
+/* Light Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_LIGHT_ITALIC;
+    src: url(../fonts/Spectral/Spectral-LightItalic.ttf);
+}
+
+/* Medium */
+@font-face {
+    font-family: FONT_SPECTRAL_MEDIUM;
+    src: url(../fonts/Spectral/Spectral-Medium.ttf);
+}
+
+/* Medium Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_MEDIUM_ITALIC;
+    src: url(../fonts/Spectral/Spectral-MediumItalic.ttf);
+}
+
+/* Regular */
+@font-face {
+    font-family: FONT_SPECTRAL_REGULAR;
+    src: url(../fonts/Spectral/Spectral-Regular.ttf);
+}
+
+/* Semi Bold */
+@font-face {
+    font-family: FONT_SPECTRAL_SEMI_BOLD;
+    src: url(../fonts/Spectral/Spectral-SemiBold.ttf);
+}
+
+/* Semi Bold Italic */
+@font-face {
+    font-family: FONT_SPECTRAL_SEMI_BOLD_ITALIC;
+    src: url(../fonts/Spectral/Spectral-SemiBoldItalic.ttf);
+}
+/* ---------------------------------------------------- */

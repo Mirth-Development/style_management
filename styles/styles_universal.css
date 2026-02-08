@@ -1,0 +1,14 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: FONT_SPECTRAL_MEDIUM, serif;
+    font-size: 2rem;
+    line-height: 1;
+    color: #fff7cc;
+    background-color: #000000;
+}

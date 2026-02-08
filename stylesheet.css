@@ -6,9 +6,10 @@
 
 body {
     font-family: "Spectral Medium", serif;
+    font-size: 2rem;
     line-height: 1;
-    color: white;
-    background-color: black;
+    color: #fff7cc;
+    background-color: #000000;
 }
 
 .block_1 {
@@ -36,7 +37,41 @@ body {
 }
 
 h1 {
-    font-family: "Cinzel Bold", serif;
+    font-family: "Cinzel Decorative Bold", serif;
+    font-size: 10rem;
     color: #dcdc02;
-
 }
+
+h2 {
+    font-family: "Cinzel Bold", serif;
+    font-size: 4rem;
+    color: #ffae00;
+}
+
+h3 {
+    font-family: "Cinzel Bold", serif;
+    font-size: 3rem;
+    color: #dcdc02;
+}
+
+h4 {
+    font-family: "Cinzel", serif;
+    font-size: 2rem;
+    color: #dcdc02;
+}
+
+h5 {
+    font-family: "Cinzel", serif;
+    font-size: 1rem;
+    color: #dcdc02;
+}
+
+h6 {
+    font-family: "Spectral ExtraLight", serif;
+    font-size: 2rem;
+    color: #dcdc02;
+}
+
+/* Create classes for different paragraph styles that aren't headings.
+General text, subtitles, footer/header text, and figure text.
+ */

@@ -19,6 +19,7 @@
     border-right-style: inset;
     border-right-width: 1px;
     font-family: FONT_CINZEL, serif;
+    font-size: 1.5rem;
     padding: var(--spacing_4_size);
 }
 
@@ -32,5 +33,6 @@
     border-width: 1px;
     text-align: center;
     font-family: FONT_SPECTRAL_LIGHT, serif;
+    font-size: 1.5rem;
     padding: var(--spacing_4_size);
 }

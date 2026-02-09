@@ -7,7 +7,6 @@
     color: var(--color-3);
     font-family: FONT_CINZEL_DECORATIVE_BOLD, serif;
     font-size: 6rem;
-    line-height: 2;
 }
 
 /* Upper Class Sections */
@@ -15,7 +14,6 @@
     color: var(--color-5);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 4rem;
-    line-height: 1.5;
 }
 
 /* Middle Class Sections */
@@ -23,7 +21,6 @@
     color: var(--color-4);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 3rem;
-    line-height: 1.5;
 }
 
 /* Lower Class Sections */
@@ -31,7 +28,6 @@
     color: var(--color-6);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 2rem;
-    line-height: 1.5;
 }
 
 /* Warnings */
@@ -39,7 +35,6 @@
     color: var(--color-2);
     font-family: FONT_YOUNGSERIF_REGULAR, serif;
     font-size: 2rem;
-    line-height: 1.5;
 }
 
 /* Stories */
@@ -48,7 +43,6 @@
     font-family: FONT_METAMORPHOUS_REGULAR, serif;
     font-weight: bold;
     font-size: 1.75rem;
-    line-height: 1.5;
 }
 
 /* Overtitles */

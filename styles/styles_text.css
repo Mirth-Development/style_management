@@ -4,34 +4,30 @@
 
 /* Heading 1 - Titles */
 h1 {
-    color: #dcdc02;
+    color: var(--color-3);
     font-family: FONT_CINZEL_DECORATIVE_BOLD, serif;
     font-size: 10rem;
-    text-align: center;
 }
 
 /* Heading 2 - Upper Class Sections */
 h2 {
-    color: #f8f68b;
+    color: var(--color-4);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 4rem;
-    text-align: center;
 }
 
 /* Heading 3 - Middle Class Sections */
 h3 {
-    color: #ff9c00;
+    color: var(--color-5);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 3rem;
-    text-align: center;
 }
 
 /* Heading 4 - Lower Class Sections */
 h4 {
-    color: #cda449;
+    color: var(--color-6);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 2rem;
-    text-align: center;
 }
 
 /* Heading 5 - Overtitles */
@@ -39,21 +35,19 @@ h4 {
 /* IDs may be necessary for overtitles to ensure their font-size is appropriate */
 /* for the class header they're attached to. */
 h5 {
-    color: #bcd11f;
+    color: var(--color-3);
     font-family: FONT_SPECTRAL_BOLD, serif;
     font-size: 1.25rem;
-    text-align: center;
 }
 
 /* Heading 6 - Subtitles */
 /* Subtitles are used to go below any of the class header types. */
-/* IDs may be necessary for overtitles to ensure their font-size is appropriate */
-/* for the class header they're attached to. */
+/* IDs may be necessary for subtitles to ensure their font-size is appropriate */
+/* for the class header they're attached to.*/
 h6 {
-    color: #ffffd4;
+    color: var(--color-7);
     font-family: FONT_SPECTRAL_LIGHT, serif;
     font-size: 1rem;
-    text-align: center;
 }
 /* -------------------------------------------------- */
 
@@ -67,23 +61,32 @@ h6 {
 /* General Purpose */
 .text_general {
     font-family: FONT_SPECTRAL_MEDIUM, serif;
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1;
-    color: #fff7cc;
+    color: var(--color-7);
 }
 
 /* Header Information */
 .text_header {
-    
+    font-family: FONT_SPECTRAL_SEMI_BOLD, serif;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--color-2);
 }
 
 /* Footer Information */
 .text_footer {
-
+    font-family: FONT_SPECTRAL_ITALIC, serif;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--color-2);
 }
 
 /* Figure Descriptions/Details */
 .text_figure {
-
+    font-family: FONT_SPECTRAL_REGULAR, serif;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--color-2);
 }
 /* -------------------------------------------------- */

@@ -1,6 +1,9 @@
 
 .block_1 {
-
+    background-color: var(--color-9);
+    border-radius: 3px;
+    margin: 2rem;
+    padding: 2rem;
 }
 
 .block_2 {

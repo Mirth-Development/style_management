@@ -2,14 +2,15 @@
 /*
 
 IMPORTANT NOTE: Treat the CSS in this file as the universal defaults
-for the template.  A lot of these defaults will likely be overridden when classes,
-ids, and specifications for tags are made in other stylesheets.  So, to be clear,
+for the template.  A lot of these defaults will likely be overridden with classes,
+ids, and specifications for tags in other stylesheets.  So, to be clear,
 this file merely acts as the foundation for all other elements - it is NOT how
 all the elements will end up functioning.
 
 */
 
-/* GLOBAL CONSTANTS - Will change every element within the html documents. */
+/* GLOBAL CONSTANTS - A list of constants used throughout all the stylesheets to ensure
+ spacing, color, and etcetera is consistent throughout the website's elements*/
 :root {
     --color-1: black;
     --color-2: white;
@@ -20,8 +21,9 @@ all the elements will end up functioning.
     --color-7: #fff7cc;
     --color-8: #131313;
     --color-9: #1e1a1a;
-    --color-10: #03250b;
-    --color-11: #3e0808;
+    --color-10: #0c0120;
+    --color-11: #330707;
+    --color-12: #001b14;
 
     --spacing_0_size: auto;
     --spacing_1_size: 3rem;

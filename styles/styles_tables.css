@@ -1,0 +1,36 @@
+
+/* Table 1 Style */
+.table_1 {
+    background-color: var(--color-8);
+    border-color: var(--color-6);
+    border-style: inset;
+    border-width: 5px;
+    border-collapse: collapse;
+    padding: var(--spacing_5_size)
+}
+
+.table_1_headings {
+    color: var(--color-2);
+    text-align: center;
+    border-bottom-color: var(--color-6);
+    border-bottom-style: inset;
+    border-bottom-width: 3px;
+    border-right-color: var(--color-6);
+    border-right-style: inset;
+    border-right-width: 1px;
+    font-family: FONT_CINZEL, serif;
+    padding: var(--spacing_4_size);
+}
+
+.table_1_data {
+    background-color: var(--color-9);
+    color: var(--color-7);
+    border-bottom-color: var(--color-6);
+    border-bottom-style: inset;
+    border-right-color: var(--color-6);
+    border-right-style: inset;
+    border-width: 1px;
+    text-align: center;
+    font-family: FONT_SPECTRAL_LIGHT, serif;
+    padding: var(--spacing_4_size);
+}

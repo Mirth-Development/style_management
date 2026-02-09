@@ -2,56 +2,85 @@
 /* -------------------------------------------------- */
 /* HEADING STYLES */
 
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-}
-
-/* Heading 1 - Titles */
-h1 {
+/* Titles */
+.heading_title {
     color: var(--color-3);
     font-family: FONT_CINZEL_DECORATIVE_BOLD, serif;
     font-size: 6rem;
+    line-height: 2;
 }
 
-/* Heading 2 - Upper Class Sections */
-h2 {
+/* Upper Class Sections */
+.heading_upper {
     color: var(--color-5);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 4rem;
+    line-height: 1.5;
 }
 
-/* Heading 3 - Middle Class Sections */
-h3 {
+/* Middle Class Sections */
+.heading_middle {
     color: var(--color-4);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 3rem;
+    line-height: 1.5;
 }
 
-/* Heading 4 - Lower Class Sections */
-h4 {
+/* Lower Class Sections */
+.heading_lower {
     color: var(--color-6);
     font-family: FONT_CINZEL_BOLD, serif;
     font-size: 2rem;
+    line-height: 1.5;
 }
 
-/* Heading 5 - Overtitles */
+/* Warnings */
+.heading_warning {
+    color: var(--color-2);
+    font-family: FONT_YOUNGSERIF_REGULAR, serif;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+/* Stories */
+.heading_story {
+    color: var(--color-4);
+    font-family: FONT_METAMORPHOUS_REGULAR, serif;
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 1.5;
+}
+
+/* Overtitles */
 /* Overtitles are used to go above any of the class header types. */
 /* IDs may be necessary for overtitles to ensure their font-size is appropriate */
 /* for the class header they're attached to. */
-h5 {
+.heading_overtitle {
     color: var(--color-3);
     font-family: FONT_SPECTRAL_BOLD, serif;
     font-size: 1.25rem;
 }
 
-/* Heading 6 - Subtitles */
+/* Subtitles */
 /* Subtitles are used to go below any of the class header types. */
 /* IDs may be necessary for subtitles to ensure their font-size is appropriate */
 /* for the class header they're attached to.*/
-h6 {
+.heading_subtitle {
     color: var(--color-7);
     font-family: FONT_SPECTRAL_LIGHT, serif;
     font-size: 1rem;
+}
+
+.heading_title,
+.heading_upper,
+.heading_middle,
+.heading_lower,
+.heading_overtitle,
+.heading_subtitle,
+.heading_warning,
+.heading_story
+{
+    text-align: center;
 }
 /* -------------------------------------------------- */
 
@@ -76,6 +105,21 @@ h6 {
     font-size: 1.25rem;
     line-height: 1;
     color: var(--color-2);
+}
+
+.text_warning {
+    font-family: FONT_YOUNGSERIF_REGULAR, serif;
+    font-size: 1.25rem;
+    line-height: 2;
+    color: var(--color-7);
+}
+
+.text_story {
+    font-family: FONT_QUINTESSENTIAL_REGULAR, serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--color-7);
 }
 
 /* Figure, Charts, Tables, and Illustration Descriptions/Details/Insights */

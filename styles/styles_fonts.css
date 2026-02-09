@@ -156,3 +156,44 @@
     src: url(../fonts/Spectral/Spectral-SemiBoldItalic.ttf);
 }
 /* ---------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------------------------- */
+/* QUINTESSENTIAL STYLES*/
+
+/* Regular */
+@font-face {
+    font-family: FONT_QUINTESSENTIAL_REGULAR;
+    src: url(../fonts/Quintessential/Quintessential-Regular.ttf);
+}
+/* -------------------------------------------------- */
+
+
+
+
+/* -------------------------------------------------- */
+/* METAMORPHOUS STYLES*/
+
+/* Regular */
+@font-face {
+    font-family: FONT_METAMORPHOUS_REGULAR;
+    src: url(../fonts/Metamorphous/Metamorphous-Regular.ttf);
+}
+/* -------------------------------------------------- */
+
+
+
+
+
+/* -------------------------------------------------- */
+/* YOUNG SERIF STYLES*/
+
+/* Regular */
+@font-face {
+    font-family: FONT_YOUNGSERIF_REGULAR;
+    src: url(../fonts/Young_Serif/YoungSerif-Regular.ttf);
+}
+/* -------------------------------------------------- */

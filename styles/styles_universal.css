@@ -20,14 +20,16 @@ all the elements will end up functioning.
     --color-7: #fff7cc;
     --color-8: #131313;
     --color-9: #1e1a1a;
-    --color-10: #150f1b;
-    --color-11: #251010;
+    --color-10: #03250b;
+    --color-11: #3e0808;
 
+    --spacing_0_size: auto;
     --spacing_1_size: 3rem;
     --spacing_2_size: 2rem;
     --spacing_3_size: 1.5rem;
     --spacing_4_size: 1rem;
     --spacing_5_size: 0.5rem;
+    --spacing_6_size: 0.25rem;
 }
 
 /* UNIVERSAL SELECTOR - Will change every element within the html documents. */
@@ -35,15 +37,14 @@ all the elements will end up functioning.
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
 }
 
 /* BODY SELECTOR - Will change all elements within a body tag. */
 body {
     font-family: FONT_SPECTRAL_MEDIUM, serif;
     font-size: 2rem;
+    text-align: justify;
+    hyphens: auto;
     line-height: 1;
     color: var(--color-7);
     background-color: var(--color-1);

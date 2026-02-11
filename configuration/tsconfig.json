@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    // Dictates what JavaScript version the TypeScript file will be transpiled to.
+    // ESNext is the one that is always the most up to date (but it's also unstable).
+    "target": "ESNext",
+
+    // Dictates how modules are imported/exported when transpiled.
+    // And yes, "target" does not impact module import/export syntax.  But
+    // this rule named "module" does.
+    // ESNext is the one that is always the most up to date (but it's also unstable).
+    "module": "ESNext",
+
+    // Simply put, just set this rule to true.
+    // If you don't, then there could be an issue with how certain module importing/exporting works
+    // with one another when different versions of something are present? (I don't fully understand the
+    // rule, all I know is that it appears heavily recommended by typescriptlang.org to set the rule to
+    // true.)  The unfortunate issue with this rule being true is that it's going to generate a lot of code
+    // for imports/exports inside the transpiled files...
+    "esModuleInterop": true,
+
+    // Forces case sensitivity on file names.
+    "forceConsistentCasingInFileNames": true,
+
+    // Makes JavaScript better by forcing types and adding other restrictions
+    // that will have the compiler scream at you if you fuck up.  Without these enabled,
+    // your future self will hate you immensely.
+    "strict": true,
+    "alwaysStrict": true,
+
+    // Skips type checking for of declaration files when set to true, hence we set it to false.
+    // Setting to false will increase compile time, but that matters very little since you'll
+    // realistically only compile multiple times for testing.  Whereas the end product is only
+    // compiled once and that's the portion the users have to deal with.  The developer suffers
+    // a little to accommodate for the user, plus this still benefits the developer a little
+    // since it offers more type checking.
+    "skipLibCheck": false,
+
+    // By default this is false, but I prefer to know for sure that this is false
+    // as I want to ensure comments are generated in the transpiled files.
+    "removeComments": false,
+
+    // Just enable these for other peoples' sanity.  They seem to be for those
+    // who want to map the file contents made by TypeScript transpiling.
+    "inlineSourceMap": true,
+    "inlineSources": true,
+
+    // Specifies where the transpiled files go to.
+    "outDir": "../source/scripts/transpiled_scripts",
+
+    // Straight up, this is a weird one to understand as its name is not descriptive of its function.
+    // rootDir does NOT mean the rootDir of the project.  What it actually means is the directory of how far back
+    // you want to copy from the typescript files that you're including (see the "include" config rule below).
+    // So, using relative marks such as ".." inside the rootDir rule would mean to copy all the files/directories
+    // that are relative one directory back and the current directory from the typescript files you're including.
+    // All of these files get pasted at the outDir location.
+    // For now, I have the value for rootDir commented.  I'll uncomment and place a proper value if I end up having
+    // a ton of script files.
+    //"rootDir": ".."
+  },
+
+  // Tells TypeScript which files to transpile into JavaScript.
+  // * for files.  ** for directories.
+  "include": ["../source/scripts/*"]
+}

@@ -1,23 +1,15 @@
 {
-  "name": "pdf_replacement",
-  "version": "1.0.0",
-  "description": "Trying to replace my usage of PDFs.",
-  "homepage": "https://github.com/Tenlion/pdf_replacement#readme",
-  "bugs": {
-    "url": "https://github.com/Tenlion/pdf_replacement/issues"
+  "name": "configuration",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tenlion/pdf_replacement.git"
+  "peerDependencies": {
+    "typescript": "^5",
   },
-  "license": "ISC",
-  "author": "Solaas Ashen Onslaught",
-  "type": "NodeNext",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "typescript": "^5.9.3"
+    "dev": "bun run --watch scripts/ scripts/scripts.ts"
   }
 }

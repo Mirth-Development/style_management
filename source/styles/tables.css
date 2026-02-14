@@ -1,8 +1,8 @@
 
 /* Table 1 Style */
 .table_1 {
-    background-color: var(--color-8);
-    border-color: var(--color-6);
+    background-color: black;
+    border-color: white;
     border-style: inset;
     border-width: 5px;
     border-collapse: collapse;
@@ -10,12 +10,12 @@
 }
 
 .table_1_headings {
-    color: var(--color-2);
+    color: white;
     text-align: center;
-    border-bottom-color: var(--color-6);
+    border-bottom-color: white;
     border-bottom-style: inset;
     border-bottom-width: 3px;
-    border-right-color: var(--color-6);
+    border-right-color: white;
     border-right-style: inset;
     border-right-width: 1px;
     font-family: FONT_CINZEL, serif;
@@ -24,11 +24,11 @@
 }
 
 .table_1_data {
-    background-color: var(--color-9);
-    color: var(--color-7);
-    border-bottom-color: var(--color-6);
+    background-color: black;
+    color: white;
+    border-bottom-color: white;
     border-bottom-style: inset;
-    border-right-color: var(--color-6);
+    border-right-color: white;
     border-right-style: inset;
     border-width: 1px;
     text-align: center;

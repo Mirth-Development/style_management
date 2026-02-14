@@ -1,51 +1,51 @@
 
-/* The block that contains everything inside the body.  Not to be confused with the body tag, this id is for the
-div within the body tag that holds all the other tags within it.  I don't like messing with the body tag... */
-#block_main {
-    margin: var(--spacing_3_size);
-}
+/* -------------------------------------------------------------------------------------------------------- */
+/* BLOCK FORMS */
 
 /* Makes column flex boxes when applied to a tag. */
-.block_column {
+.block_form_column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /* Makes row flex boxes when applied to a tag. */
-.block_row {
+.block_form_row {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+/* -------------------------------------------------------------------------------------------------------- */
 
-/* Treat this class as the upper section.  Another way to think of this class would be
-chapters within a book.  I personally like to think of it as the biggest box that holds a collection of
-smaller boxes. */
-.block_1 {
-    background-color: var(--color-8);
-    border-color: var(--color-4);
+
+
+/* -------------------------------------------------------------------------------------------------------- */
+/* BLOCK TYPES */
+
+/* Another way to think of this class would be chapters within a book. */
+.block_upper {
+    background-color: var(--color_block_background_upper);
+    border-color: var(--color_block_border_upper);
     border-style: double;
     border-width: 1px;
     border-radius: 5px;
     padding: var(--spacing_2_size);
 }
 
-/* Treat this class as the middle section.  It's second to the biggest box and is dedicated to sections within
-the chapter of a book or a technical document. */
-.block_2 {
-    background-color: var(--color-1);
+/* Dedicated to sections within the chapter of a book or a technical document. */
+.block_middle {
+    background-color: var(--color_block_background_middle);
+    border-color: var(--color_block_border_middle);
     border-radius: 5px;
     margin-left: var(--spacing_6_size);
     margin-right: var(--spacing_6_size);
     padding: var(--spacing_2_size);
 }
 
-/* Treat this class as the lower section.  It's the smallest of the boxes used to display information and if you
- were to think of it in the sense of a book, then I'd say it's best used for a paragraph on a page or mini-heading
- within a technical document. */
-.block_3 {
-    background-color: var(--color-9);
+/* Best used for a paragraph on a page or mini-heading within a technical document. */
+.block_lower {
+    background-color: var(--color_block_background_lower);
+    border-color: var(--color_block_border_middle);
     border-radius: 5px;
     margin-left: var(--spacing_6_size);
     margin-right: var(--spacing_6_size);
@@ -53,21 +53,22 @@ the chapter of a book or a technical document. */
 }
 
 /* Use this class to make warnings for users to declare important information. */
-.block_4 {
-    background-color: var(--color-11);
-    border-color: var(--color-3);
+.block_warning {
+    background-color: var(--color_block_background_warning);
+    border-color: var(--color_block_border_warning);
     border-style: double;
     border-width: 3px;
     border-radius: 5px;
     padding: var(--spacing_4_size);
 }
 
-/* Use this class to make blocks dedicated to parenthetical information or stories. */
-.block_5 {
-    background-color: var(--color-10);
-    border-color: var(--color-5);
+/* Use this class for parenthetical information or stories. */
+.block_story {
+    background-color: var(--color_block_background_story);
+    border-color: var(--color_block_border_story);
     border-style: double;
     border-width: 1px;
     border-radius: 5px;
     padding: var(--spacing_4_size);
 }
+/* -------------------------------------------------------------------------------------------------------- */

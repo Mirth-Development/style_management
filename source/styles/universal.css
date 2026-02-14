@@ -1,30 +1,48 @@
 
 /*
 
-IMPORTANT NOTE: Treat the CSS in this file as the universal defaults
-for the template.  A lot of these defaults will likely be overridden with classes,
-ids, and specifications for tags in other stylesheets.  So, to be clear,
-this file merely acts as the foundation for all other elements - it is NOT how
-all the elements will end up functioning.
+IMPORTANT NOTE: Treat the CSS in this file as the universal defaults for the template.  A lot of these
+defaults will likely be overridden with classes, ids, and specifications for tags in other stylesheets.
+So, to be clear, this file merely acts as the foundation for all other elements - it is NOT how all the
+elements will end up functioning.
 
 */
 
 /* GLOBAL CONSTANTS - A list of constants used throughout all the stylesheets to ensure
- spacing, color, and etcetera is consistent throughout the website's elements*/
+ spacing, color, and etcetera is consistent throughout the website's elements. */
 :root {
-    --color-1: black;
-    --color-2: white;
-    --color-3: #dcdc02;
-    --color-4: #f8f68b;
-    --color-5: #ff9c00;
-    --color-6: #cda449;
-    --color-7: #fff7cc;
-    --color-8: #131313;
-    --color-9: #1e1a1a;
-    --color-10: #0c0120;
-    --color-11: #330707;
-    --color-12: #001b14;
 
+    /* Color Constants */
+    --color_background: #000000;
+
+    --color_block_background_upper: #131313;
+    --color_block_background_middle: #000000;
+    --color_block_background_lower: #1e1a1a;
+    --color_block_background_warning: #330707;
+    --color_block_background_story: #001b14;
+
+    --color_block_border_upper: #f8f68b;
+    --color_block_border_middle: rgba(255, 255, 255, 0);
+    --color_block_border_lower: rgba(255, 255, 255, 0);
+    --color_block_border_warning: #dcdc02;
+    --color_block_border_story: #cda449;
+
+    --color_heading_title: #dcdc02;
+    --color_heading_upper: #ff9c00;
+    --color_heading_middle: #f8f68b;
+    --color_heading_lower: #cda449;
+    --color_heading_warning: #ffffff;
+    --color_heading_story: #cda449;
+
+    --color_text_general: #fff7cc;
+    --color_text_marginal: #ffffff;
+    --color_text_warning: #fff7cc;
+    --color_text_story: #fff7cc;
+    --color_text_visual: #ffffff;
+
+    /* Border Constants? */
+
+    /* Spacing Constants */
     --spacing_0_size: auto;
     --spacing_1_size: 3rem;
     --spacing_2_size: 2rem;
@@ -32,6 +50,20 @@ all the elements will end up functioning.
     --spacing_4_size: 1rem;
     --spacing_5_size: 0.5rem;
     --spacing_6_size: 0.25rem;
+
+    /* Font Constants */
+    --font_generic: sans-serif;
+
+    --font_heading_title: FONT_CINZEL_DECORATIVE_BOLD;
+    --font_heading_blocks: FONT_CINZEL_BOLD;
+    --font_heading_warning: FONT_YOUNGSERIF_REGULAR;
+    --font_heading_story: FONT_METAMORPHOUS_REGULAR;
+
+    --font_text_general: FONT_SPECTRAL_MEDIUM;
+    --font_text_marginal: FONT_SPECTRAL_SEMI_BOLD;
+    --font_text_warning: FONT_YOUNGSERIF_REGULAR;
+    --font_text_story: FONT_QUINTESSENTIAL_REGULAR;
+    --font_text_visual: FONT_SPECTRAL_REGULAR;
 }
 
 /* UNIVERSAL SELECTOR - Will change every element within the html documents. */
@@ -43,11 +75,11 @@ all the elements will end up functioning.
 
 /* BODY SELECTOR - Will change all elements within a body tag. */
 body {
-    font-family: FONT_SPECTRAL_MEDIUM, serif;
+    color: var(--color_text_general);
+    background-color: var(--color_background);
+    font-family: var(--font_text_general), var(--font_generic);
     font-size: 2rem;
     text-align: justify;
     hyphens: auto;
     line-height: 1;
-    color: var(--color-7);
-    background-color: var(--color-1);
 }

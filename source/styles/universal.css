@@ -40,27 +40,43 @@ elements will end up functioning.
     --color_text_story: #fff7cc;
     --color_text_visual: #ffffff;
 
-    /* Border Constants? */
-
     /* Spacing Constants */
     --spacing_auto: auto;
 
-    --spacing_vertical_anchor: 3vh;
-    --spacing_horizontal_anchor: 3vw;
+    --spacing_anchor_vertical: 3vh;
+    --spacing_anchor_horizontal: 3vw;
 
-    --spacing_vertical_1: clamp(1.5rem, var(--spacing_vertical_anchor), 3rem);
-    --spacing_vertical_2: clamp(1rem, var(--spacing_vertical_anchor), 2rem);
-    --spacing_vertical_3: clamp(0.75rem, var(--spacing_vertical_anchor), 1.5rem);
-    --spacing_vertical_4: clamp(0.5rem, var(--spacing_vertical_anchor), 1rem);
-    --spacing_vertical_5: clamp(0.25rem, var(--spacing_vertical_anchor), 0.5rem);
-    --spacing_vertical_6: clamp(0.125rem, var(--spacing_vertical_anchor), 0.25rem);
+    --spacing_anchor_min_1: 1.5rem;
+    --spacing_anchor_max_1: 3rem;
 
-    --spacing_horizontal_1: clamp(1.5rem, var(--spacing_horizontal_anchor), 3rem);
-    --spacing_horizontal_2: clamp(1rem, var(--spacing_horizontal_anchor), 2rem);
-    --spacing_horizontal_3: clamp(0.75rem, var(--spacing_horizontal_anchor), 1.5rem);
-    --spacing_horizontal_4: clamp(0.5rem, var(--spacing_horizontal_anchor), 1rem);
-    --spacing_horizontal_5: clamp(0.25rem, var(--spacing_horizontal_anchor), 0.5rem);
-    --spacing_horizontal_6: clamp(0.125rem, var(--spacing_horizontal_anchor), 0.25rem);
+    --spacing_anchor_min_2: 1rem;
+    --spacing_anchor_max_2: 2rem;
+
+    --spacing_anchor_min_3: 0.75rem;
+    --spacing_anchor_max_3: 1.5rem;
+
+    --spacing_anchor_min_4: 0.5rem;
+    --spacing_anchor_max_4: 1rem;
+
+    --spacing_anchor_min_5: 0.25rem;
+    --spacing_anchor_max_5: 0.5rem;
+
+    --spacing_anchor_min_6: 0.125rem;
+    --spacing_anchor_max_6: 0.25rem;
+
+    --spacing_vertical_1: clamp(var(--spacing_anchor_min_1), var(--spacing_anchor_vertical), var(--spacing_anchor_max_1));
+    --spacing_vertical_2: clamp(var(--spacing_anchor_min_2), var(--spacing_anchor_vertical), var(--spacing_anchor_max_2));
+    --spacing_vertical_3: clamp(var(--spacing_anchor_min_3), var(--spacing_anchor_vertical), var(--spacing_anchor_max_3));
+    --spacing_vertical_4: clamp(var(--spacing_anchor_min_4), var(--spacing_anchor_vertical), var(--spacing_anchor_max_4));
+    --spacing_vertical_5: clamp(var(--spacing_anchor_min_5), var(--spacing_anchor_vertical), var(--spacing_anchor_max_5));
+    --spacing_vertical_6: clamp(var(--spacing_anchor_min_6), var(--spacing_anchor_vertical), var(--spacing_anchor_max_6));
+
+    --spacing_horizontal_1: clamp(var(--spacing_anchor_min_1), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_1));
+    --spacing_horizontal_2: clamp(var(--spacing_anchor_min_2), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_2));
+    --spacing_horizontal_3: clamp(var(--spacing_anchor_min_3), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_3));
+    --spacing_horizontal_4: clamp(var(--spacing_anchor_min_4), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_4));
+    --spacing_horizontal_5: clamp(var(--spacing_anchor_min_5), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_5));
+    --spacing_horizontal_6: clamp(var(--spacing_anchor_min_6), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_6));
 
     /* Font Constants */
     --font_generic: sans-serif;

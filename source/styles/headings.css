@@ -14,40 +14,40 @@
 .heading_title {
     color: var(--color_heading_title);
     font-family: var(--font_heading_title), sans-serif;
-    font-size: 8rem;
+    font-size: clamp(2rem, 8vw, 6rem);
 }
 
 /* Upper Block Sections */
 .heading_upper {
     color: var(--color_heading_upper);
     font-family: var(--font_heading_blocks), var(--font_generic);
-    font-size: 5rem;
+    font-size: clamp(1.75rem, 6vw, 4rem);
 }
 
 /* Middle Block Sections */
 .heading_middle {
     color: var(--color_heading_middle);
     font-family: var(--font_heading_blocks), var(--font_generic);
-    font-size: 4rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
 /* Lower Block Sections */
 .heading_lower {
     color: var(--color_heading_lower);
     font-family: var(--font_heading_blocks), var(--font_generic);
-    font-size: 3rem;
+    font-size: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 /* Warnings */
 .heading_warning {
     color: var(--color_heading_warning);
     font-family: var(--font_heading_warning), var(--font_generic);
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 2rem);
 }
 
 /* Stories */
 .heading_story {
     color: var(--color_heading_story);
     font-family: var(--font_heading_story), var(--font_generic);
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 2rem);
 }

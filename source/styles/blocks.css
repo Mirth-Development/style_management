@@ -94,7 +94,7 @@ SPECIAL BLOCKS
     border-style: double;
     border-width: 1px;
     border-radius: 5px;
-    padding: var(--spacing_2_size);
+    padding: var(--spacing_vertical_2) var(--spacing_horizontal_2);
 }
 
 /* Dedicated to sections within the chapter of a book or a technical document. */
@@ -102,9 +102,9 @@ SPECIAL BLOCKS
     background-color: var(--color_block_background_middle);
     border-color: var(--color_block_border_middle);
     border-radius: 5px;
-    margin-left: var(--spacing_6_size);
-    margin-right: var(--spacing_6_size);
-    padding: var(--spacing_2_size);
+    margin-left: var(--spacing_horizontal_6);
+    margin-right: var(--spacing_horizontal_6);
+    padding: var(--spacing_vertical_2) var(--spacing_horizontal_2);
 }
 
 /* Best used for a paragraph on a page or mini-heading within a technical document. */
@@ -112,9 +112,9 @@ SPECIAL BLOCKS
     background-color: var(--color_block_background_lower);
     border-color: var(--color_block_border_middle);
     border-radius: 5px;
-    margin-left: var(--spacing_6_size);
-    margin-right: var(--spacing_6_size);
-    padding: var(--spacing_2_size);
+    margin-left: var(--spacing_horizontal_6);
+    margin-right: var(--spacing_horizontal_6);
+    padding: var(--spacing_vertical_2) var(--spacing_horizontal_2);
 }
 
 /* Use this class to make warnings for users to declare important information. */
@@ -124,7 +124,7 @@ SPECIAL BLOCKS
     border-style: double;
     border-width: 3px;
     border-radius: 5px;
-    padding: var(--spacing_4_size);
+    padding: var(--spacing_vertical_4) var(--spacing_vertical_4);
 }
 
 /* Use this class for parenthetical information or stories. */
@@ -134,6 +134,6 @@ SPECIAL BLOCKS
     border-style: double;
     border-width: 1px;
     border-radius: 5px;
-    padding: var(--spacing_4_size);
+    padding: var(--spacing_vertical_4) var(--spacing_vertical_4);
 }
 /* -------------------------------------------------------------------------------------------------------- */

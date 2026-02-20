@@ -3,7 +3,7 @@
 .text_general {
     color: var(--color_text_general);
     font-family: var(--font_text_general), var(--font_generic);
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 3vw, 2rem);
     line-height: 1.5;
 }
 
@@ -11,7 +11,7 @@
 .text_marginal {
     color: var(--color_text_marginal);
     font-family: var(--font_text_marginal), var(--font_generic);
-    font-size: 1.25rem;
+    font-size: clamp(0.625rem, 2vw, 1.25rem);
     line-height: 1;
 }
 
@@ -19,7 +19,7 @@
 .text_warning {
     color: var(--color_text_warning);
     font-family: var(--font_text_warning), var(--font_generic);
-    font-size: 1.25rem;
+    font-size: clamp(0.625rem, 2vw, 1.25rem);
     line-height: 2;
 }
 
@@ -28,7 +28,7 @@
     color: var(--color_text_story);
     font-family: var(--font_text_story), var(--font_generic);
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: clamp(0.625rem, 2vw, 1.25rem);
     line-height: 1.5;
 }
 
@@ -36,6 +36,6 @@
 .text_visual {
     color: var(--color_text_visual);
     font-family: var(--font_text_visual), var(--font_generic);
-    font-size: 1.25rem;
+    font-size: clamp(0.625rem, 2vw, 1.25rem);
     line-height: 1;
 }

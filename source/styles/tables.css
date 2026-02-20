@@ -6,7 +6,7 @@
     border-style: inset;
     border-width: 5px;
     border-collapse: collapse;
-    padding: var(--spacing_5_size)
+    padding: var(--spacing_vertical_5) var(--spacing_horizontal_5);
 }
 
 .table_1_headings {
@@ -19,8 +19,8 @@
     border-right-style: inset;
     border-right-width: 1px;
     font-family: FONT_CINZEL, serif;
-    font-size: 1.5rem;
-    padding: var(--spacing_4_size);
+    font-size: clamp(0.75rem, 2vw, 1.5rem);
+    padding: var(--spacing_vertical_4) var(--spacing_horizontal_4);
 }
 
 .table_1_data {
@@ -33,6 +33,6 @@
     border-width: 1px;
     text-align: center;
     font-family: FONT_SPECTRAL_LIGHT, serif;
-    font-size: 1.5rem;
-    padding: var(--spacing_4_size);
+    font-size: clamp(0.75rem, 2vw, 1.5rem);
+    padding: var(--spacing_vertical_4) var(--spacing_horizontal_4);
 }

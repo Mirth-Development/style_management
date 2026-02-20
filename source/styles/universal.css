@@ -43,13 +43,24 @@ elements will end up functioning.
     /* Border Constants? */
 
     /* Spacing Constants */
-    --spacing_0_size: auto;
-    --spacing_1_size: 3rem;
-    --spacing_2_size: 2rem;
-    --spacing_3_size: 1.5rem;
-    --spacing_4_size: 1rem;
-    --spacing_5_size: 0.5rem;
-    --spacing_6_size: 0.25rem;
+    --spacing_auto: auto;
+
+    --spacing_vertical_anchor: 3vh;
+    --spacing_horizontal_anchor: 3vw;
+
+    --spacing_vertical_1: clamp(1.5rem, var(--spacing_vertical_anchor), 3rem);
+    --spacing_vertical_2: clamp(1rem, var(--spacing_vertical_anchor), 2rem);
+    --spacing_vertical_3: clamp(0.75rem, var(--spacing_vertical_anchor), 1.5rem);
+    --spacing_vertical_4: clamp(0.5rem, var(--spacing_vertical_anchor), 1rem);
+    --spacing_vertical_5: clamp(0.25rem, var(--spacing_vertical_anchor), 0.5rem);
+    --spacing_vertical_6: clamp(0.125rem, var(--spacing_vertical_anchor), 0.25rem);
+
+    --spacing_horizontal_1: clamp(1.5rem, var(--spacing_horizontal_anchor), 3rem);
+    --spacing_horizontal_2: clamp(1rem, var(--spacing_horizontal_anchor), 2rem);
+    --spacing_horizontal_3: clamp(0.75rem, var(--spacing_horizontal_anchor), 1.5rem);
+    --spacing_horizontal_4: clamp(0.5rem, var(--spacing_horizontal_anchor), 1rem);
+    --spacing_horizontal_5: clamp(0.25rem, var(--spacing_horizontal_anchor), 0.5rem);
+    --spacing_horizontal_6: clamp(0.125rem, var(--spacing_horizontal_anchor), 0.25rem);
 
     /* Font Constants */
     --font_generic: sans-serif;

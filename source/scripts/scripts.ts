@@ -43,11 +43,8 @@ function getCSSVariables(): Record<string, string> {
     // Loops through all the CSS variables and obtains each one.
     // Will trim the "--" before each variable for easier calling when using the returned variables map.
     for (let i = 0; i < styles.length; i++) {
-
         const property: string = styles[i];
-        if (property.startsWith("--")) {
-            variables[property.replace("--", "")] = styles.getPropertyValue(property).trim();
-        }
+        variables[property.replace("--", "")] = styles.getPropertyValue(property).trim();
     }
 
     return variables;

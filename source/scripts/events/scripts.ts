@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const css_variables = getCSSVariables();
 
     // Class Selectors for Block Types
-    const blocks_1 = document.querySelectorAll<HTMLElement>(".block_1");
-    // const blocks_2 = document.querySelectorAll<HTMLElement>(".block_2");
-    // const blocks_3 = document.querySelectorAll<HTMLElement>(".block_3");
-    // const blocks_4 = document.querySelectorAll<HTMLElement>(".block_4");
-    // const blocks_5 = document.querySelectorAll<HTMLElement>(".block_5");
-    // const blocks_6 = document.querySelectorAll<HTMLElement>(".block_6");
+    // const blocks_pages = document.querySelector<HTMLElement>("body");
+    const blocks_upper = document.querySelectorAll<HTMLElement>(".block_upper");
+    // const blocks_middle = document.querySelectorAll<HTMLElement>(".block_middle");
+    // const blocks_lower = document.querySelectorAll<HTMLElement>(".block_lower");
+    // const blocks_warning = document.querySelectorAll<HTMLElement>(".block_warning");
+    // const blocks_story = document.querySelectorAll<HTMLElement>(".block_story");
 
-    blocks_1.forEach(block => {
+    blocks_upper.forEach(block => {
 
         block.addEventListener("click", () => {
 

@@ -42,12 +42,12 @@
 .heading_warning {
     color: var(--color_heading_warning);
     font-family: var(--font_heading_warning), var(--font_generic);
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1.125rem, 3vw, 2rem);
 }
 
 /* Stories */
 .heading_story {
     color: var(--color_heading_story);
     font-family: var(--font_heading_story), var(--font_generic);
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1.125rem, 3vw, 2rem);
 }

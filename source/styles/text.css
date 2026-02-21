@@ -19,8 +19,8 @@
 .text_warning {
     color: var(--color_text_warning);
     font-family: var(--font_text_warning), var(--font_generic);
-    font-size: clamp(0.625rem, 2vw, 1.25rem);
-    line-height: 2;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    line-height: 1.5;
 }
 
 /* Stories */
@@ -28,14 +28,14 @@
     color: var(--color_text_story);
     font-family: var(--font_text_story), var(--font_generic);
     font-weight: bold;
-    font-size: clamp(0.625rem, 2vw, 1.25rem);
-    line-height: 1.5;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    line-height: 1.25;
 }
 
 /* Figure, Charts, Tables, and Illustration Descriptions/Details/Insights */
 .text_visual {
     color: var(--color_text_visual);
     font-family: var(--font_text_visual), var(--font_generic);
-    font-size: clamp(0.625rem, 2vw, 1.25rem);
-    line-height: 1;
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+    line-height: 1.125;
 }

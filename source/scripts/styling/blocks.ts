@@ -1,5 +1,7 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES_BLOCK_FORMS as BLOCK_FORMS, CSS_CLASSES_BLOCKS as BLOCKS } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES } from "../global_constants.js";
+import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_constants.js";
+
 
 
 /* -------------------------------------------------------------------------------------------------------- */
@@ -68,18 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     /* BLOCK FORMS */
-    const blocks_form_column = document.querySelectorAll<HTMLElement>(BLOCK_FORMS.block_form_column);
-    const blocks_form_row = document.querySelectorAll<HTMLElement>(BLOCK_FORMS.block_form_row);
+    const BLOCK_FORMS = get_ELEMENTS_WITH_BLOCK_FORM_CLASSES();
 
     /* Makes column flex boxes when applied to a tag. */
-    blocks_form_column.forEach((block) => {
+    BLOCK_FORMS.block_form_column.forEach((block) => {
         block.style.display = "flex";
         block.style.flexDirection = "column";
         block.style.alignItems = "center";
     });
 
     /* Makes row flex boxes when applied to a tag. */
-    blocks_form_row.forEach((block) => {
+    BLOCK_FORMS.block_form_row.forEach((block) => {
         block.style.display = "flex";
         block.style.flexDirection = "row";
         block.style.alignItems = "center";
@@ -90,14 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     // BLOCK TYPES
-    const blocks_upper = document.querySelectorAll<HTMLElement>(BLOCKS.block_upper);
-    const blocks_middle = document.querySelectorAll<HTMLElement>(BLOCKS.block_middle);
-    const blocks_lower = document.querySelectorAll<HTMLElement>(BLOCKS.block_lower);
-    const blocks_warning = document.querySelectorAll<HTMLElement>(BLOCKS.block_warning);
-    const blocks_story = document.querySelectorAll<HTMLElement>(BLOCKS.block_story);
+    const BLOCKS = get_ELEMENTS_WITH_BLOCK_CLASSES();
 
     /* Another way to think of this class would be chapters within a book. */
-    blocks_upper.forEach((block) => {
+    BLOCKS.block_upper.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_upper;
         block.style.borderColor = STYLES.color_block_border_upper;
         block.style.borderStyle = "inset";
@@ -107,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Dedicated to sections within the chapter of a book or a technical document. */
-    blocks_middle.forEach((block) => {
+    BLOCKS.block_middle.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_middle;
         block.style.borderColor = STYLES.color_block_border_middle;
         block.style.borderRadius = "5px";
@@ -117,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Best used for a paragraph on a page or mini-heading within a technical document. */
-    blocks_lower.forEach((block) => {
+    BLOCKS.block_lower.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_lower;
         block.style.borderColor = STYLES.color_block_border_middle;
         block.style.borderRadius = "5px";
@@ -127,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Use this to make warnings for users to declare important information. */
-    blocks_warning.forEach((block) => {
+    BLOCKS.block_warning.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_warning;
         block.style.borderColor = STYLES.color_block_border_warning;
         block.style.borderStyle = "inset";
@@ -136,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Use this for parenthetical information or stories. */
-    blocks_story.forEach((block) => {
+    BLOCKS.block_story.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_story;
         block.style.borderColor = STYLES.color_block_border_story;
         block.style.borderStyle = "inset";

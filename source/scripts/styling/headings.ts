@@ -1,19 +1,16 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES_HEADINGS as HEADINGS } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES } from "../global_constants.js";
+import { get_ELEMENTS_WITH_HEADING_CLASSES } from "../global_constants.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Heading Types
-    const headings_title = document.querySelectorAll<HTMLElement>(HEADINGS.heading_title);
-    const headings_upper = document.querySelectorAll<HTMLElement>(HEADINGS.heading_upper);
-    const headings_middle = document.querySelectorAll<HTMLElement>(HEADINGS.heading_middle);
-    const headings_lower = document.querySelectorAll<HTMLElement>(HEADINGS.heading_lower);
-    const headings_warning = document.querySelectorAll<HTMLElement>(HEADINGS.heading_warning);
-    const headings_story = document.querySelectorAll<HTMLElement>(HEADINGS.heading_story);
+    const HEADINGS = get_ELEMENTS_WITH_HEADING_CLASSES();
 
 
     // Titles
-    headings_title.forEach((heading) => {
+    HEADINGS.heading_title.forEach((heading) => {
         heading.style.color = STYLES.color_heading_title;
         heading.style.fontFamily = `${STYLES.font_heading_title}, sans-serif`;
         heading.style.fontSize = "clamp(2rem, 8vw, 6rem)";
@@ -21,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Upper Block Sections
-    headings_upper.forEach((heading) => {
+    HEADINGS.heading_upper.forEach((heading) => {
         heading.style.color = STYLES.color_heading_upper;
         heading.style.fontFamily = `${STYLES.font_heading_blocks}, ${STYLES.font_generic}`;
         heading.style.fontSize = "clamp(1.75rem, 6vw, 4rem)";
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Middle Block Sections
-    headings_middle.forEach((heading) => {
+    HEADINGS.heading_middle.forEach((heading) => {
         heading.style.color = STYLES.color_heading_middle;
         heading.style.fontFamily = `${STYLES.font_heading_blocks}, ${STYLES.font_generic}`;
         heading.style.fontSize = "clamp(1.5rem, 5vw, 3rem)";
@@ -37,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Lower Block Sections
-    headings_lower.forEach((heading) => {
+    HEADINGS.heading_lower.forEach((heading) => {
         heading.style.color = STYLES.color_heading_lower;
         heading.style.fontFamily = `${STYLES.font_heading_blocks}, ${STYLES.font_generic}`;
         heading.style.fontSize = "clamp(1.25rem, 4vw, 2.5rem)";
@@ -45,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Warnings
-    headings_warning.forEach((heading) => {
+    HEADINGS.heading_warning.forEach((heading) => {
         heading.style.color = STYLES.color_heading_warning;
         heading.style.fontFamily = `${STYLES.font_heading_warning}, ${STYLES.font_generic}`;
         heading.style.fontSize = "clamp(1.125rem, 3vw, 2rem)";
@@ -53,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Stories
-    headings_story.forEach((heading) => {
+    HEADINGS.heading_story.forEach((heading) => {
         heading.style.color = STYLES.color_heading_story;
         heading.style.fontFamily = `${STYLES.font_heading_story}, ${STYLES.font_generic}`;
         heading.style.fontSize = "clamp(1.125rem, 3vw, 2rem)";

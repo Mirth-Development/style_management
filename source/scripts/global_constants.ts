@@ -1,7 +1,5 @@
 
-// The HTML tag that will be used later to set the below constants to CSS variables for the stylesheets.
-const ROOT = document.documentElement;
-
+// ----------------------------------------------------------------------------------------------------------------- //
 // GLOBAL VARIABLES : A list of constants used throughout all the stylesheets and TypeScript files to ensure
 // spacing, color, fonts, and etcetera is consistent throughout the website's elements.
 const CSS_VARIABLES = {
@@ -87,6 +85,17 @@ const CSS_VARIABLES = {
     font_text_visual: "FONT_SPECTRAL_LIGHT",
 } as const;
 
+// Looping through each property inside the root element and applying the CSS variables to the root HTML element.
+// We're doing this here we so can utilize the constants in both the CSS files and in the TypeScript files.
+const ROOT = document.documentElement;
+Object.entries(CSS_VARIABLES).forEach(([key, value]) => {
+    ROOT.style.setProperty(`--${key}`, value);
+});
+// ----------------------------------------------------------------------------------------------------------------- //
+
+
+
+// ----------------------------------------------------------------------------------------------------------------- //
 // GLOBAL CLASSES : Lists of constants that hold every class name used in the project, this ensures that all
 // class names can be easily changed using these objects in TypeScript files.  The reason why we are sharing these
 // across the files is so that we can manipulate the style of a class during runtime anywhere across the system.
@@ -216,13 +225,154 @@ const CSS_CLASSES_INPUTS = {
     input_text_1: ".input_text_1",
     input_time_1: ".input_time_1",
 } as const;
+// ----------------------------------------------------------------------------------------------------------------- //
 
 
-// Looping through each property inside the root element and applying the CSS variables to the root HTML element.
-// We're doing this here we so can utilize the constants in both the CSS files and in the TypeScript files.
-Object.entries(CSS_VARIABLES).forEach(([key, value]) => {
-    ROOT.style.setProperty(`--${key}`, value);
-});
+// ----------------------------------------------------------------------------------------------------------------- //
+// GLOBAL GET-ELEMENT FUNCTIONS: These functions will allow the rest of the system to retrieve the elements with a
+// specified type of class category.
+function get_ALL_ELEMENTS() {
+    return { all_elements: document.querySelectorAll<HTMLElement>("*") };
+}
+function get_ELEMENTS_WITH_BLOCK_FORM_CLASSES() {
+    return {
+        block_form_column: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCK_FORMS.block_form_column),
+        block_form_row: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCK_FORMS.block_form_row),
+    };
+}
+function get_ELEMENTS_WITH_BLOCK_CLASSES() {
+    return {
+        block_upper: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCKS.block_upper),
+        block_middle: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCKS.block_middle),
+        block_lower: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCKS.block_lower),
+        block_warning: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCKS.block_warning),
+        block_story: document.querySelectorAll<HTMLElement>(CSS_CLASSES_BLOCKS.block_story),
+    };
+}
+function get_ELEMENTS_WITH_HEADING_CLASSES() {
+    return {
+        heading_title: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_title),
+        heading_upper: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_upper),
+        heading_middle: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_middle),
+        heading_lower: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_lower),
+        heading_warning: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_warning),
+        heading_story: document.querySelectorAll<HTMLElement>(CSS_CLASSES_HEADINGS.heading_story),
+    };
+}
+function get_ELEMENTS_WITH_TEXT_CLASSES() {
+    return {
+        text_general: document.querySelectorAll<HTMLElement>(CSS_CLASSES_TEXT.text_general),
+        text_marginal: document.querySelectorAll<HTMLElement>(CSS_CLASSES_TEXT.text_marginal),
+        text_warning: document.querySelectorAll<HTMLElement>(CSS_CLASSES_TEXT.text_warning),
+        text_story: document.querySelectorAll<HTMLElement>(CSS_CLASSES_TEXT.text_story),
+        text_visual: document.querySelectorAll<HTMLElement>(CSS_CLASSES_TEXT.text_visual),
+    };
+}
+function get_ELEMENTS_WITH_MARGIN_CLASSES() {
+    return {
+        margin_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_0),
+        margin_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_1),
+        margin_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_2),
+        margin_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_3),
+        margin_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_4),
+        margin_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_5),
+        margin_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_6),
+
+        margin_top_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_0),
+        margin_top_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_1),
+        margin_top_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_2),
+        margin_top_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_3),
+        margin_top_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_4),
+        margin_top_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_5),
+        margin_top_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_top_6),
+
+        margin_bottom_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_0),
+        margin_bottom_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_1),
+        margin_bottom_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_2),
+        margin_bottom_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_3),
+        margin_bottom_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_4),
+        margin_bottom_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_5),
+        margin_bottom_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_bottom_6),
+
+        margin_left_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_0),
+        margin_left_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_1),
+        margin_left_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_2),
+        margin_left_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_3),
+        margin_left_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_4),
+        margin_left_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_5),
+        margin_left_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_left_6),
+
+        margin_right_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_0),
+        margin_right_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_1),
+        margin_right_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_2),
+        margin_right_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_3),
+        margin_right_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_4),
+        margin_right_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_5),
+        margin_right_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_MARGINS.margin_right_6),
+    };
+}
+function get_ELEMENTS_WITH_PADDING_CLASSES() {
+    return {
+        padding_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_0),
+        padding_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_1),
+        padding_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_2),
+        padding_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_3),
+        padding_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_4),
+        padding_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_5),
+        padding_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_6),
+
+        padding_top_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_0),
+        padding_top_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_1),
+        padding_top_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_2),
+        padding_top_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_3),
+        padding_top_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_4),
+        padding_top_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_5),
+        padding_top_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_top_6),
+
+        padding_bottom_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_0),
+        padding_bottom_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_1),
+        padding_bottom_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_2),
+        padding_bottom_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_3),
+        padding_bottom_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_4),
+        padding_bottom_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_5),
+        padding_bottom_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_bottom_6),
+
+        padding_left_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_0),
+        padding_left_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_1),
+        padding_left_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_2),
+        padding_left_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_3),
+        padding_left_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_4),
+        padding_left_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_5),
+        padding_left_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_left_6),
+
+        padding_right_0: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_0),
+        padding_right_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_1),
+        padding_right_2: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_2),
+        padding_right_3: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_3),
+        padding_right_4: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_4),
+        padding_right_5: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_5),
+        padding_right_6: document.querySelectorAll<HTMLElement>(CSS_CLASSES_PADDINGS.padding_right_6),
+    };
+}
+function get_ELEMENTS_WITH_INPUT_CLASSES() {
+    return {
+        input_button_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_button_1),
+        input_checkbox_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_checkbox_1),
+        input_color_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_color_1),
+        input_date_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_date_1),
+        input_datetime_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_datetime_1),
+        input_email_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_email_1),
+        input_file_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_file_1),
+        input_password_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_password_1),
+        input_radio_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_radio_1),
+        input_range_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_range_1),
+        input_reset_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_reset_1),
+        input_text_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_text_1),
+        input_time_1: document.querySelectorAll<HTMLElement>(CSS_CLASSES_INPUTS.input_time_1),
+    };
+}
+// ----------------------------------------------------------------------------------------------------------------- //
+
 
 
 export {
@@ -233,5 +383,13 @@ export {
     CSS_CLASSES_TEXT,
     CSS_CLASSES_MARGINS,
     CSS_CLASSES_PADDINGS,
-    CSS_CLASSES_INPUTS
+    CSS_CLASSES_INPUTS,
+    get_ALL_ELEMENTS,
+    get_ELEMENTS_WITH_BLOCK_FORM_CLASSES,
+    get_ELEMENTS_WITH_BLOCK_CLASSES,
+    get_ELEMENTS_WITH_HEADING_CLASSES,
+    get_ELEMENTS_WITH_TEXT_CLASSES,
+    get_ELEMENTS_WITH_MARGIN_CLASSES,
+    get_ELEMENTS_WITH_PADDING_CLASSES,
+    get_ELEMENTS_WITH_INPUT_CLASSES,
 };

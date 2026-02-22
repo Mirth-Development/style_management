@@ -1,17 +1,15 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES_TEXT as TEXT } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES } from "../global_constants.js";
+import { get_ELEMENTS_WITH_TEXT_CLASSES } from "../global_constants.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Text Types
-    const text_general = document.querySelectorAll<HTMLElement>(TEXT.text_general);
-    const text_marginal = document.querySelectorAll<HTMLElement>(TEXT.text_marginal);
-    const text_warning = document.querySelectorAll<HTMLElement>(TEXT.text_warning);
-    const text_story = document.querySelectorAll<HTMLElement>(TEXT.text_story);
-    const text_visual = document.querySelectorAll<HTMLElement>(TEXT.text_visual);
+    const TEXTS = get_ELEMENTS_WITH_TEXT_CLASSES();
 
     // General Purpose
-    text_general.forEach((text) => {
+    TEXTS.text_general.forEach((text) => {
         text.style.color = STYLES.color_text_general;
         text.style.fontFamily = `${STYLES.font_text_general}, ${STYLES.font_generic}`;
         text.style.fontSize = "clamp(1rem, 3vw, 2rem)";
@@ -19,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Marginal Information (Corner Info, Header/Footer) */
-    text_marginal.forEach((text) => {
+    TEXTS.text_marginal.forEach((text) => {
         text.style.color = STYLES.color_text_marginal;
         text.style.fontFamily = `${STYLES.font_text_marginal}, ${STYLES.font_generic}`;
         text.style.fontSize = "clamp(0.625rem, 2vw, 1.25rem)";
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Warnings */
-    text_warning.forEach((text) => {
+    TEXTS.text_warning.forEach((text) => {
         text.style.color = STYLES.color_text_warning;
         text.style.fontFamily = `${STYLES.font_text_warning}, ${STYLES.font_generic}`;
         text.style.fontSize = "clamp(1rem, 3vw, 1.5rem)";
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Stories */
-    text_story.forEach((text) => {
+    TEXTS.text_story.forEach((text) => {
         text.style.color = STYLES.color_text_story;
         text.style.fontFamily = `${STYLES.font_text_story}, ${STYLES.font_generic}`;
         text.style.fontWeight = "bold";
@@ -44,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* Figure, Charts, Tables, and Illustration Descriptions/Details/Insights */
-    text_visual.forEach((text) => {
+    TEXTS.text_visual.forEach((text) => {
         text.style.color = STYLES.color_text_visual;
         text.style.fontFamily = `${STYLES.font_text_visual}, ${STYLES.font_generic}`;
         text.style.fontSize = "clamp(0.875rem, 2vw, 1.25rem)";

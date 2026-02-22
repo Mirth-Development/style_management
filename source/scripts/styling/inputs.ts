@@ -1,9 +1,10 @@
 
-import { CSS_VARIABLES as STYLES } from "../global_constants.js";
+import {get_ELEMENTS_WITH_IDS, STYLE_CONSTANTS as STYLES} from "../global_constants.js";
 import { get_ELEMENTS_WITH_INPUT_CLASSES } from "../global_constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const UNIQUES = get_ELEMENTS_WITH_IDS();
     const INPUTS = get_ELEMENTS_WITH_INPUT_CLASSES();
     /* -------------------------------------------------------------------------------------------------------- */
     /* BUTTON STYLES */

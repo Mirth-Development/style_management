@@ -1,5 +1,5 @@
 
-import { CSS_VARIABLES as STYLES } from "../global_constants.js";
+import { STYLE_CONSTANTS as STYLES } from "../global_constants.js";
 import { get_ELEMENTS_WITH_HEADING_CLASSES } from "../global_constants.js";
 
 

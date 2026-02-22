@@ -1,31 +1,102 @@
 
 import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
 
+
+/* -------------------------------------------------------------------------------------------------------- */
+/*
+
+BLOCK ID
+Every block has a number attached to it that represents its identification.  Each tier of block holds a 3
+digit association within a larger collection of digits that represents a block's full ID.  This 3 digit constraint
+is present only because I'd find it absurd to go past 999 for anything; realistically I don't think many will go
+past 99 for any given block - only a rare few.  Ultimately, the constraint is arbitrary.  The only logical reason
+the digit constraint is present is so that there isn't a massive ID visible on each of the blocks; I do NOT want
+to get rid of the block number being visible, it's rather nice to know the ID of each block by simply looking at it.
+
+The full ID sequence looks like this: "Block #000.000.000.000.000".  Each 3 digit combo represents a
+different block type.  The first 3 digits are dedicated to the largest block, the next 3 being the second largest
+block, the next set after that being the third largest block, and so on.  A total of 5 three digit sets.  The 5
+sets are not entirely arbitrary either, here is what each layer is dedicated to:
+
+1st 3-DIGIT SET : HTML Pages
+2nd 3-DIGIT SET : Main Headings
+3rd 3-DIGIT SET : Secondary Headings
+4th 3-DIGIT SET : Tertiary Headings (If you need more than 3 heading layers, then you need to reorganize your content.
+                                    Nearly every person I've met within writing and programming will tell you that 99%
+                                    of content can be organized extremely well in a 3D matrix.  For the 1% of people that
+                                    need to go past a 3D matrix, I encourage you to make use of multiple HTML pages or
+                                    to dive into the code yourself so that you can manipulate things to your liking.
+                                    That, or you can make use of the special blocks in some way.)
+5th 3-DIGIT SET : Cases where special blocks are used in the Tertiary Heading layer.
+
+WHY NO 6th SET? : To force people to organize their content rather then relying on infinite spacing.
+
+To be clear, users will still be able to write as much content within each block, so they can still have horribly
+organized content.  But if users make use of the block hierarchy and understand the reasoning for the layer limit then
+I bet that their content will be better organized and more presentable/readable.
+
+BLOCK HIERARCHY
+The lower the listed number, the bigger the box.  Boxes can contain smaller boxes within them.
+    1. BLOCK BODY
+        - Block ID Visual : #999.000.000.000.000
+        - This is the body HTML tag
+
+    2. BLOCK UPPER
+        - Block ID Visual : #000.999.000.000.000
+        - Text
+
+    3. BLOCK MIDDLE
+        - Block ID Visual : #000.000.999.000.000
+        - Text
+
+    4. BLOCK LOWER
+        - Block ID Visual : #000.000.000.999.000
+        - Text
+
+SPECIAL BLOCKS
+[INSERT NOTE ON IDs FOR SPECIAL BLOCKS HERE]
+    A. BLOCK WARNING
+        - Text
+
+    B. BLOCK STORY
+        - Text
+
+*/
+/* -------------------------------------------------------------------------------------------------------- */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Block Forms
+    /* -------------------------------------------------------------------------------------------------------- */
+    /* BLOCK FORMS */
     const blocks_form_column = document.querySelectorAll<HTMLElement>(CLASSES.block_form_column);
     const blocks_form_row = document.querySelectorAll<HTMLElement>(CLASSES.block_form_row);
 
+    /* Makes column flex boxes when applied to a tag. */
     blocks_form_column.forEach((block) => {
         block.style.display = "flex";
         block.style.flexDirection = "column";
         block.style.alignItems = "center";
     });
 
+    /* Makes row flex boxes when applied to a tag. */
     blocks_form_row.forEach((block) => {
         block.style.display = "flex";
         block.style.flexDirection = "row";
         block.style.alignItems = "center";
     });
+    /* -------------------------------------------------------------------------------------------------------- */
 
-    // Block Types
+
+
+    /* -------------------------------------------------------------------------------------------------------- */
+    // BLOCK TYPES
     const blocks_upper = document.querySelectorAll<HTMLElement>(CLASSES.block_upper);
     const blocks_middle = document.querySelectorAll<HTMLElement>(CLASSES.block_middle);
     const blocks_lower = document.querySelectorAll<HTMLElement>(CLASSES.block_lower);
     const blocks_warning = document.querySelectorAll<HTMLElement>(CLASSES.block_warning);
     const blocks_story = document.querySelectorAll<HTMLElement>(CLASSES.block_story);
 
+    /* Another way to think of this class would be chapters within a book. */
     blocks_upper.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_upper;
         block.style.borderColor = STYLES.color_block_border_upper;
@@ -35,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         block.style.padding = `${STYLES.spacing_vertical_2} ${STYLES.spacing_horizontal_2}`;
     });
 
+    /* Dedicated to sections within the chapter of a book or a technical document. */
     blocks_middle.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_middle;
         block.style.borderColor = STYLES.color_block_border_middle;
@@ -44,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         block.style.padding = `${STYLES.spacing_vertical_2} ${STYLES.spacing_horizontal_2}`;
     });
 
+    /* Best used for a paragraph on a page or mini-heading within a technical document. */
     blocks_lower.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_lower;
         block.style.borderColor = STYLES.color_block_border_middle;
@@ -53,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         block.style.padding = `${STYLES.spacing_vertical_2} ${STYLES.spacing_horizontal_2}`;
     });
 
+    /* Use this to make warnings for users to declare important information. */
     blocks_warning.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_warning;
         block.style.borderColor = STYLES.color_block_border_warning;
@@ -61,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         block.style.padding = `${STYLES.spacing_vertical_4} ${STYLES.spacing_vertical_4}`;
     });
 
+    /* Use this for parenthetical information or stories. */
     blocks_story.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_story;
         block.style.borderColor = STYLES.color_block_border_story;
@@ -68,5 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
         block.style.borderWidth = "3px";
         block.style.padding = `${STYLES.spacing_vertical_4} ${STYLES.spacing_vertical_4}`;
     });
+    /* -------------------------------------------------------------------------------------------------------- */
 
 });

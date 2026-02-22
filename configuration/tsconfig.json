@@ -65,5 +65,5 @@
 
   // Tells TypeScript which files to transpile into JavaScript.
   // * for files.  ** for directories.
-  "include": ["../source/scripts/*", "../source/scripts/events/*", "../source/scripts/styling/*"]
+  "include": ["../source/scripts/*", "../source/scripts/events/*", "../source/scripts/styling/*", "../source/scripts/builders/*"],
 }

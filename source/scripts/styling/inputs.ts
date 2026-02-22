@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const UNIQUES = get_ELEMENTS_WITH_IDS();
     const INPUTS = get_ELEMENTS_WITH_INPUT_CLASSES();
-    
+
     /* -------------------------------------------------------------------------------------------------------- */
     /* BUTTON STYLES */
     INPUTS.input_button_1.forEach((element) => {

@@ -1,5 +1,5 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES, CSS_CLASSES_BLOCK_FORMS as BLOCK_FORMS, CSS_CLASSES_BLOCKS as BLOCKS } from "../global_constants.js";
 
 
 /* -------------------------------------------------------------------------------------------------------- */
@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     /* BLOCK FORMS */
-    const blocks_form_column = document.querySelectorAll<HTMLElement>(CLASSES.block_form_column);
-    const blocks_form_row = document.querySelectorAll<HTMLElement>(CLASSES.block_form_row);
+    const blocks_form_column = document.querySelectorAll<HTMLElement>(BLOCK_FORMS.block_form_column);
+    const blocks_form_row = document.querySelectorAll<HTMLElement>(BLOCK_FORMS.block_form_row);
 
     /* Makes column flex boxes when applied to a tag. */
     blocks_form_column.forEach((block) => {
@@ -90,11 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     // BLOCK TYPES
-    const blocks_upper = document.querySelectorAll<HTMLElement>(CLASSES.block_upper);
-    const blocks_middle = document.querySelectorAll<HTMLElement>(CLASSES.block_middle);
-    const blocks_lower = document.querySelectorAll<HTMLElement>(CLASSES.block_lower);
-    const blocks_warning = document.querySelectorAll<HTMLElement>(CLASSES.block_warning);
-    const blocks_story = document.querySelectorAll<HTMLElement>(CLASSES.block_story);
+    const blocks_upper = document.querySelectorAll<HTMLElement>(BLOCKS.block_upper);
+    const blocks_middle = document.querySelectorAll<HTMLElement>(BLOCKS.block_middle);
+    const blocks_lower = document.querySelectorAll<HTMLElement>(BLOCKS.block_lower);
+    const blocks_warning = document.querySelectorAll<HTMLElement>(BLOCKS.block_warning);
+    const blocks_story = document.querySelectorAll<HTMLElement>(BLOCKS.block_story);
 
     /* Another way to think of this class would be chapters within a book. */
     blocks_upper.forEach((block) => {

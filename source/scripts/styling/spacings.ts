@@ -1,5 +1,5 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES, CSS_CLASSES_MARGINS as MARGINS, CSS_CLASSES_PADDINGS as PADDINGS } from "../global_constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -8,45 +8,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     /* MARGIN STYLES */
-    const margins_0 = document.querySelectorAll<HTMLElement>(CLASSES.margin_0);
-    const margins_1 = document.querySelectorAll<HTMLElement>(CLASSES.margin_1);
-    const margins_2 = document.querySelectorAll<HTMLElement>(CLASSES.margin_2);
-    const margins_3 = document.querySelectorAll<HTMLElement>(CLASSES.margin_3);
-    const margins_4 = document.querySelectorAll<HTMLElement>(CLASSES.margin_4);
-    const margins_5 = document.querySelectorAll<HTMLElement>(CLASSES.margin_5);
-    const margins_6 = document.querySelectorAll<HTMLElement>(CLASSES.margin_6);
+    const margins_0 = document.querySelectorAll<HTMLElement>(MARGINS.margin_0);
+    const margins_1 = document.querySelectorAll<HTMLElement>(MARGINS.margin_1);
+    const margins_2 = document.querySelectorAll<HTMLElement>(MARGINS.margin_2);
+    const margins_3 = document.querySelectorAll<HTMLElement>(MARGINS.margin_3);
+    const margins_4 = document.querySelectorAll<HTMLElement>(MARGINS.margin_4);
+    const margins_5 = document.querySelectorAll<HTMLElement>(MARGINS.margin_5);
+    const margins_6 = document.querySelectorAll<HTMLElement>(MARGINS.margin_6);
 
-    const margins_top_0 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_0);
-    const margins_top_1 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_1);
-    const margins_top_2 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_2);
-    const margins_top_3 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_3);
-    const margins_top_4 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_4);
-    const margins_top_5 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_5);
-    const margins_top_6 = document.querySelectorAll<HTMLElement>(CLASSES.margin_top_6);
+    const margins_top_0 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_0);
+    const margins_top_1 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_1);
+    const margins_top_2 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_2);
+    const margins_top_3 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_3);
+    const margins_top_4 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_4);
+    const margins_top_5 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_5);
+    const margins_top_6 = document.querySelectorAll<HTMLElement>(MARGINS.margin_top_6);
 
-    const margins_bottom_0 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_0);
-    const margins_bottom_1 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_1);
-    const margins_bottom_2 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_2);
-    const margins_bottom_3 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_3);
-    const margins_bottom_4 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_4);
-    const margins_bottom_5 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_5);
-    const margins_bottom_6 = document.querySelectorAll<HTMLElement>(CLASSES.margin_bottom_6);
+    const margins_bottom_0 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_0);
+    const margins_bottom_1 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_1);
+    const margins_bottom_2 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_2);
+    const margins_bottom_3 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_3);
+    const margins_bottom_4 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_4);
+    const margins_bottom_5 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_5);
+    const margins_bottom_6 = document.querySelectorAll<HTMLElement>(MARGINS.margin_bottom_6);
 
-    const margins_left_0 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_0);
-    const margins_left_1 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_1);
-    const margins_left_2 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_2);
-    const margins_left_3 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_3);
-    const margins_left_4 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_4);
-    const margins_left_5 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_5);
-    const margins_left_6 = document.querySelectorAll<HTMLElement>(CLASSES.margin_left_6);
+    const margins_left_0 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_0);
+    const margins_left_1 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_1);
+    const margins_left_2 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_2);
+    const margins_left_3 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_3);
+    const margins_left_4 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_4);
+    const margins_left_5 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_5);
+    const margins_left_6 = document.querySelectorAll<HTMLElement>(MARGINS.margin_left_6);
 
-    const margins_right_0 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_0);
-    const margins_right_1 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_1);
-    const margins_right_2 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_2);
-    const margins_right_3 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_3);
-    const margins_right_4 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_4);
-    const margins_right_5 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_5);
-    const margins_right_6 = document.querySelectorAll<HTMLElement>(CLASSES.margin_right_6);
+    const margins_right_0 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_0);
+    const margins_right_1 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_1);
+    const margins_right_2 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_2);
+    const margins_right_3 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_3);
+    const margins_right_4 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_4);
+    const margins_right_5 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_5);
+    const margins_right_6 = document.querySelectorAll<HTMLElement>(MARGINS.margin_right_6);
 
     /* Margin All Sides */
     margins_0.forEach((element) => { element.style.margin = STYLES.spacing_auto; });
@@ -98,45 +98,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     /* PADDING STYLES */
-    const paddings_0 = document.querySelectorAll<HTMLElement>(CLASSES.padding_0);
-    const paddings_1 = document.querySelectorAll<HTMLElement>(CLASSES.padding_1);
-    const paddings_2 = document.querySelectorAll<HTMLElement>(CLASSES.padding_2);
-    const paddings_3 = document.querySelectorAll<HTMLElement>(CLASSES.padding_3);
-    const paddings_4 = document.querySelectorAll<HTMLElement>(CLASSES.padding_4);
-    const paddings_5 = document.querySelectorAll<HTMLElement>(CLASSES.padding_5);
-    const paddings_6 = document.querySelectorAll<HTMLElement>(CLASSES.padding_6);
+    const paddings_0 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_0);
+    const paddings_1 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_1);
+    const paddings_2 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_2);
+    const paddings_3 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_3);
+    const paddings_4 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_4);
+    const paddings_5 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_5);
+    const paddings_6 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_6);
 
-    const paddings_top_0 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_0);
-    const paddings_top_1 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_1);
-    const paddings_top_2 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_2);
-    const paddings_top_3 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_3);
-    const paddings_top_4 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_4);
-    const paddings_top_5 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_5);
-    const paddings_top_6 = document.querySelectorAll<HTMLElement>(CLASSES.padding_top_6);
+    const paddings_top_0 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_0);
+    const paddings_top_1 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_1);
+    const paddings_top_2 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_2);
+    const paddings_top_3 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_3);
+    const paddings_top_4 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_4);
+    const paddings_top_5 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_5);
+    const paddings_top_6 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_top_6);
 
-    const paddings_bottom_0 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_0);
-    const paddings_bottom_1 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_1);
-    const paddings_bottom_2 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_2);
-    const paddings_bottom_3 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_3);
-    const paddings_bottom_4 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_4);
-    const paddings_bottom_5 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_5);
-    const paddings_bottom_6 = document.querySelectorAll<HTMLElement>(CLASSES.padding_bottom_6);
+    const paddings_bottom_0 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_0);
+    const paddings_bottom_1 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_1);
+    const paddings_bottom_2 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_2);
+    const paddings_bottom_3 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_3);
+    const paddings_bottom_4 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_4);
+    const paddings_bottom_5 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_5);
+    const paddings_bottom_6 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_bottom_6);
 
-    const paddings_left_0 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_0);
-    const paddings_left_1 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_1);
-    const paddings_left_2 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_2);
-    const paddings_left_3 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_3);
-    const paddings_left_4 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_4);
-    const paddings_left_5 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_5);
-    const paddings_left_6 = document.querySelectorAll<HTMLElement>(CLASSES.padding_left_6);
+    const paddings_left_0 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_0);
+    const paddings_left_1 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_1);
+    const paddings_left_2 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_2);
+    const paddings_left_3 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_3);
+    const paddings_left_4 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_4);
+    const paddings_left_5 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_5);
+    const paddings_left_6 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_left_6);
 
-    const paddings_right_0 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_0);
-    const paddings_right_1 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_1);
-    const paddings_right_2 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_2);
-    const paddings_right_3 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_3);
-    const paddings_right_4 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_4);
-    const paddings_right_5 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_5);
-    const paddings_right_6 = document.querySelectorAll<HTMLElement>(CLASSES.padding_right_6);
+    const paddings_right_0 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_0);
+    const paddings_right_1 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_1);
+    const paddings_right_2 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_2);
+    const paddings_right_3 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_3);
+    const paddings_right_4 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_4);
+    const paddings_right_5 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_5);
+    const paddings_right_6 = document.querySelectorAll<HTMLElement>(PADDINGS.padding_right_6);
 
     /* Padding All Sides */
     paddings_0.forEach((element) => { element.style.padding = STYLES.spacing_auto; });

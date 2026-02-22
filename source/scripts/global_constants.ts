@@ -2,8 +2,8 @@
 // The HTML tag that will be used later to set the below constants to CSS variables for the stylesheets.
 const ROOT = document.documentElement;
 
-/* GLOBAL CONSTANTS - A list of constants used throughout all the stylesheets and TypeScript files to ensure
- spacing, color, fonts, and etcetera is consistent throughout the website's elements. */
+// GLOBAL VARIABLES : A list of constants used throughout all the stylesheets and TypeScript files to ensure
+// spacing, color, fonts, and etcetera is consistent throughout the website's elements.
 const CSS_VARIABLES = {
 
     // Color Constants
@@ -87,35 +87,39 @@ const CSS_VARIABLES = {
     font_text_visual: "FONT_SPECTRAL_LIGHT",
 } as const;
 
-const CSS_CLASSES = {
-
-    // Block Form Types
+// GLOBAL CLASSES : Lists of constants that hold every class name used in the project, this ensures that all
+// class names can be easily changed using these objects in TypeScript files.  The reason why we are sharing these
+// across the files is so that we can manipulate the style of a class during runtime anywhere across the system.
+// An example would be if a button was clicked, then all the general text would increase in font-size - we can achieve
+// this through allowing all the classes to be manipulated across the entire system at any given time.  Import them
+// where it is appropriate, don't add all the classes to every single file.
+const CSS_CLASSES_BLOCK_FORMS = {
     block_form_column: ".block_form_column",
     block_form_row: ".block_form_row",
-
-    // Block Types
+} as const;
+const CSS_CLASSES_BLOCKS = {
     block_upper: ".block_upper",
     block_middle: ".block_middle",
     block_lower: ".block_lower",
     block_warning: ".block_warning",
     block_story: ".block_story",
-
-    // Heading Types
+} as const;
+const CSS_CLASSES_HEADINGS = {
     heading_title: ".heading_title",
     heading_upper: ".heading_upper",
     heading_middle: ".heading_middle",
     heading_lower: ".heading_lower",
     heading_warning: ".heading_warning",
     heading_story: ".heading_story",
-
-    // Text Types
+} as const;
+const CSS_CLASSES_TEXT = {
     text_general: ".text_general",
     text_marginal: ".text_marginal",
     text_warning: ".text_warning",
     text_story: ".text_story",
     text_visual: ".text_visual",
-
-    // Margin Types
+} as const;
+const CSS_CLASSES_MARGINS = {
     margin_0: ".margin_0",
     margin_1: ".margin_1",
     margin_2: ".margin_2",
@@ -155,8 +159,8 @@ const CSS_CLASSES = {
     margin_right_4: ".margin_right_4",
     margin_right_5: ".margin_right_5",
     margin_right_6: ".margin_right_6",
-
-    // Padding Types
+} as const;
+const CSS_CLASSES_PADDINGS = {
     padding_0: ".padding_0",
     padding_1: ".padding_1",
     padding_2: ".padding_2",
@@ -196,8 +200,8 @@ const CSS_CLASSES = {
     padding_right_4: ".padding_right_4",
     padding_right_5: ".padding_right_5",
     padding_right_6: ".padding_right_6",
-
-    // Input Types
+} as const;
+const CSS_CLASSES_INPUTS = {
     input_button_1: ".input_button_1",
     input_checkbox_1: ".input_checkbox_1",
     input_color_1: ".input_color_1",
@@ -213,6 +217,7 @@ const CSS_CLASSES = {
     input_time_1: ".input_time_1",
 } as const;
 
+
 // Looping through each property inside the root element and applying the CSS variables to the root HTML element.
 // We're doing this here we so can utilize the constants in both the CSS files and in the TypeScript files.
 Object.entries(CSS_VARIABLES).forEach(([key, value]) => {
@@ -220,4 +225,13 @@ Object.entries(CSS_VARIABLES).forEach(([key, value]) => {
 });
 
 
-export { CSS_VARIABLES, CSS_CLASSES };
+export {
+    CSS_VARIABLES,
+    CSS_CLASSES_BLOCK_FORMS,
+    CSS_CLASSES_BLOCKS,
+    CSS_CLASSES_HEADINGS,
+    CSS_CLASSES_TEXT,
+    CSS_CLASSES_MARGINS,
+    CSS_CLASSES_PADDINGS,
+    CSS_CLASSES_INPUTS
+};

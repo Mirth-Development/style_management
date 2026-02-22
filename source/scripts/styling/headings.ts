@@ -1,15 +1,15 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES, CSS_CLASSES_HEADINGS as HEADINGS } from "../global_constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Heading Types
-    const headings_title = document.querySelectorAll<HTMLElement>(CLASSES.heading_title);
-    const headings_upper = document.querySelectorAll<HTMLElement>(CLASSES.heading_upper);
-    const headings_middle = document.querySelectorAll<HTMLElement>(CLASSES.heading_middle);
-    const headings_lower = document.querySelectorAll<HTMLElement>(CLASSES.heading_lower);
-    const headings_warning = document.querySelectorAll<HTMLElement>(CLASSES.heading_warning);
-    const headings_story = document.querySelectorAll<HTMLElement>(CLASSES.heading_story);
+    const headings_title = document.querySelectorAll<HTMLElement>(HEADINGS.heading_title);
+    const headings_upper = document.querySelectorAll<HTMLElement>(HEADINGS.heading_upper);
+    const headings_middle = document.querySelectorAll<HTMLElement>(HEADINGS.heading_middle);
+    const headings_lower = document.querySelectorAll<HTMLElement>(HEADINGS.heading_lower);
+    const headings_warning = document.querySelectorAll<HTMLElement>(HEADINGS.heading_warning);
+    const headings_story = document.querySelectorAll<HTMLElement>(HEADINGS.heading_story);
 
 
     // Titles

@@ -1,12 +1,12 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES, CSS_CLASSES_BLOCKS as BLOCKS } from "../global_constants.js";
 
 //
 document.addEventListener("DOMContentLoaded", () => {
 
     // Class Selectors for Block Types
     // const blocks_pages = document.querySelector<HTMLElement>("body");
-    const blocks_upper = document.querySelectorAll<HTMLElement>(CLASSES.block_upper);
+    const blocks_upper = document.querySelectorAll<HTMLElement>(BLOCKS.block_upper);
     // const blocks_middle = document.querySelectorAll<HTMLElement>(".block_middle");
     // const blocks_lower = document.querySelectorAll<HTMLElement>(".block_lower");
     // const blocks_warning = document.querySelectorAll<HTMLElement>(".block_warning");

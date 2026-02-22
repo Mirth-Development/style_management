@@ -1,14 +1,14 @@
 
-import { CSS_VARIABLES as STYLES, CSS_CLASSES as CLASSES } from "../global_constants.js";
+import { CSS_VARIABLES as STYLES, CSS_CLASSES_TEXT as TEXT } from "../global_constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Text Types
-    const text_general = document.querySelectorAll<HTMLElement>(CLASSES.text_general);
-    const text_marginal = document.querySelectorAll<HTMLElement>(CLASSES.text_marginal);
-    const text_warning = document.querySelectorAll<HTMLElement>(CLASSES.text_warning);
-    const text_story = document.querySelectorAll<HTMLElement>(CLASSES.text_story);
-    const text_visual = document.querySelectorAll<HTMLElement>(CLASSES.text_visual);
+    const text_general = document.querySelectorAll<HTMLElement>(TEXT.text_general);
+    const text_marginal = document.querySelectorAll<HTMLElement>(TEXT.text_marginal);
+    const text_warning = document.querySelectorAll<HTMLElement>(TEXT.text_warning);
+    const text_story = document.querySelectorAll<HTMLElement>(TEXT.text_story);
+    const text_visual = document.querySelectorAll<HTMLElement>(TEXT.text_visual);
 
     // General Purpose
     text_general.forEach((text) => {

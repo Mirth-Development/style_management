@@ -1,6 +1,6 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../global_constants.js";
-import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_constants.js";
+import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
+import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_functions.js";
 
 
 

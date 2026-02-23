@@ -1,6 +1,6 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../global_constants.js";
-import { get_ELEMENTS_WITH_ICON_CLASSES } from "../global_constants.js";
+import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
+import { get_ELEMENTS_WITH_ICON_CLASSES } from "../global_functions.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,9 +23,8 @@ function apply_icon_styles(icon: HTMLElement, size_of_icon: string, color_of_ico
 
     icon.style.fontFamily = STYLES.font_family_icons;
     icon.style.fontStyle = "normal";
-    icon.style.verticalAlign = "middle";
-    icon.style.display = "inline-block";
     icon.style.textTransform = "none";
+    icon.style.verticalAlign = "top";
     icon.style.overflowWrap = "normal";
     icon.style.whiteSpace = "nowrap";
     icon.style.direction = "ltr";

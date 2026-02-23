@@ -30,6 +30,8 @@ function get_ELEMENTS_WITH_BLOCK_FORM_CLASSES() {
     return {
         block_form_column: document.querySelectorAll<HTMLElement>(CLASSES_BLOCK_FORMS.block_form_column.selector),
         block_form_row: document.querySelectorAll<HTMLElement>(CLASSES_BLOCK_FORMS.block_form_row.selector),
+        block_form_fixed_column: document.querySelectorAll<HTMLElement>(CLASSES_BLOCK_FORMS.block_form_fixed_column.selector),
+        block_form_fixed_row: document.querySelectorAll<HTMLElement>(CLASSES_BLOCK_FORMS.block_form_fixed_row.selector),
     };
 }
 function get_ELEMENTS_WITH_BLOCK_CLASSES() {

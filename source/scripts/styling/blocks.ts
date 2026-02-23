@@ -72,16 +72,39 @@ document.addEventListener("DOMContentLoaded", () => {
     /* BLOCK FORMS */
     const BLOCK_FORMS = get_ELEMENTS_WITH_BLOCK_FORM_CLASSES();
 
-    /* Makes column flex boxes when applied to a tag. */
+    // Makes column flex boxes when applied to a tag.
+    // We use these to ensure the contents of the boxes within are vertically displayed.
     BLOCK_FORMS.block_form_column.forEach((block) => {
         block.style.display = "flex";
         block.style.flexDirection = "column";
         block.style.alignItems = "center";
     });
 
-    /* Makes row flex boxes when applied to a tag. */
+    // Makes row flex boxes when applied to a tag.
+    // We use these to ensure the contents of the boxes within are horizontally displayed.
     BLOCK_FORMS.block_form_row.forEach((block) => {
         block.style.display = "flex";
+        block.style.flexDirection = "row";
+        block.style.alignItems = "center";
+    });
+
+
+    // Makes fixed column boxes when applied to a tag.
+    // We use these for UI contents that need to constantly stay in view (don't go away with scrolling)
+    // and have to have their contents displayed horizontally.
+    BLOCK_FORMS.block_form_fixed_column.forEach((block) => {
+        block.style.display = "flex";
+        block.style.position = "fixed";
+        block.style.flexDirection = "column";
+        block.style.alignItems = "center";
+    });
+
+    // Makes fixed row boxes when applied to a tag.
+    // We use these for UI contents that need to constantly stay in view (don't go away with scrolling)
+    // and have to have their contents displayed horizontally.
+    BLOCK_FORMS.block_form_fixed_row.forEach((block) => {
+        block.style.display = "flex";
+        block.style.position = "fixed";
         block.style.flexDirection = "row";
         block.style.alignItems = "center";
     });

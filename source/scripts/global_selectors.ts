@@ -36,6 +36,8 @@ function make_ids<T extends Record<string, string>>(classes: T): { [K in keyof T
 const CLASSES_BLOCK_FORMS = make_classes({
     block_form_column: "block_form_column",
     block_form_row: "block_form_row",
+    block_form_fixed_column: "block_form_fixed_column",
+    block_form_fixed_row: "block_form_fixed_row",
 });
 const CLASSES_BLOCKS = make_classes({
     block_upper: "block_upper",

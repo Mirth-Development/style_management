@@ -1,5 +1,6 @@
 
 import {
+    IDS,
     CLASSES_BLOCK_FORMS as BLOCK_FORMS,
     CLASSES_BLOCKS as BLOCKS,
     CLASSES_HEADINGS as HEADINGS,
@@ -47,7 +48,7 @@ function build_page(title: string, page_type: string) {
 
 
 // HTML BUILDER
-// Builds and returns HTML data containing a head and body defaulted with proper links and an h1 tag inside of its
+// Builds and returns HTML data containing a head and body defaulted with proper links and an h1 tag inside its
 // body that holds the passed title in its contents.
 function build_html(title: string, page_type: string): string {
 
@@ -221,6 +222,12 @@ function build_body_testing(title: string): string {
 
     return [
         `   <body class="${BLOCK_FORMS.block_form_column.class} ${MARGINS.margin_2.class}">`,
+        ``,
+        `       <!-- Button Block Test -->`,
+        `       <div id="${IDS.button_block.id}" class="${BLOCK_FORMS.block_form_fixed_column.class}">Blocks</div>`,
+        ``,
+        `       <!-- Button Navigation Test -->`,
+        `       <div id="${IDS.button_navigation.id}" class="${BLOCK_FORMS.block_form_fixed_column.class}">Navigation</div>`,
         ``,
         `       <!-- Title Test -->`,
         `       <h1 class="${HEADINGS.heading_title.class} ${MARGINS.margin_bottom_1.class}">${title}</h1>`,

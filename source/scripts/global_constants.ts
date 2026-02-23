@@ -70,19 +70,35 @@ const STYLE_CONSTANTS = {
     spacing_horizontal_5: "clamp(var(--spacing_anchor_min_5), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_5))",
     spacing_horizontal_6: "clamp(var(--spacing_anchor_min_6), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_6))",
 
-    // Font Constants
-    font_generic: "sans-serif",
+    // Font Family Constants
+    font_family_generic: "sans-serif",
+    font_family_icons: "FONT_ICON_MATERIAL",
 
-    font_heading_title: "FONT_CINZEL_DECORATIVE_BOLD",
-    font_heading_blocks: "FONT_CINZEL_BOLD",
-    font_heading_warning: "FONT_YOUNGSERIF_REGULAR",
-    font_heading_story: "FONT_CINZEL_DECORATIVE_REGULAR",
+    font_family_heading_title: "FONT_TEXT_CINZEL_DECORATIVE_BOLD",
+    font_family_heading_blocks: "FONT_TEXT_CINZEL_BOLD",
+    font_family_heading_warning: "FONT_TEXT_YOUNGSERIF_REGULAR",
+    font_family_heading_story: "FONT_TEXT_CINZEL_DECORATIVE_REGULAR",
 
-    font_text_general: "FONT_SPECTRAL_MEDIUM",
-    font_text_marginal: "FONT_SPECTRAL_SEMI_BOLD",
-    font_text_warning: "FONT_YOUNGSERIF_REGULAR",
-    font_text_story: "FONT_SPECTRAL_LIGHT_ITALIC",
-    font_text_visual: "FONT_SPECTRAL_LIGHT",
+    font_family_text_general: "FONT_TEXT_SPECTRAL_MEDIUM",
+    font_family_text_marginal: "FONT_TEXT_SPECTRAL_SEMI_BOLD",
+    font_family_text_warning: "FONT_TEXT_YOUNGSERIF_REGULAR",
+    font_family_text_story: "FONT_TEXT_SPECTRAL_LIGHT_ITALIC",
+    font_family_text_visual: "FONT_TEXT_SPECTRAL_LIGHT",
+
+    // Font Size Constants
+    font_size_heading_title: "clamp(2rem, 8vw, 6rem)",
+    font_size_heading_upper: "clamp(1.75rem, 6vw, 4rem)",
+    font_size_heading_middle: "clamp(1.5rem, 5vw, 3rem)",
+    font_size_heading_lower: "clamp(1.25rem, 4vw, 2.5rem)",
+    font_size_heading_warning: "clamp(1.125rem, 3vw, 2rem)",
+    font_size_heading_story: "clamp(1.125rem, 3vw, 2rem)",
+
+    font_size_text_general: "clamp(1rem, 3vw, 2rem)",
+    font_size_text_marginal: "clamp(0.625rem, 2vw, 1.25rem)",
+    font_size_text_warning: "clamp(1rem, 3vw, 1.5rem)",
+    font_size_text_story: "clamp(1rem, 3vw, 1.5rem)",
+    font_size_text_visual: "clamp(0.875rem, 2vw, 1.25rem)",
+
 } as const;
 
 // Looping through each property inside the root element and applying the CSS variables to the root HTML element.
@@ -139,6 +155,9 @@ const CLASSES_TEXT = {
     text_warning: ".text_warning",
     text_story: ".text_story",
     text_visual: ".text_visual",
+} as const;
+const CLASSES_ICONS = {
+    icon_general: ".icon_general",
 } as const;
 const CLASSES_MARGINS = {
     margin_0: ".margin_0",
@@ -290,6 +309,11 @@ function get_ELEMENTS_WITH_TEXT_CLASSES() {
         text_visual: document.querySelectorAll<HTMLElement>(CLASSES_TEXT.text_visual),
     };
 }
+function get_ELEMENTS_WITH_ICON_CLASSES() {
+    return {
+        icon_general: document.querySelectorAll<HTMLElement>(CLASSES_ICONS.icon_general),
+    };
+}
 function get_ELEMENTS_WITH_MARGIN_CLASSES() {
     return {
         margin_0: document.querySelectorAll<HTMLElement>(CLASSES_MARGINS.margin_0),
@@ -413,6 +437,7 @@ export {
     get_ELEMENTS_WITH_BLOCK_CLASSES,
     get_ELEMENTS_WITH_HEADING_CLASSES,
     get_ELEMENTS_WITH_TEXT_CLASSES,
+    get_ELEMENTS_WITH_ICON_CLASSES,
     get_ELEMENTS_WITH_MARGIN_CLASSES,
     get_ELEMENTS_WITH_PADDING_CLASSES,
     get_ELEMENTS_WITH_INPUT_CLASSES,

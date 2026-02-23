@@ -1,7 +1,7 @@
 
 import { STYLE_CONSTANTS as STYLES } from "../global_constants.js";
 import { get_ELEMENTS_WITH_IDS } from "../global_constants.js";
-import { build_blank_page } from "../builders/blank_html";
+import { build_blank_page } from "../builders/html_blank";
 
 document.addEventListener("DOMContentLoaded", () => {
 

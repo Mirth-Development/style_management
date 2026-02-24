@@ -3,26 +3,10 @@
 // GLOBAL IDs : Elements that are very special and have an id attached to them manually - not through an automated
 // process.  These elements represent the most important elements of a page such as the navigation button and the
 // button that will allow for adding/removing blocks.
-const IDS = make_ids({
+const IDS = make_values_for_keys({
     button_block: "button_block",
     button_navigation: "button_navigation",
-});
-
-// This function is used to allow the ids that have been made to be utilized in both their forms.
-// The first form is without a dot (no selector) and the other is with a dot (with selector).  As an example,
-// let's say we have an id called "new_id" and it comes from the object "IDS_O_GALORE".  This function will
-// allow you to call new_id in 2 ways in order to produce different outputs:
-// IDS_O_GALORE.new_id.id  -> "new_id"
-// IDS_O_GALORE.new_id.select -> "#new_id"
-// The reason why we're doing this is so that we can utilize the same constants inside the builder scripts and
-// everywhere else throughout the code.  HTML requires you to use no-dot for ids, while querySelectorAll requires
-// a dot for ids.
-function make_ids<T extends Record<string, string>>(classes: T): { [K in keyof T]: { selector: string; id: string } } {
-    return Object.fromEntries(
-        Object.entries(classes).map(([key, value]) => [key, { selector: `#${value}`, id: value }])
-    ) as any;
-}
-// ----------------------------------------------------------------------------------------------------------------- //
+}, "#");
 
 
 
@@ -33,38 +17,38 @@ function make_ids<T extends Record<string, string>>(classes: T): { [K in keyof T
 // An example would be if a button was clicked, then all the general text would increase in font-size - we can achieve
 // this through allowing all the classes to be manipulated across the entire system at any given time.  Import them
 // where it is appropriate, don't add all the classes to every single file.
-const CLASSES_BLOCK_FORMS = make_classes({
+const CLASSES_BLOCK_FORMS = make_values_for_keys({
     block_form_column: "block_form_column",
     block_form_row: "block_form_row",
     block_form_fixed_column: "block_form_fixed_column",
     block_form_fixed_row: "block_form_fixed_row",
-});
-const CLASSES_BLOCKS = make_classes({
+}, ".");
+const CLASSES_BLOCKS = make_values_for_keys({
     block_upper: "block_upper",
     block_middle: "block_middle",
     block_lower: "block_lower",
     block_warning: "block_warning",
     block_story: "block_story",
-});
-const CLASSES_HEADINGS = make_classes({
+}, ".");
+const CLASSES_HEADINGS = make_values_for_keys({
     heading_title: "heading_title",
     heading_upper: "heading_upper",
     heading_middle: "heading_middle",
     heading_lower: "heading_lower",
     heading_warning: "heading_warning",
     heading_story: "heading_story",
-});
-const CLASSES_TEXT = make_classes({
+}, ".");
+const CLASSES_TEXT = make_values_for_keys({
     text_general: "text_general",
     text_marginal: "text_marginal",
     text_warning: "text_warning",
     text_story: "text_story",
     text_visual: "text_visual",
-});
-const CLASSES_ICONS = make_classes({
+}, ".");
+const CLASSES_ICONS = make_values_for_keys({
     icon_general: "icon_general",
-});
-const CLASSES_MARGINS = make_classes({
+}, ".");
+const CLASSES_MARGINS = make_values_for_keys({
     margin_0: "margin_0",
     margin_1: "margin_1",
     margin_2: "margin_2",
@@ -104,8 +88,8 @@ const CLASSES_MARGINS = make_classes({
     margin_right_4: "margin_right_4",
     margin_right_5: "margin_right_5",
     margin_right_6: "margin_right_6",
-});
-const CLASSES_PADDINGS = make_classes({
+}, ".");
+const CLASSES_PADDINGS = make_values_for_keys({
     padding_0: "padding_0",
     padding_1: "padding_1",
     padding_2: "padding_2",
@@ -145,8 +129,8 @@ const CLASSES_PADDINGS = make_classes({
     padding_right_4: "padding_right_4",
     padding_right_5: "padding_right_5",
     padding_right_6: "padding_right_6",
-});
-const CLASSES_INPUTS = make_classes({
+}, ".");
+const CLASSES_INPUTS = make_values_for_keys({
     input_button_1: "input_button_1",
     input_checkbox_1: "input_checkbox_1",
     input_color_1: "input_color_1",
@@ -160,26 +144,41 @@ const CLASSES_INPUTS = make_classes({
     input_reset_1: "input_reset_1",
     input_text_1: "input_text_1",
     input_time_1: "input_time_1",
-});
+}, ".");
 
-
-// This function is used to allow the classes that have been made to be utilized in both their forms.
-// The first form is without a dot (no selector) and the other is with a dot (with selector).  As an example,
-// let's say we have a class called "new_class" and it comes from the object "CLASSES_O_GALORE".  This function will
-// allow you to call new_class in 2 ways in order to produce different outputs:
-// CLASSES_O_GALORE.new_class.class  -> "new_class"
-// CLASSES_O_GALORE.new_class.select -> ".new_class"
-// The reason why we're doing this is so that we can utilize the same constants inside the builder scripts and
-// everywhere else throughout the code.  HTML requires you to use no-dot for classes, while querySelectorAll requires
-// a dot for classes.
-function make_classes<T extends Record<string, string>>(classes: T): { [K in keyof T]: { selector: string; class: string } } {
-    return Object.fromEntries(
-        Object.entries(classes).map(([key, value]) => [key, { selector: `.${value}`, class: value }])
-    ) as any;
-}
 // ----------------------------------------------------------------------------------------------------------------- //
 
 
+
+// ----------------------------------------------------------------------------------------------------------------- //
+// THE ALMIGHTY VALUE MAKER FOR KEYS
+// This function is used to allow attributes to be utilized in both their forms.
+// The first form is with their selector-character and the other is without said character.  For example,
+// let's say we have an id called "new_id" and it comes from the object "IDS_O_GALORE".  This function will
+// allow you to call new_id in 2 ways in order to produce different outputs:
+// IDS_O_GALORE.new_id.with_selector  -> "#new_id"
+// IDS_O_GALORE.new_id.without_selector -> "new_id"
+// The reason why we're doing this is so that we can utilize the same constants inside the builder scripts and
+// everywhere else throughout the code.  HTML requires you to use no selectors for attributes, while query selection
+// requires a selector character to be present.
+// Lastly, you do need to pass in a selector type (# or .) for the function to determine which type of selector
+// you want on your with_selector values.
+function make_values_for_keys<T extends Record<string, string>>(object_with_keys: T, selector_type: string):
+    { [K in keyof T]: { with_selector: string; without_selector: string } } {
+
+    // Create an empty object that will have every value for each key be set with 2 properties - with_selector and without_selector.
+    let modified_object_with_keys = {} as { [K in keyof T]: { with_selector: string, without_selector: string } };
+
+    // Go through each key in the passed object and assign its value to be an object that holds the properties
+    // with_selector and without_selector.  with_selector will always have its first character(s) be equal to the passed
+    // value that selector_type is holding.
+    for (const key in object_with_keys) {
+        modified_object_with_keys[key] = { with_selector: `${selector_type}${object_with_keys[key]}`, without_selector: key };
+    }
+
+    return modified_object_with_keys;
+}
+// ----------------------------------------------------------------------------------------------------------------- //
 
 export {
     IDS,

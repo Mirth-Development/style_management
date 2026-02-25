@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const ICONS = get_ELEMENTS_WITH_ICON_CLASSES();
 
     // General Icons
-    ICONS.icon_general.forEach((icon) => apply_icon_styles(icon, "inherit", "inherit", "inherit"));
+    ICONS.icon_general.forEach((icon) =>
+        apply_icon_styles(icon, "inherit", "inherit", "inherit"));
 });
 
 // We have color, size, and line-height always be relative to the parameter to ensure that some level of differentiation can

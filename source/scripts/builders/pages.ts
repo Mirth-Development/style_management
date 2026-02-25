@@ -1,4 +1,6 @@
 
+import * as fs from "fs";
+import * as path from "path";
 import {
     IDS,
     CLASSES_BLOCK_FORMS as BLOCK_FORMS,
@@ -8,11 +10,7 @@ import {
     CLASSES_INPUTS as INPUTS,
     CLASSES_MARGINS as MARGINS,
     CLASSES_TEXT as TEXT,
-} from "../global_selectors";
-
-import * as fs from "fs";
-import * as path from "path";
-
+} from "../global_attributes";
 
 // PAGE TYPES
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
@@ -95,7 +93,7 @@ function build_head(title: string): string {
     const scripted_global_links =
     [
         `       <!-- Scripted Global Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/global_selectors.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/global_attributes.js"></script>`,
         `       <script type="module" src="../scripts/transpiled_scripts/global_functions.js"></script>`,
         `       <script type="module" src="../scripts/transpiled_scripts/global_styles.js"></script>`,
     ].join("\n");

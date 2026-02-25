@@ -12,6 +12,8 @@ import {
     CLASSES_TEXT as TEXT,
 } from "../global_attributes";
 
+
+
 // PAGE TYPES
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
 // to the testing type.  Also, all of these pages share the same head.  This is to ensure that only the head

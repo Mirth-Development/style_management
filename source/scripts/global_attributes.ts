@@ -151,7 +151,7 @@ const CLASSES_INPUTS = make_values_for_keys({
 
 
 // ----------------------------------------------------------------------------------------------------------------- //
-// THE ALMIGHTY VALUE MAKER FOR KEYS
+// MAKE_VALUES_FOR_KEYS
 // This function is used to allow attributes to be utilized in both their forms.
 // The first form is with their selector-character and the other is without said character.  For example,
 // let's say we have an id called "new_id" and it comes from the object "IDS_O_GALORE".  This function will
@@ -163,20 +163,21 @@ const CLASSES_INPUTS = make_values_for_keys({
 // requires a selector character to be present.
 // Lastly, you do need to pass in a selector type (# or .) for the function to determine which type of selector
 // you want on your with_selector values.
-function make_values_for_keys<T extends Record<string, string>>(object_with_keys: T, selector_type: string):
+function make_values_for_keys <T extends Record<string, string>>
+    (object_with_keys: T, selector_type: string):
     { [K in keyof T]: { with_selector: string; without_selector: string } } {
 
     // Create an empty object that will have every value for each key be set with 2 properties - with_selector and without_selector.
-    let modified_object_with_keys = {} as { [K in keyof T]: { with_selector: string, without_selector: string } };
+    let the_object_modified = {} as { [K in keyof T]: { with_selector: string, without_selector: string } };
 
     // Go through each key in the passed object and assign its value to be an object that holds the properties
     // with_selector and without_selector.  with_selector will always have its first character(s) be equal to the passed
     // value that selector_type is holding.
     for (const key in object_with_keys) {
-        modified_object_with_keys[key] = { with_selector: `${selector_type}${object_with_keys[key]}`, without_selector: key };
+        the_object_modified[key] = { with_selector: `${selector_type}${object_with_keys[key]}`, without_selector: key };
     }
 
-    return modified_object_with_keys;
+    return the_object_modified;
 }
 // ----------------------------------------------------------------------------------------------------------------- //
 

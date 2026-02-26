@@ -1,11 +1,21 @@
 
 // ----------------------------------------------------------------------------------------------------------------- //
-// GLOBAL STYLES : A list of constants used throughout all the stylesheets and TypeScript files to ensure
+// GLOBAL STYLES : Lists of constants used throughout all the stylesheets and TypeScript files to ensure
 // spacing, color, fonts, and etcetera is consistent throughout the website's elements.
 const STYLE_CONSTANTS = {
 
+
     // Color Constants
     color_background: "#000000",
+
+    color_button_edit_background: "#111111",
+    color_button_navigation_background: "#111111",
+
+    color_button_edit_border: "#ffffff",
+    color_button_navigation_border: "#ffffff",
+
+    color_button_edit_text: "#f3c868",
+    color_button_navigation_text: "#f3c868",
 
     color_block_background_upper: "#111111",
     color_block_background_middle: "#261d1d",

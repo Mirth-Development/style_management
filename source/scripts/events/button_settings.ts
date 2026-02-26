@@ -5,9 +5,9 @@ import { get_ELEMENTS_WITH_IDS } from "../global_getters.js";
 document.addEventListener("DOMContentLoaded", () => {
 
     const UNIQUES = get_ELEMENTS_WITH_IDS();
-    const BUTTON_NAVIGATION = UNIQUES.button_navigation;
+    const BUTTON_SETTINGS = UNIQUES.button_settings;
 
-    if (BUTTON_NAVIGATION) {
+    if (BUTTON_SETTINGS) {
 
     }
 

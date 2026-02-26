@@ -1,6 +1,6 @@
 
 import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
-import { get_ELEMENTS_IN_HTML, get_ELEMENTS_IN_BODY } from "../global_functions.js";
+import { get_ELEMENTS_IN_HTML, get_ELEMENTS_IN_BODY } from "../global_getters.js";
 
 /*
 

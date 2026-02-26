@@ -1,6 +1,6 @@
 
 import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
-import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_functions.js";
+import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_getters.js";
 
 
 
@@ -30,7 +30,6 @@ sets are not entirely arbitrary either, here is what each layer is dedicated to:
                                     to dive into the code yourself so that you can manipulate things to your liking.
                                     That, or you can make use of the special blocks in some way.)
 5th 3-DIGIT SET : Cases where special blocks are used in the Tertiary Heading layer.
-
 WHY NO 6th SET? : To force people to organize their content rather then relying on infinite spacing.
 
 To be clear, users will still be able to write as much content within each block, so they can still have horribly

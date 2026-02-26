@@ -1,6 +1,6 @@
 
 import { STYLE_CONSTANTS as STYLES} from "../global_styles.js";
-import { get_ELEMENTS_WITH_INPUT_CLASSES, get_ELEMENTS_WITH_IDS } from "../global_functions.js";
+import { get_ELEMENTS_WITH_INPUT_CLASSES, get_ELEMENTS_WITH_IDS } from "../global_getters.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 

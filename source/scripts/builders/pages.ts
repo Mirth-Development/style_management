@@ -32,7 +32,7 @@ build_page("Page Testing", PAGE_TYPE_TESTING);
 
 
 // PAGE BUILDER
-// Builds a more or less blank HTML page that will be thrown into the pages directory.
+// Builds an HTML file that will be thrown into the pages directory.
 function build_page(title: string, page_type: string) {
 
     // The title is modified to ensure that the HTML file name that is made uses underscores and lowercase letters.
@@ -96,7 +96,7 @@ function build_head(title: string): string {
     [
         `       <!-- Scripted Global Links -->`,
         `       <script type="module" src="../scripts/transpiled_scripts/global_attributes.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/global_functions.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/global_getters.js"></script>`,
         `       <script type="module" src="../scripts/transpiled_scripts/global_styles.js"></script>`,
     ].join("\n");
 
@@ -120,7 +120,9 @@ function build_head(title: string): string {
     [
         `       <!-- Scripted Event Links -->`,
         `       <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/button_block.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/events/button_menu.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/events/button_settings.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/events/button_edit.js"></script>`,
         `       <script type="module" src="../scripts/transpiled_scripts/events/button_navigation.js"></script>`,
     ].join("\n");
 
@@ -226,11 +228,11 @@ function build_body_testing(title: string): string {
     return [
         `   <body class="${BLOCK_FORMS.block_form_column.without_selector} ${MARGINS.margin_2.without_selector}">`,
         ``,
-        `       <!-- Button Block Test -->`,
-        `       <div id="${IDS.button_block.without_selector}" class="${BLOCK_FORMS.block_form_fixed_column.without_selector}">Blocks</div>`,
-        ``,
-        `       <!-- Button Navigation Test -->`,
-        `       <div id="${IDS.button_navigation.without_selector}" class="${BLOCK_FORMS.block_form_fixed_column.without_selector}">Navigation</div>`,
+        `       <!-- Button Menu Test -->`,
+        `       <div id="${IDS.button_menu.without_selector}" class="${BLOCK_FORMS.block_form_fixed_column.without_selector}">`,
+        `           <span class="${ICONS.icon_general.without_selector}">menu</span>`,
+        `           <label for="${IDS.button_menu.without_selector}">Menu</label>`,
+        `       </div>`,
         ``,
         `       <!-- Title Test -->`,
         `       <h1 class="${HEADINGS.heading_title.without_selector} ${MARGINS.margin_bottom_1.without_selector}">${title}</h1>`,
@@ -253,14 +255,14 @@ function build_body_testing(title: string): string {
         `       <!-- Block Test -->`,
         `       <div class="${BLOCKS.block_upper.without_selector}">`,
         `           <div class="${BLOCK_FORMS.block_form_row.without_selector}">`,
-        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}"><i class="${ICONS.icon_general.without_selector}">navigation</i>Marginal Top Left</p>`,
+        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}"><span class="${ICONS.icon_general.without_selector}">navigation</span>Marginal Top Left</p>`,
         `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Block #001.001.000.000.000</p>`,
         `           </div>`,
         ``,
         `           <h2 class="${HEADINGS.heading_upper.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}"><i class="${ICONS.icon_general.without_selector}">home</i>Block Test : Part 1</h2>`,
-        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><i class="${ICONS.icon_general.without_selector}">inventory_2</i>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><i class="${ICONS.icon_general.without_selector}">search</i>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}"><i class="${ICONS.icon_general.without_selector}">nest_cam_wired_stand</i>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><span class="${ICONS.icon_general.without_selector}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><span class="${ICONS.icon_general.without_selector}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}"><span class="${ICONS.icon_general.without_selector}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
         `           <div class="${BLOCK_FORMS.block_form_row.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
         `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Bottom Left</p>`,

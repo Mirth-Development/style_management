@@ -20,10 +20,10 @@ function get_ELEMENTS_WITH_IDS() {
     return query_id_elements(IDS);
 }
 function get_ELEMENTS_IN_HTML() {
-    return { html_elements: document.querySelectorAll<HTMLElement>("*") };
+    return document.querySelectorAll<HTMLElement>("*");
 }
 function get_ELEMENTS_IN_BODY() {
-    return { body_elements: document.querySelectorAll<HTMLElement>("body") };
+    return document.querySelectorAll<HTMLElement>("body");
 }
 function get_ELEMENTS_WITH_FORM_CLASSES() {
     return query_class_elements(CLASSES_FORMS);

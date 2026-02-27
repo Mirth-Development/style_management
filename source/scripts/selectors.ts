@@ -21,10 +21,18 @@ const IDS = make_values_for_keys({
 // this through allowing all the classes to be manipulated across the entire system at any given time.  Import them
 // where it is appropriate, don't add all the classes to every single file.
 const CLASSES_FORMS = make_values_for_keys({
-    form_column: "form_column",
-    form_row: "form_row",
-    form_fixed_column: "form_fixed_column",
-    form_fixed_row: "form_fixed_row",
+    form_static_column_start: "form_static_column_start",
+    form_static_column_center: "form_static_column_center",
+    form_static_column_end: "form_static_column_end",
+    form_static_row_start: "form_static_row_start",
+    form_static_row_center: "form_static_row_center",
+    form_static_row_end: "form_static_row_end",
+    form_fixed_column_start: "form_fixed_column_start",
+    form_fixed_column_center: "form_fixed_column_center",
+    form_fixed_column_end: "form_fixed_column_end",
+    form_fixed_row_start: "form_fixed_row_start",
+    form_fixed_row_center: "form_fixed_row_center",
+    form_fixed_row_end: "form_fixed_row_end",
 }, ".");
 const CLASSES_BLOCKS = make_values_for_keys({
     block_upper: "block_upper",

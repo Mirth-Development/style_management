@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text.style.color = STYLES.color_text_general;
         text.style.fontFamily = `${STYLES.font_family_text_general}, ${STYLES.font_family_generic}`;
         text.style.fontSize = STYLES.font_size_text_general;
+        text.style.textAlign = "justified";
         text.style.lineHeight = "1.5";
     });
 

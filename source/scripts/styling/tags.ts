@@ -13,18 +13,18 @@ elements will end up functioning.
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const HTML = get_ELEMENTS_IN_HTML();
-    const BODY = get_ELEMENTS_IN_BODY();
+    const HTML_ELEMENTS = get_ELEMENTS_IN_HTML();
+    const BODY_ELEMENTS = get_ELEMENTS_IN_BODY();
 
     // Universal Styling
-    HTML.html_elements.forEach((element) => {
+    HTML_ELEMENTS.forEach((element) => {
         element.style.margin = "0";
         element.style.padding = "0";
         element.style.boxSizing = "border-box";
     });
 
     // Body Styling
-    BODY.body_elements.forEach((element) => {
+    BODY_ELEMENTS.forEach((element) => {
         element.style.color = STYLES.color_text_general;
         element.style.backgroundColor = STYLES.color_background;
         element.style.fontFamily = `${STYLES.font_family_text_general}, ${STYLES.font_family_generic}`;

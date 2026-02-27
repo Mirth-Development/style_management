@@ -54,6 +54,10 @@ The lower the listed number, the bigger the box.  Boxes can contain smaller boxe
         - Block ID Visual : #000.000.000.999.000
         - Text
 
+    5. SPECIAL BLOCKS INSIDE LOWER BLOCKS
+        - Block ID Visual : #000.000.000.000.999
+        - Text
+
 SPECIAL BLOCKS
 [INSERT NOTE ON IDs FOR SPECIAL BLOCKS HERE]
     A. BLOCK WARNING
@@ -129,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     BLOCKS.block_middle.forEach((block) => {
         block.style.backgroundColor = STYLES.color_block_background_middle;
         block.style.borderColor = STYLES.color_block_border_middle;
+        block.style.borderStyle = "inset";
         block.style.borderRadius = "5px";
         block.style.marginLeft = STYLES.spacing_horizontal_6;
         block.style.marginRight = STYLES.spacing_horizontal_6;

@@ -1,6 +1,6 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
-import { get_ELEMENTS_WITH_MARGIN_CLASSES, get_ELEMENTS_WITH_PADDING_CLASSES } from "../global_getters.js";
+import { STYLE_CONSTANTS as STYLES } from "../styling.js";
+import { get_ELEMENTS_WITH_MARGIN_CLASSES, get_ELEMENTS_WITH_PADDING_CLASSES } from "../getters.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 

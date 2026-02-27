@@ -39,13 +39,13 @@ function get_ELEMENTS_WITH_INPUT_CLASSES() {
 // ----------------------------------------------------------------------------------------------------------------- //
 // QUERY ELEMENTS FOR ATTRIBUTE FUNCTIONS
 // SPECIAL NOTE ON THESE FUNCTIONS
-// They are very similar to the make_values_for_keys function seen in the global_attributes.ts file.  I
+// They are very similar to the make_values_for_keys function seen in the selectors.ts file.  I
 // honestly recommend reading the comments on that function before trying to understand these functions since they
 // are more or less connected to what the make_values_for_keys function outputs.
 // PURPOSE OF THESE FUNCTIONS
 // Used to automate the get_ELEMENT functions above by ensuring that new classes/ids have their elements
 // retrieved in the get_ELEMENT functions the moment they are added to the system.  We do this so that we don't have
-// to update the global_attributes.ts file AND this file when a new id or class is added to the system.
+// to update the selectors.ts file AND this file when a new id or class is added to the system.
 // QUERY_ID_ELEMENTS
 // INPUT : Will take in an object that has keys with values that are objects holding the properties with_selector and without_selector.
 // PROCESS : Goes through each key (id) and assigns the corresponding element data to the key.

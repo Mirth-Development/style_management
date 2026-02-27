@@ -1,6 +1,6 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
-import { get_ELEMENTS_IN_HTML, get_ELEMENTS_IN_BODY } from "../global_getters.js";
+import { STYLE_CONSTANTS as STYLES } from "../styling.js";
+import { get_ELEMENTS_IN_HTML, get_ELEMENTS_IN_BODY } from "../getters.js";
 
 /*
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         element.style.fontStyle = "normal";
         element.style.fontSize = "2rem";
         element.style.lineHeight = "1";
-        /* The below BODY styling are allowing justify to have as close to evenly spaced blanks between words as one can.
+        /* The below BODY styling is allowing justify to have as close to evenly spaced blanks between words as one can.
         Be careful tweaking these properties, it can make your text really fucky if not calibrated correctly.  But it may
         need to be done when different font families potentially get used.  And as a final note, a lot of these properties
         really only apply under very specific scenarios.  So if you don't see anything happen after changing something,

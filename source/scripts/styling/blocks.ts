@@ -1,6 +1,6 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../global_styles.js";
-import { get_ELEMENTS_WITH_BLOCK_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../global_getters.js";
+import { STYLE_CONSTANTS as STYLES } from "../styling.js";
+import { get_ELEMENTS_WITH_FORM_CLASSES, get_ELEMENTS_WITH_BLOCK_CLASSES } from "../getters.js";
 
 
 
@@ -69,43 +69,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* -------------------------------------------------------------------------------------------------------- */
     /* BLOCK FORMS */
-    const BLOCK_FORMS = get_ELEMENTS_WITH_BLOCK_FORM_CLASSES();
+    const FORMS = get_ELEMENTS_WITH_FORM_CLASSES();
 
     // Makes column flex boxes when applied to a tag.
     // We use these to ensure the contents of the boxes within are vertically displayed.
-    BLOCK_FORMS.block_form_column.forEach((block) => {
-        block.style.display = "flex";
-        block.style.flexDirection = "column";
-        block.style.alignItems = "center";
+    FORMS.form_column.forEach((element) => {
+        element.style.display = "flex";
+        element.style.flexDirection = "column";
+        element.style.alignItems = "center";
     });
 
     // Makes row flex boxes when applied to a tag.
     // We use these to ensure the contents of the boxes within are horizontally displayed.
-    BLOCK_FORMS.block_form_row.forEach((block) => {
-        block.style.display = "flex";
-        block.style.flexDirection = "row";
-        block.style.alignItems = "center";
+    FORMS.form_row.forEach((element) => {
+        element.style.display = "flex";
+        element.style.flexDirection = "row";
+        element.style.alignItems = "center";
     });
 
 
     // Makes fixed column boxes when applied to a tag.
     // We use these for UI contents that need to constantly stay in view (don't go away with scrolling)
     // and have to have their contents displayed horizontally.
-    BLOCK_FORMS.block_form_fixed_column.forEach((block) => {
-        block.style.display = "flex";
-        block.style.position = "fixed";
-        block.style.flexDirection = "column";
-        block.style.alignItems = "center";
+    FORMS.form_fixed_column.forEach((element) => {
+        element.style.display = "flex";
+        element.style.position = "fixed";
+        element.style.flexDirection = "column";
+        element.style.alignItems = "center";
     });
 
     // Makes fixed row boxes when applied to a tag.
     // We use these for UI contents that need to constantly stay in view (don't go away with scrolling)
     // and have to have their contents displayed horizontally.
-    BLOCK_FORMS.block_form_fixed_row.forEach((block) => {
-        block.style.display = "flex";
-        block.style.position = "fixed";
-        block.style.flexDirection = "row";
-        block.style.alignItems = "center";
+    FORMS.form_fixed_row.forEach((element) => {
+        element.style.display = "flex";
+        element.style.position = "fixed";
+        element.style.flexDirection = "row";
+        element.style.alignItems = "center";
     });
     /* -------------------------------------------------------------------------------------------------------- */
 

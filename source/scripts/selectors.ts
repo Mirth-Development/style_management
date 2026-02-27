@@ -9,6 +9,7 @@ const IDS = make_values_for_keys({
     button_menu: "button_menu",
     button_settings: "button_settings",
 }, "#");
+// ----------------------------------------------------------------------------------------------------------------- //
 
 
 
@@ -19,11 +20,11 @@ const IDS = make_values_for_keys({
 // An example would be if a button was clicked, then all the general text would increase in font-size - we can achieve
 // this through allowing all the classes to be manipulated across the entire system at any given time.  Import them
 // where it is appropriate, don't add all the classes to every single file.
-const CLASSES_BLOCK_FORMS = make_values_for_keys({
-    block_form_column: "block_form_column",
-    block_form_row: "block_form_row",
-    block_form_fixed_column: "block_form_fixed_column",
-    block_form_fixed_row: "block_form_fixed_row",
+const CLASSES_FORMS = make_values_for_keys({
+    form_column: "form_column",
+    form_row: "form_row",
+    form_fixed_column: "form_fixed_column",
+    form_fixed_row: "form_fixed_row",
 }, ".");
 const CLASSES_BLOCKS = make_values_for_keys({
     block_upper: "block_upper",
@@ -147,7 +148,6 @@ const CLASSES_INPUTS = make_values_for_keys({
     input_text_1: "input_text_1",
     input_time_1: "input_time_1",
 }, ".");
-
 // ----------------------------------------------------------------------------------------------------------------- //
 
 
@@ -165,6 +165,7 @@ const CLASSES_INPUTS = make_values_for_keys({
 // requires a selector character to be present.
 // Lastly, you do need to pass in a selector type (# or .) for the function to determine which type of selector
 // you want on your with_selector values.
+
 function make_values_for_keys <T extends Record<string, string>>
     (object_with_keys: T, selector_type: string):
     { [K in keyof T]: { with_selector: string; without_selector: string } } {
@@ -185,7 +186,7 @@ function make_values_for_keys <T extends Record<string, string>>
 
 export {
     IDS,
-    CLASSES_BLOCK_FORMS,
+    CLASSES_FORMS,
     CLASSES_BLOCKS,
     CLASSES_HEADINGS,
     CLASSES_TEXT,

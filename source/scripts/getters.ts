@@ -1,7 +1,7 @@
 
 import {
     IDS,
-    CLASSES_BLOCK_FORMS,
+    CLASSES_FORMS,
     CLASSES_BLOCKS,
     CLASSES_HEADINGS,
     CLASSES_TEXT,
@@ -9,7 +9,7 @@ import {
     CLASSES_MARGINS,
     CLASSES_PADDINGS,
     CLASSES_INPUTS,
-} from "./global_attributes.js";
+} from "./selectors.js";
 
 
 
@@ -25,8 +25,8 @@ function get_ELEMENTS_IN_HTML() {
 function get_ELEMENTS_IN_BODY() {
     return { body_elements: document.querySelectorAll<HTMLElement>("body") };
 }
-function get_ELEMENTS_WITH_BLOCK_FORM_CLASSES() {
-    return query_class_elements(CLASSES_BLOCK_FORMS);
+function get_ELEMENTS_WITH_FORM_CLASSES() {
+    return query_class_elements(CLASSES_FORMS);
 }
 function get_ELEMENTS_WITH_BLOCK_CLASSES() {
     return query_class_elements(CLASSES_BLOCKS);
@@ -57,14 +57,14 @@ function get_ELEMENTS_WITH_INPUT_CLASSES() {
 // QUERY ELEMENTS FOR ATTRIBUTE FUNCTIONS
 
 // SPECIAL NOTE ON THESE FUNCTIONS
-// They are very similar to the make_values_for_keys function seen in the global_attributes.ts file.  I
+// They are very similar to the make_values_for_keys function seen in the selectors.ts file.  I
 // honestly recommend reading the comments on that function before trying to understand these functions since they
 // are more or less connected to what the make_values_for_keys function outputs.
 
 // PURPOSE OF THESE FUNCTIONS
 // Used to automate the get_ELEMENT functions above by ensuring that new classes/ids have their elements
 // retrieved in the get_ELEMENT functions the moment they are added to the system.  We do this so that we don't have
-// to update the global_attributes.ts file AND this file when a new id or class is added to the system.
+// to update the selectors.ts file AND this file when a new id or class is added to the system.
 
 // QUERY_ID_ELEMENTS
 // INPUT : Will take in an object that has keys with values that are objects holding the properties with_selector and without_selector.
@@ -78,10 +78,11 @@ function query_id_elements <T extends Record<string, { with_selector: string; wi
     (object_with_id_keys: T):
     { [K in keyof T]: HTMLElement | null } {
 
+    // Creating an empty object to fill with queried elements.
     let the_object_modified = {} as { [K in keyof T]: HTMLElement | null };
 
     // Go through each id (key) in the passed object and collect the element associated with the id and use the
-    // element for the key's value.
+    // element for a key's value in the modified object.
     for (const key in object_with_id_keys) {
         the_object_modified[key] = document.querySelector<HTMLElement>(object_with_id_keys[key].with_selector);
     }
@@ -100,10 +101,11 @@ function query_class_elements <T extends Record<string, { with_selector: string;
     (object_with_class_keys: T):
     { [K in keyof T]: NodeListOf<HTMLElement> } {
 
+    // Creating an empty object to fill with queried elements.
     let the_object_modified = {} as { [K in keyof T]: NodeListOf<HTMLElement> };
 
     // Go through each class (key) in the passed object and collect the elements associated with the class and use the
-    // elements for the key's value.
+    // elements for a key's value in the modified object.
     for (const key in object_with_class_keys) {
         the_object_modified[key] = document.querySelectorAll<HTMLElement>(object_with_class_keys[key].with_selector);
     }
@@ -118,7 +120,7 @@ export {
     get_ELEMENTS_IN_HTML,
     get_ELEMENTS_IN_BODY,
     get_ELEMENTS_WITH_IDS,
-    get_ELEMENTS_WITH_BLOCK_FORM_CLASSES,
+    get_ELEMENTS_WITH_FORM_CLASSES,
     get_ELEMENTS_WITH_BLOCK_CLASSES,
     get_ELEMENTS_WITH_HEADING_CLASSES,
     get_ELEMENTS_WITH_TEXT_CLASSES,

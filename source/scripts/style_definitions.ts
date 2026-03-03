@@ -1,60 +1,5 @@
 
-// SPACINGS DEFINITION
-// This style definition is to be used throughout all the other ones, it is used to ensure that spacing
-// definitions are universal across all the styles.  If need be, more spacing types can be added into this
-// definition at a later date.
-// Also, this definition is NOT to be exported.  We don't export this definition to ensure that all spacing
-// definitions are defined in this document and not elsewhere - it can quickly become confusing if there are
-// many things changing the spacing throughout the system.
-const SPACINGS = {
-
-    // SPECIAL SPACING VARIABLES
-    // spacing_auto is present in case there is a scenario where all space needs to be filled up in a given direction.
-    // spacing_anchor_vertical and spacing_anchor_horizontal exist to keep the aspect ratio of spacing consistent
-    // across all spacing applications.  If one is to change their values, then I recommend setting them to be the same
-    // in value; keep vertical set to vh and horizontal set to vw of course.
-    spacing_auto: "auto",
-    spacing_anchor_vertical: "3vh",
-    spacing_anchor_horizontal: "3vw",
-
-    // SPACING ANCHORS : Used to create new mins and maxes for when the viewport size changes.
-    // The lower the anchor number, the bigger the space.  The higher the anchor number, the smaller the space.
-    spacing_anchor_min_1: "1.5rem",
-    spacing_anchor_max_1: "3rem",
-
-    spacing_anchor_min_2: "1rem",
-    spacing_anchor_max_2: "2rem",
-
-    spacing_anchor_min_3: "0.75rem",
-    spacing_anchor_max_3: "1.5rem",
-
-    spacing_anchor_min_4: "0.5rem",
-    spacing_anchor_max_4: "1rem",
-
-    spacing_anchor_min_5: "0.25rem",
-    spacing_anchor_max_5: "0.5rem",
-
-    spacing_anchor_min_6: "0.125rem",
-    spacing_anchor_max_6: "0.25rem",
-
-    // VERTICAL SPACING : Based on viewport height and spacing anchors.
-    spacing_vertical_1: "clamp(var(--spacing_anchor_min_1), var(--spacing_anchor_vertical), var(--spacing_anchor_max_1))",
-    spacing_vertical_2: "clamp(var(--spacing_anchor_min_2), var(--spacing_anchor_vertical), var(--spacing_anchor_max_2))",
-    spacing_vertical_3: "clamp(var(--spacing_anchor_min_3), var(--spacing_anchor_vertical), var(--spacing_anchor_max_3))",
-    spacing_vertical_4: "clamp(var(--spacing_anchor_min_4), var(--spacing_anchor_vertical), var(--spacing_anchor_max_4))",
-    spacing_vertical_5: "clamp(var(--spacing_anchor_min_5), var(--spacing_anchor_vertical), var(--spacing_anchor_max_5))",
-    spacing_vertical_6: "clamp(var(--spacing_anchor_min_6), var(--spacing_anchor_vertical), var(--spacing_anchor_max_6))",
-
-    // HORIZONTAL SPACING : Based on viewport width and spacing anchors.
-    spacing_horizontal_1: "clamp(var(--spacing_anchor_min_1), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_1))",
-    spacing_horizontal_2: "clamp(var(--spacing_anchor_min_2), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_2))",
-    spacing_horizontal_3: "clamp(var(--spacing_anchor_min_3), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_3))",
-    spacing_horizontal_4: "clamp(var(--spacing_anchor_min_4), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_4))",
-    spacing_horizontal_5: "clamp(var(--spacing_anchor_min_5), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_5))",
-    spacing_horizontal_6: "clamp(var(--spacing_anchor_min_6), var(--spacing_anchor_horizontal), var(--spacing_anchor_max_6))",
-} as const;
-
-const STYLE_STARK_ROYAL = {
+export const STYLE_STARK_ROYAL = {
 
     // Word and Letter Spacing
     spacing_words: "-0.05em",
@@ -130,8 +75,8 @@ const STYLE_STARK_ROYAL = {
 
 // EMBEDDING CSS VARIABLES
 // Looping through each property inside a passed styles object and applying them as CSS variables to a root element.
-// We're doing this here we so can utilize the constants in both the CSS files and in the TypeScript files.
-function make_css_variables_from_styles(styles: Record<string, string>): void {
+// We're doing this here we so can utilize the constants in both CSS files and in TypeScript files.
+function make_css_variables_from_definition(styles: Record<string, string>): void {
 
     // We're obtaining a root element (an html tag) here so we can designate where the styles need to be
     // recognized as CSS variables.  Where you call the function will dictate which root element you're grabbing.
@@ -143,7 +88,4 @@ function make_css_variables_from_styles(styles: Record<string, string>): void {
     }
 }
 
-export {
-    STYLE_STARK_ROYAL,
-    make_css_variables_from_styles,
-}
+export * from "./style_definitions.js";

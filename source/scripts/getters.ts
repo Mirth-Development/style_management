@@ -1,57 +1,43 @@
 
-import {
-    IDS,
-    CLASSES_FORMS,
-    CLASSES_BLOCKS,
-    CLASSES_HEADINGS,
-    CLASSES_TEXT,
-    CLASSES_ICONS,
-    CLASSES_MARGINS,
-    CLASSES_PADDINGS,
-    CLASSES_INPUTS,
-} from "./selectors.js";
-
-
+import * as SELECTORS from "./selectors.js";
 
 // ----------------------------------------------------------------------------------------------------------------- //
 // GLOBAL GET-ELEMENT FUNCTIONS: These functions will allow the rest of the system to retrieve the elements with a
 // specified type of attribute category.
-function get_ELEMENTS_WITH_IDS() {
-    return query_id_elements(IDS);
+export function get_ELEMENTS_WITH_IDS() {
+    return query_id_elements(SELECTORS.IDS);
 }
-function get_ELEMENTS_IN_HTML() {
+export function get_ELEMENTS_IN_HTML() {
     return document.querySelectorAll<HTMLElement>("*");
 }
-function get_ELEMENTS_IN_BODY() {
+export function get_ELEMENTS_IN_BODY() {
     return document.querySelectorAll<HTMLElement>("body");
 }
-function get_ELEMENTS_WITH_FORM_CLASSES() {
-    return query_class_elements(CLASSES_FORMS);
+export function get_ELEMENTS_WITH_FORM_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_FORMS);
 }
-function get_ELEMENTS_WITH_BLOCK_CLASSES() {
-    return query_class_elements(CLASSES_BLOCKS);
+export function get_ELEMENTS_WITH_BLOCK_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_BLOCKS);
 }
-function get_ELEMENTS_WITH_HEADING_CLASSES() {
-    return query_class_elements(CLASSES_HEADINGS);
+export function get_ELEMENTS_WITH_HEADING_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_HEADINGS);
 }
-function get_ELEMENTS_WITH_TEXT_CLASSES() {
-    return query_class_elements(CLASSES_TEXT);
+export function get_ELEMENTS_WITH_TEXT_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_TEXT);
 }
-function get_ELEMENTS_WITH_ICON_CLASSES() {
-    return query_class_elements(CLASSES_ICONS);
+export function get_ELEMENTS_WITH_ICON_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_ICONS);
 }
-function get_ELEMENTS_WITH_MARGIN_CLASSES() {
-    return query_class_elements(CLASSES_MARGINS);
+export function get_ELEMENTS_WITH_MARGIN_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_MARGINS);
 }
-function get_ELEMENTS_WITH_PADDING_CLASSES() {
-    return query_class_elements(CLASSES_PADDINGS);
+export function get_ELEMENTS_WITH_PADDING_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_PADDINGS);
 }
-function get_ELEMENTS_WITH_INPUT_CLASSES() {
-    return query_class_elements(CLASSES_INPUTS);
+export function get_ELEMENTS_WITH_INPUT_CLASSES() {
+    return query_class_elements(SELECTORS.CLASSES_INPUTS);
 }
 // ----------------------------------------------------------------------------------------------------------------- //
-
-
 
 // ----------------------------------------------------------------------------------------------------------------- //
 // QUERY ELEMENTS FOR ATTRIBUTE FUNCTIONS
@@ -114,18 +100,4 @@ function query_class_elements <T extends Record<string, { with_selector: string;
 }
 // ----------------------------------------------------------------------------------------------------------------- //
 
-
-
-export {
-    get_ELEMENTS_IN_HTML,
-    get_ELEMENTS_IN_BODY,
-    get_ELEMENTS_WITH_IDS,
-    get_ELEMENTS_WITH_FORM_CLASSES,
-    get_ELEMENTS_WITH_BLOCK_CLASSES,
-    get_ELEMENTS_WITH_HEADING_CLASSES,
-    get_ELEMENTS_WITH_TEXT_CLASSES,
-    get_ELEMENTS_WITH_ICON_CLASSES,
-    get_ELEMENTS_WITH_MARGIN_CLASSES,
-    get_ELEMENTS_WITH_PADDING_CLASSES,
-    get_ELEMENTS_WITH_INPUT_CLASSES,
-};
+export * from "./getters.js";

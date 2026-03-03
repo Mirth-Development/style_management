@@ -3,15 +3,13 @@
 // GLOBAL IDs : Elements that are very special and have an id attached to them manually - not through an automated
 // process.  These elements represent the most important elements of a page such as the navigation button and the
 // button that will allow for adding/removing blocks.
-const IDS = make_values_for_keys({
-    button_edit: "button_edit",
-    button_navigation: "button_navigation",
-    button_menu: "button_menu",
-    button_settings: "button_settings",
+export const IDS = make_values_for_keys({
+    edit: "edit",
+    navigation: "navigation",
+    menu: "menu",
+    settings: "settings",
 }, "#");
 // ----------------------------------------------------------------------------------------------------------------- //
-
-
 
 // ----------------------------------------------------------------------------------------------------------------- //
 // GLOBAL CLASSES : Lists of constants that hold every class name used in the project, this ensures that all
@@ -20,7 +18,7 @@ const IDS = make_values_for_keys({
 // An example would be if a button was clicked, then all the general text would increase in font-size - we can achieve
 // this through allowing all the classes to be manipulated across the entire system at any given time.  Import them
 // where it is appropriate, don't add all the classes to every single file.
-const CLASSES_FORMS = make_values_for_keys({
+export const CLASSES_FORMS = make_values_for_keys({
     form_static_column_start: "form_static_column_start",
     form_static_column_center: "form_static_column_center",
     form_static_column_end: "form_static_column_end",
@@ -34,14 +32,14 @@ const CLASSES_FORMS = make_values_for_keys({
     form_fixed_row_center: "form_fixed_row_center",
     form_fixed_row_end: "form_fixed_row_end",
 }, ".");
-const CLASSES_BLOCKS = make_values_for_keys({
+export const CLASSES_BLOCKS = make_values_for_keys({
     block_upper: "block_upper",
     block_middle: "block_middle",
     block_lower: "block_lower",
     block_warning: "block_warning",
     block_story: "block_story",
 }, ".");
-const CLASSES_HEADINGS = make_values_for_keys({
+export const CLASSES_HEADINGS = make_values_for_keys({
     heading_title: "heading_title",
     heading_upper: "heading_upper",
     heading_middle: "heading_middle",
@@ -49,17 +47,17 @@ const CLASSES_HEADINGS = make_values_for_keys({
     heading_warning: "heading_warning",
     heading_story: "heading_story",
 }, ".");
-const CLASSES_TEXT = make_values_for_keys({
+export const CLASSES_TEXT = make_values_for_keys({
     text_general: "text_general",
     text_marginal: "text_marginal",
     text_warning: "text_warning",
     text_story: "text_story",
     text_visual: "text_visual",
 }, ".");
-const CLASSES_ICONS = make_values_for_keys({
+export const CLASSES_ICONS = make_values_for_keys({
     icon_general: "icon_general",
 }, ".");
-const CLASSES_MARGINS = make_values_for_keys({
+export const CLASSES_MARGINS = make_values_for_keys({
     margin_0: "margin_0",
     margin_1: "margin_1",
     margin_2: "margin_2",
@@ -100,7 +98,7 @@ const CLASSES_MARGINS = make_values_for_keys({
     margin_right_5: "margin_right_5",
     margin_right_6: "margin_right_6",
 }, ".");
-const CLASSES_PADDINGS = make_values_for_keys({
+export const CLASSES_PADDINGS = make_values_for_keys({
     padding_0: "padding_0",
     padding_1: "padding_1",
     padding_2: "padding_2",
@@ -141,7 +139,7 @@ const CLASSES_PADDINGS = make_values_for_keys({
     padding_right_5: "padding_right_5",
     padding_right_6: "padding_right_6",
 }, ".");
-const CLASSES_INPUTS = make_values_for_keys({
+export const CLASSES_INPUTS = make_values_for_keys({
     input_button_1: "input_button_1",
     input_checkbox_1: "input_checkbox_1",
     input_color_1: "input_color_1",
@@ -158,8 +156,6 @@ const CLASSES_INPUTS = make_values_for_keys({
 }, ".");
 // ----------------------------------------------------------------------------------------------------------------- //
 
-
-
 // ----------------------------------------------------------------------------------------------------------------- //
 // MAKE_VALUES_FOR_KEYS
 // This function is used to allow attributes to be utilized in both their forms.
@@ -173,7 +169,6 @@ const CLASSES_INPUTS = make_values_for_keys({
 // requires a selector character to be present.
 // Lastly, you do need to pass in a selector type (# or .) for the function to determine which type of selector
 // you want on your with_selector values.
-
 function make_values_for_keys <T extends Record<string, string>>
     (object_with_keys: T, selector_type: string):
     { [K in keyof T]: { with_selector: string; without_selector: string } } {
@@ -192,14 +187,4 @@ function make_values_for_keys <T extends Record<string, string>>
 }
 // ----------------------------------------------------------------------------------------------------------------- //
 
-export {
-    IDS,
-    CLASSES_FORMS,
-    CLASSES_BLOCKS,
-    CLASSES_HEADINGS,
-    CLASSES_TEXT,
-    CLASSES_ICONS,
-    CLASSES_MARGINS,
-    CLASSES_PADDINGS,
-    CLASSES_INPUTS,
-};
+export * from "./selectors.js";

@@ -11,25 +11,13 @@
        <link rel="stylesheet" href="../stylesheets/fonts.css">
 
        <!-- Scripted Global Links -->
-       <script type="module" src="../scripts/transpiled_scripts/global_selectors.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/global_getters.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/global_styles.js"></script>
-
-       <!-- Scripted Styling Links -->
-       <script type="module" src="../scripts/transpiled_scripts/styling/tags.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/spacings.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/blocks.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/text.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/icons.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/headings.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/styling/inputs.js"></script>
+       <script type="module" src="../scripts/transpiled_scripts/selectors.js"></script>
+       <script type="module" src="../scripts/transpiled_scripts/getters.js"></script>
+       <script type="module" src="../scripts/transpiled_scripts/styling.js"></script>
+       <script type="module" src="../scripts/transpiled_scripts/style_definitions.js"></script>
 
        <!-- Scripted Event Links -->
        <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/events/button_menu.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/events/button_settings.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/events/button_edit.js"></script>
-       <script type="module" src="../scripts/transpiled_scripts/events/button_navigation.js"></script>
 
        <!-- Scripted Builder Links -->
        <script type="module" src="../scripts/transpiled_scripts/builders/pages.js"></script>
@@ -38,12 +26,12 @@
 
 
 
-   <body class="form_column margin_2">
+   <body class="form_static_column_center margin_2">
 
        <!-- Button Menu Test -->
-       <div id="button_menu" class="form_fixed_column">
+       <div id="menu" class="form_fixed_column_center">
            <span class="icon_general">menu</span>
-           <label for="button_menu">Menu</label>
+           <label for="menu">Menu</label>
        </div>
 
        <!-- Title Test -->
@@ -66,9 +54,9 @@
 
        <!-- Block Test -->
        <div class="block_upper">
-           <div class="form_row">
-               <p class="text_marginal margin_right_0"><span class="icon_general">navigation</span>Marginal Top Left</p>
-               <p class="text_marginal margin_left_0">Block #001.001.000.000.000</p>
+           <div class="form_static_row_center">
+               <p class="text_marginal margin_right_auto"><span class="icon_general">navigation</span>Marginal Top Left</p>
+               <p class="text_marginal margin_left_auto">Block #001.001.000.000.000</p>
            </div>
 
            <h2 class="heading_upper margin_bottom_5 margin_top_4"><i class="icon_general">home</i>Block Test : Part 1</h2>
@@ -76,15 +64,15 @@
            <p class="text_general margin_bottom_4"><span class="icon_general">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
            <p class="text_general margin_bottom_2"><span class="icon_general">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
 
-           <div class="form_row margin_bottom_2">
-               <p class="text_marginal margin_right_0">Marginal Bottom Left</p>
-               <p class="text_marginal margin_left_0">Marginal Bottom Right</p>
+           <div class="form_static_row_center margin_bottom_2">
+               <p class="text_marginal margin_right_auto">Marginal Bottom Left</p>
+               <p class="text_marginal margin_left_auto">Marginal Bottom Right</p>
            </div>
 
            <div class="block_middle">
-               <div class="form_row">
-                   <p class="text_marginal margin_right_0">Marginal Top Left</p>
-                   <p class="text_marginal margin_left_0">Marginal Top Right</p>
+               <div class="form_static_row_center">
+                   <p class="text_marginal margin_right_auto">Marginal Top Left</p>
+                   <p class="text_marginal margin_left_auto">Marginal Top Right</p>
                </div>
 
                <h3 class="heading_middle margin_bottom_5 margin_top_4">Block Test : Part 2</h3>
@@ -92,15 +80,15 @@
                <p class="text_general margin_bottom_4">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
                <p class="text_general margin_bottom_2">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
 
-               <div class="form_row margin_bottom_2">
-                   <p class="text_marginal margin_right_0">Marginal Bottom Left</p>
-                   <p class="text_marginal margin_left_0">Marginal Bottom Right</p>
+               <div class="form_static_row_center margin_bottom_2">
+                   <p class="text_marginal margin_right_auto">Marginal Bottom Left</p>
+                   <p class="text_marginal margin_left_auto">Marginal Bottom Right</p>
                </div>
 
                <div class="block_lower">
-                   <div class="form_row">
-                       <p class="text_marginal margin_right_0">Marginal Top Left</p>
-                       <p class="text_marginal margin_left_0">Marginal Top Right</p>
+                   <div class="form_static_row_center">
+                       <p class="text_marginal margin_right_auto">Marginal Top Left</p>
+                       <p class="text_marginal margin_left_auto">Marginal Top Right</p>
                    </div>
 
                    <h4 class="heading_lower margin_bottom_5 margin_top_4">Block Test : Part 3</h4>
@@ -108,21 +96,20 @@
                    <p class="text_general margin_bottom_4">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
                    <p class="text_general margin_bottom_2">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
 
-                   <div class="form_row margin_bottom_2">
-                       <p class="text_marginal margin_right_0">Marginal Bottom Left</p>
-                       <p class="text_marginal margin_left_0">Marginal Bottom Right</p>
+                   <div class="form_static_row_center margin_bottom_2">
+                       <p class="text_marginal margin_right_auto">Marginal Bottom Left</p>
+                       <p class="text_marginal margin_left_auto">Marginal Bottom Right</p>
                    </div>
 
-                   <div class="form_column">
-                       <div class="block_warning margin_bottom_4">
-                           <h5 class="heading_warning margin_bottom_5 margin_top_5">WARNING</h5>
-                           <p class="text_warning">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>
-                       </div>
-                       <div class="block_story">
-                           <h5 class="heading_story margin_bottom_5 margin_top_5">The Knight That Lost Their Way</h5>
-                           <p class="text_story margin_bottom_4">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
-                           <p class="text_visual">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
-                       </div>
+                   <div class="block_warning margin_bottom_2">
+                       <h5 class="heading_warning margin_bottom_5 margin_top_5">WARNING</h5>
+                       <p class="text_warning">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>
+                   </div>
+
+                   <div class="block_story">
+                       <h5 class="heading_story margin_bottom_5 margin_top_5">The Knight That Lost Their Way</h5>
+                       <p class="text_story margin_bottom_4">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
+                       <p class="text_visual">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>
                    </div>
                </div>
            </div>

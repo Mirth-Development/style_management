@@ -1,8 +1,6 @@
 
 import * as FS from "fs";
 import * as PATH from "path";
-import * as DEFINITIONS from "../style_definitions.js";
-import { apply_style_definition } from "../styling.js";
 import {
     IDS,
     CLASSES_FORMS as FORMS,
@@ -25,13 +23,13 @@ const PAGE_TYPE_TESTING: string = "page_for_testing";
 // PAGE BUILDERS FOR TESTING
 // When this file is executed these builds will generate all the types of pages.
 // We do this so that regenerating pages during development/testing is simple.
-build_page("Page Blank", PAGE_TYPE_BLANK, DEFINITIONS.STYLE_STARK_ROYAL);
-build_page("Page Title", PAGE_TYPE_TITLE, DEFINITIONS.STYLE_STARK_ROYAL);
-build_page("Page Testing", PAGE_TYPE_TESTING, DEFINITIONS.STYLE_STARK_ROYAL);
+build_page("Page Blank", PAGE_TYPE_BLANK);
+build_page("Page Title", PAGE_TYPE_TITLE);
+build_page("Page Testing", PAGE_TYPE_TESTING);
 
 // PAGE BUILDER
 // Builds an HTML file that will be thrown into the pages directory.
-export function build_page(title: string, page_type: string, style_definition: Record<string, string>) {
+export function build_page(title: string, page_type: string) {
 
     // The title is modified to ensure that the HTML file name that is made uses underscores and lowercase letters.
     const name_of_file = title.toLowerCase().replace(/\s+/g, "_") + ".html";
@@ -44,9 +42,6 @@ export function build_page(title: string, page_type: string, style_definition: R
 
     // Writes out an HTML file using the UTF-8 character set, the html_content that was produced, and at the output_path's location.
     FS.writeFileSync(output_path, html_content, "utf-8");
-
-    // Applies styles to the new page.
-    apply_style_definition(style_definition);
 }
 
 // HTML BUILDER
@@ -92,23 +87,10 @@ function build_head(title: string): string {
     const scripted_global_links =
     [
         `       <!-- Scripted Global Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/global_selectors.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/global_getters.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/global_styles.js"></script>`,
-    ].join("\n");
-
-
-    // STYLING SCRIPTS GO HERE!
-    const scripted_styling_links =
-    [
-        `       <!-- Scripted Styling Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/tags.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/spacings.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/blocks.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/text.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/icons.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/headings.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling/inputs.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/selectors.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/getters.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/styling.js"></script>`,
+        `       <script type="module" src="../scripts/transpiled_scripts/style_definitions.js"></script>`,
     ].join("\n");
 
 
@@ -117,10 +99,6 @@ function build_head(title: string): string {
     [
         `       <!-- Scripted Event Links -->`,
         `       <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/button_menu.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/button_settings.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/button_edit.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/button_navigation.js"></script>`,
     ].join("\n");
 
 
@@ -142,8 +120,6 @@ function build_head(title: string): string {
         `${stylesheet_links}`,
         ``,
         `${scripted_global_links}`,
-        ``,
-        `${scripted_styling_links}`,
         ``,
         `${scripted_event_links}`,
         ``,
@@ -244,8 +220,8 @@ function build_body_testing(title: string): string {
         `       <!-- Block Test -->`,
         `       <div class="${BLOCKS.block_upper.without_selector}">`,
         `           <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}"><span class="${ICONS.icon_general.without_selector}">navigation</span>Marginal Top Left</p>`,
-        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Block #001.001.000.000.000</p>`,
+        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}"><span class="${ICONS.icon_general.without_selector}">navigation</span>Marginal Top Left</p>`,
+        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Block #001.001.000.000.000</p>`,
         `           </div>`,
         ``,
         `           <h2 class="${HEADINGS.heading_upper.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}"><i class="${ICONS.icon_general.without_selector}">home</i>Block Test : Part 1</h2>`,
@@ -254,14 +230,14 @@ function build_body_testing(title: string): string {
         `           <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}"><span class="${ICONS.icon_general.without_selector}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
         `           <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Bottom Left</p>`,
-        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Marginal Bottom Right</p>`,
+        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
+        `               <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
         `           </div>`,
         ``,
         `           <div class="${BLOCKS.block_middle.without_selector}">`,
         `               <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Top Left</p>`,
-        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Marginal Top Right</p>`,
+        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Top Left</p>`,
+        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Top Right</p>`,
         `               </div>`,
         ``,
         `               <h3 class="${HEADINGS.heading_middle.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}">Block Test : Part 2</h3>`,
@@ -270,14 +246,14 @@ function build_body_testing(title: string): string {
         `               <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
         `               <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Bottom Left</p>`,
-        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Marginal Bottom Right</p>`,
+        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
+        `                   <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
         `               </div>`,
         ``,
         `               <div class="${BLOCKS.block_lower.without_selector}">`,
         `                   <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Top Left</p>`,
-        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Marginal Top Right</p>`,
+        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Top Left</p>`,
+        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Top Right</p>`,
         `                   </div>`,
         ``,
         `                   <h4 class="${HEADINGS.heading_lower.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}">Block Test : Part 3</h4>`,
@@ -286,20 +262,19 @@ function build_body_testing(title: string): string {
         `                   <p class="${TEXT.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
         `                   <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_0.without_selector}">Marginal Bottom Left</p>`,
-        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_0.without_selector}">Marginal Bottom Right</p>`,
+        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
+        `                       <p class="${TEXT.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
         `                   </div>`,
         ``,
-        `                   <div class="${FORMS.form_static_column_center.without_selector}">`,
-        `                       <div class="${BLOCKS.block_warning.without_selector} ${MARGINS.margin_bottom_4.without_selector}">`,
-        `                           <h5 class="${HEADINGS.heading_warning.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">WARNING</h5>`,
-        `                           <p class="${TEXT.text_warning.without_selector}">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>`,
-        `                       </div>`,
-        `                       <div class="${BLOCKS.block_story.without_selector}">`,
-        `                           <h5 class="${HEADINGS.heading_story.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">The Knight That Lost Their Way</h5>`,
-        `                           <p class="${TEXT.text_story.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                           <p class="${TEXT.text_visual.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                       </div>`,
+        `                   <div class="${BLOCKS.block_warning.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
+        `                       <h5 class="${HEADINGS.heading_warning.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">WARNING</h5>`,
+        `                       <p class="${TEXT.text_warning.without_selector}">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>`,
+        `                   </div>`,
+        ``,
+        `                   <div class="${BLOCKS.block_story.without_selector}">`,
+        `                       <h5 class="${HEADINGS.heading_story.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">The Knight That Lost Their Way</h5>`,
+        `                       <p class="${TEXT.text_story.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                       <p class="${TEXT.text_visual.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `                   </div>`,
         `               </div>`,
         `           </div>`,

@@ -58,7 +58,7 @@ export const CLASSES_ICONS = make_values_for_keys({
     icon_general: "icon_general",
 }, ".");
 export const CLASSES_MARGINS = make_values_for_keys({
-    margin_0: "margin_0",
+    margin_auto: "margin_auto",
     margin_1: "margin_1",
     margin_2: "margin_2",
     margin_3: "margin_3",
@@ -66,7 +66,7 @@ export const CLASSES_MARGINS = make_values_for_keys({
     margin_5: "margin_5",
     margin_6: "margin_6",
 
-    margin_top_0: "margin_top_0",
+    margin_top_auto: "margin_top_auto",
     margin_top_1: "margin_top_1",
     margin_top_2: "margin_top_2",
     margin_top_3: "margin_top_3",
@@ -74,7 +74,7 @@ export const CLASSES_MARGINS = make_values_for_keys({
     margin_top_5: "margin_top_5",
     margin_top_6: "margin_top_6",
 
-    margin_bottom_0: "margin_bottom_0",
+    margin_bottom_auto: "margin_bottom_auto",
     margin_bottom_1: "margin_bottom_1",
     margin_bottom_2: "margin_bottom_2",
     margin_bottom_3: "margin_bottom_3",
@@ -82,7 +82,7 @@ export const CLASSES_MARGINS = make_values_for_keys({
     margin_bottom_5: "margin_bottom_5",
     margin_bottom_6: "margin_bottom_6",
 
-    margin_left_0: "margin_left_0",
+    margin_left_auto: "margin_left_auto",
     margin_left_1: "margin_left_1",
     margin_left_2: "margin_left_2",
     margin_left_3: "margin_left_3",
@@ -90,7 +90,7 @@ export const CLASSES_MARGINS = make_values_for_keys({
     margin_left_5: "margin_left_5",
     margin_left_6: "margin_left_6",
 
-    margin_right_0: "margin_right_0",
+    margin_right_auto: "margin_right_auto",
     margin_right_1: "margin_right_1",
     margin_right_2: "margin_right_2",
     margin_right_3: "margin_right_3",
@@ -99,7 +99,6 @@ export const CLASSES_MARGINS = make_values_for_keys({
     margin_right_6: "margin_right_6",
 }, ".");
 export const CLASSES_PADDINGS = make_values_for_keys({
-    padding_0: "padding_0",
     padding_1: "padding_1",
     padding_2: "padding_2",
     padding_3: "padding_3",
@@ -107,7 +106,6 @@ export const CLASSES_PADDINGS = make_values_for_keys({
     padding_5: "padding_5",
     padding_6: "padding_6",
 
-    padding_top_0: "padding_top_0",
     padding_top_1: "padding_top_1",
     padding_top_2: "padding_top_2",
     padding_top_3: "padding_top_3",
@@ -115,7 +113,6 @@ export const CLASSES_PADDINGS = make_values_for_keys({
     padding_top_5: "padding_top_5",
     padding_top_6: "padding_top_6",
 
-    padding_bottom_0: "padding_bottom_0",
     padding_bottom_1: "padding_bottom_1",
     padding_bottom_2: "padding_bottom_2",
     padding_bottom_3: "padding_bottom_3",
@@ -123,7 +120,6 @@ export const CLASSES_PADDINGS = make_values_for_keys({
     padding_bottom_5: "padding_bottom_5",
     padding_bottom_6: "padding_bottom_6",
 
-    padding_left_0: "padding_left_0",
     padding_left_1: "padding_left_1",
     padding_left_2: "padding_left_2",
     padding_left_3: "padding_left_3",
@@ -131,7 +127,6 @@ export const CLASSES_PADDINGS = make_values_for_keys({
     padding_left_5: "padding_left_5",
     padding_left_6: "padding_left_6",
 
-    padding_right_0: "padding_right_0",
     padding_right_1: "padding_right_1",
     padding_right_2: "padding_right_2",
     padding_right_3: "padding_right_3",

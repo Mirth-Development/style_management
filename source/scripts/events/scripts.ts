@@ -1,18 +1,15 @@
 
-import { STYLE_CONSTANTS as STYLES } from "../styling.js";
 import { get_ELEMENTS_WITH_BLOCK_CLASSES } from "../getters.js";
+import { apply_style_definition } from "../styling.js";
+import { STYLE_STARK_ROYAL } from "../style_definitions.js";
 
 //
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Class Selectors for Block Types
-    // const blocks_pages = document.querySelector<HTMLElement>("body");
-    const BLOCKS = get_ELEMENTS_WITH_BLOCK_CLASSES();
-    // const blocks_middle = document.querySelectorAll<HTMLElement>(".block_middle");
-    // const blocks_lower = document.querySelectorAll<HTMLElement>(".block_lower");
-    // const blocks_warning = document.querySelectorAll<HTMLElement>(".block_warning");
-    // const blocks_story = document.querySelectorAll<HTMLElement>(".block_story");
+    apply_style_definition(STYLE_STARK_ROYAL);
 
+    // Event Tester
+    const BLOCKS = get_ELEMENTS_WITH_BLOCK_CLASSES();
     BLOCKS.block_upper.forEach(block => {
 
         block.addEventListener("click", () => {

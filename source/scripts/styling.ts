@@ -1,7 +1,6 @@
 
 import * as GETTERS from "./getters.js";
 
-
 // SPACINGS and ANCHORS
 // These objects are for the margin and padding styling, it is used to ensure that spacing
 // definitions are universal across all the styles.  If need be, more spacing types can be added into this
@@ -373,33 +372,73 @@ export function style_ids(style_definition: Record<string, string>): void {
     const IDS = GETTERS.get_ELEMENTS_WITH_IDS();
 
     if (IDS.menu) { style_id_menu(style_definition, IDS.menu); }
-    if (IDS.navigation) { style_id_navigation(style_definition, IDS.navigation); }
-    if (IDS.edit) { style_id_edit(style_definition, IDS.edit); }
-    if (IDS.settings) { style_id_settings(style_definition, IDS.settings); }
+    if (IDS.edit_button) { style_id_edit_button(style_definition, IDS.edit_button); }
+    if (IDS.navigation_button) { style_id_navigation_button(style_definition, IDS.navigation_button); }
+    if (IDS.navigation_panel) { style_id_navigation_panel(style_definition, IDS.navigation_panel); }
+    if (IDS.settings_button) { style_id_settings_button(style_definition, IDS.settings_button); }
+    if (IDS.settings_panel) { style_id_settings_panel(style_definition, IDS.settings_panel); }
 }
 export function style_id_menu(style_definition: Record<string, string>, element: HTMLElement): void {
 
     // Style Definition INDEPENDENT
-    element.style.bottom = "15px";
-    element.style.right = "15px";
-    element.style.zIndex = "999";
-    element.style.padding = `${SPACINGS.spacing_horizontal_3} ${SPACINGS.spacing_horizontal_3}`;
+    element.style.zIndex = "998";
 
     // Style Definition DEPENDENT
+    element.style.right = style_definition.menu_right;
+    element.style.bottom = style_definition.menu_bottom;
+    element.style.backgroundColor = style_definition.menu_background_color;
     element.style.borderStyle = style_definition.menu_border_style;
     element.style.borderWidth = style_definition.menu_border_width;
     element.style.borderColor = style_definition.menu_border_color;
-    element.style.fontSize = style_definition.menu_font_size;
+    element.style.padding = `${style_definition.menu_padding_vertical} ${style_definition.menu_padding_horizontal}`;
 }
-export function style_id_navigation(style_definition: Record<string, string>, element: HTMLElement): void {
+export function style_id_edit_button(style_definition: Record<string, string>, element: HTMLElement): void {
+
+    // Style Definition INDEPENDENT
+    element.style.zIndex = "999";
+
+    // Style Definition DEPENDENT
+    element.style.backgroundColor = style_definition.edit_button_background_color;
+    element.style.borderStyle = style_definition.edit_button_border_style;
+    element.style.borderWidth = style_definition.edit_button_border_width;
+    element.style.borderColor = style_definition.edit_button_border_color;
+    element.style.fontSize = style_definition.edit_button_font_size;
+    element.style.padding = `${style_definition.edit_button_padding_vertical} ${style_definition.edit_button_padding_horizontal}`;
 
 }
-export function style_id_edit(style_definition: Record<string, string>, element: HTMLElement): void {
+export function style_id_navigation_button(style_definition: Record<string, string>, element: HTMLElement): void {
+
+    // Style Definition INDEPENDENT
+    element.style.zIndex = "999";
+
+    // Style Definition DEPENDENT
+    element.style.backgroundColor = style_definition.navigation_button_background_color;
+    element.style.borderStyle = style_definition.navigation_button_border_style;
+    element.style.borderWidth = style_definition.navigation_button_border_width;
+    element.style.borderColor = style_definition.navigation_button_border_color;
+    element.style.fontSize = style_definition.navigation_button_font_size;
+    element.style.padding = `${style_definition.navigation_button_padding_vertical} ${style_definition.navigation_button_padding_horizontal}`;
+}
+export function style_id_navigation_panel(style_definition: Record<string, string>, element: HTMLElement): void {
 
 }
-export function style_id_settings(style_definition: Record<string, string>, element: HTMLElement): void {
+export function style_id_settings_button(style_definition: Record<string, string>, element: HTMLElement): void {
+
+    // Style Definition INDEPENDENT
+    element.style.zIndex = "999";
+
+    // Style Definition DEPENDENT
+    element.style.backgroundColor = style_definition.settings_button_background_color;
+    element.style.borderStyle = style_definition.settings_button_border_style;
+    element.style.borderWidth = style_definition.settings_button_border_width;
+    element.style.borderColor = style_definition.settings_button_border_color;
+    element.style.fontSize = style_definition.settings_button_font_size;
+    element.style.padding = `${style_definition.settings_button_padding_vertical} ${style_definition.settings_button_padding_horizontal}`;
+}
+export function style_id_settings_panel(style_definition: Record<string, string>, element: HTMLElement): void {
 
 }
+
 
 // STYLING FOR MARGINS
 export function style_margins(): void {
@@ -486,7 +525,6 @@ export function style_margin_right_3(element: HTMLElement): void { element.style
 export function style_margin_right_4(element: HTMLElement): void { element.style.marginRight = SPACINGS.spacing_horizontal_4; }
 export function style_margin_right_5(element: HTMLElement): void { element.style.marginRight = SPACINGS.spacing_horizontal_5; }
 export function style_margin_right_6(element: HTMLElement): void { element.style.marginRight = SPACINGS.spacing_horizontal_6; }
-
 
 // STYLING FOR PADDINGS
 export function style_paddings(): void {

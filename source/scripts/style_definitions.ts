@@ -18,17 +18,44 @@ export const STYLE_STARK_ROYAL = {
 
 
     // MENU
+    menu_right: "15px",
+    menu_bottom: "15px",
+    menu_background_color: "#372e2e",
     menu_border_style: "solid",
     menu_border_width: "1px",
     menu_border_color: "white",
     menu_font_size: "clamp(1rem, 3vw, 2rem)",
+    menu_padding_vertical: SPACINGS.spacing_horizontal_3,
+    menu_padding_horizontal: SPACINGS.spacing_horizontal_3,
+
+    // EDIT
+    edit_button_background_color: "#372e2e",
+    edit_button_border_style: "solid",
+    edit_button_border_width: "1px",
+    edit_button_border_color: "white",
+    edit_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    edit_button_padding_vertical: SPACINGS.spacing_horizontal_3,
+    edit_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
 
     // NAVIGATION
+    navigation_button_background_color: "#372e2e",
+    navigation_button_border_style: "solid",
+    navigation_button_border_width: "1px",
+    navigation_button_border_color: "white",
+    navigation_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    navigation_button_padding_vertical: SPACINGS.spacing_horizontal_3,
+    navigation_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
-    // EDIT
 
     // SETTINGS
+    settings_button_background_color: "#372e2e",
+    settings_button_border_style: "solid",
+    settings_button_border_width: "1px",
+    settings_button_border_color: "white",
+    settings_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    settings_button_padding_vertical: SPACINGS.spacing_horizontal_3,
+    settings_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
 
     // HEADINGS

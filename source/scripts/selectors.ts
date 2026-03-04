@@ -4,10 +4,12 @@
 // process.  These elements represent the most important elements of a page such as the navigation button and the
 // button that will allow for adding/removing blocks.
 export const IDS = make_values_for_keys({
-    edit: "edit",
-    navigation: "navigation",
     menu: "menu",
-    settings: "settings",
+    edit_button: "edit_button",
+    navigation_button: "navigation_button",
+    navigation_panel: "navigation_panel",
+    settings_button: "settings_button",
+    settings_panel: "settings_panel",
 }, "#");
 // ----------------------------------------------------------------------------------------------------------------- //
 

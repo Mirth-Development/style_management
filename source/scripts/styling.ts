@@ -134,13 +134,13 @@ export function style_body(style_definition: Record<string, string>): void {
 // STYLING FOR BLOCKS
 export function style_blocks(style_definition: Record<string, string>): void {
 
-    const BLOCKS = GETTERS.get_ELEMENTS_WITH_BLOCK_CLASSES();
+    const BLOCKS = GETTERS.get_ELEMENTS_WITH_BLOCKS();
 
-    BLOCKS.block_upper.forEach((element: HTMLElement) => { style_block_upper(style_definition, element); });
-    BLOCKS.block_middle.forEach((element: HTMLElement) => { style_block_middle(style_definition, element); });
-    BLOCKS.block_lower.forEach((element: HTMLElement) => { style_block_lower(style_definition, element); });
-    BLOCKS.block_warning.forEach((element: HTMLElement) => { style_block_warning(style_definition, element); });
-    BLOCKS.block_story.forEach((element: HTMLElement) => { style_block_story(style_definition, element); });
+    for_each_value(BLOCKS.block_upper, (element: HTMLElement) => { style_block_upper(style_definition, element); });
+    for_each_value(BLOCKS.block_middle, (element: HTMLElement) => { style_block_middle(style_definition, element); });
+    for_each_value(BLOCKS.block_lower, (element: HTMLElement) => { style_block_lower(style_definition, element); });
+    for_each_value(BLOCKS.block_warning, (element: HTMLElement) => { style_block_warning(style_definition, element); });
+    for_each_value(BLOCKS.block_story, (element: HTMLElement) => { style_block_story(style_definition, element); });
 }
 export function style_block_upper(style_definition: Record<string, string>, element: HTMLElement): void {
     element.style.backgroundColor = style_definition.block_upper_background_color;
@@ -192,14 +192,14 @@ export function style_block_story(style_definition: Record<string, string>, elem
 // STYLING FOR HEADINGS
 export function style_headings(style_definition: Record<string, string>): void {
 
-    const HEADINGS = GETTERS.get_ELEMENTS_WITH_HEADING_CLASSES();
+    const HEADINGS = GETTERS.get_ELEMENTS_WITH_HEADINGS();
 
-    HEADINGS.heading_title.forEach((element: HTMLElement) => { style_heading_title(style_definition, element); });
-    HEADINGS.heading_upper.forEach((element: HTMLElement) => { style_heading_upper(style_definition, element); });
-    HEADINGS.heading_middle.forEach((element: HTMLElement) => { style_heading_middle(style_definition, element); });
-    HEADINGS.heading_lower.forEach((element: HTMLElement) => { style_heading_lower(style_definition, element); });
-    HEADINGS.heading_warning.forEach((element: HTMLElement) => { style_heading_warning(style_definition, element); });
-    HEADINGS.heading_story.forEach((element: HTMLElement) => { style_heading_story(style_definition, element); });
+    for_each_value(HEADINGS.heading_title, (element: HTMLElement) => { style_heading_title(style_definition, element); });
+    for_each_value(HEADINGS.heading_upper, (element: HTMLElement) => { style_heading_upper(style_definition, element); });
+    for_each_value(HEADINGS.heading_middle, (element: HTMLElement) => { style_heading_middle(style_definition, element); });
+    for_each_value(HEADINGS.heading_lower, (element: HTMLElement) => { style_heading_lower(style_definition, element); });
+    for_each_value(HEADINGS.heading_warning, (element: HTMLElement) => { style_heading_warning(style_definition, element); });
+    for_each_value(HEADINGS.heading_story, (element: HTMLElement) => { style_heading_story(style_definition, element); });
 }
 export function style_heading_title(style_definition: Record<string, string>, element: HTMLElement): void {
     element.style.color = style_definition.heading_title_color;
@@ -259,13 +259,13 @@ export function style_heading_story(style_definition: Record<string, string>, el
 // STYLING FOR TEXT
 export function style_text(style_definition: Record<string, string>): void {
 
-    const TEXTS = GETTERS.get_ELEMENTS_WITH_TEXT_CLASSES();
+    const TEXTS = GETTERS.get_ELEMENTS_WITH_TEXTS();
 
-    TEXTS.text_general.forEach((element: HTMLElement) => { style_text_general(style_definition, element); });
-    TEXTS.text_marginal.forEach((element: HTMLElement) => { style_text_marginal(style_definition, element); });
-    TEXTS.text_warning.forEach((element: HTMLElement) => { style_text_warning(style_definition, element); });
-    TEXTS.text_story.forEach((element: HTMLElement) => { style_text_story(style_definition, element); });
-    TEXTS.text_visual.forEach((element: HTMLElement) => { style_text_visual(style_definition, element); });
+    for_each_value(TEXTS.text_general, (element: HTMLElement) => { style_text_general(style_definition, element); });
+    for_each_value(TEXTS.text_marginal, (element: HTMLElement) => { style_text_marginal(style_definition, element); });
+    for_each_value(TEXTS.text_warning, (element: HTMLElement) => { style_text_warning(style_definition, element); });
+    for_each_value(TEXTS.text_story, (element: HTMLElement) => { style_text_story(style_definition, element); });
+    for_each_value(TEXTS.text_visual, (element: HTMLElement) => { style_text_visual(style_definition, element); });
 }
 export function style_text_general(style_definition: Record<string, string>, element: HTMLElement): void {
     element.style.color = style_definition.text_general_color;
@@ -316,14 +316,21 @@ export function style_text_visual(style_definition: Record<string, string>, elem
 // STYLING FOR ICONS
 export function style_icons(style_definition: Record<string, string>): void {
 
-    const ICONS = GETTERS.get_ELEMENTS_WITH_ICON_CLASSES();
+    const ICONS = GETTERS.get_ELEMENTS_WITH_ICONS();
 
-    ICONS.icon_general.forEach((element: HTMLElement) => apply_icon_style(
+    for_each_value(ICONS.icon_general, (element: HTMLElement) => apply_icon_style(
         element,
         style_definition.icon_general_font_family,
         style_definition.icon_general_font_size,
         style_definition.icon_general_color,
         style_definition.icon_general_line_height
+    ));
+    for_each_value(ICONS.icon_menu, (element: HTMLElement) => apply_icon_style(
+        element,
+        style_definition.icon_menu_font_family,
+        style_definition.icon_menu_font_size,
+        style_definition.icon_menu_color,
+        style_definition.icon_menu_line_height
     ));
 }
 function apply_icon_style(icon: HTMLElement, font_family: string, font_size: string, color: string, line_height: string) {
@@ -349,24 +356,33 @@ function apply_icon_style(icon: HTMLElement, font_family: string, font_size: str
 // STYLING FOR INPUTS
 export function style_inputs(style_definition: Record<string, string>): void {
 
-    const INPUTS = GETTERS.get_ELEMENTS_WITH_INPUT_CLASSES();
+    const INPUTS = GETTERS.get_ELEMENTS_WITH_INPUTS();
 
-    INPUTS.input_button_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_checkbox_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_color_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_date_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_datetime_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_email_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_file_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_password_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_radio_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_range_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_reset_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_text_1.forEach((element: HTMLElement) => { });
-    INPUTS.input_time_1.forEach((element: HTMLElement) => { });
+    for_each_value(INPUTS.input_button_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_checkbox_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_color_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_date_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_datetime_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_email_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_file_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_password_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_radio_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_range_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_reset_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_text_1, (element: HTMLElement) => { });
+    for_each_value(INPUTS.input_time_1, (element: HTMLElement) => { });
 }
 
-// STYLING FOR IDS
+
+
+// STYLING FOR MENU
+
+// STYLING FOR NAVIGATION
+
+// STYLING FOR SETTINGS
+
+
+
 export function style_ids(style_definition: Record<string, string>): void {
 
     const IDS = GETTERS.get_ELEMENTS_WITH_IDS();
@@ -389,7 +405,9 @@ export function style_id_menu(style_definition: Record<string, string>, element:
     element.style.backgroundColor = style_definition.menu_background_color;
     element.style.borderStyle = style_definition.menu_border_style;
     element.style.borderWidth = style_definition.menu_border_width;
+    element.style.borderRadius = style_definition.menu_border_radius;
     element.style.borderColor = style_definition.menu_border_color;
+    element.style.margin = `${style_definition.menu_margin_vertical} ${style_definition.menu_margin_horizontal}`;
     element.style.padding = `${style_definition.menu_padding_vertical} ${style_definition.menu_padding_horizontal}`;
 }
 export function style_id_edit_button(style_definition: Record<string, string>, element: HTMLElement): void {
@@ -401,8 +419,10 @@ export function style_id_edit_button(style_definition: Record<string, string>, e
     element.style.backgroundColor = style_definition.edit_button_background_color;
     element.style.borderStyle = style_definition.edit_button_border_style;
     element.style.borderWidth = style_definition.edit_button_border_width;
+    element.style.borderRadius = style_definition.edit_button_border_radius;
     element.style.borderColor = style_definition.edit_button_border_color;
     element.style.fontSize = style_definition.edit_button_font_size;
+    element.style.margin = `${style_definition.edit_button_margin_vertical} ${style_definition.edit_button_margin_horizontal}`;
     element.style.padding = `${style_definition.edit_button_padding_vertical} ${style_definition.edit_button_padding_horizontal}`;
 
 }
@@ -415,8 +435,10 @@ export function style_id_navigation_button(style_definition: Record<string, stri
     element.style.backgroundColor = style_definition.navigation_button_background_color;
     element.style.borderStyle = style_definition.navigation_button_border_style;
     element.style.borderWidth = style_definition.navigation_button_border_width;
+    element.style.borderRadius = style_definition.navigation_button_border_radius;
     element.style.borderColor = style_definition.navigation_button_border_color;
     element.style.fontSize = style_definition.navigation_button_font_size;
+    element.style.margin = `${style_definition.navigation_button_margin_vertical} ${style_definition.navigation_button_margin_horizontal}`;
     element.style.padding = `${style_definition.navigation_button_padding_vertical} ${style_definition.navigation_button_padding_horizontal}`;
 }
 export function style_id_navigation_panel(style_definition: Record<string, string>, element: HTMLElement): void {
@@ -431,8 +453,10 @@ export function style_id_settings_button(style_definition: Record<string, string
     element.style.backgroundColor = style_definition.settings_button_background_color;
     element.style.borderStyle = style_definition.settings_button_border_style;
     element.style.borderWidth = style_definition.settings_button_border_width;
+    element.style.borderRadius = style_definition.settings_button_border_radius;
     element.style.borderColor = style_definition.settings_button_border_color;
     element.style.fontSize = style_definition.settings_button_font_size;
+    element.style.margin = `${style_definition.settings_button_margin_vertical} ${style_definition.settings_button_margin_horizontal}`;
     element.style.padding = `${style_definition.settings_button_padding_vertical} ${style_definition.settings_button_padding_horizontal}`;
 }
 export function style_id_settings_panel(style_definition: Record<string, string>, element: HTMLElement): void {
@@ -443,52 +467,52 @@ export function style_id_settings_panel(style_definition: Record<string, string>
 // STYLING FOR MARGINS
 export function style_margins(): void {
 
-    const MARGINS = GETTERS.get_ELEMENTS_WITH_MARGIN_CLASSES();
+    const MARGINS = GETTERS.get_ELEMENTS_WITH_MARGINS();
 
     // All Sides
-    MARGINS.margin_auto.forEach((element: HTMLElement) => { style_margin_auto(element); });
-    MARGINS.margin_1.forEach((element: HTMLElement) => { style_margin_1(element); });
-    MARGINS.margin_2.forEach((element: HTMLElement) => { style_margin_2(element); });
-    MARGINS.margin_3.forEach((element: HTMLElement) => { style_margin_3(element); });
-    MARGINS.margin_4.forEach((element: HTMLElement) => { style_margin_4(element); });
-    MARGINS.margin_5.forEach((element: HTMLElement) => { style_margin_5(element); });
-    MARGINS.margin_6.forEach((element: HTMLElement) => { style_margin_6(element); });
+    for_each_value(MARGINS.margin_auto, (element: HTMLElement) => { style_margin_auto(element); });
+    for_each_value(MARGINS.margin_1, (element: HTMLElement) => { style_margin_1(element); });
+    for_each_value(MARGINS.margin_2, (element: HTMLElement) => { style_margin_2(element); });
+    for_each_value(MARGINS.margin_3, (element: HTMLElement) => { style_margin_3(element); });
+    for_each_value(MARGINS.margin_4, (element: HTMLElement) => { style_margin_4(element); });
+    for_each_value(MARGINS.margin_5, (element: HTMLElement) => { style_margin_5(element); });
+    for_each_value(MARGINS.margin_6, (element: HTMLElement) => { style_margin_6(element); });
 
     // Top
-    MARGINS.margin_top_auto.forEach((element: HTMLElement) => { style_margin_top_auto(element); });
-    MARGINS.margin_top_1.forEach((element: HTMLElement) => { style_margin_top_1(element); });
-    MARGINS.margin_top_2.forEach((element: HTMLElement) => { style_margin_top_2(element); });
-    MARGINS.margin_top_3.forEach((element: HTMLElement) => { style_margin_top_3(element); });
-    MARGINS.margin_top_4.forEach((element: HTMLElement) => { style_margin_top_4(element); });
-    MARGINS.margin_top_5.forEach((element: HTMLElement) => { style_margin_top_5(element); });
-    MARGINS.margin_top_6.forEach((element: HTMLElement) => { style_margin_top_6(element); });
+    for_each_value(MARGINS.margin_top_auto, (element: HTMLElement) => { style_margin_top_auto(element); });
+    for_each_value(MARGINS.margin_top_1, (element: HTMLElement) => { style_margin_top_1(element); });
+    for_each_value(MARGINS.margin_top_2, (element: HTMLElement) => { style_margin_top_2(element); });
+    for_each_value(MARGINS.margin_top_3, (element: HTMLElement) => { style_margin_top_3(element); });
+    for_each_value(MARGINS.margin_top_4, (element: HTMLElement) => { style_margin_top_4(element); });
+    for_each_value(MARGINS.margin_top_5, (element: HTMLElement) => { style_margin_top_5(element); });
+    for_each_value(MARGINS.margin_top_6, (element: HTMLElement) => { style_margin_top_6(element); });
 
     // Bottom
-    MARGINS.margin_bottom_auto.forEach((element: HTMLElement) => { style_margin_bottom_auto(element); });
-    MARGINS.margin_bottom_1.forEach((element: HTMLElement) => { style_margin_bottom_1(element); });
-    MARGINS.margin_bottom_2.forEach((element: HTMLElement) => { style_margin_bottom_2(element); });
-    MARGINS.margin_bottom_3.forEach((element: HTMLElement) => { style_margin_bottom_3(element); });
-    MARGINS.margin_bottom_4.forEach((element: HTMLElement) => { style_margin_bottom_4(element); });
-    MARGINS.margin_bottom_5.forEach((element: HTMLElement) => { style_margin_bottom_5(element); });
-    MARGINS.margin_bottom_6.forEach((element: HTMLElement) => { style_margin_bottom_6(element); });
+    for_each_value(MARGINS.margin_bottom_auto, (element: HTMLElement) => { style_margin_bottom_auto(element); });
+    for_each_value(MARGINS.margin_bottom_1, (element: HTMLElement) => { style_margin_bottom_1(element); });
+    for_each_value(MARGINS.margin_bottom_2, (element: HTMLElement) => { style_margin_bottom_2(element); });
+    for_each_value(MARGINS.margin_bottom_3, (element: HTMLElement) => { style_margin_bottom_3(element); });
+    for_each_value(MARGINS.margin_bottom_4, (element: HTMLElement) => { style_margin_bottom_4(element); });
+    for_each_value(MARGINS.margin_bottom_5, (element: HTMLElement) => { style_margin_bottom_5(element); });
+    for_each_value(MARGINS.margin_bottom_6, (element: HTMLElement) => { style_margin_bottom_6(element); });
 
     // Left
-    MARGINS.margin_left_auto.forEach((element: HTMLElement) => { style_margin_left_auto(element); });
-    MARGINS.margin_left_1.forEach((element: HTMLElement) => { style_margin_left_1(element); });
-    MARGINS.margin_left_2.forEach((element: HTMLElement) => { style_margin_left_2(element); });
-    MARGINS.margin_left_3.forEach((element: HTMLElement) => { style_margin_left_3(element); });
-    MARGINS.margin_left_4.forEach((element: HTMLElement) => { style_margin_left_4(element); });
-    MARGINS.margin_left_5.forEach((element: HTMLElement) => { style_margin_left_5(element); });
-    MARGINS.margin_left_6.forEach((element: HTMLElement) => { style_margin_left_6(element); });
+    for_each_value(MARGINS.margin_left_auto, (element: HTMLElement) => { style_margin_left_auto(element); });
+    for_each_value(MARGINS.margin_left_1, (element: HTMLElement) => { style_margin_left_1(element); });
+    for_each_value(MARGINS.margin_left_2, (element: HTMLElement) => { style_margin_left_2(element); });
+    for_each_value(MARGINS.margin_left_3, (element: HTMLElement) => { style_margin_left_3(element); });
+    for_each_value(MARGINS.margin_left_4, (element: HTMLElement) => { style_margin_left_4(element); });
+    for_each_value(MARGINS.margin_left_5, (element: HTMLElement) => { style_margin_left_5(element); });
+    for_each_value(MARGINS.margin_left_6, (element: HTMLElement) => { style_margin_left_6(element); });
 
     // Right
-    MARGINS.margin_right_auto.forEach((element: HTMLElement) => { style_margin_right_auto(element); });
-    MARGINS.margin_right_1.forEach((element: HTMLElement) => { style_margin_right_1(element); });
-    MARGINS.margin_right_2.forEach((element: HTMLElement) => { style_margin_right_2(element); });
-    MARGINS.margin_right_3.forEach((element: HTMLElement) => { style_margin_right_3(element); });
-    MARGINS.margin_right_4.forEach((element: HTMLElement) => { style_margin_right_4(element); });
-    MARGINS.margin_right_5.forEach((element: HTMLElement) => { style_margin_right_5(element); });
-    MARGINS.margin_right_6.forEach((element: HTMLElement) => { style_margin_right_6(element); });
+    for_each_value(MARGINS.margin_right_auto, (element: HTMLElement) => { style_margin_right_auto(element); });
+    for_each_value(MARGINS.margin_right_1, (element: HTMLElement) => { style_margin_right_1(element); });
+    for_each_value(MARGINS.margin_right_2, (element: HTMLElement) => { style_margin_right_2(element); });
+    for_each_value(MARGINS.margin_right_3, (element: HTMLElement) => { style_margin_right_3(element); });
+    for_each_value(MARGINS.margin_right_4, (element: HTMLElement) => { style_margin_right_4(element); });
+    for_each_value(MARGINS.margin_right_5, (element: HTMLElement) => { style_margin_right_5(element); });
+    for_each_value(MARGINS.margin_right_6, (element: HTMLElement) => { style_margin_right_6(element); });
 }
 export function style_margin_auto(element: HTMLElement): void { element.style.margin = "auto"; }
 export function style_margin_1(element: HTMLElement): void { element.style.margin = `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}`; }
@@ -529,47 +553,47 @@ export function style_margin_right_6(element: HTMLElement): void { element.style
 // STYLING FOR PADDINGS
 export function style_paddings(): void {
 
-    const PADDINGS = GETTERS.get_ELEMENTS_WITH_PADDING_CLASSES();
+    const PADDINGS = GETTERS.get_ELEMENTS_WITH_PADDINGS();
 
     // All Sides
-    PADDINGS.padding_1.forEach((element: HTMLElement) => { style_padding_1(element); });
-    PADDINGS.padding_2.forEach((element: HTMLElement) => { style_padding_2(element); });
-    PADDINGS.padding_3.forEach((element: HTMLElement) => { style_padding_3(element); });
-    PADDINGS.padding_4.forEach((element: HTMLElement) => { style_padding_4(element); });
-    PADDINGS.padding_5.forEach((element: HTMLElement) => { style_padding_5(element); });
-    PADDINGS.padding_6.forEach((element: HTMLElement) => { style_padding_6(element); });
+    for_each_value(PADDINGS.padding_1, (element: HTMLElement) => { style_padding_1(element); });
+    for_each_value(PADDINGS.padding_2, (element: HTMLElement) => { style_padding_2(element); });
+    for_each_value(PADDINGS.padding_3, (element: HTMLElement) => { style_padding_3(element); });
+    for_each_value(PADDINGS.padding_4, (element: HTMLElement) => { style_padding_4(element); });
+    for_each_value(PADDINGS.padding_5, (element: HTMLElement) => { style_padding_5(element); });
+    for_each_value(PADDINGS.padding_6, (element: HTMLElement) => { style_padding_6(element); });
 
     // Top
-    PADDINGS.padding_top_1.forEach((element: HTMLElement) => { style_padding_top_1(element); });
-    PADDINGS.padding_top_2.forEach((element: HTMLElement) => { style_padding_top_2(element); });
-    PADDINGS.padding_top_3.forEach((element: HTMLElement) => { style_padding_top_3(element); });
-    PADDINGS.padding_top_4.forEach((element: HTMLElement) => { style_padding_top_4(element); });
-    PADDINGS.padding_top_5.forEach((element: HTMLElement) => { style_padding_top_5(element); });
-    PADDINGS.padding_top_6.forEach((element: HTMLElement) => { style_padding_top_6(element); });
+    for_each_value(PADDINGS.padding_top_1, (element: HTMLElement) => { style_padding_top_1(element); });
+    for_each_value(PADDINGS.padding_top_2, (element: HTMLElement) => { style_padding_top_2(element); });
+    for_each_value(PADDINGS.padding_top_3, (element: HTMLElement) => { style_padding_top_3(element); });
+    for_each_value(PADDINGS.padding_top_4, (element: HTMLElement) => { style_padding_top_4(element); });
+    for_each_value(PADDINGS.padding_top_5, (element: HTMLElement) => { style_padding_top_5(element); });
+    for_each_value(PADDINGS.padding_top_6, (element: HTMLElement) => { style_padding_top_6(element); });
 
     // Bottom
-    PADDINGS.padding_bottom_1.forEach((element: HTMLElement) => { style_padding_bottom_1(element); });
-    PADDINGS.padding_bottom_2.forEach((element: HTMLElement) => { style_padding_bottom_2(element); });
-    PADDINGS.padding_bottom_3.forEach((element: HTMLElement) => { style_padding_bottom_3(element); });
-    PADDINGS.padding_bottom_4.forEach((element: HTMLElement) => { style_padding_bottom_4(element); });
-    PADDINGS.padding_bottom_5.forEach((element: HTMLElement) => { style_padding_bottom_5(element); });
-    PADDINGS.padding_bottom_6.forEach((element: HTMLElement) => { style_padding_bottom_6(element); });
+    for_each_value(PADDINGS.padding_bottom_1, (element: HTMLElement) => { style_padding_bottom_1(element); });
+    for_each_value(PADDINGS.padding_bottom_2, (element: HTMLElement) => { style_padding_bottom_2(element); });
+    for_each_value(PADDINGS.padding_bottom_3, (element: HTMLElement) => { style_padding_bottom_3(element); });
+    for_each_value(PADDINGS.padding_bottom_4, (element: HTMLElement) => { style_padding_bottom_4(element); });
+    for_each_value(PADDINGS.padding_bottom_5, (element: HTMLElement) => { style_padding_bottom_5(element); });
+    for_each_value(PADDINGS.padding_bottom_6, (element: HTMLElement) => { style_padding_bottom_6(element); });
 
     // Left
-    PADDINGS.padding_left_1.forEach((element: HTMLElement) => { style_padding_left_1(element); });
-    PADDINGS.padding_left_2.forEach((element: HTMLElement) => { style_padding_left_2(element); });
-    PADDINGS.padding_left_3.forEach((element: HTMLElement) => { style_padding_left_3(element); });
-    PADDINGS.padding_left_4.forEach((element: HTMLElement) => { style_padding_left_4(element); });
-    PADDINGS.padding_left_5.forEach((element: HTMLElement) => { style_padding_left_5(element); });
-    PADDINGS.padding_left_6.forEach((element: HTMLElement) => { style_padding_left_6(element); });
+    for_each_value(PADDINGS.padding_left_1, (element: HTMLElement) => { style_padding_left_1(element); });
+    for_each_value(PADDINGS.padding_left_2, (element: HTMLElement) => { style_padding_left_2(element); });
+    for_each_value(PADDINGS.padding_left_3, (element: HTMLElement) => { style_padding_left_3(element); });
+    for_each_value(PADDINGS.padding_left_4, (element: HTMLElement) => { style_padding_left_4(element); });
+    for_each_value(PADDINGS.padding_left_5, (element: HTMLElement) => { style_padding_left_5(element); });
+    for_each_value(PADDINGS.padding_left_6, (element: HTMLElement) => { style_padding_left_6(element); });
 
     // Right
-    PADDINGS.padding_right_1.forEach((element: HTMLElement) => { style_padding_right_1(element); });
-    PADDINGS.padding_right_2.forEach((element: HTMLElement) => { style_padding_right_2(element); });
-    PADDINGS.padding_right_3.forEach((element: HTMLElement) => { style_padding_right_3(element); });
-    PADDINGS.padding_right_4.forEach((element: HTMLElement) => { style_padding_right_4(element); });
-    PADDINGS.padding_right_5.forEach((element: HTMLElement) => { style_padding_right_5(element); });
-    PADDINGS.padding_right_6.forEach((element: HTMLElement) => { style_padding_right_6(element); });
+    for_each_value(PADDINGS.padding_right_1, (element: HTMLElement) => { style_padding_right_1(element); });
+    for_each_value(PADDINGS.padding_right_2, (element: HTMLElement) => { style_padding_right_2(element); });
+    for_each_value(PADDINGS.padding_right_3, (element: HTMLElement) => { style_padding_right_3(element); });
+    for_each_value(PADDINGS.padding_right_4, (element: HTMLElement) => { style_padding_right_4(element); });
+    for_each_value(PADDINGS.padding_right_5, (element: HTMLElement) => { style_padding_right_5(element); });
+    for_each_value(PADDINGS.padding_right_6, (element: HTMLElement) => { style_padding_right_6(element); });
 }
 export function style_padding_1(element: HTMLElement): void { element.style.padding = `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}`; }
 export function style_padding_2(element: HTMLElement): void { element.style.padding = `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}`; }
@@ -611,36 +635,35 @@ export function style_forms(): void {
     // won't move the contents out of the view when they are fixed.
 
     // Obtaining all elements that have a form type.
-    const FORMS = GETTERS.get_ELEMENTS_WITH_FORM_CLASSES();
+    const FORMS = GETTERS.get_ELEMENTS_WITH_FORMS();
 
     // Static Column Types
     // Contents of the boxes within are vertically displayed and will display either at the start, center, or end of
     // their container depending on which column type is used.
-    FORMS.form_static_column_start.forEach((element: HTMLElement) => { style_form_static_column_start(element); });
-    FORMS.form_static_column_center.forEach((element: HTMLElement) => { style_form_static_column_center(element); });
-    FORMS.form_static_column_end.forEach((element: HTMLElement) => { style_form_static_column_end(element); });
+    for_each_value(FORMS.form_static_column_start, (element: HTMLElement) => { style_form_static_column_start(element); });
+    for_each_value(FORMS.form_static_column_center, (element: HTMLElement) => { style_form_static_column_center(element); });
+    for_each_value(FORMS.form_static_column_end, (element: HTMLElement) => { style_form_static_column_end(element); });
 
     // Static Row Types
     // Contents of the boxes within are horizontally displayed and will display either at the start, center, or end of
     // their container depending on which row type is used.
-    FORMS.form_static_row_start.forEach((element: HTMLElement) => { style_form_static_row_start(element); });
-    FORMS.form_static_row_center.forEach((element: HTMLElement) => { style_form_static_row_center(element); });
-    FORMS.form_static_row_end.forEach((element: HTMLElement) => { style_form_static_row_end(element); });
+    for_each_value(FORMS.form_static_row_start, (element: HTMLElement) => { style_form_static_row_start(element); });
+    for_each_value(FORMS.form_static_row_center, (element: HTMLElement) => { style_form_static_row_center(element); });
+    for_each_value(FORMS.form_static_row_end, (element: HTMLElement) => { style_form_static_row_end(element); });
 
     // Fixed Column Types
-    // Static Column Types
     // Contents of the boxes within are vertically displayed and will display either at the start, center, or end of
     // their container depending on which column type is used.  Fixed means they won't move out of view when scrolling occurs.
-    FORMS.form_fixed_column_start.forEach((element: HTMLElement) => { style_form_fixed_column_start(element); });
-    FORMS.form_fixed_column_center.forEach((element: HTMLElement) => { style_form_fixed_column_center(element); });
-    FORMS.form_fixed_column_end.forEach((element: HTMLElement) => { style_form_fixed_column_end(element); });
+    for_each_value(FORMS.form_fixed_column_start, (element: HTMLElement) => { style_form_fixed_column_start(element); });
+    for_each_value(FORMS.form_fixed_column_center, (element: HTMLElement) => { style_form_fixed_column_center(element); });
+    for_each_value(FORMS.form_fixed_column_end, (element: HTMLElement) => { style_form_fixed_column_end(element); });
 
     // Fixed Row Types
     // Contents of the boxes within are horizontally displayed and will display either at the start, center, or end of
     // their container depending on which row type is used.  Fixed means they won't move out of view when scrolling occurs.
-    FORMS.form_fixed_row_start.forEach((element: HTMLElement) => { style_form_fixed_row_start(element); });
-    FORMS.form_fixed_row_center.forEach((element: HTMLElement) => { style_form_fixed_row_center(element); });
-    FORMS.form_fixed_row_end.forEach((element: HTMLElement) => { style_form_fixed_row_end(element); });
+    for_each_value(FORMS.form_fixed_row_start, (element: HTMLElement) => { style_form_fixed_row_start(element); });
+    for_each_value(FORMS.form_fixed_row_center, (element: HTMLElement) => { style_form_fixed_row_center(element); });
+    for_each_value(FORMS.form_fixed_row_end, (element: HTMLElement) => { style_form_fixed_row_end(element); });
 }
 export function style_form_static_column_start(element: HTMLElement): void {
     element.style.display = "flex";
@@ -714,5 +737,46 @@ export function style_form_fixed_row_end(element: HTMLElement): void {
     element.style.flexDirection = "row";
     element.style.alignItems = "end";
 }
+
+
+// VALUE CHECKER
+// We have to check the value type of a key since it could hold an HTMLElement, NodeList, or null depending on the selector
+// that was used for the key and if anything was found.  We can't use .forEach since that only works with NodeLists and we can't
+// simply wrap a key's value in an if() since it could also be a NodeList, hence the normal methods for ID and class styling are
+// out the window.  To replace the standard methods, we have this function that determines the type of value that is being
+// used and throws back the appropriate scenario based on the value type.
+// NULL SCENARIO: Return and do nothing.
+// ID SCENARIO: Apply style to singular element.
+// CLASS SCENARIO: Apply style to list of elements.
+// NONE OF THE ABOVE SCENARIO: Throw error message.
+function for_each_value
+(
+    value: NodeListOf<HTMLElement> | HTMLElement | null,
+    style_to_apply: (element: HTMLElement) => void
+): void
+{
+
+    // Null Scenario
+    if (value === null) return;
+
+    // ID Scenario
+    else if (value instanceof HTMLElement) {
+        style_to_apply(value);
+    }
+
+    // Class Scenario
+    else if (value instanceof NodeList) {
+
+        for (const element of value) {
+            style_to_apply(element);
+        }
+    }
+
+    // None of the Above Scenario
+    else {
+        console.error("ERROR IN for_each_element FUNCTION: Somehow a value for a selector was found to neither be null, an HTMLElement, or a NodeList.");
+    }
+}
+
 
 export * from "./styling.js";

@@ -23,17 +23,23 @@ export const STYLE_STARK_ROYAL = {
     menu_background_color: "#372e2e",
     menu_border_style: "solid",
     menu_border_width: "1px",
+    menu_border_radius: "3px",
     menu_border_color: "white",
     menu_font_size: "clamp(1rem, 3vw, 2rem)",
-    menu_padding_vertical: SPACINGS.spacing_horizontal_3,
-    menu_padding_horizontal: SPACINGS.spacing_horizontal_3,
+    menu_margin_vertical: "",
+    menu_margin_horizontal: "",
+    menu_padding_vertical: "",
+    menu_padding_horizontal: "",
 
     // EDIT
     edit_button_background_color: "#372e2e",
     edit_button_border_style: "solid",
     edit_button_border_width: "1px",
+    edit_button_border_radius: "3px",
     edit_button_border_color: "white",
     edit_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    edit_button_margin_vertical: "",
+    edit_button_margin_horizontal: "",
     edit_button_padding_vertical: SPACINGS.spacing_horizontal_3,
     edit_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
@@ -42,8 +48,11 @@ export const STYLE_STARK_ROYAL = {
     navigation_button_background_color: "#372e2e",
     navigation_button_border_style: "solid",
     navigation_button_border_width: "1px",
+    navigation_button_border_radius: "3px",
     navigation_button_border_color: "white",
     navigation_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    navigation_button_margin_vertical: "",
+    navigation_button_margin_horizontal: "",
     navigation_button_padding_vertical: SPACINGS.spacing_horizontal_3,
     navigation_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
@@ -52,8 +61,11 @@ export const STYLE_STARK_ROYAL = {
     settings_button_background_color: "#372e2e",
     settings_button_border_style: "solid",
     settings_button_border_width: "1px",
+    settings_button_border_radius: "3px",
     settings_button_border_color: "white",
     settings_button_font_size: "clamp(1rem, 3vw, 2rem)",
+    settings_button_margin_vertical: "",
+    settings_button_margin_horizontal: "",
     settings_button_padding_vertical: SPACINGS.spacing_horizontal_3,
     settings_button_padding_horizontal: SPACINGS.spacing_horizontal_3,
 
@@ -207,6 +219,11 @@ export const STYLE_STARK_ROYAL = {
     icon_general_font_size: "inherit",
     icon_general_color: "inherit",
     icon_general_line_height: "inherit",
+
+    icon_menu_font_family: "FONT_ICON_MATERIAL",
+    icon_menu_font_size: "clamp(1.5rem, 5vw, 3rem)",
+    icon_menu_color: "inherit",
+    icon_menu_line_height: "inherit",
 
 
     // INPUTS

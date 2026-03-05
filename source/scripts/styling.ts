@@ -403,60 +403,40 @@ export function style_menu_panel(style_definition: Record<string, string>, eleme
 }
 export function style_menu_button_edit(style_definition: Record<string, string>, element: HTMLElement): void {
 
-    // Style Definition INDEPENDENT
-    element.style.zIndex = "999";
-
-    // Style Definition DEPENDENT
-    element.style.backgroundColor = style_definition.menu_button_edit_background_color;
-    element.style.borderStyle = style_definition.menu_button_edit_border_style;
-    element.style.borderWidth = style_definition.menu_button_edit_border_width;
-    element.style.borderRadius = style_definition.menu_button_edit_border_radius;
-    element.style.borderColor = style_definition.menu_button_edit_border_color;
-    element.style.fontSize = style_definition.menu_button_edit_font_size;
-    element.style.margin = `${style_definition.menu_button_edit_margin_vertical} ${style_definition.menu_button_edit_margin_horizontal}`;
-    element.style.padding = `${style_definition.menu_button_edit_padding_vertical} ${style_definition.menu_button_edit_padding_horizontal}`;
-
-
 }
 export function style_menu_button_navigation(style_definition: Record<string, string>, element: HTMLElement): void {
-
-    // Style Definition INDEPENDENT
-    element.style.zIndex = "999";
-
-    // Style Definition DEPENDENT
-    element.style.backgroundColor = style_definition.menu_button_navigation_background_color;
-    element.style.borderStyle = style_definition.menu_button_navigation_border_style;
-    element.style.borderWidth = style_definition.menu_button_navigation_border_width;
-    element.style.borderRadius = style_definition.menu_button_navigation_border_radius;
-    element.style.borderColor = style_definition.menu_button_navigation_border_color;
-    element.style.fontSize = style_definition.menu_button_navigation_font_size;
-    element.style.margin = `${style_definition.menu_button_navigation_margin_vertical} ${style_definition.menu_button_navigation_margin_horizontal}`;
-    element.style.padding = `${style_definition.menu_button_navigation_padding_vertical} ${style_definition.menu_button_navigation_padding_horizontal}`;
-
 
 }
 export function style_menu_button_settings(style_definition: Record<string, string>, element: HTMLElement): void {
 
+}
+export function style_menu_buttons(style_definition: Record<string, string>, element: HTMLElement): void {
+
     // Style Definition INDEPENDENT
     element.style.zIndex = "999";
 
     // Style Definition DEPENDENT
-    element.style.backgroundColor = style_definition.menu_button_settings_background_color;
-    element.style.borderStyle = style_definition.menu_button_settings_border_style;
-    element.style.borderWidth = style_definition.menu_button_settings_border_width;
-    element.style.borderRadius = style_definition.menu_button_settings_border_radius;
-    element.style.borderColor = style_definition.menu_button_settings_border_color;
-    element.style.fontSize = style_definition.menu_button_settings_font_size;
-    element.style.margin = `${style_definition.menu_button_settings_margin_vertical} ${style_definition.menu_button_settings_margin_horizontal}`;
-    element.style.padding = `${style_definition.menu_button_settings_padding_vertical} ${style_definition.menu_button_settings_padding_horizontal}`;
-
-
-}
-export function style_menu_buttons(style_definition: Record<string, string>, element: HTMLElement): void {
-
+    element.style.backgroundColor = style_definition.menu_buttons_background_color;
+    element.style.borderStyle = style_definition.menu_buttons_border_style;
+    element.style.borderWidth = style_definition.menu_buttons_border_width;
+    element.style.borderRadius = style_definition.menu_buttons_border_radius;
+    element.style.borderColor = style_definition.menu_buttons_border_color;
+    element.style.margin = `${style_definition.menu_buttons_margin_vertical} ${style_definition.menu_buttons_margin_horizontal}`;
+    element.style.padding = `${style_definition.menu_buttons_padding_vertical} ${style_definition.menu_buttons_padding_horizontal}`;
 }
 export function style_menu_text(style_definition: Record<string, string>, element: HTMLElement): void {
 
+    // Style Definition INDEPENDENT
+    element.style.zIndex = "999";
+
+    // Style Definition DEPENDENT
+    element.style.color = style_definition.menu_text_color;
+    element.style.fontFamily = `${style_definition.menu_text_font_family}, ${style_definition.font_family_generic}`;
+    element.style.fontWeight = style_definition.menu_text_font_weight;
+    element.style.fontStyle = style_definition.menu_text_font_style;
+    element.style.fontSize = style_definition.menu_text_font_size;
+    element.style.lineHeight = style_definition.menu_text_line_height;
+    element.style.textAlign = style_definition.menu_text_text_align;
 }
 
 // STYLING FOR NAVIGATION

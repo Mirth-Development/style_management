@@ -1,6 +1,98 @@
 
 import { SPACINGS } from "./styling.js"
 
+export const TEMPLATE = {
+
+    uUNIVERSAL: {
+
+    },
+
+    bBODY: {
+
+    },
+
+    oMENU: {
+
+        iPANEL: {
+            right: "15px",
+            bottom: "15px",
+            backgroundColor: "",
+            borderStyle: "",
+            borderWidth: "",
+            borderRadius: "",
+            borderColor: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
+
+        iEDIT: {
+
+        },
+
+        iNAVIGATION: {
+
+        },
+
+        iSETTINGS: {
+
+        },
+
+        cBUTTONS: {
+
+        },
+
+        cTEXT: {
+
+        },
+    },
+
+    oNAVIGATION: {
+
+    },
+
+    oSETTINGS: {
+
+    },
+
+    oFORMS: {
+
+    },
+
+    oBLOCKS: {
+
+    },
+
+    oHEADINGS: {
+
+    },
+
+    oTEXT: {
+
+    },
+
+    oICONS: {
+
+    },
+
+    oINPUTS: {
+
+    },
+
+    oMARGINS: {
+
+    },
+
+    oPADDINGS: {
+
+    },
+}
+
 export const STYLE_STARK_ROYAL = {
 
     // GENERIC FONT FAMILY

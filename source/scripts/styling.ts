@@ -740,22 +740,15 @@ function for_each_value
     if (value === null) return;
 
     // ID Scenario
-    else if (value instanceof HTMLElement) {
+    if (value instanceof HTMLElement) {
         style_to_apply(value);
     }
 
     // Class Scenario
-    else if (value instanceof NodeList) {
-
-        for (const element of value) {
-            style_to_apply(element);
-        }
+    for (const element of value) {
+        style_to_apply(element);
     }
 
-    // None of the Above Scenario
-    else {
-        console.error("ERROR IN for_each_element FUNCTION: Somehow a value for a selector was found to neither be null, an HTMLElement, or a NodeList.");
-    }
 }
 
 

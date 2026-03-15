@@ -1,14 +1,221 @@
 
 import { SPACINGS } from "./styling.js"
 
-export const TEMPLATE = {
+// THINGS TO KNOW FOR DEVELOPER_DEFAULTS AND TEMPLATE_FOR_STYLES
+// o = Object that is holding selectors.
+// u = Universal Selector
+// t = Tag Selector
+// i = ID Selector
+// c = Class Selector
+
+// DEVELOPER_DEFAULTS
+// This should not be messed with unless you're the developer.  These styles are applied across ALL style definitions
+// to keep margin definitions, padding definitions, and universal defaults consistent across the entirety of the program.
+// But if you really want to ignore what I'm telling you, then please feel free to mess with things so as long as you're aware
+// that the styling within this object applies to ALL style definitions.
+export const DEVELOPER_DEFAULTS = {
 
     uUNIVERSAL: {
-
+        margin: "0",
+        padding: "0",
+        boxSizing: "border-box",
     },
 
-    bBODY: {
+    oFORMS: {
 
+        cSTATIC_COLUMN_START: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "start",
+        },
+
+        cSTATIC_COLUMN_CENTER: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "center",
+        },
+
+        cSTATIC_COLUMN_END: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "end",
+        },
+
+        cSTATIC_ROW_START: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "start",
+        },
+
+        cSTATIC_ROW_CENTER: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "center",
+        },
+
+        cSTATIC_ROW_END: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "end",
+        },
+
+        cFIXED_COLUMN_START: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "start",
+        },
+
+        cFIXED_COLUMN_CENTER: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "center",
+        },
+
+        cFIXED_COLUMN_END: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "end",
+        },
+
+        cFIXED_ROW_START: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "start",
+        },
+
+        cFIXED_ROW_CENTER: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "center",
+        },
+
+        cFIXED_ROW_END: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "end",
+        },
+    },
+
+    oMARGINS: {
+
+        cMARGIN_AUTO: { margin: "auto" },
+        cMARGIN_1: { margin: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        cMARGIN_2: { margin: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        cMARGIN_3: { margin: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        cMARGIN_4: { margin: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        cMARGIN_5: { margin: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        cMARGIN_6: { margin: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
+
+        cMARGIN_TOP_AUTO: { marginTop: "auto" },
+        cMARGIN_TOP_1: { marginTop: SPACINGS.spacing_vertical_1 },
+        cMARGIN_TOP_2: { marginTop: SPACINGS.spacing_vertical_2 },
+        cMARGIN_TOP_3: { marginTop: SPACINGS.spacing_vertical_3 },
+        cMARGIN_TOP_4: { marginTop: SPACINGS.spacing_vertical_4 },
+        cMARGIN_TOP_5: { marginTop: SPACINGS.spacing_vertical_5 },
+        cMARGIN_TOP_6: { marginTop: SPACINGS.spacing_vertical_6 },
+
+        cMARGIN_BOTTOM_AUTO: { marginBottom: "auto" },
+        cMARGIN_BOTTOM_1: { marginBottom: SPACINGS.spacing_vertical_1 },
+        cMARGIN_BOTTOM_2: { marginBottom: SPACINGS.spacing_vertical_2 },
+        cMARGIN_BOTTOM_3: { marginBottom: SPACINGS.spacing_vertical_3 },
+        cMARGIN_BOTTOM_4: { marginBottom: SPACINGS.spacing_vertical_4 },
+        cMARGIN_BOTTOM_5: { marginBottom: SPACINGS.spacing_vertical_5 },
+        cMARGIN_BOTTOM_6: { marginBottom: SPACINGS.spacing_vertical_6 },
+
+        cMARGIN_LEFT_AUTO: { marginLeft: "auto" },
+        cMARGIN_LEFT_1: { marginLeft: SPACINGS.spacing_horizontal_1 },
+        cMARGIN_LEFT_2: { marginLeft: SPACINGS.spacing_horizontal_2 },
+        cMARGIN_LEFT_3: { marginLeft: SPACINGS.spacing_horizontal_3 },
+        cMARGIN_LEFT_4: { marginLeft: SPACINGS.spacing_horizontal_4 },
+        cMARGIN_LEFT_5: { marginLeft: SPACINGS.spacing_horizontal_5 },
+        cMARGIN_LEFT_6: { marginLeft: SPACINGS.spacing_horizontal_6 },
+
+        cMARGIN_RIGHT_AUTO: { marginRight: "auto" },
+        cMARGIN_RIGHT_1: { marginRight: SPACINGS.spacing_horizontal_1 },
+        cMARGIN_RIGHT_2: { marginRight: SPACINGS.spacing_horizontal_2 },
+        cMARGIN_RIGHT_3: { marginRight: SPACINGS.spacing_horizontal_3 },
+        cMARGIN_RIGHT_4: { marginRight: SPACINGS.spacing_horizontal_4 },
+        cMARGIN_RIGHT_5: { marginRight: SPACINGS.spacing_horizontal_5 },
+        cMARGIN_RIGHT_6: { marginRight: SPACINGS.spacing_horizontal_6 },
+    },
+
+    oPADDINGS: {
+        cPADDING_1: { padding: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        cPADDING_2: { padding: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        cPADDING_3: { padding: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        cPADDING_4: { padding: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        cPADDING_5: { padding: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        cPADDING_6: { padding: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
+
+        cPADDING_TOP_1: { paddingTop: SPACINGS.spacing_vertical_1 },
+        cPADDING_TOP_2: { paddingTop: SPACINGS.spacing_vertical_2 },
+        cPADDING_TOP_3: { paddingTop: SPACINGS.spacing_vertical_3 },
+        cPADDING_TOP_4: { paddingTop: SPACINGS.spacing_vertical_4 },
+        cPADDING_TOP_5: { paddingTop: SPACINGS.spacing_vertical_5 },
+        cPADDING_TOP_6: { paddingTop: SPACINGS.spacing_vertical_6 },
+
+        cPADDING_BOTTOM_1: { paddingBottom: SPACINGS.spacing_vertical_1 },
+        cPADDING_BOTTOM_2: { paddingBottom: SPACINGS.spacing_vertical_2 },
+        cPADDING_BOTTOM_3: { paddingBottom: SPACINGS.spacing_vertical_3 },
+        cPADDING_BOTTOM_4: { paddingBottom: SPACINGS.spacing_vertical_4 },
+        cPADDING_BOTTOM_5: { paddingBottom: SPACINGS.spacing_vertical_5 },
+        cPADDING_BOTTOM_6: { paddingBottom: SPACINGS.spacing_vertical_6 },
+
+        cPADDING_LEFT_1: { paddingLeft: SPACINGS.spacing_horizontal_1 },
+        cPADDING_LEFT_2: { paddingLeft: SPACINGS.spacing_horizontal_2 },
+        cPADDING_LEFT_3: { paddingLeft: SPACINGS.spacing_horizontal_3 },
+        cPADDING_LEFT_4: { paddingLeft: SPACINGS.spacing_horizontal_4 },
+        cPADDING_LEFT_5: { paddingLeft: SPACINGS.spacing_horizontal_5 },
+        cPADDING_LEFT_6: { paddingLeft: SPACINGS.spacing_horizontal_6 },
+
+        cPADDING_RIGHT_1: { paddingRight: SPACINGS.spacing_horizontal_1 },
+        cPADDING_RIGHT_2: { paddingRight: SPACINGS.spacing_horizontal_2 },
+        cPADDING_RIGHT_3: { paddingRight: SPACINGS.spacing_horizontal_3 },
+        cPADDING_RIGHT_4: { paddingRight: SPACINGS.spacing_horizontal_4 },
+        cPADDING_RIGHT_5: { paddingRight: SPACINGS.spacing_horizontal_5 },
+        cPADDING_RIGHT_6: { paddingRight: SPACINGS.spacing_horizontal_6 },
+    },
+}
+
+export const TEMPLATE_FOR_STYLES = {
+
+    tBODY: {
+        // The below styling is allowing justified text to have as close to evenly spaced blanks between words as one can.
+        // Be careful tweaking these properties (if you do for w/e reason), it can make your text really fucky if not calibrated
+        // correctly.  The only settings that style definitions need to be concerned about with impacting this spacing is manipulating
+        // word and letter spacing - these spacings will need to be adjusted for different font families in order to make
+        // justified text look evenly spaced.  And as a final note, a lot of these properties really only apply under very
+        // specific scenarios.  So if you don't see anything happen after changing something, then it's likely (not always)
+        // that you aren't testing under the right scenario. Lastly, the default alignment for everything is justified with these settings.
+        // Feel free to change that here by simply reassigning the value of textAlign to something else, and feel free to turn
+        // off hyphens here as well.
+        textAlign: "justify",
+        overflowWrap: "break-word",
+        textWrap: "pretty",
+        hyphens: "auto",
+        fontKerning: "normal",
+        wordSpacing: "-0.05em",     // Bigger negative em values help more with justified spacing, but the consequence is tighter wording.
+        letterSpacing: "-0.01em",   // Bigger negative em values help more with justified spacing, but the consequence is tighter lettering.
+
+        // These are the styles that are independent of justified text formatting.
+        fontStyle: "normal",
+        fontSize: "2rem",
+        lineHeight: "1",
+        color: "#fff7cc",
+        backgroundColor: "#000000",
+        fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM, sans-serif",
     },
 
     oMENU: {
@@ -44,11 +251,31 @@ export const TEMPLATE = {
         },
 
         cBUTTONS: {
-
+            zIndex: "999",
+            backgroundColor: "#372e2e",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderRadius: "3px",
+            borderColor: "#cda449",
+            marginTop: SPACINGS.spacing_horizontal_5,
+            marginBottom: SPACINGS.spacing_horizontal_5,
+            marginLeft: "0",
+            marginRight: "0",
+            paddingTop: SPACINGS.spacing_horizontal_5,
+            paddingBottom: SPACINGS.spacing_horizontal_5,
+            paddingLeft: "0",
+            paddingRight: "0",
         },
 
         cTEXT: {
-
+            zIndex: "999",
+            color: "",
+            fontFamily: "",
+            fontWeight: "",
+            fontStyle: "",
+            fontSize: "clamp(0.5rem, 2vw, 1.25rem)",
+            lineHeight: "",
+            textAlign: "",
         },
     },
 
@@ -57,10 +284,6 @@ export const TEMPLATE = {
     },
 
     oSETTINGS: {
-
-    },
-
-    oFORMS: {
 
     },
 
@@ -81,14 +304,6 @@ export const TEMPLATE = {
     },
 
     oINPUTS: {
-
-    },
-
-    oMARGINS: {
-
-    },
-
-    oPADDINGS: {
 
     },
 }

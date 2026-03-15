@@ -720,7 +720,7 @@ export function style_form_fixed_row_end(element: HTMLElement): void {
 
 
 // VALUE CHECKER
-// We have to check the value type of a key since it could hold an HTMLElement, NodeList, or null depending on the selector
+// We have to check the datatype of a key's value since it could hold an HTMLElement, NodeList, or null depending on the selector
 // that was used for the key and if anything was found.  We can't use .forEach since that only works with NodeLists and we can't
 // simply wrap a key's value in an if() since it could also be a NodeList, hence the normal methods for ID and class styling are
 // out the window.  To replace the standard methods, we have this function that determines the type of value that is being

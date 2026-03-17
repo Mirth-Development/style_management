@@ -1,19 +1,68 @@
 
-import { SPACINGS } from "./styling.js"
 
-// THINGS TO KNOW FOR DEVELOPER_DEFAULTS AND TEMPLATE_FOR_STYLES
+
+// SPACINGS and ANCHORS
+// These objects are for the margin and padding styling, it is used to ensure that spacing
+// definitions are universal across all the styles.  If need be, more spacing types can be added into this
+// definition at a later date - doing so will require an update to the margins and paddings selectors along with
+// their styling functions.
+export const ANCHORS = {
+
+    // SPECIAL ANCHORS
+    // anchor_vertical and anchor_horizontal exist to keep the aspect ratio of spacing consistent
+    // across all spacing applications.  If one is to change their values, then I recommend setting them to be the same
+    // in value; keep vertical set to vh and horizontal set to vw of course.
+    anchor_vertical: "3vh",
+    anchor_horizontal: "3vw",
+
+    // SPACING ANCHORS : Used to create new mins and maxes for when the viewport size changes.
+    // The lower the anchor number, the bigger the space.  The higher the anchor number, the smaller the space.
+    anchor_min_1: "1.5rem",
+    anchor_max_1: "3rem",
+
+    anchor_min_2: "1rem",
+    anchor_max_2: "2rem",
+
+    anchor_min_3: "0.75rem",
+    anchor_max_3: "1.5rem",
+
+    anchor_min_4: "0.5rem",
+    anchor_max_4: "1rem",
+
+    anchor_min_5: "0.25rem",
+    anchor_max_5: "0.5rem",
+
+    anchor_min_6: "0.125rem",
+    anchor_max_6: "0.25rem",
+} as const;
+export const SPACINGS = {
+
+    // VERTICAL SPACING : Based on viewport height and anchor mins/maxes.
+    spacing_vertical_1: `clamp(${ANCHORS.anchor_min_1}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_1})`,
+    spacing_vertical_2: `clamp(${ANCHORS.anchor_min_2}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_2})`,
+    spacing_vertical_3: `clamp(${ANCHORS.anchor_min_3}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_3})`,
+    spacing_vertical_4: `clamp(${ANCHORS.anchor_min_4}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_4})`,
+    spacing_vertical_5: `clamp(${ANCHORS.anchor_min_5}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_5})`,
+    spacing_vertical_6: `clamp(${ANCHORS.anchor_min_6}, ${ANCHORS.anchor_vertical}, ${ANCHORS.anchor_max_6})`,
+
+    // HORIZONTAL SPACING : Based on viewport width and anchor mins/maxes.
+    spacing_horizontal_1: `clamp(${ANCHORS.anchor_min_1}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_1})`,
+    spacing_horizontal_2: `clamp(${ANCHORS.anchor_min_2}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_2})`,
+    spacing_horizontal_3: `clamp(${ANCHORS.anchor_min_3}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_3})`,
+    spacing_horizontal_4: `clamp(${ANCHORS.anchor_min_4}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_4})`,
+    spacing_horizontal_5: `clamp(${ANCHORS.anchor_min_5}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_5})`,
+    spacing_horizontal_6: `clamp(${ANCHORS.anchor_min_6}, ${ANCHORS.anchor_horizontal}, ${ANCHORS.anchor_max_6})`,
+} as const;
+
+
+// THINGS TO KNOW FOR TEMPLATES
 // o = Object that is holding selectors.
 // u = Universal Selector
 // t = Tag Selector
 // i = ID Selector
 // c = Class Selector
 
-// DEVELOPER_DEFAULTS
-// This should not be messed with unless you're the developer.  These styles are applied across ALL style definitions
-// to keep margin definitions, padding definitions, and universal defaults consistent across the entirety of the program.
-// But if you really want to ignore what I'm telling you, then please feel free to mess with things so as long as you're aware
-// that the styling within this object applies to ALL style definitions.
-export const DEVELOPER_DEFAULTS = {
+export const TEMPLATE = {
 
     uUNIVERSAL: {
         margin: "0",
@@ -21,7 +70,349 @@ export const DEVELOPER_DEFAULTS = {
         boxSizing: "border-box",
     },
 
-    oFORMS: {
+    tBODY: {
+        textAlign: "justify",
+        overflowWrap: "break-word",
+        textWrap: "pretty",
+        hyphens: "auto",
+        fontKerning: "normal",
+        wordSpacing: "-0.05em",
+        letterSpacing: "-0.01em",
+
+        fontStyle: "normal",
+        fontSize: "2rem",
+        lineHeight: "1",
+        color: "#fff7cc",
+        backgroundColor: "#000000",
+        fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM, sans-serif",
+    },
+
+    oMENU: {
+
+        iPANEL: {
+            right: "15px",
+            bottom: "15px",
+            backgroundColor: "",
+            borderStyle: "",
+            borderWidth: "",
+            borderRadius: "",
+            borderColor: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
+
+        iEDIT: {
+
+        },
+
+        iNAVIGATION: {
+
+        },
+
+        iSETTINGS: {
+
+        },
+
+        cBUTTONS: {
+            zIndex: "999",
+            backgroundColor: "#372e2e",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderRadius: "3px",
+            borderColor: "#cda449",
+            marginTop: SPACINGS.spacing_horizontal_5,
+            marginBottom: SPACINGS.spacing_horizontal_5,
+            marginLeft: "0",
+            marginRight: "0",
+            paddingTop: SPACINGS.spacing_horizontal_5,
+            paddingBottom: SPACINGS.spacing_horizontal_5,
+            paddingLeft: "0",
+            paddingRight: "0",
+        },
+
+        cTEXT: {
+            zIndex: "999",
+            color: "",
+            fontFamily: "",
+            fontWeight: "",
+            fontStyle: "",
+            fontSize: "clamp(0.5rem, 2vw, 1.25rem)",
+            lineHeight: "",
+            textAlign: "",
+        },
+    },
+
+    oNAVIGATION: {
+
+    },
+
+    oSETTING: {
+
+    },
+
+    oBLOCK: {
+
+        cUPPER: {
+            backgroundColor: "#111111",
+            borderColor: "#8d8d5e",
+            borderStyle: "inset",
+            borderWidth: "1px",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cMIDDLE: {
+            backgroundColor: "#261d1d",
+            borderColor: "rgba(255, 255, 255, 0)",
+            borderStyle: "inset",
+            borderWidth: "",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cLOWER: {
+            backgroundColor: "#2b2a2a",
+            borderColor: "rgba(255, 255, 255, 0)",
+            borderStyle: "inset",
+            borderWidth: "",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cWARNING: {
+            backgroundColor: "#2d0606",
+            borderColor: "#dcdc02",
+            borderStyle: "inset",
+            borderWidth: "5px",
+            borderRadius: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: SPACINGS.spacing_vertical_4,
+            paddingBottom: SPACINGS.spacing_vertical_4,
+            paddingLeft: SPACINGS.spacing_horizontal_4,
+            paddingRight: SPACINGS.spacing_horizontal_4,
+        },
+
+        cSTORY: {
+            backgroundColor: "#000815",
+            borderColor: "#cda449",
+            borderStyle: "inset",
+            borderWidth: "3px",
+            borderRadius: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: SPACINGS.spacing_vertical_4,
+            paddingBottom: SPACINGS.spacing_vertical_4,
+            paddingLeft: SPACINGS.spacing_horizontal_4,
+            paddingRight: SPACINGS.spacing_horizontal_4,
+        },
+    },
+
+    oHEADING: {
+
+        cTITLE: {
+            color: "#ffe52c",
+            fontFamily: "FONT_TEXT_CINZEL_DECORATIVE_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(2rem, 8vw, 6rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cUPPER: {
+            color: "#f8bf2e",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.75rem, 6vw, 4rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cMIDDLE: {
+            color: "#f3c868",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.5rem, 5vw, 3rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cLOWER: {
+            color: "#faf8a2",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.25rem, 4vw, 2.5rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cWARNING: {
+            color: "#ffffff",
+            fontFamily: "FONT_TEXT_YOUNGSERIF_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "(1.125rem, 3vw, 2rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cSTORY: {
+            color: "#cda449",
+            fontFamily: "FONT_TEXT_CINZEL_DECORATIVE_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.125rem, 3vw, 2rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+    },
+
+    oTEXT: {
+
+        cGENERAL: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 2rem)",
+            lineHeight: "1.5",
+            textAlign: "justified",
+        },
+
+        cMARGINAL: {
+            color: "#ffffff",
+            fontFamily: "FONT_TEXT_SPECTRAL_SEMI_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(0.625rem, 2vw, 1.25rem)",
+            lineHeight: "1",
+            textAlign: "justified",
+        },
+
+        cWARNING: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_YOUNGSERIF_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 1.5rem)",
+            lineHeight: "1.5",
+            textAlign: "justified",
+        },
+
+        cSTORY: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_LIGHT_ITALIC",
+            fontWeight: "bold",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 1.5rem)",
+            lineHeight: "1.25",
+            textAlign: "justified",
+        },
+
+        cVISUAL: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_LIGHT",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(0.875rem, 2vw, 1.25rem)",
+            lineHeight: "1.125",
+            textAlign: "justified",
+        },
+    },
+
+    oICON: {
+
+        cGENERAL: {
+            fontStyle: "normal",
+            textTransform: "none",
+            verticalAlign: "top",
+            overflowWrap: "normal",
+            whiteSpace: "nowrap",
+            direction: "ltr",
+            textRendering: "optimizeLegibility",
+            fontFeatureSettings: "liga",
+
+            color: "inherit",
+            fontFamily: "FONT_ICON_MATERIAL",
+            fontSize: "inherit",
+            lineHeight: "inherit",
+
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
+
+        cMENU: {
+            fontStyle: "normal",
+            textTransform: "none",
+            verticalAlign: "top",
+            overflowWrap: "normal",
+            whiteSpace: "nowrap",
+            direction: "ltr",
+            textRendering: "optimizeLegibility",
+            fontFeatureSettings: "liga",
+
+            color: "#f3c868",
+            fontFamily: "FONT_ICON_MATERIAL",
+            fontSize: "clamp(2rem, 4vw, 4rem)",
+            lineHeight: "inherit",
+
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
+    },
+
+    oINPUT: {
+
+    },
+
+    oFORM: {
 
         cSTATIC_COLUMN_START: {
             display: "flex",
@@ -108,108 +499,103 @@ export const DEVELOPER_DEFAULTS = {
         },
     },
 
-    oMARGINS: {
+    oMARGIN: {
 
-        cMARGIN_AUTO: { margin: "auto" },
-        cMARGIN_1: { margin: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
-        cMARGIN_2: { margin: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
-        cMARGIN_3: { margin: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
-        cMARGIN_4: { margin: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
-        cMARGIN_5: { margin: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
-        cMARGIN_6: { margin: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
+        cAUTO: { margin: "auto" },
+        c1: { margin: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        c2: { margin: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        c3: { margin: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        c4: { margin: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        c5: { margin: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        c6: { margin: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
 
-        cMARGIN_TOP_AUTO: { marginTop: "auto" },
-        cMARGIN_TOP_1: { marginTop: SPACINGS.spacing_vertical_1 },
-        cMARGIN_TOP_2: { marginTop: SPACINGS.spacing_vertical_2 },
-        cMARGIN_TOP_3: { marginTop: SPACINGS.spacing_vertical_3 },
-        cMARGIN_TOP_4: { marginTop: SPACINGS.spacing_vertical_4 },
-        cMARGIN_TOP_5: { marginTop: SPACINGS.spacing_vertical_5 },
-        cMARGIN_TOP_6: { marginTop: SPACINGS.spacing_vertical_6 },
+        cTOP_AUTO: { marginTop: "auto" },
+        cTOP_1: { marginTop: SPACINGS.spacing_vertical_1 },
+        cTOP_2: { marginTop: SPACINGS.spacing_vertical_2 },
+        cTOP_3: { marginTop: SPACINGS.spacing_vertical_3 },
+        cTOP_4: { marginTop: SPACINGS.spacing_vertical_4 },
+        cTOP_5: { marginTop: SPACINGS.spacing_vertical_5 },
+        cTOP_6: { marginTop: SPACINGS.spacing_vertical_6 },
 
-        cMARGIN_BOTTOM_AUTO: { marginBottom: "auto" },
-        cMARGIN_BOTTOM_1: { marginBottom: SPACINGS.spacing_vertical_1 },
-        cMARGIN_BOTTOM_2: { marginBottom: SPACINGS.spacing_vertical_2 },
-        cMARGIN_BOTTOM_3: { marginBottom: SPACINGS.spacing_vertical_3 },
-        cMARGIN_BOTTOM_4: { marginBottom: SPACINGS.spacing_vertical_4 },
-        cMARGIN_BOTTOM_5: { marginBottom: SPACINGS.spacing_vertical_5 },
-        cMARGIN_BOTTOM_6: { marginBottom: SPACINGS.spacing_vertical_6 },
+        cBOTTOM_AUTO: { marginBottom: "auto" },
+        cBOTTOM_1: { marginBottom: SPACINGS.spacing_vertical_1 },
+        cBOTTOM_2: { marginBottom: SPACINGS.spacing_vertical_2 },
+        cBOTTOM_3: { marginBottom: SPACINGS.spacing_vertical_3 },
+        cBOTTOM_4: { marginBottom: SPACINGS.spacing_vertical_4 },
+        cBOTTOM_5: { marginBottom: SPACINGS.spacing_vertical_5 },
+        cBOTTOM_6: { marginBottom: SPACINGS.spacing_vertical_6 },
 
-        cMARGIN_LEFT_AUTO: { marginLeft: "auto" },
-        cMARGIN_LEFT_1: { marginLeft: SPACINGS.spacing_horizontal_1 },
-        cMARGIN_LEFT_2: { marginLeft: SPACINGS.spacing_horizontal_2 },
-        cMARGIN_LEFT_3: { marginLeft: SPACINGS.spacing_horizontal_3 },
-        cMARGIN_LEFT_4: { marginLeft: SPACINGS.spacing_horizontal_4 },
-        cMARGIN_LEFT_5: { marginLeft: SPACINGS.spacing_horizontal_5 },
-        cMARGIN_LEFT_6: { marginLeft: SPACINGS.spacing_horizontal_6 },
+        cLEFT_AUTO: { marginLeft: "auto" },
+        cLEFT_1: { marginLeft: SPACINGS.spacing_horizontal_1 },
+        cLEFT_2: { marginLeft: SPACINGS.spacing_horizontal_2 },
+        cLEFT_3: { marginLeft: SPACINGS.spacing_horizontal_3 },
+        cLEFT_4: { marginLeft: SPACINGS.spacing_horizontal_4 },
+        cLEFT_5: { marginLeft: SPACINGS.spacing_horizontal_5 },
+        cLEFT_6: { marginLeft: SPACINGS.spacing_horizontal_6 },
 
-        cMARGIN_RIGHT_AUTO: { marginRight: "auto" },
-        cMARGIN_RIGHT_1: { marginRight: SPACINGS.spacing_horizontal_1 },
-        cMARGIN_RIGHT_2: { marginRight: SPACINGS.spacing_horizontal_2 },
-        cMARGIN_RIGHT_3: { marginRight: SPACINGS.spacing_horizontal_3 },
-        cMARGIN_RIGHT_4: { marginRight: SPACINGS.spacing_horizontal_4 },
-        cMARGIN_RIGHT_5: { marginRight: SPACINGS.spacing_horizontal_5 },
-        cMARGIN_RIGHT_6: { marginRight: SPACINGS.spacing_horizontal_6 },
+        cRIGHT_AUTO: { marginRight: "auto" },
+        cRIGHT_1: { marginRight: SPACINGS.spacing_horizontal_1 },
+        cRIGHT_2: { marginRight: SPACINGS.spacing_horizontal_2 },
+        cRIGHT_3: { marginRight: SPACINGS.spacing_horizontal_3 },
+        cRIGHT_4: { marginRight: SPACINGS.spacing_horizontal_4 },
+        cRIGHT_5: { marginRight: SPACINGS.spacing_horizontal_5 },
+        cRIGHT_6: { marginRight: SPACINGS.spacing_horizontal_6 },
     },
 
-    oPADDINGS: {
-        cPADDING_1: { padding: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
-        cPADDING_2: { padding: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
-        cPADDING_3: { padding: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
-        cPADDING_4: { padding: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
-        cPADDING_5: { padding: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
-        cPADDING_6: { padding: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
+    oPADDING: {
+        c1: { padding: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        c2: { padding: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        c3: { padding: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        c4: { padding: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        c5: { padding: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        c6: { padding: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
 
-        cPADDING_TOP_1: { paddingTop: SPACINGS.spacing_vertical_1 },
-        cPADDING_TOP_2: { paddingTop: SPACINGS.spacing_vertical_2 },
-        cPADDING_TOP_3: { paddingTop: SPACINGS.spacing_vertical_3 },
-        cPADDING_TOP_4: { paddingTop: SPACINGS.spacing_vertical_4 },
-        cPADDING_TOP_5: { paddingTop: SPACINGS.spacing_vertical_5 },
-        cPADDING_TOP_6: { paddingTop: SPACINGS.spacing_vertical_6 },
+        cTOP_1: { paddingTop: SPACINGS.spacing_vertical_1 },
+        cTOP_2: { paddingTop: SPACINGS.spacing_vertical_2 },
+        cTOP_3: { paddingTop: SPACINGS.spacing_vertical_3 },
+        cTOP_4: { paddingTop: SPACINGS.spacing_vertical_4 },
+        cTOP_5: { paddingTop: SPACINGS.spacing_vertical_5 },
+        cTOP_6: { paddingTop: SPACINGS.spacing_vertical_6 },
 
-        cPADDING_BOTTOM_1: { paddingBottom: SPACINGS.spacing_vertical_1 },
-        cPADDING_BOTTOM_2: { paddingBottom: SPACINGS.spacing_vertical_2 },
-        cPADDING_BOTTOM_3: { paddingBottom: SPACINGS.spacing_vertical_3 },
-        cPADDING_BOTTOM_4: { paddingBottom: SPACINGS.spacing_vertical_4 },
-        cPADDING_BOTTOM_5: { paddingBottom: SPACINGS.spacing_vertical_5 },
-        cPADDING_BOTTOM_6: { paddingBottom: SPACINGS.spacing_vertical_6 },
+        cBOTTOM_1: { paddingBottom: SPACINGS.spacing_vertical_1 },
+        cBOTTOM_2: { paddingBottom: SPACINGS.spacing_vertical_2 },
+        cBOTTOM_3: { paddingBottom: SPACINGS.spacing_vertical_3 },
+        cBOTTOM_4: { paddingBottom: SPACINGS.spacing_vertical_4 },
+        cBOTTOM_5: { paddingBottom: SPACINGS.spacing_vertical_5 },
+        cBOTTOM_6: { paddingBottom: SPACINGS.spacing_vertical_6 },
 
-        cPADDING_LEFT_1: { paddingLeft: SPACINGS.spacing_horizontal_1 },
-        cPADDING_LEFT_2: { paddingLeft: SPACINGS.spacing_horizontal_2 },
-        cPADDING_LEFT_3: { paddingLeft: SPACINGS.spacing_horizontal_3 },
-        cPADDING_LEFT_4: { paddingLeft: SPACINGS.spacing_horizontal_4 },
-        cPADDING_LEFT_5: { paddingLeft: SPACINGS.spacing_horizontal_5 },
-        cPADDING_LEFT_6: { paddingLeft: SPACINGS.spacing_horizontal_6 },
+        cLEFT_1: { paddingLeft: SPACINGS.spacing_horizontal_1 },
+        cLEFT_2: { paddingLeft: SPACINGS.spacing_horizontal_2 },
+        cLEFT_3: { paddingLeft: SPACINGS.spacing_horizontal_3 },
+        cLEFT_4: { paddingLeft: SPACINGS.spacing_horizontal_4 },
+        cLEFT_5: { paddingLeft: SPACINGS.spacing_horizontal_5 },
+        cLEFT_6: { paddingLeft: SPACINGS.spacing_horizontal_6 },
 
-        cPADDING_RIGHT_1: { paddingRight: SPACINGS.spacing_horizontal_1 },
-        cPADDING_RIGHT_2: { paddingRight: SPACINGS.spacing_horizontal_2 },
-        cPADDING_RIGHT_3: { paddingRight: SPACINGS.spacing_horizontal_3 },
-        cPADDING_RIGHT_4: { paddingRight: SPACINGS.spacing_horizontal_4 },
-        cPADDING_RIGHT_5: { paddingRight: SPACINGS.spacing_horizontal_5 },
-        cPADDING_RIGHT_6: { paddingRight: SPACINGS.spacing_horizontal_6 },
+        cRIGHT_1: { paddingRight: SPACINGS.spacing_horizontal_1 },
+        cRIGHT_2: { paddingRight: SPACINGS.spacing_horizontal_2 },
+        cRIGHT_3: { paddingRight: SPACINGS.spacing_horizontal_3 },
+        cRIGHT_4: { paddingRight: SPACINGS.spacing_horizontal_4 },
+        cRIGHT_5: { paddingRight: SPACINGS.spacing_horizontal_5 },
+        cRIGHT_6: { paddingRight: SPACINGS.spacing_horizontal_6 },
     },
 }
 
-export const TEMPLATE_FOR_STYLES = {
+export const STYLE_STARK_ROYAL = {
+
+    uUNIVERSAL: {
+        margin: "0",
+        padding: "0",
+        boxSizing: "border-box",
+    },
 
     tBODY: {
-        // The below styling is allowing justified text to have as close to evenly spaced blanks between words as one can.
-        // Be careful tweaking these properties (if you do for w/e reason), it can make your text really fucky if not calibrated
-        // correctly.  The only settings that style definitions need to be concerned about with impacting this spacing is manipulating
-        // word and letter spacing - these spacings will need to be adjusted for different font families in order to make
-        // justified text look evenly spaced.  And as a final note, a lot of these properties really only apply under very
-        // specific scenarios.  So if you don't see anything happen after changing something, then it's likely (not always)
-        // that you aren't testing under the right scenario. Lastly, the default alignment for everything is justified with these settings.
-        // Feel free to change that here by simply reassigning the value of textAlign to something else, and feel free to turn
-        // off hyphens here as well.
         textAlign: "justify",
         overflowWrap: "break-word",
         textWrap: "pretty",
         hyphens: "auto",
         fontKerning: "normal",
-        wordSpacing: "-0.05em",     // Bigger negative em values help more with justified spacing, but the consequence is tighter wording.
-        letterSpacing: "-0.01em",   // Bigger negative em values help more with justified spacing, but the consequence is tighter lettering.
-
-        // These are the styles that are independent of justified text formatting.
+        wordSpacing: "-0.05em",
+        letterSpacing: "-0.01em",
         fontStyle: "normal",
         fontSize: "2rem",
         lineHeight: "1",
@@ -238,17 +624,11 @@ export const TEMPLATE_FOR_STYLES = {
             paddingRight: "",
         },
 
-        iEDIT: {
+        iEDIT: {},
 
-        },
+        iNAVIGATION: {},
 
-        iNAVIGATION: {
-
-        },
-
-        iSETTINGS: {
-
-        },
+        iSETTINGS: {},
 
         cBUTTONS: {
             zIndex: "999",
@@ -279,257 +659,595 @@ export const TEMPLATE_FOR_STYLES = {
         },
     },
 
-    oNAVIGATION: {
+    oNAVIGATION: {},
 
+    oSETTING: {},
+
+    oBLOCK: {
+
+        cUPPER: {
+            backgroundColor: "#111111",
+            borderColor: "#8d8d5e",
+            borderStyle: "inset",
+            borderWidth: "1px",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cMIDDLE: {
+            backgroundColor: "#261d1d",
+            borderColor: "rgba(255, 255, 255, 0)",
+            borderStyle: "inset",
+            borderWidth: "",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cLOWER: {
+            backgroundColor: "#2b2a2a",
+            borderColor: "rgba(255, 255, 255, 0)",
+            borderStyle: "inset",
+            borderWidth: "",
+            borderRadius: "5px",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: SPACINGS.spacing_horizontal_6,
+            marginRight: SPACINGS.spacing_horizontal_6,
+            paddingTop: SPACINGS.spacing_vertical_2,
+            paddingBottom: SPACINGS.spacing_vertical_2,
+            paddingLeft: SPACINGS.spacing_horizontal_2,
+            paddingRight: SPACINGS.spacing_horizontal_2,
+        },
+
+        cWARNING: {
+            backgroundColor: "#2d0606",
+            borderColor: "#dcdc02",
+            borderStyle: "inset",
+            borderWidth: "5px",
+            borderRadius: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: SPACINGS.spacing_vertical_4,
+            paddingBottom: SPACINGS.spacing_vertical_4,
+            paddingLeft: SPACINGS.spacing_horizontal_4,
+            paddingRight: SPACINGS.spacing_horizontal_4,
+        },
+
+        cSTORY: {
+            backgroundColor: "#000815",
+            borderColor: "#cda449",
+            borderStyle: "inset",
+            borderWidth: "3px",
+            borderRadius: "",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: SPACINGS.spacing_vertical_4,
+            paddingBottom: SPACINGS.spacing_vertical_4,
+            paddingLeft: SPACINGS.spacing_horizontal_4,
+            paddingRight: SPACINGS.spacing_horizontal_4,
+        },
     },
 
-    oSETTINGS: {
+    oHEADING: {
 
-    },
+        cTITLE: {
+            color: "#ffe52c",
+            fontFamily: "FONT_TEXT_CINZEL_DECORATIVE_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(2rem, 8vw, 6rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
 
-    oBLOCKS: {
+        cUPPER: {
+            color: "#f8bf2e",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.75rem, 6vw, 4rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
 
-    },
+        cMIDDLE: {
+            color: "#f3c868",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.5rem, 5vw, 3rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
 
-    oHEADINGS: {
+        cLOWER: {
+            color: "#faf8a2",
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.25rem, 4vw, 2.5rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
 
+        cWARNING: {
+            color: "#ffffff",
+            fontFamily: "FONT_TEXT_YOUNGSERIF_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.125rem, 3vw, 2rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
+
+        cSTORY: {
+            color: "#cda449",
+            fontFamily: "FONT_TEXT_CINZEL_DECORATIVE_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1.125rem, 3vw, 2rem)",
+            lineHeight: "1",
+            textAlign: "center",
+        },
     },
 
     oTEXT: {
 
+        cGENERAL: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 2rem)",
+            lineHeight: "1.5",
+            textAlign: "justify",
+        },
+
+        cMARGINAL: {
+            color: "#ffffff",
+            fontFamily: "FONT_TEXT_SPECTRAL_SEMI_BOLD",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(0.625rem, 2vw, 1.25rem)",
+            lineHeight: "1",
+            textAlign: "justify",
+        },
+
+        cWARNING: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_YOUNGSERIF_REGULAR",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 1.5rem)",
+            lineHeight: "1.5",
+            textAlign: "justify",
+        },
+
+        cSTORY: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_LIGHT_ITALIC",
+            fontWeight: "bold",
+            fontStyle: "normal",
+            fontSize: "clamp(1rem, 3vw, 1.5rem)",
+            lineHeight: "1.25",
+            textAlign: "justify",
+        },
+
+        cVISUAL: {
+            color: "#fff7cc",
+            fontFamily: "FONT_TEXT_SPECTRAL_LIGHT",
+            fontWeight: "normal",
+            fontStyle: "normal",
+            fontSize: "clamp(0.875rem, 2vw, 1.25rem)",
+            lineHeight: "1.125",
+            textAlign: "justify",
+        },
     },
 
-    oICONS: {
+    oICON: {
 
+        cGENERAL: {
+            fontStyle: "normal",
+            textTransform: "none",
+            verticalAlign: "top",
+            overflowWrap: "normal",
+            whiteSpace: "nowrap",
+            direction: "ltr",
+            textRendering: "optimizeLegibility",
+            fontFeatureSettings: "liga",
+            color: "inherit",
+            fontFamily: "FONT_ICON_MATERIAL",
+            fontSize: "inherit",
+            lineHeight: "inherit",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
+
+        cMENU: {
+            fontStyle: "normal",
+            textTransform: "none",
+            verticalAlign: "top",
+            overflowWrap: "normal",
+            whiteSpace: "nowrap",
+            direction: "ltr",
+            textRendering: "optimizeLegibility",
+            fontFeatureSettings: "liga",
+            color: "#f3c868",
+            fontFamily: "FONT_ICON_MATERIAL",
+            fontSize: "clamp(2rem, 4vw, 4rem)",
+            lineHeight: "inherit",
+            marginTop: "",
+            marginBottom: "",
+            marginLeft: "",
+            marginRight: "",
+            paddingTop: "",
+            paddingBottom: "",
+            paddingLeft: "",
+            paddingRight: "",
+        },
     },
 
-    oINPUTS: {
+    oINPUT: {},
 
+    oFORM: {
+
+        cSTATIC_COLUMN_START: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "start",
+        },
+
+        cSTATIC_COLUMN_CENTER: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "center",
+        },
+
+        cSTATIC_COLUMN_END: {
+            display: "flex",
+            position: "static",
+            flexDirection: "column",
+            alignItems: "end",
+        },
+
+        cSTATIC_ROW_START: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "start",
+        },
+
+        cSTATIC_ROW_CENTER: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "center",
+        },
+
+        cSTATIC_ROW_END: {
+            display: "flex",
+            position: "static",
+            flexDirection: "row",
+            alignItems: "end",
+        },
+
+        cFIXED_COLUMN_START: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "start",
+        },
+
+        cFIXED_COLUMN_CENTER: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "center",
+        },
+
+        cFIXED_COLUMN_END: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "column",
+            alignItems: "end",
+        },
+
+        cFIXED_ROW_START: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "start",
+        },
+
+        cFIXED_ROW_CENTER: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "center",
+        },
+
+        cFIXED_ROW_END: {
+            display: "flex",
+            position: "fixed",
+            flexDirection: "row",
+            alignItems: "end",
+        },
     },
-}
 
-export const STYLE_STARK_ROYAL = {
+    oMARGIN: {
 
-    // GENERIC FONT FAMILY
-    // This is the backup font family if the designated families can't get loaded for some reason.
-    font_family_generic: "sans-serif",
+        cAUTO: { margin: "auto" },
+        c1: { margin: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        c2: { margin: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        c3: { margin: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        c4: { margin: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        c5: { margin: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        c6: { margin: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
 
+        cTOP_AUTO: { marginTop: "auto" },
+        cTOP_1: { marginTop: SPACINGS.spacing_vertical_1 },
+        cTOP_2: { marginTop: SPACINGS.spacing_vertical_2 },
+        cTOP_3: { marginTop: SPACINGS.spacing_vertical_3 },
+        cTOP_4: { marginTop: SPACINGS.spacing_vertical_4 },
+        cTOP_5: { marginTop: SPACINGS.spacing_vertical_5 },
+        cTOP_6: { marginTop: SPACINGS.spacing_vertical_6 },
 
-    // WORD AND LETTER SPACING
-    spacing_words: "-0.05em",
-    spacing_letters: "-0.01em",
+        cBOTTOM_AUTO: { marginBottom: "auto" },
+        cBOTTOM_1: { marginBottom: SPACINGS.spacing_vertical_1 },
+        cBOTTOM_2: { marginBottom: SPACINGS.spacing_vertical_2 },
+        cBOTTOM_3: { marginBottom: SPACINGS.spacing_vertical_3 },
+        cBOTTOM_4: { marginBottom: SPACINGS.spacing_vertical_4 },
+        cBOTTOM_5: { marginBottom: SPACINGS.spacing_vertical_5 },
+        cBOTTOM_6: { marginBottom: SPACINGS.spacing_vertical_6 },
 
+        cLEFT_AUTO: { marginLeft: "auto" },
+        cLEFT_1: { marginLeft: SPACINGS.spacing_horizontal_1 },
+        cLEFT_2: { marginLeft: SPACINGS.spacing_horizontal_2 },
+        cLEFT_3: { marginLeft: SPACINGS.spacing_horizontal_3 },
+        cLEFT_4: { marginLeft: SPACINGS.spacing_horizontal_4 },
+        cLEFT_5: { marginLeft: SPACINGS.spacing_horizontal_5 },
+        cLEFT_6: { marginLeft: SPACINGS.spacing_horizontal_6 },
 
-    // BACKGROUND
-    background_color: "#000000",
+        cRIGHT_AUTO: { marginRight: "auto" },
+        cRIGHT_1: { marginRight: SPACINGS.spacing_horizontal_1 },
+        cRIGHT_2: { marginRight: SPACINGS.spacing_horizontal_2 },
+        cRIGHT_3: { marginRight: SPACINGS.spacing_horizontal_3 },
+        cRIGHT_4: { marginRight: SPACINGS.spacing_horizontal_4 },
+        cRIGHT_5: { marginRight: SPACINGS.spacing_horizontal_5 },
+        cRIGHT_6: { marginRight: SPACINGS.spacing_horizontal_6 },
+    },
 
+    oPADDING: {
+        c1: { padding: `${SPACINGS.spacing_vertical_1} ${SPACINGS.spacing_horizontal_1}` },
+        c2: { padding: `${SPACINGS.spacing_vertical_2} ${SPACINGS.spacing_horizontal_2}` },
+        c3: { padding: `${SPACINGS.spacing_vertical_3} ${SPACINGS.spacing_horizontal_3}` },
+        c4: { padding: `${SPACINGS.spacing_vertical_4} ${SPACINGS.spacing_horizontal_4}` },
+        c5: { padding: `${SPACINGS.spacing_vertical_5} ${SPACINGS.spacing_horizontal_5}` },
+        c6: { padding: `${SPACINGS.spacing_vertical_6} ${SPACINGS.spacing_horizontal_6}` },
 
-    // MENU
-    menu_panel_right: "15px",
-    menu_panel_bottom: "15px",
-    menu_panel_background_color: "",
-    menu_panel_border_style: "",
-    menu_panel_border_width: "",
-    menu_panel_border_radius: "",
-    menu_panel_border_color: "",
-    menu_panel_font_size: "",
-    menu_panel_margin_vertical: "",
-    menu_panel_margin_horizontal: "",
-    menu_panel_padding_vertical: "",
-    menu_panel_padding_horizontal: "",
+        cTOP_1: { paddingTop: SPACINGS.spacing_vertical_1 },
+        cTOP_2: { paddingTop: SPACINGS.spacing_vertical_2 },
+        cTOP_3: { paddingTop: SPACINGS.spacing_vertical_3 },
+        cTOP_4: { paddingTop: SPACINGS.spacing_vertical_4 },
+        cTOP_5: { paddingTop: SPACINGS.spacing_vertical_5 },
+        cTOP_6: { paddingTop: SPACINGS.spacing_vertical_6 },
 
-    menu_buttons_background_color: "#372e2e",
-    menu_buttons_border_style: "solid",
-    menu_buttons_border_width: "1px",
-    menu_buttons_border_radius: "3px",
-    menu_buttons_border_color: "#cda449",
-    menu_buttons_margin_vertical: SPACINGS.spacing_horizontal_5,
-    menu_buttons_margin_horizontal: "0",
-    menu_buttons_padding_vertical: SPACINGS.spacing_horizontal_5,
-    menu_buttons_padding_horizontal: SPACINGS.spacing_horizontal_5,
+        cBOTTOM_1: { paddingBottom: SPACINGS.spacing_vertical_1 },
+        cBOTTOM_2: { paddingBottom: SPACINGS.spacing_vertical_2 },
+        cBOTTOM_3: { paddingBottom: SPACINGS.spacing_vertical_3 },
+        cBOTTOM_4: { paddingBottom: SPACINGS.spacing_vertical_4 },
+        cBOTTOM_5: { paddingBottom: SPACINGS.spacing_vertical_5 },
+        cBOTTOM_6: { paddingBottom: SPACINGS.spacing_vertical_6 },
 
-    menu_text_color: "",
-    menu_text_font_family: "",
-    menu_text_font_weight: "",
-    menu_text_font_style: "",
-    menu_text_font_size: "clamp(0.5rem, 2vw, 1.25rem)",
-    menu_text_line_height: "",
-    menu_text_text_align: "",
+        cLEFT_1: { paddingLeft: SPACINGS.spacing_horizontal_1 },
+        cLEFT_2: { paddingLeft: SPACINGS.spacing_horizontal_2 },
+        cLEFT_3: { paddingLeft: SPACINGS.spacing_horizontal_3 },
+        cLEFT_4: { paddingLeft: SPACINGS.spacing_horizontal_4 },
+        cLEFT_5: { paddingLeft: SPACINGS.spacing_horizontal_5 },
+        cLEFT_6: { paddingLeft: SPACINGS.spacing_horizontal_6 },
 
-    // HEADINGS
-    heading_title_color: "#ffe52c",
-    heading_title_font_family: "FONT_TEXT_CINZEL_DECORATIVE_BOLD",
-    heading_title_font_weight: "normal",
-    heading_title_font_style: "normal",
-    heading_title_font_size: "clamp(2rem, 8vw, 6rem)",
-    heading_title_line_height: "1",
-    heading_title_text_align: "center",
+        cRIGHT_1: { paddingRight: SPACINGS.spacing_horizontal_1 },
+        cRIGHT_2: { paddingRight: SPACINGS.spacing_horizontal_2 },
+        cRIGHT_3: { paddingRight: SPACINGS.spacing_horizontal_3 },
+        cRIGHT_4: { paddingRight: SPACINGS.spacing_horizontal_4 },
+        cRIGHT_5: { paddingRight: SPACINGS.spacing_horizontal_5 },
+        cRIGHT_6: { paddingRight: SPACINGS.spacing_horizontal_6 },
+    },
+};
 
-    heading_upper_color: "#f8bf2e",
-    heading_upper_font_family: "FONT_TEXT_CINZEL_BOLD",
-    heading_upper_font_weight: "normal",
-    heading_upper_font_style: "normal",
-    heading_upper_font_size: "clamp(1.75rem, 6vw, 4rem)",
-    heading_upper_line_height: "1",
-    heading_upper_text_align: "center",
+type StyleDefinition = typeof TEMPLATE;
 
-    heading_middle_color: "#f3c868",
-    heading_middle_font_family: "FONT_TEXT_CINZEL_BOLD",
-    heading_middle_font_weight: "normal",
-    heading_middle_font_style: "normal",
-    heading_middle_font_size: "clamp(1.5rem, 5vw, 3rem)",
-    heading_middle_line_height: "1",
-    heading_middle_text_align: "center",
-
-    heading_lower_color: "#faf8a2",
-    heading_lower_font_family: "FONT_TEXT_CINZEL_BOLD",
-    heading_lower_font_weight: "normal",
-    heading_lower_font_style: "normal",
-    heading_lower_font_size: "clamp(1.25rem, 4vw, 2.5rem)",
-    heading_lower_line_height: "1",
-    heading_lower_text_align: "center",
-
-    heading_warning_color: "#ffffff",
-    heading_warning_font_family: "FONT_TEXT_YOUNGSERIF_REGULAR",
-    heading_warning_font_weight: "normal",
-    heading_warning_font_style: "normal",
-    heading_warning_font_size: "(1.125rem, 3vw, 2rem)",
-    heading_warning_line_height: "1",
-    heading_warning_text_align: "center",
-
-    heading_story_color: "#cda449",
-    heading_story_font_family: "FONT_TEXT_CINZEL_DECORATIVE_REGULAR",
-    heading_story_font_weight: "normal",
-    heading_story_font_style: "normal",
-    heading_story_font_size: "clamp(1.125rem, 3vw, 2rem)",
-    heading_story_line_height: "1",
-    heading_story_text_align: "center",
-
-
-    // TEXT
-    text_general_color: "#fff7cc",
-    text_general_font_family: "FONT_TEXT_SPECTRAL_MEDIUM",
-    text_general_font_weight: "normal",
-    text_general_font_style: "normal",
-    text_general_font_size: "clamp(1rem, 3vw, 2rem)",
-    text_general_line_height: "1.5",
-    text_general_text_align: "justified",
-
-    text_marginal_color: "#ffffff",
-    text_marginal_font_family: "FONT_TEXT_SPECTRAL_SEMI_BOLD",
-    text_marginal_font_weight: "normal",
-    text_marginal_font_style: "normal",
-    text_marginal_font_size: "clamp(0.625rem, 2vw, 1.25rem)",
-    text_marginal_line_height: "1",
-    text_marginal_text_align: "justified",
-
-    text_warning_color: "#fff7cc",
-    text_warning_font_family: "FONT_TEXT_YOUNGSERIF_REGULAR",
-    text_warning_font_weight: "normal",
-    text_warning_font_style: "normal",
-    text_warning_font_size: "clamp(1rem, 3vw, 1.5rem)",
-    text_warning_line_height: "1.5",
-    text_warning_text_align: "justified",
-
-    text_story_color: "#fff7cc",
-    text_story_font_family: "FONT_TEXT_SPECTRAL_LIGHT_ITALIC",
-    text_story_font_weight: "bold",
-    text_story_font_style: "normal",
-    text_story_font_size: "clamp(1rem, 3vw, 1.5rem)",
-    text_story_line_height: "1.25",
-    text_story_text_align: "justified",
-
-    text_visual_color: "#fff7cc",
-    text_visual_font_family: "FONT_TEXT_SPECTRAL_LIGHT",
-    text_visual_font_weight: "normal",
-    text_visual_font_style: "normal",
-    text_visual_font_size: "clamp(0.875rem, 2vw, 1.25rem)",
-    text_visual_line_height: "1.125",
-    text_visual_text_align: "justified",
-
-
-    // BLOCKS
-    block_upper_background_color: "#111111",
-    block_upper_border_color: "#8d8d5e",
-    block_upper_border_style: "inset",
-    block_upper_border_width: "1px",
-    block_upper_border_radius: "5px",
-    block_upper_margin_vertical: "",
-    block_upper_margin_horizontal: SPACINGS.spacing_horizontal_6,
-    block_upper_padding_vertical: SPACINGS.spacing_vertical_2,
-    block_upper_padding_horizontal: SPACINGS.spacing_horizontal_2,
-
-    block_middle_background_color: "#261d1d",
-    block_middle_border_color: "rgba(255, 255, 255, 0)",
-    block_middle_border_style: "inset",
-    block_middle_border_width: "",
-    block_middle_border_radius: "5px",
-    block_middle_margin_vertical: "",
-    block_middle_margin_horizontal: SPACINGS.spacing_horizontal_6,
-    block_middle_padding_vertical: SPACINGS.spacing_vertical_2,
-    block_middle_padding_horizontal: SPACINGS.spacing_horizontal_2,
-
-    block_lower_background_color: "#2b2a2a",
-    block_lower_border_color: "rgba(255, 255, 255, 0)",
-    block_lower_border_style: "inset",
-    block_lower_border_width: "",
-    block_lower_border_radius: "5px",
-    block_lower_margin_vertical: "",
-    block_lower_margin_horizontal: SPACINGS.spacing_horizontal_6,
-    block_lower_padding_vertical: SPACINGS.spacing_vertical_2,
-    block_lower_padding_horizontal: SPACINGS.spacing_horizontal_2,
-
-    block_warning_background_color: "#2d0606",
-    block_warning_border_color: "#dcdc02",
-    block_warning_border_style: "inset",
-    block_warning_border_width: "5px",
-    block_warning_border_radius: "",
-    block_warning_margin_vertical: "",
-    block_warning_margin_horizontal: "",
-    block_warning_padding_vertical: SPACINGS.spacing_vertical_4,
-    block_warning_padding_horizontal: SPACINGS.spacing_horizontal_4,
-
-    block_story_background_color: "#000815",
-    block_story_border_color: "#cda449",
-    block_story_border_style: "inset",
-    block_story_border_width: "3px",
-    block_story_border_radius: "",
-    block_story_margin_vertical: "",
-    block_story_margin_horizontal: "",
-    block_story_padding_vertical: SPACINGS.spacing_vertical_4,
-    block_story_padding_horizontal: SPACINGS.spacing_horizontal_4,
-
-
-    // ICONS
-    icon_general_font_family: "FONT_ICON_MATERIAL",
-    icon_general_font_size: "inherit",
-    icon_general_color: "inherit",
-    icon_general_line_height: "inherit",
-
-    icon_menu_font_family: "FONT_ICON_MATERIAL",
-    icon_menu_font_size: "clamp(2rem, 4vw, 4rem)",
-    icon_menu_color: "#f3c868",
-    icon_menu_line_height: "inherit",
-
-
-    // INPUTS
-
-
-} as const;
-
-// EMBEDDING CSS VARIABLES
-// Looping through each property inside a passed styles object and applying them as CSS variables to a root element.
-// We're doing this here we so can utilize the constants in both CSS files and in TypeScript files.
-function make_css_variables_from_definition(styles: Record<string, string>): void {
-
-    // We're obtaining a root element (an html tag) here so we can designate where the styles need to be
-    // recognized as CSS variables.  Where you call the function will dictate which root element you're grabbing.
-    const ROOT = document.documentElement;
-
-    // Going through each style and applying it onto the grabbed root element as a CSS variable.
-    for (const [key, value] of Object.entries(styles)) {
-        ROOT.style.setProperty(`--${key}`, value);
+function get_selector_character(prefix: string): string {
+    switch (prefix) {
+        case "c": return ".";
+        case "i": return "#";
+        case "u": return "*";
+        case "t": return "";
+        default:  return "";
     }
 }
+function is_object(value: unknown): value is Record<string, unknown> {
+    return typeof value === "object" && value !== null;
+}
+function for_each_value(
+    value:          NodeListOf<HTMLElement> | HTMLElement | null,
+    style_to_apply: (element: HTMLElement) => void
+): void {
 
-export * from "./style_definitions.js";
+    // Null Scenario
+    if (value === null) return;
+
+    // ID Scenario
+    if (value instanceof HTMLElement) {
+        style_to_apply(value);
+        return;
+    }
+
+    // Class Scenario
+    for (const element of value) {
+        style_to_apply(element);
+    }
+}
+function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement | null {
+    if (selector.startsWith("#")) return document.querySelector(selector) as HTMLElement | null;
+    if (selector.startsWith(".")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+    if (selector.startsWith("*")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+    return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+}
+function process_selectors(
+    group:        Record<string, unknown>,
+    selector_key: string,
+    selectors:    Record<string, string>,
+): void {
+
+    for (const child_key in group) {
+
+        const child              = group[child_key];
+        const child_prefix       = child_key[0];
+        const child_name         = child_key.slice(1).toLowerCase();
+        const child_selector_key = `${selector_key}_${child_name}`;
+
+        if (!is_object(child)) continue;
+
+        selectors[child_selector_key] = `${get_selector_character(child_prefix)}${child_selector_key}`;
+
+        process_selectors(child, child_selector_key, selectors);
+    }
+}
+function process_group(
+    group:             Record<string, unknown>,
+    selector_key:      string,
+    styling_functions: Record<string, Function>,
+    path:              string[],
+): void {
+
+    const has_nested_objects = Object.values(group).some(is_object);
+
+    if (has_nested_objects) {
+
+        for (const child_key in group) {
+
+            const child              = group[child_key];
+            const child_name         = child_key.slice(1).toLowerCase();
+            const child_selector_key = `${selector_key}_${child_name}`;
+
+            if (!is_object(child)) continue;
+
+            process_group(child, child_selector_key, styling_functions, [...path, child_key]);
+        }
+
+    } else {
+
+        styling_functions[`style_${selector_key}`] = (style_definition: StyleDefinition, element: HTMLElement): void => {
+
+            const style_group = path.reduce((obj: any, key) => {
+                return is_object(obj) ? obj[key] : obj;
+            }, style_definition);
+
+            if (!is_object(style_group)) return;
+
+            for (const prop_key in group) {
+                const value = (style_group as any)[prop_key];
+                if (typeof value === "string" && value !== "") {
+                    (element.style as any)[prop_key] = value;
+                } else if (typeof group[prop_key] === "string" && group[prop_key] !== "") {
+                    (element.style as any)[prop_key] = group[prop_key] as string;
+                }
+            }
+        };
+    }
+}
+function make_selectors_from_template(template: StyleDefinition) {
+
+    const selectors: Record<string, string> = {};
+
+    for (const section_key in template) {
+
+        const section      = template[section_key as keyof StyleDefinition];
+        const section_name = section_key.slice(1).toLowerCase();
+        const prefix       = section_key[0];
+
+        if (!is_object(section)) continue;
+
+        const selector_character = get_selector_character(prefix);
+
+        // Universal selector should just be "*", not "*universal"
+        // Tag selector should just be the tag name, not prefixed
+        if (prefix === "u") {
+            selectors[section_name] = "*";
+        } else if (prefix === "t") {
+            selectors[section_name] = section_name;
+        } else {
+            selectors[section_name] = `${selector_character}${section_name}`;
+        }
+
+        process_selectors(section, section_name, selectors);
+    }
+
+    return selectors;
+}
+function make_styling_functions_from_template(template: StyleDefinition) {
+
+    const styling_functions: Record<string, Function> = {};
+
+    for (const section_key in template) {
+
+        const section      = template[section_key as keyof StyleDefinition];
+        const section_name = section_key.slice(1).toLowerCase();
+
+        if (!is_object(section)) continue;
+
+        process_group(section, section_name, styling_functions, [section_key]);
+    }
+
+    return styling_functions;
+}
+function make_apply_style_definition_from_template(template: StyleDefinition) {
+
+    return function apply_style_definition(style_definition: StyleDefinition): void {
+        for (const selector_key in styling_functions) {
+            const key = selector_key.replace("style_", "");
+            apply_style_to_selector(key, style_definition);
+        }
+    };
+}
+export const selectors         = make_selectors_from_template(TEMPLATE);
+export const styling_functions = make_styling_functions_from_template(TEMPLATE);
+function apply_style_to_selector(selector_key: string, style_definition: StyleDefinition): void {
+
+    const selector = selectors[selector_key];
+    const style_fn = styling_functions[`style_${selector_key}`];
+
+    if (!selector || !style_fn) return;
+
+    for_each_value(query_selector(selector), (element: HTMLElement) => {
+        style_fn(style_definition, element);
+    });
+}
+export const apply_style_definition = make_apply_style_definition_from_template(TEMPLATE);

@@ -1,48 +1,48 @@
-
-import * as FS from "fs";
+import * as FS   from "fs";
 import * as PATH from "path";
-import {
-    MENU,
-    NAVIGATION,
-    SETTINGS,
-    FORMS,
-    BLOCKS,
-    HEADINGS,
-    ICONS,
-    INPUTS,
-    MARGINS,
-    TEXTS,
-} from "../selectors.js";
+import { selectors } from "../style_definitions.js";
+
+// STRIPPED SELECTORS
+// Selectors with their leading selector character removed for use in HTML attributes.
+function make_stripped_selectors(selectors: Record<string, string>): Record<string, string> {
+
+    const stripped: Record<string, string> = {};
+
+    for (const key in selectors) {
+        const selector = selectors[key];
+        stripped[key] = selector.startsWith(".") || selector.startsWith("#") || selector.startsWith("*")
+            ? selector.slice(1)
+            : selector;
+    }
+
+    return stripped;
+}
+
+const SS = make_stripped_selectors(selectors);
 
 // PAGE TYPES
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
 // to the testing type.  Also, all of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
-const PAGE_TYPE_BLANK: string = "page_blank";
-const PAGE_TYPE_TITLE: string = "page_with_title";
+const PAGE_TYPE_BLANK:   string = "page_blank";
+const PAGE_TYPE_TITLE:   string = "page_with_title";
 const PAGE_TYPE_TESTING: string = "page_for_testing";
 
 // PAGE BUILDERS FOR TESTING
 // When this file is executed these builds will generate all the types of pages.
 // We do this so that regenerating pages during development/testing is simple.
-build_page("Page Blank", PAGE_TYPE_BLANK);
-build_page("Page Title", PAGE_TYPE_TITLE);
+build_page("Page Blank",   PAGE_TYPE_BLANK);
+build_page("Page Title",   PAGE_TYPE_TITLE);
 build_page("Page Testing", PAGE_TYPE_TESTING);
 
 // PAGE BUILDER
 // Builds an HTML file that will be thrown into the pages directory.
 export function build_page(title: string, page_type: string) {
 
-    // The title is modified to ensure that the HTML file name that is made uses underscores and lowercase letters.
     const name_of_file = title.toLowerCase().replace(/\s+/g, "_") + ".html";
-
-    // Path to save the file to.
-    const output_path = PATH.resolve("../../pages", name_of_file);
-
-    // Starts the process of building a blank HTML file.
+    const output_path  = PATH.resolve("../../pages", name_of_file);
     const html_content = build_html(title, page_type);
 
-    // Writes out an HTML file using the UTF-8 character set, the html_content that was produced, and at the output_path's location.
     FS.writeFileSync(output_path, html_content, "utf-8");
 }
 
@@ -54,8 +54,7 @@ function build_html(title: string, page_type: string): string {
     const head = build_head(title);
     const body = body_director(title, page_type);
 
-    const the_full_html =
-    [
+    return [
         ``,
         `<!DOCTYPE html>`,
         `<html lang="en">`,
@@ -69,25 +68,18 @@ function build_html(title: string, page_type: string): string {
         `</html>`,
         ``,
     ].join("\n");
-
-    return the_full_html;
 }
 
 // HEAD BUILDER
 // Builds and returns a heading tag that will hold all the necessary linked files in it.
 function build_head(title: string): string {
 
-    // STYLESHEET LINKS GO HERE!
-    const stylesheet_links =
-    [
+    const stylesheet_links = [
         `       <!-- Stylesheet Links -->`,
         `       <link rel="stylesheet" href="../stylesheets/fonts.css">`,
     ].join("\n");
 
-
-    // GLOBAL SCRIPTS GO HERE!
-    const scripted_global_links =
-    [
+    const scripted_global_links = [
         `       <!-- Scripted Global Links -->`,
         `       <script type="module" src="../scripts/transpiled_scripts/selectors.js"></script>`,
         `       <script type="module" src="../scripts/transpiled_scripts/getters.js"></script>`,
@@ -95,24 +87,15 @@ function build_head(title: string): string {
         `       <script type="module" src="../scripts/transpiled_scripts/style_definitions.js"></script>`,
     ].join("\n");
 
-
-    // EVENT SCRIPTS GO HERE!
-    const scripted_event_links =
-    [
+    const scripted_event_links = [
         `       <!-- Scripted Event Links -->`,
         `       <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>`,
     ].join("\n");
 
-
-    // BUILDER SCRIPTS GO HERE!
-    const scripted_builder_links =
-    [
+    const scripted_builder_links = [
         `       <!-- Scripted Builder Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/builders/pages.js"></script>`,
     ].join("\n");
 
-
-    // THE ENDING FORMAT FOR THE HEAD
     return [
         `   <head>`,
         ``,
@@ -135,7 +118,6 @@ function build_head(title: string): string {
 // Determines which type of body needs to be built.
 function body_director(title: string, page_type: string): string {
 
-    // This will be filled by one of the body builders and ultimately returned if the page_type was accepted.
     let the_full_body: string = "";
 
     switch (page_type) {
@@ -154,19 +136,18 @@ function body_director(title: string, page_type: string): string {
 
         default:
             console.log("Your input for page_type was NOT accepted.  Ensure your input is correct" +
-                "and see if you have created a case for the page_type you are trying to make.")
+                "and see if you have created a case for the page_type you are trying to make.");
             break;
     }
 
     return the_full_body;
 }
 
-// BODY BUILDER TYPE: TESTING
+// BODY BUILDER TYPE: BLANK
 // Builds an empty body tag.
 function build_body_blank(): string {
-
     return [
-        `   <body class="${FORMS.form_static_column_center.without_selector} ${MARGINS.margin_2.without_selector}">`,
+        `   <body class="${SS.form_static_column_center} ${SS.margin_2}">`,
         ``,
         `   </body>`,
     ].join("\n");
@@ -175,11 +156,10 @@ function build_body_blank(): string {
 // BODY BUILDER TYPE: TITLE
 // Builds a body tag with some basic styling and an h1 tag for the title.
 function build_body_title(title: string): string {
-
     return [
-        `   <body class="${FORMS.form_static_column_center.without_selector} ${MARGINS.margin_2.without_selector}">`,
+        `   <body class="${SS.form_static_column_center} ${SS.margin_2}">`,
         ``,
-        `       <h1 class="${HEADINGS.heading_title.without_selector} ${MARGINS.margin_bottom_1.without_selector}">${title}</h1>`,
+        `       <h1 class="${SS.heading_title} ${SS.margin_bottom_1}">${title}</h1>`,
         ``,
         `   </body>`,
     ].join("\n");
@@ -187,110 +167,106 @@ function build_body_title(title: string): string {
 
 // BODY BUILDER TYPE: TESTING
 // Builds a body tag with all types of content needed for testing.
-// Anything you want to test at all times, should go in here at least once.  Maybe even multiple times
-// if there are scenarios where contents/classes/ids/events change dependent on certain things happening
-// at the same time.
 function build_body_testing(title: string): string {
-
     return [
-        `   <body class="${FORMS.form_static_column_center.without_selector} ${MARGINS.margin_2.without_selector}">`,
+        `   <body class="${SS.form_static_column_center} ${SS.margin_2}">`,
         ``,
-        `       <div id="${MENU.menu_panel.without_selector}" class="${FORMS.form_fixed_column_center.without_selector}">`,
+        `       <div id="${SS.menu_panel}" class="${SS.form_fixed_column_center}">`,
         ``,
         `            <!-- Button Test -->`,
-        `            <div id="${MENU.menu_button_navigation.without_selector}" class="${FORMS.form_static_column_center.without_selector} ${MENU.menu_buttons.without_selector}">`,
-        `                <span class="${ICONS.icon_menu.without_selector}">browse</span>`,
-        `                <label for="${MENU.menu_button_navigation.without_selector}" class="${MENU.menu_text.without_selector}">NAV</label>`,
+        `            <div id="${SS.menu_navigation}" class="${SS.form_static_column_center} ${SS.menu_buttons}">`,
+        `                <span class="${SS.icon_menu}">browse</span>`,
+        `                <label for="${SS.menu_navigation}" class="${SS.menu_text}">NAV</label>`,
         `            </div>`,
         ``,
-        `            <div id="${MENU.menu_button_edit.without_selector}" class="${FORMS.form_static_column_center.without_selector} ${MENU.menu_buttons.without_selector}">`,
-        `                <span class="${ICONS.icon_menu.without_selector}">edit_square</span>`,
-        `                <label for="${MENU.menu_button_edit.without_selector}" class="${MENU.menu_text.without_selector}">MOD</label>`,
+        `            <div id="${SS.menu_edit}" class="${SS.form_static_column_center} ${SS.menu_buttons}">`,
+        `                <span class="${SS.icon_menu}">edit_square</span>`,
+        `                <label for="${SS.menu_edit}" class="${SS.menu_text}">MOD</label>`,
         `            </div>`,
         ``,
-        `            <div id="${MENU.menu_button_settings.without_selector}" class="${FORMS.form_static_column_center.without_selector} ${MENU.menu_buttons.without_selector}">`,
-        `                <span class="${ICONS.icon_menu.without_selector}">settings</span>`,
-        `                <label for="${MENU.menu_button_settings.without_selector}" class="${MENU.menu_text.without_selector}">CFG</label>`,
+        `            <div id="${SS.menu_settings}" class="${SS.form_static_column_center} ${SS.menu_buttons}">`,
+        `                <span class="${SS.icon_menu}">settings</span>`,
+        `                <label for="${SS.menu_settings}" class="${SS.menu_text}">CFG</label>`,
         `            </div>`,
         ``,
         `       </div>`,
         ``,
         `       <!-- Title Test -->`,
-        `       <h1 class="${HEADINGS.heading_title.without_selector} ${MARGINS.margin_bottom_1.without_selector}">${title}</h1>`,
+        `       <h1 class="${SS.heading_title} ${SS.margin_bottom_1}">${title}</h1>`,
         ``,
         `       <!-- Input Test -->`,
-        `       <button class="${INPUTS.input_button_1.without_selector}">CLICK ME!</button>`,
-        `       <input class="${INPUTS.input_checkbox_1.without_selector}" type="checkbox">`,
-        `       <input class="${INPUTS.input_color_1.without_selector}" type="color">`,
-        `       <input class="${INPUTS.input_date_1.without_selector}" type="date">`,
-        `       <input class="${INPUTS.input_datetime_1.without_selector}" type="datetime-local">`,
-        `       <input class="${INPUTS.input_email_1.without_selector}" type="email">`,
-        `       <input class="${INPUTS.input_file_1.without_selector}" type="file">`,
-        `       <input class="${INPUTS.input_password_1.without_selector}" type="password">`,
-        `       <input class="${INPUTS.input_radio_1.without_selector}" type="radio">`,
-        `       <input class="${INPUTS.input_range_1.without_selector}" type="range">`,
-        `       <input class="${INPUTS.input_reset_1.without_selector}" type="reset">`,
-        `       <input class="${INPUTS.input_text_1.without_selector}" type="text">`,
-        `       <input class="${INPUTS.input_time_1.without_selector}" type="time">`,
+        `       <button class="${SS.input_button_1}">CLICK ME!</button>`,
+        `       <input class="${SS.input_checkbox_1}" type="checkbox">`,
+        `       <input class="${SS.input_color_1}" type="color">`,
+        `       <input class="${SS.input_date_1}" type="date">`,
+        `       <input class="${SS.input_datetime_1}" type="datetime-local">`,
+        `       <input class="${SS.input_email_1}" type="email">`,
+        `       <input class="${SS.input_file_1}" type="file">`,
+        `       <input class="${SS.input_password_1}" type="password">`,
+        `       <input class="${SS.input_radio_1}" type="radio">`,
+        `       <input class="${SS.input_range_1}" type="range">`,
+        `       <input class="${SS.input_reset_1}" type="reset">`,
+        `       <input class="${SS.input_text_1}" type="text">`,
+        `       <input class="${SS.input_time_1}" type="time">`,
         ``,
         `       <!-- Block Test -->`,
-        `       <div class="${BLOCKS.block_upper.without_selector}">`,
-        `           <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `               <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}"><span class="${ICONS.icon_general.without_selector}">navigation</span>Marginal Top Left</p>`,
-        `               <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Block #001.001.000.000.000</p>`,
+        `       <div class="${SS.block_upper}">`,
+        `           <div class="${SS.form_static_row_center}">`,
+        `               <p class="${SS.text_marginal} ${SS.margin_right_auto}"><span class="${SS.icon_general}">navigation</span>Marginal Top Left</p>`,
+        `               <p class="${SS.text_marginal} ${SS.margin_left_auto}">Block #001.001.000.000.000</p>`,
         `           </div>`,
         ``,
-        `           <h2 class="${HEADINGS.heading_upper.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}"><i class="${ICONS.icon_general.without_selector}">home</i>Block Test : Part 1</h2>`,
-        `           <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><span class="${ICONS.icon_general.without_selector}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}"><span class="${ICONS.icon_general.without_selector}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}"><span class="${ICONS.icon_general.without_selector}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}"><i class="${SS.icon_general}">home</i>Block Test : Part 1</h2>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
-        `           <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `               <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
-        `               <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
+        `           <div class="${SS.form_static_row_center} ${SS.margin_bottom_2}">`,
+        `               <p class="${SS.text_marginal} ${SS.margin_right_auto}">Marginal Bottom Left</p>`,
+        `               <p class="${SS.text_marginal} ${SS.margin_left_auto}">Marginal Bottom Right</p>`,
         `           </div>`,
         ``,
-        `           <div class="${BLOCKS.block_middle.without_selector}">`,
-        `               <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `                   <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Top Left</p>`,
-        `                   <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Top Right</p>`,
+        `           <div class="${SS.block_middle}">`,
+        `               <div class="${SS.form_static_row_center}">`,
+        `                   <p class="${SS.text_marginal} ${SS.margin_right_auto}">Marginal Top Left</p>`,
+        `                   <p class="${SS.text_marginal} ${SS.margin_left_auto}">Marginal Top Right</p>`,
         `               </div>`,
         ``,
-        `               <h3 class="${HEADINGS.heading_middle.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}">Block Test : Part 2</h3>`,
-        `               <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `               <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `               <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `               <h3 class="${SS.heading_middle} ${SS.margin_bottom_5} ${SS.margin_top_4}">Block Test : Part 2</h3>`,
+        `               <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `               <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `               <p class="${SS.text_general} ${SS.margin_bottom_2}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
-        `               <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `                   <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
-        `                   <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
+        `               <div class="${SS.form_static_row_center} ${SS.margin_bottom_2}">`,
+        `                   <p class="${SS.text_marginal} ${SS.margin_right_auto}">Marginal Bottom Left</p>`,
+        `                   <p class="${SS.text_marginal} ${SS.margin_left_auto}">Marginal Bottom Right</p>`,
         `               </div>`,
         ``,
-        `               <div class="${BLOCKS.block_lower.without_selector}">`,
-        `                   <div class="${FORMS.form_static_row_center.without_selector}">`,
-        `                       <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Top Left</p>`,
-        `                       <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Top Right</p>`,
+        `               <div class="${SS.block_lower}">`,
+        `                   <div class="${SS.form_static_row_center}">`,
+        `                       <p class="${SS.text_marginal} ${SS.margin_right_auto}">Marginal Top Left</p>`,
+        `                       <p class="${SS.text_marginal} ${SS.margin_left_auto}">Marginal Top Right</p>`,
         `                   </div>`,
         ``,
-        `                   <h4 class="${HEADINGS.heading_lower.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_4.without_selector}">Block Test : Part 3</h4>`,
-        `                   <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                   <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                   <p class="${TEXTS.text_general.without_selector} ${MARGINS.margin_bottom_2.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                   <h4 class="${SS.heading_lower} ${SS.margin_bottom_5} ${SS.margin_top_4}">Block Test : Part 3</h4>`,
+        `                   <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                   <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                   <p class="${SS.text_general} ${SS.margin_bottom_2}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
-        `                   <div class="${FORMS.form_static_row_center.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `                       <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_right_auto.without_selector}">Marginal Bottom Left</p>`,
-        `                       <p class="${TEXTS.text_marginal.without_selector} ${MARGINS.margin_left_auto.without_selector}">Marginal Bottom Right</p>`,
+        `                   <div class="${SS.form_static_row_center} ${SS.margin_bottom_2}">`,
+        `                       <p class="${SS.text_marginal} ${SS.margin_right_auto}">Marginal Bottom Left</p>`,
+        `                       <p class="${SS.text_marginal} ${SS.margin_left_auto}">Marginal Bottom Right</p>`,
         `                   </div>`,
         ``,
-        `                   <div class="${BLOCKS.block_warning.without_selector} ${MARGINS.margin_bottom_2.without_selector}">`,
-        `                       <h5 class="${HEADINGS.heading_warning.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">WARNING</h5>`,
-        `                       <p class="${TEXTS.text_warning.without_selector}">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>`,
+        `                   <div class="${SS.block_warning} ${SS.margin_bottom_2}">`,
+        `                       <h5 class="${SS.heading_warning} ${SS.margin_bottom_5} ${SS.margin_top_5}">WARNING</h5>`,
+        `                       <p class="${SS.text_warning}">Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  Here is some WARNING text.  </p>`,
         `                   </div>`,
         ``,
-        `                   <div class="${BLOCKS.block_story.without_selector}">`,
-        `                       <h5 class="${HEADINGS.heading_story.without_selector} ${MARGINS.margin_bottom_5.without_selector} ${MARGINS.margin_top_5.without_selector}">The Knight That Lost Their Way</h5>`,
-        `                       <p class="${TEXTS.text_story.without_selector} ${MARGINS.margin_bottom_4.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                       <p class="${TEXTS.text_visual.without_selector}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                   <div class="${SS.block_story}">`,
+        `                       <h5 class="${SS.heading_story} ${SS.margin_bottom_5} ${SS.margin_top_5}">The Knight That Lost Their Way</h5>`,
+        `                       <p class="${SS.text_story} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `                       <p class="${SS.text_visual}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `                   </div>`,
         `               </div>`,
         `           </div>`,

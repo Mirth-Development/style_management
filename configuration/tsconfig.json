@@ -10,6 +10,11 @@
     // ESNext and NodeNext are ones that are always the most up to date (but they're also unstable).
     "module": "ESNext",
 
+    // Making sure certain updated libraries are recognized.  TypeScript was complaining about NodeListOf
+    // not being iterable, when in fact it was.  I had to add the libraries manually to ensure that TypeScript recognized
+    // that NodeListOf is in fact iterable.
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+
     // Simply put, just set this rule to true.
     // If you don't, then there could be an issue with how certain module importing/exporting works
     // with one another when different versions of something are present? (I don't fully understand the

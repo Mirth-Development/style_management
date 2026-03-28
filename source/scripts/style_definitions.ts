@@ -643,8 +643,8 @@ export const STYLE_STARK_ROYAL = {
             marginRight: "0",
             paddingTop: SPACINGS.spacing_horizontal_5,
             paddingBottom: SPACINGS.spacing_horizontal_5,
-            paddingLeft: "0",
-            paddingRight: "0",
+            paddingLeft: SPACINGS.spacing_horizontal_5,
+            paddingRight: SPACINGS.spacing_horizontal_5,
         },
 
         cTEXT: {
@@ -1083,20 +1083,54 @@ export const STYLE_STARK_ROYAL = {
 
 type StyleDefinition = typeof TEMPLATE;
 
+/** Returns the associated selector character that corresponds with the provided prefix.  We must do this since objects
+ * can't start without the selector characters themselves without using string object names and I refuse to work with string
+ * object names because I'm stubborn and don't like how it looks.
+ *
+ * c = class = .
+ *
+ * i = id = #
+ *
+ * u = universal = *
+ *
+ * anything else = empty string = tags
+ * **/
 function get_selector_character(prefix: string): string {
     switch (prefix) {
         case "c": return ".";
         case "i": return "#";
         case "u": return "*";
         case "t": return "";
-        default:  return "";
+        case "o": return "";
+        default:  throw new Error(`get_selector_character: unrecognized prefix "${prefix}"`);
     }
 }
+
+/** Will return a boolean during runtime based on if the passed value is an object or not.
+ *
+ * Will tell TypeScript what datatype the parameter "value" is during compile time based on the boolean result.
+ *
+ * "value is Record<String, unknown>" is made as the datatype if value is an object and not null.
+ *
+ * "unknown" is made as the datatype otherwise.
+ *
+ * The function's purpose is to help with determining if recursing through an object is necessary or not depending on
+ * if there is another object within said object.**/
 function is_object(value: unknown): value is Record<string, unknown> {
-    return typeof value === "object" && value !== null;
+    const is_an_object = typeof value === "object";
+    const is_not_null  = value !== null;
+    return is_an_object && is_not_null;
 }
+
+/** Since I'm using query selection over id/class selection, 3 different results can be returned using this type of selection.
+ *
+ * For classes, NodeListOf<HTMLElement> is always returned; in the scenario that the class isn't being used an empty NodeList will be returned.
+ *
+ * For ids, either HTMLElement or null will be returned based on if an id is being utilized or not.
+ *
+ * This function's purpose is to apply styles based on the type that is returned from a query selection.**/
 function for_each_value(
-    value:          NodeListOf<HTMLElement> | HTMLElement | null,
+    value: NodeListOf<HTMLElement> | HTMLElement | null,
     style_to_apply: (element: HTMLElement) => void
 ): void {
 
@@ -1114,12 +1148,27 @@ function for_each_value(
         style_to_apply(element);
     }
 }
+
+/** Queries the DOM based on the provided selector string.
+ *
+ * Returns different types based on the selector prefix:
+ *
+ * "#" = ID Selector = HTMLElement | null (via querySelector)
+ *
+ * "." = Class Selector = NodeListOf<HTMLElement> (via querySelectorAll)
+ *
+ * "*" = Universal Selector = NodeListOf<HTMLElement> (via querySelectorAll)
+ *
+ * "" = Tag Selector = NodeListOf<HTMLElement> (via querySelectorAll)
+ **/
 function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement | null {
     if (selector.startsWith("#")) return document.querySelector(selector) as HTMLElement | null;
     if (selector.startsWith(".")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
     if (selector.startsWith("*")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
-    return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+    if (selector.startsWith("")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+    throw new Error(`query_selector: unrecognized selector "${selector}"`);
 }
+
 function process_selectors(
     group:        Record<string, unknown>,
     selector_key: string,
@@ -1128,9 +1177,9 @@ function process_selectors(
 
     for (const child_key in group) {
 
-        const child              = group[child_key];
-        const child_prefix       = child_key[0];
-        const child_name         = child_key.slice(1).toLowerCase();
+        const child = group[child_key];
+        const child_prefix = child_key[0];
+        const child_name = child_key.slice(1).toLowerCase();
         const child_selector_key = `${selector_key}_${child_name}`;
 
         if (!is_object(child)) continue;

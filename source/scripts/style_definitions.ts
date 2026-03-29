@@ -1170,6 +1170,109 @@ function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement
     throw new Error(`query_selector: unrecognized selector "${selector}"`);
 }
 
+/** A recursive initiator that goes through a template and makes selectors out of the objects within the template.
+ * Will output an object where the keys are the object names from the template without their first character, and the
+ * values are the generated CSS selector names based on the object name and what its first character represented. **/
+function make_selectors_from_template(template: Record<string, unknown>) {
+
+    const selectors: Record<string, string> = {};
+
+    for (const child_key in template) {
+
+        const child = template[child_key];
+
+        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+        // If the child is an object, proceed with the iteration.
+        // If the child is not an object, skip this iteration.
+        if (is_object(child)) {
+
+            const child_name = child_key.slice(1).toLowerCase();
+            const child_prefix= child_key[0];
+            const selector_character = get_selector_character(child_prefix);
+
+            // Universal and tag selectors are special cases since they don't have a character that proceeds their contents inside CSS.
+            // They are their own contents.  In the case of universal, it is just called by its selector_character.
+            // In the case of tags, they are selected by the tag name (the child_name in this case).
+            switch (child_prefix) {
+
+                case "o":
+                    break;
+
+                case "u":
+                    selectors[child_name] = selector_character;
+                    break;
+
+                case "t":
+                    selectors[child_name] = child_name;
+                    break;
+
+                default:
+                    selectors[child_name] = `${selector_character}${child_name}`;
+                    break;
+            }
+
+            process_selectors(child, child_name, selectors);
+        }
+    }
+
+    return selectors;
+}
+/** Recursive function that goes through a provided template and creates selectors to throw into a provided object. **/
+function process_selectors(
+    parent: Record<string, unknown>,
+    selector_key: string,
+    selectors: Record<string, string>,
+): void {
+
+    for (const child_key in parent) {
+
+        const child = parent[child_key];
+
+        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+        // If the child is an object, proceed with the iteration.
+        // If the child is not an object, skip this iteration.
+        if (is_object(child)) {
+            const child_prefix = child_key[0];
+            const child_name = child_key.slice(1).toLowerCase();
+            const child_selector_key = `${selector_key}_${child_name}`;
+
+            // Skip object containers, they are not CSS selectors.
+            if (child_prefix === "o") {
+                process_selectors(child, child_selector_key, selectors);
+            }
+            else {
+                selectors[child_selector_key] = `${get_selector_character(child_prefix)}${child_selector_key}`;
+                process_selectors(child, child_selector_key, selectors);
+            }
+        }
+    }
+}
+
+/** Recursive initiator that will begin the process of creating styling functions from a provided template.
+ * Will return an object of functions that can be used to apply styles to their corresponding purpose.**/
+function make_styling_functions_from_template(template: Record<string, unknown>) {
+
+    const styling_functions: Record<string, Function> = {};
+
+    for (const child_key in template) {
+
+        const child = template[child_key];
+
+        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+        // If the child is an object, proceed with the iteration.
+        // If the child is not an object, skip this iteration.
+        if (is_object(child)) {
+            const child_name = child_key.slice(1).toLowerCase();
+            process_functions(child, child_name, styling_functions, [child_key]);
+        }
+    }
+
+    return styling_functions;
+}
+
+/** Recursive function that will generate parent and child functions and throw them into the styling_functions object
+ * for the recursive initiator to later return.  Parent functions can be called to apply all of their child styles.
+ * Child styles target a specific class/id/tag and will not trigger a cascade call like the parent function calls.**/
 function process_functions(
     parent: Record<string, unknown>,
     selector_key: string,
@@ -1184,146 +1287,85 @@ function process_functions(
         for (const child_key in parent) {
 
             const child = parent[child_key];
-            const child_name = child_key.slice(1).toLowerCase();
-            const child_selector_key = `${selector_key}_${child_name}`;
 
-            if (!is_object(child)) continue;
-
-            process_functions(child, child_selector_key, styling_functions, [...path, child_key]);
+            // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+            // If the child is an object, proceed with the iteration.
+            // If the child is not an object, skip this iteration.
+            if (is_object(child)) {
+                const child_name = child_key.slice(1).toLowerCase();
+                const child_selector_key = `${selector_key}_${child_name}`;
+                process_functions(child, child_selector_key, styling_functions, [...path, child_key]);
+            }
         }
 
-        // Collect all leaf functions created by children and combine them into one.
+        // Collect all children functions created by current parent's children and combine them into a parent function.
         styling_functions[`style_${selector_key}`] = make_parent_styling_function(selector_key, styling_functions);
-
-    } else {
-
-        styling_functions[`style_${selector_key}`] = make_styling_function(parent, path);
     }
+
+    else {
+        // Create a child function.
+        styling_functions[`style_${selector_key}`] = make_child_styling_function(parent, path, selector_key);    }
 }
 
+/** Parent functions can be called to apply all of their child styles. **/
+/** Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
 function make_parent_styling_function(
     selector_key: string,
     styling_functions: Record<string, Function>,
-): (style_definition: StyleDefinition, element: HTMLElement) => void {
-    return (style_definition: StyleDefinition, element: HTMLElement): void => {
+): (style_definition: StyleDefinition) => void {
+
+    return (style_definition: StyleDefinition): void => {
+
+        const prefix = `style_${selector_key}_`;
 
         for (const key in styling_functions) {
-            if (key.startsWith(`style_${selector_key}_`)) {
-                styling_functions[key](style_definition, element);
+
+            // Determine if the current key is a child function corresponding to the parent's prefix.
+            // If it is, call it when the parent function is called.
+            if (key.startsWith(prefix)) {
+                styling_functions[key](style_definition);
             }
         }
     };
 }
 
-
-function make_styling_function(
-    parent: Record<string, unknown>,
+/** Creates a function by collecting the properties and their values associated with a class/id/tag.
+/** Child styles target a specific class/id/tag and will not trigger a cascade call like the parent function calls.**/
+function make_child_styling_function(
+    child: Record<string, unknown>,
     path: string[],
-): (style_definition: StyleDefinition, element: HTMLElement) => void {
-    return (style_definition: StyleDefinition, element: HTMLElement): void => {
+    selector_key: string,
+): (style_definition: StyleDefinition) => void {
 
-        const style_parent = path.reduce((obj: any, key) => {
-            return is_object(obj) ? obj[key] : obj;
-        }, style_definition);
+    return (style_definition: StyleDefinition): void => {
 
-        if (!is_object(style_parent)) return;
+        // Walk the path through style_definition to find the matching style group.
+        const style_child = path.reduce(get_nested_object, style_definition);
 
-        for (const prop_key in parent) {
-            const value = (style_parent as any)[prop_key];
-            if (typeof value === "string" && value !== "") {
-                (element.style as any)[prop_key] = value;
-            } else if (typeof parent[prop_key] === "string" && parent[prop_key] !== "") {
-                (element.style as any)[prop_key] = parent[prop_key] as string;
+        // Query the element this function is responsible for styling.
+        for_each_value(query_selector(selectors[selector_key]), (element: HTMLElement) => {
+
+            // Apply each style property from the style group to the element.
+            for (const property in child) {
+                const value = (style_child as any)[property];
+                if (typeof value === "string") {
+                    (element.style as any)[property] = value;
+                }
             }
-        }
+        });
     };
 }
 
-/** A recursive initiator that goes through a template and makes selectors out of the objects within the template.
- * Will output an object where the keys are the object names from the template without their first character, and the
- * values are the generated CSS selector names based on the object name and what its first character represented. **/
-function make_selectors_from_template(template: Record<string, unknown>) {
+function get_nested_object(current_object: any, current_key: string): any {
 
-    const selectors: Record<string, string> = {};
-
-    for (const child_key in template) {
-
-        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
-        // Get the current child, determine if it's not an object.
-        // If it's not an object, skip this iteration.
-        // If it is, proceed with the iteration.
-        const child = template[child_key];
-        if (!is_object(child)) continue;
-
-        const child_name = child_key.slice(1).toLowerCase();
-        const child_prefix= child_key[0];
-        const selector_character = get_selector_character(child_prefix);
-
-        // Universal and tag selectors are special cases since they don't have a character that proceeds their contents inside CSS.
-        // They are their own contents.  In the case of universal, it is just called by its selector_character.
-        // In the case of tags, they are selected by the tag name (the child_name in this case).
-        switch (child_prefix) {
-
-            case "u":
-                selectors[child_name] = selector_character;
-                break;
-
-            case "t":
-                selectors[child_name] = child_name;
-                break;
-
-            default:
-                selectors[child_name] = `${selector_character}${child_name}`;
-                break;
-        }
-
-        process_selectors(child, child_name, selectors);
+    if (is_object(current_object)) {
+        return current_object[current_key];
     }
-
-    return selectors;
-}
-/** Recursive function that goes through a provided template and creates selectors to throw into a provided object. **/
-function process_selectors(
-    parent: Record<string, unknown>,
-    selector_key: string,
-    selectors: Record<string, string>,
-): void {
-
-    for (const child_key in parent) {
-
-        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
-        // Get the current child, determine if it's not an object.
-        // If it's not an object, skip this iteration.
-        // If it is, proceed with the iteration.
-        const child = parent[child_key];
-        if (!is_object(child)) continue;
-
-        const child_prefix = child_key[0];
-        const child_name = child_key.slice(1).toLowerCase();
-        const child_selector_key = `${selector_key}_${child_name}`;
-
-        selectors[child_selector_key] = `${get_selector_character(child_prefix)}${child_selector_key}`;
-
-        process_selectors(child, child_selector_key, selectors);
+    else {
+        return current_object;
     }
 }
 
-function make_styling_functions_from_template(template: StyleDefinition) {
-
-    const styling_functions: Record<string, Function> = {};
-
-    for (const section_key in template) {
-
-        const section      = template[section_key as keyof StyleDefinition];
-        const section_name = section_key.slice(1).toLowerCase();
-
-        if (!is_object(section)) continue;
-
-        process_functions(section, section_name, styling_functions, [section_key]);
-    }
-
-    return styling_functions;
-}
 function make_apply_style_definition_from_template(template: StyleDefinition) {
 
     return function apply_style_definition(style_definition: StyleDefinition): void {
@@ -1333,7 +1375,7 @@ function make_apply_style_definition_from_template(template: StyleDefinition) {
         }
     };
 }
-export const selectors         = make_selectors_from_template(TEMPLATE);
+export const selectors= make_selectors_from_template(TEMPLATE);
 export const styling_functions = make_styling_functions_from_template(TEMPLATE);
 function apply_style_to_selector(selector_key: string, style_definition: StyleDefinition): void {
 

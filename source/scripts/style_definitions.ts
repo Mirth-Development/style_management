@@ -1115,7 +1115,7 @@ function get_selector_character(prefix: string): string {
  * "unknown" is made as the datatype otherwise.
  *
  * The function's purpose is to help with determining if recursing through an object is necessary or not depending on
- * if there is another object within said object.**/
+ * if there is another object within said object.  Prevents leaves in the template tree from becoming selectors. **/
 function is_object(value: unknown): value is Record<string, unknown> {
     const is_an_object = typeof value === "object";
     const is_not_null  = value !== null;
@@ -1144,6 +1144,7 @@ function for_each_value(
     }
 
     // Class Scenario
+    // @ts-ignore
     for (const element of value) {
         style_to_apply(element);
     }
@@ -1169,98 +1170,144 @@ function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement
     throw new Error(`query_selector: unrecognized selector "${selector}"`);
 }
 
-function process_selectors(
-    group:        Record<string, unknown>,
+function process_functions(
+    parent: Record<string, unknown>,
     selector_key: string,
-    selectors:    Record<string, string>,
+    styling_functions: Record<string, Function>,
+    path: string[],
 ): void {
 
-    for (const child_key in group) {
+    const has_nested_objects = Object.values(parent).some(is_object);
 
-        const child = group[child_key];
+    if (has_nested_objects) {
+
+        for (const child_key in parent) {
+
+            const child = parent[child_key];
+            const child_name = child_key.slice(1).toLowerCase();
+            const child_selector_key = `${selector_key}_${child_name}`;
+
+            if (!is_object(child)) continue;
+
+            process_functions(child, child_selector_key, styling_functions, [...path, child_key]);
+        }
+
+        // Collect all leaf functions created by children and combine them into one.
+        styling_functions[`style_${selector_key}`] = make_parent_styling_function(selector_key, styling_functions);
+
+    } else {
+
+        styling_functions[`style_${selector_key}`] = make_styling_function(parent, path);
+    }
+}
+
+function make_parent_styling_function(
+    selector_key: string,
+    styling_functions: Record<string, Function>,
+): (style_definition: StyleDefinition, element: HTMLElement) => void {
+    return (style_definition: StyleDefinition, element: HTMLElement): void => {
+
+        for (const key in styling_functions) {
+            if (key.startsWith(`style_${selector_key}_`)) {
+                styling_functions[key](style_definition, element);
+            }
+        }
+    };
+}
+
+
+function make_styling_function(
+    parent: Record<string, unknown>,
+    path: string[],
+): (style_definition: StyleDefinition, element: HTMLElement) => void {
+    return (style_definition: StyleDefinition, element: HTMLElement): void => {
+
+        const style_parent = path.reduce((obj: any, key) => {
+            return is_object(obj) ? obj[key] : obj;
+        }, style_definition);
+
+        if (!is_object(style_parent)) return;
+
+        for (const prop_key in parent) {
+            const value = (style_parent as any)[prop_key];
+            if (typeof value === "string" && value !== "") {
+                (element.style as any)[prop_key] = value;
+            } else if (typeof parent[prop_key] === "string" && parent[prop_key] !== "") {
+                (element.style as any)[prop_key] = parent[prop_key] as string;
+            }
+        }
+    };
+}
+
+/** A recursive initiator that goes through a template and makes selectors out of the objects within the template.
+ * Will output an object where the keys are the object names from the template without their first character, and the
+ * values are the generated CSS selector names based on the object name and what its first character represented. **/
+function make_selectors_from_template(template: Record<string, unknown>) {
+
+    const selectors: Record<string, string> = {};
+
+    for (const child_key in template) {
+
+        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+        // Get the current child, determine if it's not an object.
+        // If it's not an object, skip this iteration.
+        // If it is, proceed with the iteration.
+        const child = template[child_key];
+        if (!is_object(child)) continue;
+
+        const child_name = child_key.slice(1).toLowerCase();
+        const child_prefix= child_key[0];
+        const selector_character = get_selector_character(child_prefix);
+
+        // Universal and tag selectors are special cases since they don't have a character that proceeds their contents inside CSS.
+        // They are their own contents.  In the case of universal, it is just called by its selector_character.
+        // In the case of tags, they are selected by the tag name (the child_name in this case).
+        switch (child_prefix) {
+
+            case "u":
+                selectors[child_name] = selector_character;
+                break;
+
+            case "t":
+                selectors[child_name] = child_name;
+                break;
+
+            default:
+                selectors[child_name] = `${selector_character}${child_name}`;
+                break;
+        }
+
+        process_selectors(child, child_name, selectors);
+    }
+
+    return selectors;
+}
+/** Recursive function that goes through a provided template and creates selectors to throw into a provided object. **/
+function process_selectors(
+    parent: Record<string, unknown>,
+    selector_key: string,
+    selectors: Record<string, string>,
+): void {
+
+    for (const child_key in parent) {
+
+        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+        // Get the current child, determine if it's not an object.
+        // If it's not an object, skip this iteration.
+        // If it is, proceed with the iteration.
+        const child = parent[child_key];
+        if (!is_object(child)) continue;
+
         const child_prefix = child_key[0];
         const child_name = child_key.slice(1).toLowerCase();
         const child_selector_key = `${selector_key}_${child_name}`;
-
-        if (!is_object(child)) continue;
 
         selectors[child_selector_key] = `${get_selector_character(child_prefix)}${child_selector_key}`;
 
         process_selectors(child, child_selector_key, selectors);
     }
 }
-function process_group(
-    group:             Record<string, unknown>,
-    selector_key:      string,
-    styling_functions: Record<string, Function>,
-    path:              string[],
-): void {
 
-    const has_nested_objects = Object.values(group).some(is_object);
-
-    if (has_nested_objects) {
-
-        for (const child_key in group) {
-
-            const child              = group[child_key];
-            const child_name         = child_key.slice(1).toLowerCase();
-            const child_selector_key = `${selector_key}_${child_name}`;
-
-            if (!is_object(child)) continue;
-
-            process_group(child, child_selector_key, styling_functions, [...path, child_key]);
-        }
-
-    } else {
-
-        styling_functions[`style_${selector_key}`] = (style_definition: StyleDefinition, element: HTMLElement): void => {
-
-            const style_group = path.reduce((obj: any, key) => {
-                return is_object(obj) ? obj[key] : obj;
-            }, style_definition);
-
-            if (!is_object(style_group)) return;
-
-            for (const prop_key in group) {
-                const value = (style_group as any)[prop_key];
-                if (typeof value === "string" && value !== "") {
-                    (element.style as any)[prop_key] = value;
-                } else if (typeof group[prop_key] === "string" && group[prop_key] !== "") {
-                    (element.style as any)[prop_key] = group[prop_key] as string;
-                }
-            }
-        };
-    }
-}
-function make_selectors_from_template(template: StyleDefinition) {
-
-    const selectors: Record<string, string> = {};
-
-    for (const section_key in template) {
-
-        const section      = template[section_key as keyof StyleDefinition];
-        const section_name = section_key.slice(1).toLowerCase();
-        const prefix       = section_key[0];
-
-        if (!is_object(section)) continue;
-
-        const selector_character = get_selector_character(prefix);
-
-        // Universal selector should just be "*", not "*universal"
-        // Tag selector should just be the tag name, not prefixed
-        if (prefix === "u") {
-            selectors[section_name] = "*";
-        } else if (prefix === "t") {
-            selectors[section_name] = section_name;
-        } else {
-            selectors[section_name] = `${selector_character}${section_name}`;
-        }
-
-        process_selectors(section, section_name, selectors);
-    }
-
-    return selectors;
-}
 function make_styling_functions_from_template(template: StyleDefinition) {
 
     const styling_functions: Record<string, Function> = {};
@@ -1272,7 +1319,7 @@ function make_styling_functions_from_template(template: StyleDefinition) {
 
         if (!is_object(section)) continue;
 
-        process_group(section, section_name, styling_functions, [section_key]);
+        process_functions(section, section_name, styling_functions, [section_key]);
     }
 
     return styling_functions;

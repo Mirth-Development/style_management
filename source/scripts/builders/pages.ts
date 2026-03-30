@@ -1,24 +1,11 @@
+
 import * as FS   from "fs";
 import * as PATH from "path";
-import { selectors } from "../style_definitions.js";
+import * as SM from "../style_manager.js";
+import * as SD from "../style_definitions.js";
 
-// STRIPPED SELECTORS
-// Selectors with their leading selector character removed for use in HTML attributes.
-function make_stripped_selectors(selectors: Record<string, string>): Record<string, string> {
-
-    const stripped: Record<string, string> = {};
-
-    for (const key in selectors) {
-        const selector = selectors[key];
-        stripped[key] = selector.startsWith(".") || selector.startsWith("#") || selector.startsWith("*")
-            ? selector.slice(1)
-            : selector;
-    }
-
-    return stripped;
-}
-
-const SS = make_stripped_selectors(selectors);
+const selectors = SM.make_selectors_from_style_definition(SD.STYLE_STARK_ROYAL);
+const SS = SM.make_stripped_selectors(selectors);
 
 // PAGE TYPES
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
@@ -81,10 +68,6 @@ function build_head(title: string): string {
 
     const scripted_global_links = [
         `       <!-- Scripted Global Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/selectors.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/getters.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/styling.js"></script>`,
-        `       <script type="module" src="../scripts/transpiled_scripts/style_definitions.js"></script>`,
     ].join("\n");
 
     const scripted_event_links = [

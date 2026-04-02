@@ -2,4 +2,4 @@ node_modules
 bun.lock
 bun_run_default.ts
 package.json
-../.idea
+.idea

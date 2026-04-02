@@ -60,7 +60,7 @@
     "inlineSources": true,
 
     // Specifies where the transpiled files go to.
-    "outDir": "../source/scripts/transpiled_scripts",
+    "outDir": "./source/scripts/transpiled_scripts"
 
     // Straight up, this is a weird one to understand as its name is not descriptive of its function.
     // rootDir does NOT mean the rootDir of the project.  What it actually means is the directory of how far back

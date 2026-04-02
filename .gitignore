@@ -1,5 +1,5 @@
 node_modules
-configuration/bun.lock
-configuration/bun_run_default.ts
-configuration/package.json
-.idea
+bun.lock
+bun_run_default.ts
+package.json
+../.idea

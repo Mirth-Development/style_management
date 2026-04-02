@@ -11,15 +11,15 @@ const SS = SM.make_stripped_selectors(selectors);
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
 // to the testing type.  Also, all of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
-const PAGE_TYPE_BLANK:   string = "page_blank";
-const PAGE_TYPE_TITLE:   string = "page_with_title";
+const PAGE_TYPE_BLANK: string = "page_blank";
+const PAGE_TYPE_TITLE: string = "page_with_title";
 const PAGE_TYPE_TESTING: string = "page_for_testing";
 
 // PAGE BUILDERS FOR TESTING
 // When this file is executed these builds will generate all the types of pages.
 // We do this so that regenerating pages during development/testing is simple.
-build_page("Page Blank",   PAGE_TYPE_BLANK);
-build_page("Page Title",   PAGE_TYPE_TITLE);
+build_page("Page Blank", PAGE_TYPE_BLANK);
+build_page("Page Title", PAGE_TYPE_TITLE);
 build_page("Page Testing", PAGE_TYPE_TESTING);
 
 // PAGE BUILDER
@@ -176,21 +176,6 @@ function build_body_testing(title: string): string {
         ``,
         `       <!-- Title Test -->`,
         `       <h1 class="${SS.heading_title} ${SS.margin_bottom_1}">${title}</h1>`,
-        ``,
-        `       <!-- Input Test -->`,
-        `       <button class="${SS.input_button_1}">CLICK ME!</button>`,
-        `       <input class="${SS.input_checkbox_1}" type="checkbox">`,
-        `       <input class="${SS.input_color_1}" type="color">`,
-        `       <input class="${SS.input_date_1}" type="date">`,
-        `       <input class="${SS.input_datetime_1}" type="datetime-local">`,
-        `       <input class="${SS.input_email_1}" type="email">`,
-        `       <input class="${SS.input_file_1}" type="file">`,
-        `       <input class="${SS.input_password_1}" type="password">`,
-        `       <input class="${SS.input_radio_1}" type="radio">`,
-        `       <input class="${SS.input_range_1}" type="range">`,
-        `       <input class="${SS.input_reset_1}" type="reset">`,
-        `       <input class="${SS.input_text_1}" type="text">`,
-        `       <input class="${SS.input_time_1}" type="time">`,
         ``,
         `       <!-- Block Test -->`,
         `       <div class="${SS.block_upper}">`,

@@ -8,16 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectors = SM.make_selectors_from_style_definition(SD.STYLE_STARK_ROYAL);
     const functions = SM.make_styling_functions_from_style_definition(SD.STYLE_STARK_ROYAL, selectors);
 
-    // functions["style_universal"](STYLE_STARK_ROYAL);
-    // functions["style_body"](STYLE_STARK_ROYAL);
-    // functions["style_menu"](STYLE_STARK_ROYAL);
-    // functions["style_block"](STYLE_STARK_ROYAL);
-    // functions["style_heading"](STYLE_STARK_ROYAL);
-    // functions["style_text"](STYLE_STARK_ROYAL);
-    // functions["style_icon"](STYLE_STARK_ROYAL);
-    // functions["style_padding"](STYLE_STARK_ROYAL);
-    // functions["style_margin"](STYLE_STARK_ROYAL);
-    // functions["style_form"](STYLE_STARK_ROYAL);
+    functions["style_universal"](SD.STYLE_STARK_ROYAL);
+    functions["style_body"](SD.STYLE_STARK_ROYAL);
+    functions["style_menu"](SD.STYLE_STARK_ROYAL);
+    functions["style_block"](SD.STYLE_STARK_ROYAL);
+    functions["style_heading"](SD.STYLE_STARK_ROYAL);
+    functions["style_text"](SD.STYLE_STARK_ROYAL);
+    functions["style_icon"](SD.STYLE_STARK_ROYAL);
+    functions["style_padding"](SD.STYLE_STARK_ROYAL);
+    functions["style_margin"](SD.STYLE_STARK_ROYAL);
+    functions["style_form"](SD.STYLE_STARK_ROYAL);
 
     SM.apply_style_definition(SD.STYLE_STARK_ROYAL, selectors, functions);
 

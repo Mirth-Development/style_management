@@ -44,7 +44,10 @@ function is_object(value: unknown): value is Record<string, unknown> {
 /** Reducer helper used to help the process of collecting style properties for a selector.  Used in the process of creating
  * child styling functions to help move through a provided definition until a specified object is reached or there is only
  * style properties to return.**/
-function get_nested_object(potential_nested_object: any, key: string): any {
+function get_nested_object(
+    potential_nested_object: Record<string, unknown> | unknown,
+    key: string
+): unknown {
 
     // Potential object has another object within.  Return the object specified by the key.
     if (is_object(potential_nested_object)) {
@@ -98,11 +101,13 @@ function for_each_value(
  * "" = Tag Selector = NodeListOf<HTMLElement> (via querySelectorAll)
  **/
 function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement | null {
-    if (selector.startsWith("#")) return document.querySelector(selector) as HTMLElement | null;
-    if (selector.startsWith(".")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
-    if (selector.startsWith("*")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
-    if (selector.startsWith("")) return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
-    throw new Error(`query_selector: unrecognized selector "${selector}"`);
+
+   if (selector[0] === "#") {
+       return document.querySelector(selector) as HTMLElement | null;
+   }
+   else {
+       return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+   }
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 
@@ -261,23 +266,20 @@ function process_functions(
     }
 }
 
-/** Parent functions can be called to apply all of their child styles. **/
-/** Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
+/** Parent functions can be called to apply all of their child styles.
+* Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
 function make_parent_styling_function(
     selector_key: string,
     styling_functions: Record<string, Function>,
 ): (style_definition: Record<string, unknown>) => void {
 
+    const prefix = `style_${selector_key}_`;
+
     return (style_definition: Record<string, unknown>): void => {
 
-        const prefix = `style_${selector_key}_`;
-
-        for (const key in styling_functions) {
-
-            // Determine if the current key is a child function corresponding to the parent's prefix.
-            // If it is, call it when the parent function is called.
+        for (const [key, fn] of Object.entries(styling_functions)) {
             if (key.startsWith(prefix)) {
-                styling_functions[key](style_definition);
+                fn(style_definition);
             }
         }
     };
@@ -303,7 +305,7 @@ function make_child_styling_function(
 
     return (style_definition: Record<string, unknown>, element?: HTMLElement): void => {
 
-        // Walk the path through style_definition to find the matching style group.
+        // Walk the path through style_definition to find the matching selector.
         // REDUCE DOC: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
         const styles_for_child: any = path.reduce(get_nested_object, style_definition);
 
@@ -357,8 +359,20 @@ export function make_stripped_selectors(selectors: Record<string, string>): Reco
     const stripped: Record<string, string> = {};
 
     for (const key in selectors) {
+
         const selector= selectors[key];
-        const has_prefix= selector.startsWith(".") || selector.startsWith("#") || selector.startsWith("*");
+
+        let has_prefix = false;
+
+        switch (selector[0]) {
+            case ".":
+            case "#":
+            case "*":
+                has_prefix = true;
+                break;
+        }
+
+        // If a selector character is present, remove it.  Otherwise, return the selector.
         stripped[key] = has_prefix ? selector.slice(1) : selector;
     }
 

@@ -1,26 +1,75 @@
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
+// ABSTRACT DATA TYPE
+
+/** A type that allows for making and accessing elements associated with a provided style definition.
+ * When a style is made, selectors and functions are made from the definition.
+ * These functions can be used during events to apply styles onto elements when they are made, and one can use
+ * the apply() method to mass apply all the styles held in a definition across an entire page.
+ *
+ * The Style type helps with automating style switching, ensuring that selectors used in the HTML match with
+ * what's present in a style definition, and with organizing a site that plans to use multiple styles.**/
+export class Style {
+
+    public readonly style_definition: Readonly<Record<string, unknown>>;
+    public readonly selectors: Readonly<Record<string, string>>;
+    public readonly stripped_selectors: Readonly<Record<string, string>>;
+    public readonly functions: Readonly<Record<string, Function>>;
+
+    public constructor(definition: Record<string, unknown>) {
+        this.style_definition = definition;
+        this.selectors = make_selectors_from_style_definition(definition);
+        this.stripped_selectors = make_stripped_selectors(this.selectors);
+        this.functions = make_styling_functions_from_style_definition(this.style_definition, this.selectors);
+    }
+
+    public apply(): void {
+        apply_style_definition(this.selectors, this.functions);
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------- //
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------- //
+// CONSTANTS
+
+/** These are the prefixes to be used in style definitions to declare what type of selector an object is representing.
+ * If an object is not representing a selector, then it must be a container of objects that are representing selectors. **/
+const PREFIXES: Record<string, string> = {
+    CLASS: "c",
+    ID: "i",
+    UNIVERSAL: "u",
+    TAG: "t",
+    CONTAINER: "o"
+} as const;
+// ------------------------------------------------------------------------------------------------------------------------------------------------- //
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // HELPER FUNCTIONS
 
 /** Returns the associated selector character that corresponds with the provided prefix.  We must do this since objects
  * can't start without the selector characters themselves without using string object names and I refuse to work with string
- * object names because I'm stubborn and don't like how it looks.
- *
- * c = class = "."
- *
- * i = id = "#"
- *
- * u = universal = "*"
- *
- * t = tags = ""
- * **/
+ * object names because I'm stubborn and don't like how it looks.**/
 function get_selector_character(prefix: string): string {
+
     switch (prefix) {
-        case "c": return ".";
-        case "i": return "#";
-        case "u": return "*";
-        case "t": return "";
-        case "o": return "";
+        case PREFIXES.CLASS:
+            return ".";
+        case PREFIXES.ID:
+            return "#";
+        case PREFIXES.UNIVERSAL:
+            return "*";
+        case PREFIXES.TAG:
+            return "";
+        case PREFIXES.CONTAINER:
+            return "";
         default:  throw new Error(`get_selector_character: unrecognized prefix "${prefix}"`);
     }
 }
@@ -45,18 +94,18 @@ function is_object(value: unknown): value is Record<string, unknown> {
  * child styling functions to help move through a provided definition until a specified object is reached or there is only
  * style properties to return.**/
 function get_nested_object(
-    potential_nested_object: Record<string, unknown> | unknown,
+    potential_nested_object: Record<string, unknown>,
     key: string
-): unknown {
+): Record<string, unknown> | Record<string, string> {
 
-    // Potential object has another object within.  Return the object specified by the key.
+    // Potential object is indeed nested.  Return the object specified by the key.
     if (is_object(potential_nested_object)) {
-        return potential_nested_object[key];
+        return potential_nested_object[key] as Record<string, unknown>;
     }
 
-    // Potential object is not an object, it is styles.  Return the collection of properties used for styling.
+    // Potential object is not nested, we are at a leaf of styles.  Return the collection of properties used for styling.
     else {
-        return potential_nested_object;
+        return potential_nested_object as Record<string, string>;
     }
 }
 
@@ -102,12 +151,12 @@ function for_each_value(
  **/
 function query_selector(selector: string): NodeListOf<HTMLElement> | HTMLElement | null {
 
-   if (selector[0] === "#") {
-       return document.querySelector(selector) as HTMLElement | null;
-   }
-   else {
-       return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
-   }
+    if (selector[0] === "#") {
+        return document.querySelector(selector) as HTMLElement | null;
+    }
+    else {
+        return document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
+    }
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 
@@ -143,14 +192,14 @@ export function make_selectors_from_style_definition(definition: Record<string, 
             // In the case of tags, they are selected by the tag name (the child_name in this case).
             switch (child_prefix) {
 
-                case "o":
+                case PREFIXES.CONTAINER:
                     break;
 
-                case "u":
+                case PREFIXES.UNIVERSAL:
                     selectors[child_name] = selector_character;
                     break;
 
-                case "t":
+                case PREFIXES.TAG:
                     selectors[child_name] = child_name;
                     break;
 
@@ -186,7 +235,7 @@ function process_selectors(
             const child_selector_key = `${selector_key}_${child_name}`;
 
             // Skip object containers, they are not CSS selectors.
-            if (child_prefix === "o") {
+            if (child_prefix === PREFIXES.CONTAINER) {
                 process_selectors(child, child_selector_key, selectors);
             }
             else {
@@ -220,7 +269,7 @@ export function make_styling_functions_from_style_definition(definition: Record<
         // If the child is not an object, skip this iteration.
         if (is_object(child)) {
             const child_name = child_key.slice(1).toLowerCase();
-            process_functions(selectors, child, child_name, styling_functions, [child_key]);
+            process_functions(definition, selectors, child, child_name, styling_functions, [child_key]);
         }
     }
 
@@ -231,6 +280,7 @@ export function make_styling_functions_from_style_definition(definition: Record<
  * for the recursive initiator to later return.  Parent functions can be called to apply all of their child styles.
  * Child styles target a specific class/id/tag and will not trigger a cascade call like the parent function calls.**/
 function process_functions(
+    style_definition: Record<string, unknown>,
     selectors: Record<string, string>,
     parent: Record<string, unknown>,
     selector_key: string,
@@ -252,7 +302,7 @@ function process_functions(
             if (is_object(child)) {
                 const child_name = child_key.slice(1).toLowerCase();
                 const child_selector_key = `${selector_key}_${child_name}`;
-                process_functions(selectors, child, child_selector_key, styling_functions, [...path, child_key]);
+                process_functions(style_definition, selectors, child, child_selector_key, styling_functions, [...path, child_key]);
             }
         }
 
@@ -262,24 +312,23 @@ function process_functions(
 
     else {
         // Create a child function.
-        styling_functions[`style_${selector_key}`] = make_child_styling_function(selectors, parent, path, selector_key);
+        styling_functions[`style_${selector_key}`] = make_child_styling_function(style_definition, selectors, parent, path, selector_key);
     }
 }
 
 /** Parent functions can be called to apply all of their child styles.
-* Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
+ * Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
 function make_parent_styling_function(
     selector_key: string,
     styling_functions: Record<string, Function>,
-): (style_definition: Record<string, unknown>) => void {
+): () => void {
 
     const prefix = `style_${selector_key}_`;
 
-    return (style_definition: Record<string, unknown>): void => {
-
+    return (): void => {
         for (const [key, fn] of Object.entries(styling_functions)) {
             if (key.startsWith(prefix)) {
-                fn(style_definition);
+                fn();
             }
         }
     };
@@ -291,23 +340,24 @@ function make_parent_styling_function(
  * The created function can be called in two ways:
  *
  * 1. Without an element — queries the DOM and styles all elements associated with the selector.
- *    EXAMPLE: functions["style_menu_buttons"] (style_definition);
+ *    EXAMPLE: functions["style_menu_buttons"] ();
  *
  * 2. With an element — styles the provided element directly, bypassing the DOM query.
- *    EXAMPLE: functions["style_menu_buttons"] (style_definition, some_element);
+ *    EXAMPLE: functions["style_menu_buttons"] (some_element);
  **/
 function make_child_styling_function(
+    style_definition: Record<string, unknown>,
     selectors: Record<string, string>,
     child: Record<string, unknown>,
     path: string[],
     selector_key: string,
-): (style_definition: Record<string, unknown>, element?: HTMLElement) => void {
+): (element?: HTMLElement) => void {
 
-    return (style_definition: Record<string, unknown>, element?: HTMLElement): void => {
+    return (element?: HTMLElement): void => {
 
         // Walk the path through style_definition to find the matching selector.
         // REDUCE DOC: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
-        const styles_for_child: any = path.reduce(get_nested_object, style_definition);
+        const styles_for_child = path.reduce(get_nested_object, style_definition);
 
         // If an element is provided, make that the target for styling.
         // Otherwise, query the DOM for the associated selector to make as the target.
@@ -316,7 +366,7 @@ function make_child_styling_function(
         // Style the target.
         for_each_value(target, (el: HTMLElement) => {
             for (const property in child) {
-                (el.style as any)[property] = styles_for_child[property];
+                (el.style as any)[property] = (styles_for_child as any)[property];
             }
         });
     };
@@ -333,7 +383,6 @@ function make_child_styling_function(
  * the function so that the selectors and functions are forced to be used as parts, this may influence developers using this system
  * to create the selectors and functions once (or they'll just keep making them all over the place and not give a shit about being efficient).**/
 export function apply_style_definition(
-    style_definition: Record<string, unknown>,
     selectors: Record<string, string>,
     functions: Record<string, Function>
 ): void {
@@ -347,7 +396,7 @@ export function apply_style_definition(
         // parent functions can exist (parent functions have no selectors).  Parent functions don't have selectors since they
         // act as containers for readability purposes.  Hence, we don't want to style something that doesn't exist.
         if (selector) {
-            functions[selector_key](style_definition);
+            functions[selector_key]();
         }
     }
 }

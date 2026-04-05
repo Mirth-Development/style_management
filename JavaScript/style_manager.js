@@ -1,5 +1,3 @@
-// ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// ABSTRACT DATA TYPE
 /** A type that allows for making and accessing elements associated with a provided style definition.
  * When a style is made, selectors and functions are made from the definition.
  * These functions can be used during events to apply styles onto elements when they are made, and one can use
@@ -13,16 +11,85 @@ export class Style {
     stripped_selectors;
     functions;
     constructor(definition) {
-        this.style_definition = definition;
-        this.selectors = make_selectors_from_style_definition(definition);
-        this.stripped_selectors = make_stripped_selectors(this.selectors);
-        this.functions = make_styling_functions_from_style_definition(this.style_definition, this.selectors);
+        this.style_definition = definition ?? {};
+        this.selectors = this.make_selectors();
+        this.stripped_selectors = this.make_stripped_selectors();
+        this.functions = this.make_functions();
     }
+    make_selectors(definition = this.style_definition) {
+        const selectors = {};
+        for (const child_key in definition) {
+            const child = definition[child_key];
+            // PREVENTS READING LEAF NODES IN TEMPLATE TREE
+            // If the child is an object, proceed with the iteration.
+            // If the child is not an object, skip this iteration.
+            if (is_object(child)) {
+                const child_name = child_key.slice(1).toLowerCase();
+                const child_prefix = child_key[0];
+                const selector_character = get_selector_character(child_prefix);
+                // Universal and tag selectors are special cases since they don't have a character that proceeds their contents inside CSS.
+                // They are their own contents.  In the case of universal, it is just called by its selector_character.
+                // In the case of tags, they are selected by the tag name (the child_name in this case).
+                switch (child_prefix) {
+                    case PREFIXES.CONTAINER:
+                        break;
+                    case PREFIXES.UNIVERSAL:
+                        selectors[child_name] = selector_character;
+                        break;
+                    case PREFIXES.TAG:
+                        selectors[child_name] = child_name;
+                        break;
+                    default:
+                        selectors[child_name] = `${selector_character}${child_name}`;
+                        break;
+                }
+                process_selectors(child, child_name, selectors);
+            }
+        }
+        return selectors;
+    }
+    make_stripped_selectors(selectors = this.selectors) {
+        const stripped = {};
+        for (const key in selectors) {
+            const selector = selectors[key];
+            let has_selector_character = false;
+            switch (selector[0]) {
+                case ".":
+                case "#":
+                case "*":
+                    has_selector_character = true;
+                    break;
+            }
+            // If a selector character is present, remove it.  Otherwise, return the selector.
+            stripped[key] = has_selector_character ? selector.slice(1) : selector;
+        }
+        return stripped;
+    }
+    make_functions(definition = this.style_definition, selectors = this.selectors) {
+        const styling_functions = {};
+        for (const child_key in definition) {
+            const child = definition[child_key];
+            if (is_object(child)) {
+                const child_name = child_key.slice(1).toLowerCase();
+                process_functions(definition, selectors, child, child_name, styling_functions, [child_key]);
+            }
+        }
+        return styling_functions;
+    }
+    /** Used to apply a style definition to a page.**/
     apply() {
-        apply_style_definition(this.selectors, this.functions);
+        for (const selector_key in this.functions) {
+            const key = selector_key.replace("style_", "");
+            const selector = this.selectors[key];
+            // We check to see if the selector is present before applying a style since
+            // parent functions can exist (parent functions have no selectors).  Parent functions don't have selectors since they
+            // act as containers for readability purposes.  Hence, we don't want to style something that doesn't exist.
+            if (selector) {
+                this.functions[selector_key]();
+            }
+        }
     }
 }
-// ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // CONSTANTS
 /** These are the prefixes to be used in style definitions to declare what type of selector an object is representing.
@@ -70,19 +137,6 @@ function is_object(value) {
     const is_not_null = value !== null;
     return is_an_object && is_not_null;
 }
-/** Reducer helper used to help the process of collecting style properties for a selector.  Used in the process of creating
- * child styling functions to help move through a provided definition until a specified object is reached or there is only
- * style properties to return.**/
-function get_nested_object(potential_nested_object, key) {
-    // Potential object is indeed nested.  Return the object specified by the key.
-    if (is_object(potential_nested_object)) {
-        return potential_nested_object[key];
-    }
-    // Potential object is not nested, we are at a leaf of styles.  Return the collection of properties used for styling.
-    else {
-        return potential_nested_object;
-    }
-}
 /** Since I'm using query selection over id/class selection, 3 different results can be returned using this type of selection.
  *
  * For classes, NodeListOf<HTMLElement> is always returned; in the scenario that the class isn't being used an empty NodeList will be returned.
@@ -127,42 +181,7 @@ function query_selector(selector) {
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// FUNCTIONS FOR CREATING SELECTORS FROM A STYLE DEFINITION
-/** A recursive initiator that goes through a definition and makes selectors out of the objects within the definition.
- * Will output an object where the keys are the object names from the definition without their first character, and the
- * values are the generated CSS selector names based on the object name and what its first character represented. **/
-export function make_selectors_from_style_definition(definition) {
-    const selectors = {};
-    for (const child_key in definition) {
-        const child = definition[child_key];
-        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
-        // If the child is an object, proceed with the iteration.
-        // If the child is not an object, skip this iteration.
-        if (is_object(child)) {
-            const child_name = child_key.slice(1).toLowerCase();
-            const child_prefix = child_key[0];
-            const selector_character = get_selector_character(child_prefix);
-            // Universal and tag selectors are special cases since they don't have a character that proceeds their contents inside CSS.
-            // They are their own contents.  In the case of universal, it is just called by its selector_character.
-            // In the case of tags, they are selected by the tag name (the child_name in this case).
-            switch (child_prefix) {
-                case PREFIXES.CONTAINER:
-                    break;
-                case PREFIXES.UNIVERSAL:
-                    selectors[child_name] = selector_character;
-                    break;
-                case PREFIXES.TAG:
-                    selectors[child_name] = child_name;
-                    break;
-                default:
-                    selectors[child_name] = `${selector_character}${child_name}`;
-                    break;
-            }
-            process_selectors(child, child_name, selectors);
-        }
-    }
-    return selectors;
-}
+// FUNCTION HELPERS FOR CREATING SELECTORS FROM A STYLE DEFINITION
 /** Recursive function that goes through a provided definition and creates selectors to throw into a provided object. **/
 function process_selectors(parent, selector_key, selectors) {
     for (const child_key in parent) {
@@ -187,23 +206,7 @@ function process_selectors(parent, selector_key, selectors) {
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// FUNCTIONS FOR CREATING STYLING FUNCTIONS FROM A STYLE DEFINITION
-/** Recursive initiator that will begin the process of creating styling functions from a provided definition.
- * Will return an object of functions that can be used to apply styles to their corresponding purpose.**/
-export function make_styling_functions_from_style_definition(definition, selectors) {
-    const styling_functions = {};
-    for (const child_key in definition) {
-        const child = definition[child_key];
-        // PREVENTS READING LEAF NODES IN TEMPLATE TREE
-        // If the child is an object, proceed with the iteration.
-        // If the child is not an object, skip this iteration.
-        if (is_object(child)) {
-            const child_name = child_key.slice(1).toLowerCase();
-            process_functions(definition, selectors, child, child_name, styling_functions, [child_key]);
-        }
-    }
-    return styling_functions;
-}
+// FUNCTION HELPERS FOR CREATING STYLING FUNCTIONS FROM A STYLE DEFINITION
 /** Recursive function that will generate parent and child functions and throw them into the styling_functions object
  * for the recursive initiator to later return.  Parent functions can be called to apply all of their child styles.
  * Child styles target a specific class/id/tag and will not trigger a cascade call like the parent function calls.**/
@@ -254,55 +257,12 @@ function make_parent_styling_function(selector_key, styling_functions) {
  **/
 function make_child_styling_function(style_definition, selectors, child, path, selector_key) {
     return (element) => {
-        // Walk the path through style_definition to find the matching selector.
-        // REDUCE DOC: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
-        const styles_for_child = path.reduce(get_nested_object, style_definition);
-        // If an element is provided, make that the target for styling.
-        // Otherwise, query the DOM for the associated selector to make as the target.
         const target = element ? element : query_selector(selectors[selector_key]);
-        // Style the target.
         for_each_value(target, (el) => {
             for (const property in child) {
-                el.style[property] = styles_for_child[property];
+                el.style[property] = child[property];
             }
         });
     };
-}
-// ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// FUNCTIONS FOR APPLYING A STYLE DEFINITION TO SELECTORS ON AN HTML PAGE
-/** Used to apply a style definition to a page.  It takes in pre-made selectors and styling functions rather than making them within
- * the function so that the selectors and functions are forced to be used as parts, this may influence developers using this system
- * to create the selectors and functions once (or they'll just keep making them all over the place and not give a shit about being efficient).**/
-export function apply_style_definition(selectors, functions) {
-    for (const selector_key in functions) {
-        const key = selector_key.replace("style_", "");
-        const selector = selectors[key];
-        // We check to see if the selector is present before applying a style since
-        // parent functions can exist (parent functions have no selectors).  Parent functions don't have selectors since they
-        // act as containers for readability purposes.  Hence, we don't want to style something that doesn't exist.
-        if (selector) {
-            functions[selector_key]();
-        }
-    }
-}
-/** Creates selectors with their leading selector character removed for use in HTML attributes.
- * Will return an object holding the stripped selectors. **/
-export function make_stripped_selectors(selectors) {
-    const stripped = {};
-    for (const key in selectors) {
-        const selector = selectors[key];
-        let has_prefix = false;
-        switch (selector[0]) {
-            case ".":
-            case "#":
-            case "*":
-                has_prefix = true;
-                break;
-        }
-        // If a selector character is present, remove it.  Otherwise, return the selector.
-        stripped[key] = has_prefix ? selector.slice(1) : selector;
-    }
-    return stripped;
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //

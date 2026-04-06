@@ -1,6 +1,6 @@
 # STYLE MANAGEMENT
 
----
+
 
 ## Originality Statement
 

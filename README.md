@@ -1,9 +1,8 @@
 # STYLE MANAGEMENT
+
 ## Originality Statement
 
 This project is used as a way for me to test out how much I can use AI to learn and create code. So to be clear, a lot of the code in this project is first generated using an AI model or two, and then heavily edited after generation; I've been using Claude, Deepseek, and Gemini. Besides that, all of my work is my own.
-
----
 
 ## About the Project
 
@@ -11,13 +10,9 @@ This project is actually a tool for a bigger web related project I've been worki
 
 Additionally, this is technically my first TypeScript and Bun project. I say "technically" since the bigger project I'm working on is actually the first TypeScript and Bun project I've worked on, but this is going public first since I think it could be useful to others. Also, if you see anything wonky or could be improved then please feel free to submit an issue and I can resolve it — I'd love to improve my TypeScript skills.
 
----
-
 ## Tools Used
 
 `TypeScript` `JavaScript` `Bun` `Claude` `Deepseek` `Gemini` `GitHub` `My Brain`
-
----
 
 ## Developers's Breakdown of Code
 
@@ -47,8 +42,6 @@ Stripped selectors are present for HTML builders. This is to ensure that generat
 
 Lastly, style definitions can be infinitely nested. The functions used to break down a definition are recursive.
 
----
-
 ## Potential To-Do?
 
 - Will maybe make an option down the road to generate style definitions off of a template?
@@ -63,8 +56,6 @@ functions that had a typo I fixed; I tested the functionality using the body tag
 
 A TypeScript utility for defining, organizing, and applying CSS styles programmatically. `Style` takes a structured definition object and generates CSS selectors, DOM-ready selector strings, and styling functions — making it easy to manage multiple themes or styles across a page.
 
----
-
 ## Overview
 
 When you construct a `Style` instance with a definition object, it automatically produces:
@@ -72,8 +63,6 @@ When you construct a `Style` instance with a definition object, it automatically
 - **`selectors`** — CSS selector strings (e.g. `.menu`, `#header`, `button`)
 - **`stripped_selectors`** — the same selectors without their leading character (e.g. `menu`, `header`), ready for use in HTML attributes
 - **`functions`** — callable functions that apply styles to matching DOM elements
-
----
 
 ## Definition Object Format
 
@@ -111,8 +100,6 @@ const definition = {
 const style = new Style(definition);
 ```
 
----
-
 ## API
 
 ### `new Style(definition?)`
@@ -122,8 +109,6 @@ Creates a new `Style` instance. If no definition is provided, an empty style is 
 ```typescript
 const style = new Style(definition);
 ```
-
----
 
 ### `style.selectors`
 
@@ -176,8 +161,6 @@ style.functions["style_button"](someElement);
 style.functions["style_layout"](); // applies layout_menu and layout_header
 ```
 
----
-
 ### `style.apply()`
 
 Applies all styles in the definition to the current page by querying the DOM and styling every matching element.
@@ -187,8 +170,6 @@ style.apply();
 ```
 
 This is the primary method for style switching — swap out a `Style` instance and call `apply()` to restyle the entire page.
-
----
 
 ## Usage Example
 
@@ -229,8 +210,6 @@ card.className = light.stripped_selectors["card"];
 light.functions["style_card"](card);
 document.body.appendChild(card);
 ```
-
----
 
 ## Notes
 

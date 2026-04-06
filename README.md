@@ -1,5 +1,4 @@
 # STYLE MANAGEMENT
-
 ## Originality Statement
 
 This project is used as a way for me to test out how much I can use AI to learn and create code. So to be clear, a lot of the code in this project is first generated using an AI model or two, and then heavily edited after generation; I've been using Claude, Deepseek, and Gemini. Besides that, all of my work is my own.

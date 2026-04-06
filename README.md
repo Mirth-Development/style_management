@@ -171,7 +171,7 @@ style.functions["style_layout_menu"]();
 
 **With an element** — applies the style directly to a provided element, bypassing the DOM query:
 ```typescript
-style.functions["style_tbutton"](someElement);
+style.functions["style_button"](someElement);
 ```
 
 **Parent functions** — selectors that contain nested selectors generate a parent function that calls all of their children:

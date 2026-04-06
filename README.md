@@ -123,8 +123,6 @@ style.selectors;
 // }
 ```
 
----
-
 ### `style.stripped_selectors`
 
 The same as `selectors`, but with the leading CSS character (`.`, `#`, `*`) removed. Useful for setting `className`, `id`, or other HTML attributes.
@@ -137,8 +135,6 @@ style.stripped_selectors;
 //     button:        "button",
 // }
 ```
-
----
 
 ### `style.functions`
 

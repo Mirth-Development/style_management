@@ -214,4 +214,4 @@ document.body.appendChild(card);
 - Selector keys use `_` as a separator when nested (e.g. a class `cMenu` inside a container `oLayout` becomes `layout_menu`).
 
 ## Claude Generated Image for README.md
-<img src="assets/readme.png" alt="Style Management README Preview" width="860"/>
+<img src="assets/readme.svg" alt="Style Management README Preview" width="860"/>

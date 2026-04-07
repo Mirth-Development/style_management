@@ -38,7 +38,7 @@ Generated functions have two types, parents and children:
 
 > **Parent functions** can be invoked to call all of their children functions. You can not pass elements into them.
 
-> **Child functions** can be invoked in 2 ways — simply calling them without an argument will apply the style to the function's associated selector, and inserting an element as an argument will apply the styles of the function to the element instead.
+> **Child functions** can be invoked in 2 ways.  Simply calling them without an argument will apply the style to the function's associated selector, and inserting an element as an argument will apply the styles of the function to the element instead.
 
 Stripped selectors are present for HTML builders. This is to ensure that generated HTML pages follow not only a style definition but also to make sure the HTML, TypeScript, JavaScript, and CSS are all using the same variables for styling.
 

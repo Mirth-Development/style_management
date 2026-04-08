@@ -1,350 +1,548 @@
+
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="3777" viewBox="0 0 860 3777">
-<rect width="860" height="3777" fill="#0d0d0d"/>
-<text x="48" y="60" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start" letter-spacing="2.5">PROJECT README</text>
-<text x="48" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#f1f5f9">Style Management</text>
-<rect x="48" y="138" width="97.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="96.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">TypeScript</text>
-<rect x="153.0" y="138" width="97.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="201.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">JavaScript</text>
-<rect x="258.0" y="138" width="44.5" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="280.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Bun</text>
-<rect x="310.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="343.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Claude</text>
-<rect x="385.5" y="138" width="82.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="426.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Deepseek</text>
-<rect x="475.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="508.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Gemini</text>
-<rect x="550.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="583.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">GitHub</text>
-<rect x="625.5" y="138" width="82.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="666.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">My Brain</text>
 
-<line x1="48" y1="209" x2="64" y2="209" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="213" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ORIGINALITY STATEMENT</text>
-<line x1="226.4" y1="209" x2="812" y2="209" stroke="#333333" stroke-width="0.5"/>
-<text x="48" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is used as a way for me to test out how much I can use AI to learn and create</text>
-<text x="48" y="265" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">code. So to be clear, a lot of the code in this project is first generated using an AI model</text>
-<text x="48" y="286" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">or two, and then heavily edited after generation; I&#39;ve been using Claude, Deepseek, and</text>
-<text x="48" y="307" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Gemini. Additionally, the styling of this entire README.md has been generated.  The wording and</text>
-<text x="48" y="332" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">structure before the section "CLAUDE AI'S BREAKDOWN OF CODE" is my own.  Besides all of that, the work is my own.</text>
+    <!-- ============================================================ -->
+    <!-- SECTION: Title Information                                   -->
+    <!-- ============================================================ -->
+
+    <!-- BACKGROUND -->
+    <rect width="860" height="3777" fill="#0d0d0d"/>
+
+    <!-- TITLE -->
+    <text x="48" y="60" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start" letter-spacing="2.5">PROJECT README</text>
+    <text x="48" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#f1f5f9">Style Management</text>
+
+    <!-- TECHNOLOGY TAGS -->
+    <rect x="48" y="138" width="97.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="96.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">TypeScript</text>
+
+    <rect x="153.0" y="138" width="97.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="201.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">JavaScript</text>
+
+    <rect x="258.0" y="138" width="44.5" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="280.0" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Bun</text>
+
+    <rect x="310.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="343.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Claude</text>
+
+    <rect x="385.5" y="138" width="82.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="426.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Deepseek</text>
+
+    <rect x="475.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="508.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">Gemini</text>
+
+    <rect x="550.5" y="138" width="67.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="583.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">GitHub</text>
+
+    <rect x="625.5" y="138" width="82.0" height="24" rx="12" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="666.5" y="154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">My Brain</text>
 
 
-<line x1="48" y1="354" x2="64" y2="359" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="368" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ABOUT THE PROJECT</text>
-<line x1="200.8" y1="364" x2="812" y2="359" stroke="#333333" stroke-width="0.5"/>
-<text x="48" y="399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is actually a tool for a bigger web related project I&#39;ve been working on, but the</text>
-<text x="48" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">style management got so out of control in that project that I had to refactor it. The refactoring</text>
-<text x="48" y="441" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ended up throwing me into a hole of wanting to test out some models to create some serious</text>
-<text x="48" y="462" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">automation when it comes to styling pages, and so this project was born.</text>
-<text x="48" y="493" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Additionally, this is technically my first TypeScript and Bun project. I say &quot;technically&quot; since</text>
-<text x="48" y="514" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">the bigger project I&#39;m working on is actually the first TypeScript and Bun project I&#39;ve worked on,</text>
-<text x="48" y="535" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">but this is going public first since I think it could be useful to others. Also, if you see anything</text>
-<text x="48" y="556" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">wonky or could be improved then please feel free to submit an issue and I can resolve it —</text>
-<text x="48" y="578" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">I&#39;d love to improve my TypeScript skills.</text>
-<line x1="48" y1="624" x2="64" y2="624" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="628" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">DEVELOPER&#39;S BREAKDOWN OF CODE</text>
-<line x1="277.6" y1="624" x2="812" y2="624" stroke="#333333" stroke-width="0.5"/>
-<text x="48" y="659" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">The style_manager.ts and style_manager.js files can be used to create styles and CSS selectors</text>
-<text x="48" y="680" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">from an object purposed as a template to build styles from. The code revolves around the Style</text>
-<text x="48" y="701" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">class and templates called Style Definitions. When using the Style class and a definition,</text>
-<text x="48" y="722" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">a multitude of things will be generated:</text>
-<circle cx="56" cy="745" r="3" fill="#a78bfa" opacity="0.55"/>
-<text x="70" y="751" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of CSS selectors.</text>
-<circle cx="56" cy="767" r="3" fill="#a78bfa" opacity="0.55"/>
-<text x="70" y="773" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of stripped CSS selectors.</text>
-<circle cx="56" cy="789" r="3" fill="#a78bfa" opacity="0.55"/>
-<text x="70" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of functions that can be used to style a page or singular elements.</text>
-<text x="48" y="832" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" font-style="normal" fill="#e2e8f0" text-anchor="start">Selector prefixes:</text>
-<rect x="48" y="847" width="764" height="188" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="847" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="867" width="764" height="8" rx="0" fill="#1d1d1d"/>
-<text x="62" y="865" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">PREFIX</text>
-<text x="128" y="865" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">SELECTOR TYPE</text>
-<rect x="48" y="875" width="764" height="32" rx="0" fill="#161616"/>
-<rect x="60" y="882" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="894" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">u</text>
-<text x="106" y="896" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Universal Selector</text>
-<line x1="49" y1="907" x2="811" y2="907" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="907" width="764" height="32" rx="0" fill="#191919"/>
-<rect x="60" y="914" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="926" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">c</text>
-<text x="106" y="928" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Class Selector</text>
-<line x1="49" y1="939" x2="811" y2="939" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="939" width="764" height="32" rx="0" fill="#161616"/>
-<rect x="60" y="946" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="958" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">i</text>
-<text x="106" y="960" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ID Selector</text>
-<line x1="49" y1="971" x2="811" y2="971" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="971" width="764" height="32" rx="0" fill="#191919"/>
-<rect x="60" y="978" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="990" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">t</text>
-<text x="106" y="992" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Tag Selector</text>
-<line x1="49" y1="1003" x2="811" y2="1003" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="1003" width="764" height="32" rx="0" fill="#161616"/>
-<rect x="48" y="1003" width="764" height="32" rx="8" fill="#161616"/>
-<rect x="48" y="1003" width="764" height="8" rx="0" fill="#161616"/>
-<rect x="60" y="1010" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="1022" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">o</text>
-<text x="106" y="1024" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Container — holds selector objects (no selector of its own)</text>
-<rect x="48" y="1055" width="764" height="68" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="1055" width="3" height="68" rx="2" fill="#a78bfa"/>
-<text x="64" y="1072" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#a78bfa" text-anchor="start">Parent Functions</text>
-<text x="64" y="1090" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Can be invoked to call all of their children functions.</text>
-<text x="64" y="1110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">You cannot pass elements into them.</text>
-<rect x="48" y="1147" width="764" height="88" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="1147" width="3" height="88" rx="2" fill="#a78bfa"/>
-<text x="64" y="1164" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#a78bfa" text-anchor="start">Child Functions</text>
-<text x="64" y="1182" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Can be invoked in 2 ways.  Simply calling them without an argument will apply the style</text>
-<text x="64" y="1202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">to the function&#39;s associated selector, and inserting an element as an argument will apply</text>
-<text x="64" y="1222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">the styles of the function to that element instead.</text>
-<text x="48" y="1277" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Stripped selectors are present for HTML builders. This is to ensure that generated HTML pages</text>
-<text x="48" y="1298" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">follow not only a style definition but also to make sure the HTML, TypeScript, JavaScript, and</text>
-<text x="48" y="1319" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">CSS are all using the same variables for styling.</text>
-<text x="48" y="1350" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Lastly, style definitions can be infinitely nested. The functions used to break down a definition</text>
-<text x="48" y="1371" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">are recursive.</text>
-<line x1="48" y1="1423" x2="64" y2="1423" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="1427" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">POTENTIAL TO-DO?</text>
-<line x1="194.4" y1="1423" x2="812" y2="1423" stroke="#333333" stroke-width="0.5"/>
-<rect x="50" y="1447" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
-<text x="57" y="1457" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
-<text x="74" y="1458" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Will maybe make an option down the road to generate style definitions off of a template?</text>
-<rect x="50" y="1474" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
-<text x="57" y="1484" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
-<text x="74" y="1485" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Make it so that function calls aren&#39;t string key lookups and just make them flat calls?</text>
-<text x="48" y="1570" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="500" fill="#f1f5f9">Claude AI's Breakdown of Code</text>
-<rect x="48" y="1586" width="764" height="105" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="1586" width="3" height="105" rx="1" fill="#6b7280"/>
-<text x="64" y="1603" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">Everything from this point forward was generated by Claude, so take it with a grain of salt. I looked</text>
-<text x="64" y="1622" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">over it and noticed some inaccurate notes that I had to remove, plus there was a usage example for</text>
-<text x="64" y="1641" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">tag functions that had a typo I fixed; I tested the functionality using the body tag to confirm that</text>
-<text x="64" y="1660" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">the model was wrong and that the typo was in fact a typo. If there&#39;s any other issues, I&#39;m not seeing</text>
-<text x="64" y="1679" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">them. But I could have missed something, let me know through an issue if that&#39;s the case.</text>
-<text x="48" y="1740" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Overview</text>
-<text x="48" y="1767" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">A TypeScript utility for defining, organizing, and applying CSS styles programmatically. Style takes</text>
-<text x="48" y="1788" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">a structured definition object and generates CSS selectors, DOM-ready selector strings, and styling</text>
-<text x="48" y="1809" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">functions — making it easy to manage multiple themes or styles across a page.</text>
-<text x="48" y="1840" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">When you construct a Style instance with a definition object, it automatically produces:</text>
-<circle cx="56" cy="1859" r="3" fill="#a78bfa" opacity="0.55"/>
-<rect x="66" y="1851" width="74.1565" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="1864" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">selectors</text>
-<text x="143.1565" y="1864" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— CSS selector strings (e.g. .menu, #header, button)</text>
-<circle cx="56" cy="1883" r="3" fill="#a78bfa" opacity="0.55"/>
-<rect x="66" y="1875" width="134.313" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="1888" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">stripped_selectors</text>
-<text x="198.313" y="1888" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— same selectors without leading character, ready for HTML attributes</text>
-<circle cx="56" cy="1907" r="3" fill="#a78bfa" opacity="0.55"/>
-<rect x="66" y="1899" width="74.1565" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
-<text x="72" y="1912" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">functions</text>
-<text x="143.1565" y="1912" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— callable functions that apply styles to matching DOM elements</text>
-<line x1="48" y1="1943" x2="812" y2="1943" stroke="#282828" stroke-width="0.5"/>
-<text x="48" y="1982" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Definition Object Format</text>
-<text x="48" y="2009" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">The definition object is a nested structure where each key&#39;s first character acts as a type prefix,</text>
-<text x="48" y="2030" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">and the remaining characters become the selector name.</text>
-<rect x="48" y="2049" width="764" height="176" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2049" width="764" height="26" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2069" width="764" height="6" rx="0" fill="#1d1d1d"/>
-<text x="62" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">PREFIX</text>
-<text x="128" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">TYPE</text>
-<text x="248" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">CSS EQUIVALENT</text>
-<rect x="48" y="2075" width="764" height="30" rx="0" fill="#161616"/>
-<rect x="60" y="2081" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="2093" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">c</text>
-<text x="106" y="2095" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Class</text>
-<rect x="240" y="2082" width="44.56099999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
-<text x="245" y="2094" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">.name</text>
-<line x1="49" y1="2105" x2="811" y2="2105" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2105" width="764" height="30" rx="0" fill="#191919"/>
-<rect x="60" y="2111" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="2123" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">i</text>
-<text x="106" y="2125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ID</text>
-<rect x="240" y="2112" width="44.56099999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
-<text x="245" y="2124" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">#name</text>
-<line x1="49" y1="2135" x2="811" y2="2135" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2135" width="764" height="30" rx="0" fill="#161616"/>
-<rect x="60" y="2141" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="2153" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">t</text>
-<text x="106" y="2155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Tag</text>
-<rect x="240" y="2142" width="132.41959999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
-<text x="245" y="2154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">name (e.g. button)</text>
-<line x1="49" y1="2165" x2="811" y2="2165" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2165" width="764" height="30" rx="0" fill="#191919"/>
-<rect x="60" y="2171" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="2183" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">u</text>
-<text x="106" y="2185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Universal</text>
-<rect x="240" y="2172" width="15.912199999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
-<text x="245" y="2184" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">*</text>
-<line x1="49" y1="2195" x2="811" y2="2195" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2195" width="764" height="30" rx="8" fill="#161616"/>
-<rect x="48" y="2195" width="764" height="8" rx="0" fill="#161616"/>
-<rect x="60" y="2201" width="30" height="18" rx="4" fill="#4c1d95"/>
-<text x="75" y="2213" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">o</text>
-<text x="106" y="2215" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Container</text>
-<rect x="240" y="2202" width="210.4538" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
-<text x="245" y="2214" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">(no selector — grouping only)</text>
-<text x="48" y="2248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Leaf nodes (non-object values) inside a selector object are treated as CSS property/value pairs.</text>
-<text x="48" y="2276" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500" font-style="normal" fill="#e2e8f0" text-anchor="start">Example</text>
-<rect x="48" y="2285" width="764" height="324" rx="8" fill="#0a0a0a" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2285" width="764" height="24" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2299" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<circle cx="62" cy="2297" r="4.5" fill="#ff5f57" opacity="0.85"/>
-<circle cx="76" cy="2297" r="4.5" fill="#ffbd2e" opacity="0.85"/>
-<circle cx="90" cy="2297" r="4.5" fill="#28c840" opacity="0.85"/>
-<text x="430" y="2300" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">definition-example.ts</text>
-<text x="62.0" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">definition</text>
-<text x="177.35999999999999" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = {</text>
-<text x="90.84" y="2343" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">oLayout: {</text>
-<text x="162.94" y="2343" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // container (no selector)</text>
-<text x="119.68" y="2361" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">cMenu: {</text>
-<text x="177.36" y="2361" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → .menu</text>
-<text x="148.51999999999998" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">backgroundColor: </text>
-<text x="271.09" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;black&quot;</text>
-<text x="321.55999999999995" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
-<text x="148.51999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">color: </text>
-<text x="198.98999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;white&quot;</text>
-<text x="249.45999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
-<text x="119.68" y="2415" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
-<text x="119.68" y="2433" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">iHeader: {</text>
-<text x="191.78" y="2433" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → #header</text>
-<text x="148.51999999999998" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">fontSize: </text>
-<text x="220.61999999999998" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;2rem&quot;</text>
-<text x="263.88" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
-<text x="119.68" y="2469" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
-<text x="90.84" y="2487" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
-<text x="90.84" y="2505" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">tButton: {</text>
-<text x="162.94" y="2505" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → button</text>
-<text x="119.68" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">borderRadius: </text>
-<text x="220.62" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;4px&quot;</text>
-<text x="256.67" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
-<text x="119.68" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">cursor: </text>
-<text x="177.36" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;pointer&quot;</text>
-<text x="242.25" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
-<text x="90.84" y="2559" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
-<text x="62.0" y="2577" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">};
-</text>
-<text x="62.0" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="141.31" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
-<text x="162.94" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
-<text x="191.78" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
-<text x="227.82999999999998" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">(definition);</text>
-<line x1="48" y1="2611" x2="812" y2="2611" stroke="#282828" stroke-width="0.5"/>
-<text x="48" y="2650" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">API Reference</text>
-<rect x="48" y="2665" width="764" height="87" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2665" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2683" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<text x="62" y="2683" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">new Style(definition?)</text>
-<text x="62" y="2708" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Creates a new Style instance. If no definition is provided, an empty style is created.</text>
-<text x="62" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="141.31" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
-<text x="162.94" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
-<text x="191.78" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
-<text x="227.82999999999998" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">(definition);</text>
-<rect x="48" y="2760" width="764" height="87" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2760" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2778" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<text x="62" y="2778" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.selectors</text>
-<text x="62" y="2803" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">An object mapping selector keys to their CSS selector strings.</text>
-<text x="62" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="98.05" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.selectors  </text>
-<text x="184.57" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// { layout_menu: &#39;.layout_menu&#39;, button: &#39;button&#39; }</text>
-<rect x="48" y="2855" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2855" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2873" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<text x="62" y="2873" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.stripped_selectors</text>
-<text x="62" y="2898" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">The same as selectors, but with the leading CSS character (., #, *) removed.</text>
-<text x="62" y="2917" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Useful for setting className, id, or other HTML attributes.</text>
-<text x="62" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="98.05" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.stripped_selectors  </text>
-<text x="249.45999999999998" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// { layout_menu: &#39;layout_menu&#39;, button: &#39;button&#39; }</text>
-<rect x="48" y="2969" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="2969" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="2987" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<text x="62" y="2987" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.functions</text>
-<text x="62" y="3012" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Object of generated styling functions, keyed as style_&lt;selector_key&gt;. Call without an argument</text>
-<text x="62" y="3031" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">to query the DOM, or pass an element to style it directly. Parent functions call all children.</text>
-<text x="62" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="98.05" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.functions</text>
-<text x="170.14999999999998" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#fb923c">[&quot;style_layout_menu&quot;]</text>
-<text x="321.55999999999995" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
-<text x="357.60999999999996" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// queries DOM, styles all matching</text>
-<rect x="48" y="3083" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="3083" width="764" height="28" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="3101" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<text x="62" y="3101" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.apply()</text>
-<text x="62" y="3126" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Applies all styles in the definition to the current page by querying the DOM and styling every</text>
-<text x="62" y="3145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">matching element. Primary method for style switching — swap a Style instance and call apply().</text>
-<text x="62" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-<text x="98.05" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.apply</text>
-<text x="141.31" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
-<text x="177.36" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// restyles entire page</text>
-<line x1="48" y1="3203" x2="812" y2="3203" stroke="#282828" stroke-width="0.5"/>
-<text x="48" y="3242" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Usage Example</text>
-<rect x="48" y="3255" width="764" height="414" rx="8" fill="#0a0a0a" stroke="#282828" stroke-width="0.5"/>
-<rect x="48" y="3255" width="764" height="24" rx="8" fill="#1d1d1d"/>
-<rect x="48" y="3269" width="764" height="10" rx="0" fill="#1d1d1d"/>
-<circle cx="62" cy="3267" r="4.5" fill="#ff5f57" opacity="0.85"/>
-<circle cx="76" cy="3267" r="4.5" fill="#ffbd2e" opacity="0.85"/>
-<circle cx="90" cy="3267" r="4.5" fill="#28c840" opacity="0.85"/>
-<text x="430" y="3270" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">theme-switcher.ts</text>
-<text x="62" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
-<text x="141.31" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
-<text x="162.94" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
-<text x="191.78" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
-<text x="227.82999999999998" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">({</text>
-<text x="62" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    cCard:   { backgroundColor: </text>
-<text x="292.72" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#ffffff&quot;</text>
-<text x="357.61" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
-<text x="422.5" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#111111&quot;</text>
-<text x="487.39" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
-<text x="62" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    tButton: { backgroundColor: </text>
-<text x="292.72" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#eeeeee&quot;</text>
-<text x="357.61" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
-<text x="422.5" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#111111&quot;</text>
-<text x="487.39" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
-<text x="62" y="3348" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">});</text>
-<text x="62" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">dark</text>
-<text x="134.1" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
-<text x="155.73" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
-<text x="184.57" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
-<text x="220.62" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">({</text>
-<text x="62" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    cCard:   { backgroundColor: </text>
-<text x="292.72" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#1a1a1a&quot;</text>
-<text x="357.61" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
-<text x="422.5" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#f0f0f0&quot;</text>
-<text x="487.39" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
-<text x="62" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    tButton: { backgroundColor: </text>
-<text x="292.72" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#333333&quot;</text>
-<text x="357.61" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
-<text x="422.5" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#f0f0f0&quot;</text>
-<text x="487.39" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
-<text x="62" y="3438" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">});</text>
-<text x="62" y="3474" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Apply on load</text>
-<text x="62" y="3492" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
-<text x="98.05" y="3492" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.apply();</text>
-<text x="62" y="3528" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Switch to dark mode on button click</text>
-<text x="62" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">document.getElementById(&quot;toggle&quot;)?</text>
-<text x="307.14" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.addEventListener(</text>
-<text x="436.91999999999996" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;click&quot;</text>
-<text x="487.39" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, () =&gt; { dark.apply(); });</text>
-<text x="62" y="3582" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Apply a style to a newly created element</text>
-<text x="62" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-<text x="105.25999999999999" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
-<text x="134.1" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = document.createElement(</text>
-<text x="321.56" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;div&quot;</text>
-<text x="357.61" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">);</text>
-<text x="62" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
-<text x="90.84" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.className = light.stripped_selectors[</text>
-<text x="364.82000000000005" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;card&quot;</text>
-<text x="408.08000000000004" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">];</text>
-<text x="62" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
-<text x="98.05" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.functions[&quot;style_card&quot;](card);</text>
-<text x="62" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">document</text>
-<text x="119.68" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.body.appendChild(card);</text>
-<line x1="48" y1="3671" x2="812" y2="3671" stroke="#282828" stroke-width="0.5"/>
-<text x="48" y="3709" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="500" fill="#f1f5f9">Notes</text>
-<text x="48" y="3734" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Selector keys use _ as a separator when nested (e.g. class cMenu inside container oLayout becomes layout_menu).</text>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Originality Statement                               -->
+    <!-- ============================================================ -->
+
+    <!-- SECTION DIVIDER + LABEL -->
+    <line x1="48" y1="209" x2="64" y2="209" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="213" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ORIGINALITY STATEMENT</text>
+    <line x1="226.4" y1="209" x2="812" y2="209" stroke="#333333" stroke-width="0.5"/>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is used as a way for me to test out how much I can use AI to learn and create</text>
+    <text x="48" y="265" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">code. So to be clear, a lot of the code in this project is first generated using an AI model</text>
+    <text x="48" y="286" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">or two, and then heavily edited after generation; I&#39;ve been using Claude, Deepseek, and</text>
+    <text x="48" y="307" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Gemini. Additionally, the styling of this entire README.md has been generated.  The wording and</text>
+    <text x="48" y="328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">structure before the section "CLAUDE AI'S BREAKDOWN OF CODE" is my own.  Besides all of that, the work is my own.</text>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION: About the Project                                   -->
+    <!-- ============================================================ -->
+
+    <!-- SECTION DIVIDER + LABEL -->
+    <line x1="48" y1="354" x2="64" y2="359" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="368" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ABOUT THE PROJECT</text>
+    <line x1="200.8" y1="364" x2="812" y2="359" stroke="#333333" stroke-width="0.5"/>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is actually a tool for a bigger web related project I&#39;ve been working on, but the</text>
+    <text x="48" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">style management got so out of control in that project that I had to refactor it. The refactoring</text>
+    <text x="48" y="441" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ended up throwing me into a hole of wanting to test out some models to create some serious</text>
+    <text x="48" y="462" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">automation when it comes to styling pages, and so this project was born.</text>
+    <text x="48" y="493" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Additionally, this is technically my first TypeScript and Bun project. I say &quot;technically&quot; since</text>
+    <text x="48" y="514" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">the bigger project I&#39;m working on is actually the first TypeScript and Bun project I&#39;ve worked on,</text>
+    <text x="48" y="535" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">but this is going public first since I think it could be useful to others. Also, if you see anything</text>
+    <text x="48" y="556" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">wonky or could be improved then please feel free to submit an issue and I can resolve it —</text>
+    <text x="48" y="578" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">I&#39;d love to improve my TypeScript skills.</text>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Developer's Breakdown of Code                       -->
+    <!-- ============================================================ -->
+
+    <!-- SECTION DIVIDER + LABEL -->
+    <line x1="48" y1="624" x2="64" y2="624" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="628" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">DEVELOPER&#39;S BREAKDOWN OF CODE</text>
+    <line x1="277.6" y1="624" x2="812" y2="624" stroke="#333333" stroke-width="0.5"/>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="659" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">The style_manager.ts and style_manager.js files can be used to create styles and CSS selectors</text>
+    <text x="48" y="680" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">from an object purposed as a template to build styles from. The code revolves around the Style</text>
+    <text x="48" y="701" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">class and templates called Style Definitions. When using the Style class and a definition,</text>
+    <text x="48" y="722" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">a multitude of things will be generated:</text>
+
+    <!-- BULLET: selectors -->
+    <circle cx="56" cy="745" r="3" fill="#a78bfa" opacity="0.55"/>
+    <text x="70" y="751" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of CSS selectors.</text>
+
+    <!-- BULLET: stripped_selectors -->
+    <circle cx="56" cy="767" r="3" fill="#a78bfa" opacity="0.55"/>
+    <text x="70" y="773" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of stripped CSS selectors.</text>
+
+    <!-- BULLET: functions -->
+    <circle cx="56" cy="789" r="3" fill="#a78bfa" opacity="0.55"/>
+    <text x="70" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">An object of functions that can be used to style a page or singular elements.</text>
+
+    <!-- TITLE FOR PREFIX TABLE -->
+    <text x="48" y="832" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="500" font-style="normal" fill="#e2e8f0" text-anchor="start">Selector Prefixes for Style Definitions</text>
+
+    <!-- RECTANGLE FOR PREFIX TABLE -->
+    <rect x="48" y="847" width="764" height="188" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: Table Header -->
+    <rect x="48" y="847" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="867" width="764" height="8" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="865" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">PREFIX</text>
+    <text x="128" y="865" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">SELECTOR TYPE</text>
+
+    <!-- ROW: u — Universal -->
+    <rect x="48" y="875" width="764" height="32" rx="0" fill="#161616"/>
+    <rect x="60" y="882" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="894" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">u</text>
+    <text x="106" y="896" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Universal Selector</text>
+    <line x1="49" y1="907" x2="811" y2="907" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: c — Class -->
+    <rect x="48" y="907" width="764" height="32" rx="0" fill="#191919"/>
+    <rect x="60" y="914" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="926" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">c</text>
+    <text x="106" y="928" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Class Selector</text>
+    <line x1="49" y1="939" x2="811" y2="939" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: i — ID -->
+    <rect x="48" y="939" width="764" height="32" rx="0" fill="#161616"/>
+    <rect x="60" y="946" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="958" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">i</text>
+    <text x="106" y="960" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ID Selector</text>
+    <line x1="49" y1="971" x2="811" y2="971" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: t — Tag -->
+    <rect x="48" y="971" width="764" height="32" rx="0" fill="#191919"/>
+    <rect x="60" y="978" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="990" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">t</text>
+    <text x="106" y="992" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Tag Selector</text>
+    <line x1="49" y1="1003" x2="811" y2="1003" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: o — Container -->
+    <rect x="48" y="1003" width="764" height="32" rx="0" fill="#161616"/>
+    <rect x="48" y="1003" width="764" height="32" rx="8" fill="#161616"/>
+    <rect x="48" y="1003" width="764" height="8" rx="0" fill="#161616"/>
+    <rect x="60" y="1010" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="1022" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">o</text>
+    <text x="106" y="1024" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Container — holds selector objects (no selector of its own)</text>
+
+    <!-- PARENT FUNCTIONS -->
+    <rect x="48" y="1055" width="764" height="68" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="1055" width="3" height="68" rx="2" fill="#a78bfa"/>
+    <text x="64" y="1072" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#a78bfa" text-anchor="start">Parent Functions</text>
+    <text x="64" y="1090" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Can be invoked to call all of their children functions.</text>
+    <text x="64" y="1110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">You cannot pass elements into them.</text>
+
+    <!-- CHILD FUNCTIONS -->
+    <rect x="48" y="1147" width="764" height="88" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="1147" width="3" height="88" rx="2" fill="#a78bfa"/>
+    <text x="64" y="1164" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600" font-style="normal" fill="#a78bfa" text-anchor="start">Child Functions</text>
+    <text x="64" y="1182" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Can be invoked in 2 ways.  Simply calling them without an argument will apply the style</text>
+    <text x="64" y="1202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">to the function&#39;s associated selector, and inserting an element as an argument will apply</text>
+    <text x="64" y="1222" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">the styles of the function to that element instead.</text>
+
+    <!-- BODY TEXT: stripped selectors + recursive definitions -->
+    <text x="48" y="1277" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Stripped selectors are present for HTML builders. This is to ensure that generated HTML pages</text>
+    <text x="48" y="1298" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">follow not only a style definition but also to make sure the HTML, TypeScript, JavaScript, and</text>
+    <text x="48" y="1319" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">CSS are all using the same variables for styling.</text>
+    <text x="48" y="1350" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Lastly, style definitions can be infinitely nested. The functions used to break down a definition</text>
+    <text x="48" y="1371" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">are recursive.</text>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Potential To-Do                                     -->
+    <!-- ============================================================ -->
+
+    <!-- SECTION DIVIDER + LABEL -->
+    <line x1="48" y1="1423" x2="64" y2="1423" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="1427" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">POTENTIAL TO-DO?</text>
+    <line x1="194.4" y1="1423" x2="812" y2="1423" stroke="#333333" stroke-width="0.5"/>
+
+    <!-- BULLET: Style Definitions Off Template? -->
+    <rect x="50" y="1447" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
+    <text x="57" y="1457" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
+    <text x="74" y="1458" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Will maybe make an option down the road to generate style definitions off of a template?</text>
+
+    <!-- BULLET: Function Calls Aren't String Lookups? -->
+    <rect x="50" y="1474" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
+    <text x="57" y="1484" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
+    <text x="74" y="1485" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Make it so that function calls aren&#39;t string key lookups and just make them flat calls?</text>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Claude AI's Breakdown of Code (AI-generated)        -->
+    <!-- ============================================================ -->
+
+    <!-- SECTION TITLE -->
+    <text x="48" y="1570" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="500" fill="#f1f5f9">Claude AI's Breakdown of Code</text>
+    <rect x="48" y="1586" width="764" height="105" rx="6" fill="#1d1d1d" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="1586" width="3" height="105" rx="1" fill="#6b7280"/>
+
+    <!-- BODY TEXT -->
+    <text x="64" y="1603" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">Everything from this point forward was generated by Claude, so take it with a grain of salt. I looked</text>
+    <text x="64" y="1622" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">over it and noticed some inaccurate notes that I had to remove, plus there was a usage example for</text>
+    <text x="64" y="1641" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">tag functions that had a typo I fixed; I tested the functionality using the body tag to confirm that</text>
+    <text x="64" y="1660" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">the model was wrong and that the typo was in fact a typo. If there&#39;s any other issues, I&#39;m not seeing</text>
+    <text x="64" y="1679" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="italic" fill="#64748b" text-anchor="start">them. But I could have missed something, let me know through an issue if that&#39;s the case.</text>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SUBSECTION: Overview                                         -->
+    <!-- ============================================================ -->
+
+    <!-- SUBSECTION TITLE -->
+    <text x="48" y="1740" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Overview</text>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="1767" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">A TypeScript utility for defining, organizing, and applying CSS styles programmatically. Style takes</text>
+    <text x="48" y="1788" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">a structured definition object and generates CSS selectors, DOM-ready selector strings, and styling</text>
+    <text x="48" y="1809" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">functions — making it easy to manage multiple themes or styles across a page.</text>
+    <text x="48" y="1840" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">When you construct a Style instance with a definition object, it automatically produces:</text>
+
+    <!-- BULLET: selectors -->
+    <circle cx="56" cy="1859" r="3" fill="#a78bfa" opacity="0.55"/>
+    <rect x="66" y="1851" width="74.1565" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="1864" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">selectors</text>
+    <text x="143.1565" y="1864" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— CSS selector strings (e.g. .menu, #header, button)</text>
+
+    <!-- BULLET: stripped_selectors -->
+    <circle cx="56" cy="1883" r="3" fill="#a78bfa" opacity="0.55"/>
+    <rect x="66" y="1875" width="134.313" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="1888" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">stripped_selectors</text>
+    <text x="198.313" y="1888" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— same selectors without leading character, ready for HTML attributes</text>
+
+    <!-- BULLET: functions -->
+    <circle cx="56" cy="1907" r="3" fill="#a78bfa" opacity="0.55"/>
+    <rect x="66" y="1899" width="74.1565" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
+    <text x="72" y="1912" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">functions</text>
+    <text x="143.1565" y="1912" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— callable functions that apply styles to matching DOM elements</text>
+
+    <line x1="48" y1="1943" x2="812" y2="1943" stroke="#282828" stroke-width="0.5"/>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SUBSECTION: Definition Object Format                         -->
+    <!-- ============================================================ -->
+
+    <!-- SUBSECTION TITLE -->
+    <text x="48" y="1982" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Definition Object Format</text>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="2009" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">The definition object is a nested structure where each key&#39;s first character acts as a type prefix,</text>
+    <text x="48" y="2030" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">and the remaining characters become the selector name.</text>
+
+    <!-- RECTANGLE FOR PREFIX REFERENCE TABLE -->
+    <rect x="48" y="2049" width="764" height="176" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: Table Header -->
+    <rect x="48" y="2049" width="764" height="26" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2069" width="764" height="6" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">PREFIX</text>
+    <text x="128" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">TYPE</text>
+    <text x="248" y="2066" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.5">CSS EQUIVALENT</text>
+
+    <!-- ROW: c — Class → .name -->
+    <rect x="48" y="2075" width="764" height="30" rx="0" fill="#161616"/>
+    <rect x="60" y="2081" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="2093" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">c</text>
+    <text x="106" y="2095" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Class</text>
+    <rect x="240" y="2082" width="44.56099999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
+    <text x="245" y="2094" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">.name</text>
+    <line x1="49" y1="2105" x2="811" y2="2105" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: i — ID → #name -->
+    <rect x="48" y="2105" width="764" height="30" rx="0" fill="#191919"/>
+    <rect x="60" y="2111" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="2123" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">i</text>
+    <text x="106" y="2125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">ID</text>
+    <rect x="240" y="2112" width="44.56099999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
+    <text x="245" y="2124" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">#name</text>
+    <line x1="49" y1="2135" x2="811" y2="2135" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: t — Tag → name (e.g. button) -->
+    <rect x="48" y="2135" width="764" height="30" rx="0" fill="#161616"/>
+    <rect x="60" y="2141" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="2153" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">t</text>
+    <text x="106" y="2155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Tag</text>
+    <rect x="240" y="2142" width="132.41959999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
+    <text x="245" y="2154" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">name (e.g. button)</text>
+    <line x1="49" y1="2165" x2="811" y2="2165" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: u — Universal → * -->
+    <rect x="48" y="2165" width="764" height="30" rx="0" fill="#191919"/>
+    <rect x="60" y="2171" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="2183" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">u</text>
+    <text x="106" y="2185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Universal</text>
+    <rect x="240" y="2172" width="15.912199999999999" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
+    <text x="245" y="2184" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">*</text>
+    <line x1="49" y1="2195" x2="811" y2="2195" stroke="#282828" stroke-width="0.5"/>
+
+    <!-- ROW: o — Container → (no selector) -->
+    <rect x="48" y="2195" width="764" height="30" rx="8" fill="#161616"/>
+    <rect x="48" y="2195" width="764" height="8" rx="0" fill="#161616"/>
+    <rect x="60" y="2201" width="30" height="18" rx="4" fill="#4c1d95"/>
+    <text x="75" y="2213" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="middle">o</text>
+    <text x="106" y="2215" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Container</text>
+    <rect x="240" y="2202" width="210.4538" height="17" rx="3" fill="#222222" stroke="#333333" stroke-width="0.5"/>
+    <text x="245" y="2214" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="11.5" font-weight="400" font-style="normal" fill="#4ade80" text-anchor="start">(no selector — grouping only)</text>
+
+    <!-- FOOTER NOTE ABOUT LEAF NODES -->
+    <text x="48" y="2248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Leaf nodes (non-object values) inside a selector object are treated as CSS property/value pairs.</text>
+
+    <!-- EXAMPLE HEADING -->
+    <text x="48" y="2276" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500" font-style="normal" fill="#e2e8f0" text-anchor="start">Example</text>
+
+    <!-- TITLE BAR -->
+    <rect x="48" y="2285" width="764" height="324" rx="8" fill="#0a0a0a" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="2285" width="764" height="24" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2299" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <circle cx="62" cy="2297" r="4.5" fill="#ff5f57" opacity="0.85"/>
+    <circle cx="76" cy="2297" r="4.5" fill="#ffbd2e" opacity="0.85"/>
+    <circle cx="90" cy="2297" r="4.5" fill="#28c840" opacity="0.85"/>
+    <text x="430" y="2300" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">definition-example.ts</text>
+
+    <!-- CODE: const definition = { ... } -->
+    <text x="62.0" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">definition</text>
+    <text x="177.35999999999999" y="2325" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = {</text>
+    <text x="90.84" y="2343" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">oLayout: {</text>
+    <text x="162.94" y="2343" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // container (no selector)</text>
+    <text x="119.68" y="2361" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">cMenu: {</text>
+    <text x="177.36" y="2361" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → .menu</text>
+    <text x="148.51999999999998" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">backgroundColor: </text>
+    <text x="271.09" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;black&quot;</text>
+    <text x="321.55999999999995" y="2379" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
+    <text x="148.51999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">color: </text>
+    <text x="198.98999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;white&quot;</text>
+    <text x="249.45999999999998" y="2397" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
+    <text x="119.68" y="2415" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
+    <text x="119.68" y="2433" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">iHeader: {</text>
+    <text x="191.78" y="2433" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → #header</text>
+    <text x="148.51999999999998" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">fontSize: </text>
+    <text x="220.61999999999998" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;2rem&quot;</text>
+    <text x="263.88" y="2451" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
+    <text x="119.68" y="2469" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
+    <text x="90.84" y="2487" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
+    <text x="90.84" y="2505" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">tButton: {</text>
+    <text x="162.94" y="2505" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">  // → button</text>
+    <text x="119.68" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">borderRadius: </text>
+    <text x="220.62" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;4px&quot;</text>
+    <text x="256.67" y="2523" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
+    <text x="119.68" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">cursor: </text>
+    <text x="177.36" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;pointer&quot;</text>
+    <text x="242.25" y="2541" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">,</text>
+    <text x="90.84" y="2559" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">}</text>
+    <text x="62.0" y="2577" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">};
+    </text>
+
+    <!-- CODE: const style = new Style(definition) -->
+    <text x="62.0" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="141.31" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
+    <text x="162.94" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
+    <text x="191.78" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
+    <text x="227.82999999999998" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">(definition);</text>
+
+    <line x1="48" y1="2611" x2="812" y2="2611" stroke="#282828" stroke-width="0.5"/>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SUBSECTION: API Reference                                    -->
+    <!-- ============================================================ -->
+
+    <!-- SUBSECTION TITLE -->
+    <text x="48" y="2650" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">API Reference</text>
+
+    <!-- API ENTRY: new Style(definition?) -->
+    <rect x="48" y="2665" width="764" height="87" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="2665" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2683" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="2683" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">new Style(definition?)</text>
+    <text x="62" y="2708" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Creates a new Style instance. If no definition is provided, an empty style is created.</text>
+    <text x="62" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="141.31" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
+    <text x="162.94" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
+    <text x="191.78" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
+    <text x="227.82999999999998" y="2734" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">(definition);</text>
+
+    <!-- API ENTRY: style.selectors -->
+    <rect x="48" y="2760" width="764" height="87" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="2760" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2778" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="2778" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.selectors</text>
+    <text x="62" y="2803" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">An object mapping selector keys to their CSS selector strings.</text>
+    <text x="62" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="98.05" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.selectors  </text>
+    <text x="184.57" y="2829" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// { layout_menu: &#39;.layout_menu&#39;, button: &#39;button&#39; }</text>
+
+    <!-- API ENTRY: style.stripped_selectors -->
+    <rect x="48" y="2855" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="2855" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2873" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="2873" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.stripped_selectors</text>
+    <text x="62" y="2898" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">The same as selectors, but with the leading CSS character (., #, *) removed.</text>
+    <text x="62" y="2917" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Useful for setting className, id, or other HTML attributes.</text>
+    <text x="62" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="98.05" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.stripped_selectors  </text>
+    <text x="249.45999999999998" y="2943" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// { layout_menu: &#39;layout_menu&#39;, button: &#39;button&#39; }</text>
+
+    <!-- API ENTRY: style.functions -->
+    <rect x="48" y="2969" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="2969" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="2987" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="2987" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.functions</text>
+    <text x="62" y="3012" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Object of generated styling functions, keyed as style_&lt;selector_key&gt;. Call without an argument</text>
+    <text x="62" y="3031" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">to query the DOM, or pass an element to style it directly. Parent functions call all children.</text>
+    <text x="62" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="98.05" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.functions</text>
+    <text x="170.14999999999998" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#fb923c">[&quot;style_layout_menu&quot;]</text>
+    <text x="321.55999999999995" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
+    <text x="357.60999999999996" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// queries DOM, styles all matching</text>
+
+    <!-- API ENTRY: style.apply() -->
+    <rect x="48" y="3083" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="3083" width="764" height="28" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="3101" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <text x="62" y="3101" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="13" font-weight="500" font-style="normal" fill="#a78bfa" text-anchor="start">style.apply()</text>
+    <text x="62" y="3126" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Applies all styles in the definition to the current page by querying the DOM and styling every</text>
+    <text x="62" y="3145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">matching element. Primary method for style switching — swap a Style instance and call apply().</text>
+    <text x="62" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
+    <text x="98.05" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.apply</text>
+    <text x="141.31" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
+    <text x="177.36" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// restyles entire page</text>
+
+    <line x1="48" y1="3203" x2="812" y2="3203" stroke="#282828" stroke-width="0.5"/>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SUBSECTION: Usage Example                                    -->
+    <!-- ============================================================ -->
+
+    <!-- SUBSECTION TITLE -->
+    <text x="48" y="3242" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="500" fill="#f1f5f9">Usage Example</text>
+
+    <!-- TITLE BAR -->
+    <rect x="48" y="3255" width="764" height="414" rx="8" fill="#0a0a0a" stroke="#282828" stroke-width="0.5"/>
+    <rect x="48" y="3255" width="764" height="24" rx="8" fill="#1d1d1d"/>
+    <rect x="48" y="3269" width="764" height="10" rx="0" fill="#1d1d1d"/>
+    <circle cx="62" cy="3267" r="4.5" fill="#ff5f57" opacity="0.85"/>
+    <circle cx="76" cy="3267" r="4.5" fill="#ffbd2e" opacity="0.85"/>
+    <circle cx="90" cy="3267" r="4.5" fill="#28c840" opacity="0.85"/>
+    <text x="430" y="3270" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">theme-switcher.ts</text>
+
+    <!-- CODE: Light Theme Definition -->
+    <text x="62" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
+    <text x="141.31" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
+    <text x="162.94" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
+    <text x="191.78" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
+    <text x="227.82999999999998" y="3294" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">({</text>
+    <text x="62" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    cCard:   { backgroundColor: </text>
+    <text x="292.72" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#ffffff&quot;</text>
+    <text x="357.61" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
+    <text x="422.5" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#111111&quot;</text>
+    <text x="487.39" y="3312" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
+    <text x="62" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    tButton: { backgroundColor: </text>
+    <text x="292.72" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#eeeeee&quot;</text>
+    <text x="357.61" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
+    <text x="422.5" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#111111&quot;</text>
+    <text x="487.39" y="3330" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
+    <text x="62" y="3348" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">});</text>
+
+    <!-- CODE: Dark Theme Definition -->
+    <text x="62" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">dark</text>
+    <text x="134.1" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = </text>
+    <text x="155.73" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">new </text>
+    <text x="184.57" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
+    <text x="220.62" y="3384" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">({</text>
+    <text x="62" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    cCard:   { backgroundColor: </text>
+    <text x="292.72" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#1a1a1a&quot;</text>
+    <text x="357.61" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
+    <text x="422.5" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#f0f0f0&quot;</text>
+    <text x="487.39" y="3402" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
+    <text x="62" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">    tButton: { backgroundColor: </text>
+    <text x="292.72" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#333333&quot;</text>
+    <text x="357.61" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, color: </text>
+    <text x="422.5" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;#f0f0f0&quot;</text>
+    <text x="487.39" y="3420" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> },</text>
+    <text x="62" y="3438" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">});</text>
+
+    <!-- CODE: Apply on Load -->
+    <text x="62" y="3474" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Apply on load</text>
+    <text x="62" y="3492" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
+    <text x="98.05" y="3492" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.apply();</text>
+
+    <!-- CODE: Switch to Dark Mode on Button Click -->
+    <text x="62" y="3528" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Switch to dark mode on button click</text>
+    <text x="62" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">document.getElementById(&quot;toggle&quot;)?</text>
+    <text x="307.14" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.addEventListener(</text>
+    <text x="436.91999999999996" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;click&quot;</text>
+    <text x="487.39" y="3546" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">, () =&gt; { dark.apply(); });</text>
+
+    <!-- CODE: Apply Style to a Newly Created Element -->
+    <text x="62" y="3582" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Apply a style to a newly created element</text>
+    <text x="62" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
+    <text x="105.25999999999999" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
+    <text x="134.1" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = document.createElement(</text>
+    <text x="321.56" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;div&quot;</text>
+    <text x="357.61" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">);</text>
+    <text x="62" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
+    <text x="90.84" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.className = light.stripped_selectors[</text>
+    <text x="364.82000000000005" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;card&quot;</text>
+    <text x="408.08000000000004" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">];</text>
+    <text x="62" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
+    <text x="98.05" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.functions[&quot;style_card&quot;](card);</text>
+    <text x="62" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">document</text>
+    <text x="119.68" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.body.appendChild(card);</text>
+
+    <line x1="48" y1="3671" x2="812" y2="3671" stroke="#282828" stroke-width="0.5"/>
+
+
+
+    <!-- ============================================================ -->
+    <!-- SUBSECTION: Notes                                            -->
+    <!-- ============================================================ -->
+
+    <!-- SUBSECTION TITLE -->
+    <text x="48" y="3709" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="500" fill="#f1f5f9">Notes</text>
+
+    <!-- BODY TEXT -->
+    <text x="48" y="3734" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Selector keys use _ as a separator when nested (e.g. class cMenu inside container oLayout becomes layout_menu).</text>
+
 </svg>

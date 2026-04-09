@@ -1,6 +1,6 @@
 /** A type that allows for making and accessing elements associated with a provided style definition.
- * When a style is made, selectors and functions are made from the definition.
- * These functions can be used during events to apply styles onto elements when they are made, and one can use
+ * When a style is made, selectors and stylers are made from the definition.
+ * These stylers can be used during events to apply styles onto elements when they are made, and one can use
  * the apply() method to mass apply all the styles held in a definition across an entire page.
  *
  * The Style type helps with automating style switching, ensuring that selectors used in the HTML match with
@@ -9,12 +9,12 @@ export class Style {
     style_definition;
     selectors;
     stripped_selectors;
-    functions;
+    styler;
     constructor(definition) {
         this.style_definition = definition ?? {};
         this.selectors = this.make_selectors();
         this.stripped_selectors = this.make_stripped_selectors();
-        this.functions = this.make_functions();
+        this.styler = this.make_stylers();
     }
     make_selectors(definition = this.style_definition) {
         const selectors = {};
@@ -65,27 +65,26 @@ export class Style {
         }
         return stripped;
     }
-    make_functions(definition = this.style_definition, selectors = this.selectors) {
-        const styling_functions = {};
+    make_stylers(definition = this.style_definition, selectors = this.selectors) {
+        const stylers = {};
         for (const child_key in definition) {
             const child = definition[child_key];
             if (is_object(child)) {
                 const child_name = child_key.slice(1).toLowerCase();
-                process_functions(definition, selectors, child, child_name, styling_functions, [child_key]);
+                process_functions(definition, selectors, child, child_name, stylers, [child_key]);
             }
         }
-        return styling_functions;
+        return stylers;
     }
     /** Used to apply a style definition to a page.**/
     apply() {
-        for (const selector_key in this.functions) {
-            const key = selector_key.replace("style_", "");
-            const selector = this.selectors[key];
+        for (const selector_key in this.styler) {
+            const selector = this.selectors[selector_key];
             // We check to see if the selector is present before applying a style since
-            // parent functions can exist (parent functions have no selectors).  Parent functions don't have selectors since they
+            // parent stylers can exist (parent stylers have no selectors).  Parent stylers don't have selectors since they
             // act as containers for readability purposes.  Hence, we don't want to style something that doesn't exist.
             if (selector) {
-                this.functions[selector_key]();
+                this.styler[selector_key]();
             }
         }
     }
@@ -206,11 +205,11 @@ function process_selectors(parent, selector_key, selectors) {
 }
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------------- //
-// FUNCTION HELPERS FOR CREATING STYLING FUNCTIONS FROM A STYLE DEFINITION
-/** Recursive function that will generate parent and child functions and throw them into the styling_functions object
- * for the recursive initiator to later return.  Parent functions can be called to apply all of their child styles.
- * Child styles target a specific class/id/tag and will not trigger a cascade call like the parent function calls.**/
-function process_functions(style_definition, selectors, parent, selector_key, styling_functions, path) {
+// FUNCTION HELPERS FOR CREATING STYLERS FROM A STYLE DEFINITION
+/** Recursive function that will generate parent and child stylers and throw them into the stylers object
+ * for the recursive initiator to later return.  Parent stylers can be called to apply all of their child styles.
+ * Child stylers target a specific class/id/tag and will not trigger a cascade call like the parent styler calls.**/
+function process_functions(style_definition, selectors, parent, selector_key, stylers, path) {
     const has_nested_objects = Object.values(parent).some(is_object);
     if (has_nested_objects) {
         for (const child_key in parent) {
@@ -221,41 +220,46 @@ function process_functions(style_definition, selectors, parent, selector_key, st
             if (is_object(child)) {
                 const child_name = child_key.slice(1).toLowerCase();
                 const child_selector_key = `${selector_key}_${child_name}`;
-                process_functions(style_definition, selectors, child, child_selector_key, styling_functions, [...path, child_key]);
+                process_functions(style_definition, selectors, child, child_selector_key, stylers, [...path, child_key]);
             }
         }
-        // Collect all functions created by current parent's children and combines them into a parent function.
-        styling_functions[`style_${selector_key}`] = make_parent_styling_function(selector_key, styling_functions);
+        // Collect all stylers created by current parent's children and combines them into a parent styler.
+        stylers[selector_key] = make_parent_styler(selector_key, stylers);
     }
     else {
-        // Create a child function.
-        styling_functions[`style_${selector_key}`] = make_child_styling_function(style_definition, selectors, parent, path, selector_key);
+        // Create a child styler.
+        stylers[selector_key] = make_child_styler(style_definition, selectors, parent, path, selector_key);
     }
 }
-/** Parent functions can be called to apply all of their child styles.
- * Will create a function that will sift through a style_definition to call upon the child functions related to the parent. **/
-function make_parent_styling_function(selector_key, styling_functions) {
-    const prefix = `style_${selector_key}_`;
-    return () => {
-        for (const [key, fn] of Object.entries(styling_functions)) {
-            if (key.startsWith(prefix)) {
-                fn();
+/** Parent stylers can be called to apply all of their child styles.
+ * Will create a styler that will sift through the stylers object to call upon the child stylers related to the parent. **/
+function make_parent_styler(selector_key, stylers) {
+    return (element) => {
+        const prefix = `${selector_key}_`;
+        if (element) {
+            throw new Error(`styler.${selector_key}() is a parent styler and cannot accept an element.`);
+        }
+        else {
+            for (const [key, styler] of Object.entries(stylers)) {
+                if (key.startsWith(prefix)) {
+                    styler();
+                }
             }
         }
     };
 }
-/** Creates a function by collecting the properties and their values associated with a class/id/tag.
- * Child styles target a specific class/id/tag and will NOT trigger a cascade call like the parent function calls.
+/** Creates a styler by collecting the properties and their values associated with a class/id/tag.
+ * Child stylers target a specific class/id/tag and will NOT trigger a cascade call like the parent styler calls.
  *
- * The created function can be called in two ways:
+ * The created styler can be called in two ways:
  *
  * 1. Without an element — queries the DOM and styles all elements associated with the selector.
- *    EXAMPLE: functions["style_menu_buttons"] ();
+ *    EXAMPLE: STYLE.styler.menu_buttons();
  *
  * 2. With an element — styles the provided element directly, bypassing the DOM query.
- *    EXAMPLE: functions["style_menu_buttons"] (some_element);
+ *    EXAMPLE: STYLE.styler.menu_buttons(some_element);
  **/
-function make_child_styling_function(style_definition, selectors, child, path, selector_key) {
+function make_child_styler(style_definition, selectors, child, path, selector_key) {
     return (element) => {
         const target = element ? element : query_selector(selectors[selector_key]);
         for_each_value(target, (el) => {

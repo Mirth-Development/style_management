@@ -46,7 +46,7 @@
     <!-- SECTION DIVIDER + LABEL -->
     <line x1="48" y1="209" x2="64" y2="209" stroke="#333333" stroke-width="0.5"/>
     <text x="72" y="213" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ORIGINALITY STATEMENT</text>
-    <line x1="226.4" y1="209" x2="812" y2="209" stroke="#333333" stroke-width="0.5"/>
+    <line x1="246.4" y1="209" x2="812" y2="209" stroke="#333333" stroke-width="0.5"/>
 
     <!-- BODY TEXT -->
     <text x="48" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is used as a way for me to test out how much I can use AI to learn and create</text>
@@ -62,9 +62,9 @@
     <!-- ============================================================ -->
 
     <!-- SECTION DIVIDER + LABEL -->
-    <line x1="48" y1="354" x2="64" y2="359" stroke="#333333" stroke-width="0.5"/>
+    <line x1="48" y1="364" x2="64" y2="364" stroke="#333333" stroke-width="0.5"/>
     <text x="72" y="368" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">ABOUT THE PROJECT</text>
-    <line x1="200.8" y1="364" x2="812" y2="359" stroke="#333333" stroke-width="0.5"/>
+    <line x1="215.8" y1="364" x2="812" y2="364" stroke="#333333" stroke-width="0.5"/>
 
     <!-- BODY TEXT -->
     <text x="48" y="399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">This project is actually a tool for a bigger web related project I&#39;ve been working on, but the</text>
@@ -86,7 +86,7 @@
     <!-- SECTION DIVIDER + LABEL -->
     <line x1="48" y1="624" x2="64" y2="624" stroke="#333333" stroke-width="0.5"/>
     <text x="72" y="628" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">DEVELOPER&#39;S BREAKDOWN OF CODE</text>
-    <line x1="277.6" y1="624" x2="812" y2="624" stroke="#333333" stroke-width="0.5"/>
+    <line x1="307.6" y1="624" x2="812" y2="624" stroke="#333333" stroke-width="0.5"/>
 
     <!-- BODY TEXT -->
     <text x="48" y="659" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13.5" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">The style_manager.ts and style_manager.js files can be used to create styles and CSS selectors</text>
@@ -185,17 +185,12 @@
     <!-- SECTION DIVIDER + LABEL -->
     <line x1="48" y1="1423" x2="64" y2="1423" stroke="#333333" stroke-width="0.5"/>
     <text x="72" y="1427" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="10" font-weight="500" font-style="normal" fill="#64748b" text-anchor="start" letter-spacing="1.8">POTENTIAL TO-DO?</text>
-    <line x1="194.4" y1="1423" x2="812" y2="1423" stroke="#333333" stroke-width="0.5"/>
+    <line x1="204.4" y1="1423" x2="812" y2="1423" stroke="#333333" stroke-width="0.5"/>
 
     <!-- BULLET: Style Definitions Off Template? -->
     <rect x="50" y="1447" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
     <text x="57" y="1457" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
     <text x="74" y="1458" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Will maybe make an option down the road to generate style definitions off of a template?</text>
-
-    <!-- BULLET: Function Calls Aren't String Lookups? -->
-    <rect x="50" y="1474" width="15" height="15" rx="3" fill="none" stroke="#333333" stroke-width="0.5"/>
-    <text x="57" y="1484" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="9" font-weight="400" font-style="normal" fill="#64748b" text-anchor="middle">?</text>
-    <text x="74" y="1485" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">Make it so that function calls aren&#39;t string key lookups and just make them flat calls?</text>
 
 
 
@@ -247,8 +242,6 @@
     <rect x="66" y="1899" width="74.1565" height="19" rx="3" fill="#1d1d1d" stroke="#333333" stroke-width="0.5"/>
     <text x="72" y="1912" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" font-weight="400" font-style="normal" fill="#60a5fa" text-anchor="start">functions</text>
     <text x="143.1565" y="1912" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400" font-style="normal" fill="#94a3b8" text-anchor="start">— callable functions that apply styles to matching DOM elements</text>
-
-    <line x1="48" y1="1943" x2="812" y2="1943" stroke="#282828" stroke-width="0.5"/>
 
 
 
@@ -375,8 +368,6 @@
     <text x="191.78" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">Style</text>
     <text x="227.82999999999998" y="2595" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">(definition);</text>
 
-    <line x1="48" y1="2611" x2="812" y2="2611" stroke="#282828" stroke-width="0.5"/>
-
 
 
     <!-- ============================================================ -->
@@ -428,10 +419,9 @@
     <text x="62" y="3012" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">Object of generated styling functions, keyed as style_&lt;selector_key&gt;. Call without an argument</text>
     <text x="62" y="3031" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" font-style="normal" fill="#64748b" text-anchor="start">to query the DOM, or pass an element to style it directly. Parent functions call all children.</text>
     <text x="62" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">style</text>
-    <text x="98.05" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.functions</text>
-    <text x="170.14999999999998" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#fb923c">[&quot;style_layout_menu&quot;]</text>
-    <text x="321.55999999999995" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
-    <text x="357.60999999999996" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// queries DOM, styles all matching</text>
+    <text x="98.05" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.styler.</text>
+    <text x="155.14999999999998" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#fb923c">layout_menu();</text>
+    <text x="275.60999999999996" y="3057" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// queries DOM, styles all matching</text>
 
     <!-- API ENTRY: style.apply() -->
     <rect x="48" y="3083" width="764" height="106" rx="8" fill="#161616" stroke="#282828" stroke-width="0.5"/>
@@ -444,8 +434,6 @@
     <text x="98.05" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#94a3b8">.apply</text>
     <text x="141.31" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">();  </text>
     <text x="177.36" y="3171" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// restyles entire page</text>
-
-    <line x1="48" y1="3203" x2="812" y2="3203" stroke="#282828" stroke-width="0.5"/>
 
 
 
@@ -518,20 +506,18 @@
     <!-- CODE: Apply Style to a Newly Created Element -->
     <text x="62" y="3582" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#6b7280">// Apply a style to a newly created element</text>
     <text x="62" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#a78bfa">const </text>
-    <text x="105.25999999999999" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
+    <text x="105.25999999999999" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">blah</text>
     <text x="134.1" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0"> = document.createElement(</text>
     <text x="321.56" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;div&quot;</text>
     <text x="357.61" y="3600" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">);</text>
-    <text x="62" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">card</text>
+    <text x="62" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">blah</text>
     <text x="90.84" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.className = light.stripped_selectors[</text>
     <text x="364.82000000000005" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#4ade80">&quot;card&quot;</text>
     <text x="408.08000000000004" y="3618" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">];</text>
     <text x="62" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">light</text>
-    <text x="98.05" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.functions[&quot;style_card&quot;](card);</text>
+    <text x="98.05" y="3636" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.styler.card(blah);</text>
     <text x="62" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#60a5fa">document</text>
-    <text x="119.68" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.body.appendChild(card);</text>
-
-    <line x1="48" y1="3671" x2="812" y2="3671" stroke="#282828" stroke-width="0.5"/>
+    <text x="119.68" y="3654" font-family="ui-monospace, 'Cascadia Code', 'Fira Mono', monospace" font-size="12" fill="#e2e8f0">.body.appendChild(blah);</text>
 
 
 
